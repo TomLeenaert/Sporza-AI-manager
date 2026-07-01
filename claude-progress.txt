@@ -141,3 +141,11 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 2026-07-01 — LOOP S5.2 (rol-agent): 16 mislabels gecorrigeerd (Wellens/Abrahamsen/Dunbar/McNulty... uit knecht).
 - Wellens 27->185pt. 5 resterende 4M-knechten zijn echte waterdragers. Getest: 16/100M, dekking OK.
 - === SPRINT 3-4-5 VOLLEDIG AF. Loop gestopt. ===
+
+2026-07-01 — QA-doorloop als gebruiker + polish:
+- Zoekbalk in Renners-tab (naam + ploeg) — 207 renners nu doorzoekbaar. Getest.
+- "Wis mijn pins & bans"-knop in Instellingen (snel herstel na over-budget). Getest.
+- Namen opgepoetst: Profieler->Rol-analist, Non-starter-agent->Uitval-analist.
+- Getest: alle 15 analist-overlays met inhoud + rail-navigatie + sluiten; geen console-fouten;
+  ploeg altijd 16/100M met dekking; over-budget-waarschuwing werkt; offline-modus werkt.
+- Oordeel: app doet zijn doel volledig en gepolijst. 100% tevreden als gebruiker.

@@ -294,6 +294,7 @@
       <h2 class="sec">Renners</h2>
       <div class="note" style="margin:0 2px 10px">Tik <b>📌</b> om een renner <b>altijd</b> in je ploeg te forceren,
         of <b>🚫</b> om er een <b>nooit</b> in te zetten. De rekenaar herberekent meteen.</div>
+      <input id="riderSearch" placeholder="🔎 Zoek een renner of ploeg…" style="margin-bottom:10px">
       <div id="poolList"></div>
     </section>
 
@@ -309,7 +310,8 @@
       <h2 class="sec">Data</h2>
       <div class="card">
         <div class="note" id="dataStamp" style="color:var(--mint);margin-bottom:10px"></div>
-        <button class="ghost" id="refreshData">🔄 Verse renners-data laden</button>
+        <button class="ghost" id="resetKeuzes">♻️ Wis mijn pins &amp; bans</button>
+        <button class="ghost" id="refreshData" style="margin-top:8px">🔄 Verse renners-data laden</button>
         <button class="ghost" id="exportBtn" style="margin-top:8px">⬇️ Back-up exporteren</button>
         <button class="ghost" id="wipeBtn" style="margin-top:8px;color:var(--red)">🗑️ Alles wissen</button>
       </div>
@@ -486,14 +488,14 @@ const AGENT_META={
   "historiek-agent":{naam:"Historicus",tag:"HISTORIE · DATA",col:"#8ab4ff"},
   "odds-agent":{naam:"Odds-analist",tag:"ODDS · MARKT",col:"#ffd34e"},
   "parcours-agent":{naam:"Parcours-expert",tag:"ROUTE · TERREIN",col:"#7fe0ff"},
-  "rol-agent":{naam:"Profieler",tag:"RENNERS · TYPE",col:"#c6a0ff"},
+  "rol-agent":{naam:"Rol-analist",tag:"RENNERS · TYPE",col:"#c6a0ff"},
   "spreidings-agent":{naam:"Strateeg",tag:"TACTIEK · SPREIDING",col:"#5ad1a0"},
   "ttt-agent":{naam:"TTT-analist",tag:"PLOEGENTIJDRIT",col:"#ff8f6b"},
   "uitslagen-agent":{naam:"Verslaggever",tag:"NIEUWS · UITSLAGEN",col:"#ff96a6"},
   "meta-strateeg":{naam:"Meta-strateeg",tag:"WINSTPATRONEN · HISTORIEK",col:"#ffb84e"},
   "ploegtactiek-agent":{naam:"Ploegtactiek-analist",tag:"KOERSSTIJL · TEAMS",col:"#5ad1a0"},
   "differential-agent":{naam:"Differential-analist",tag:"WEINIG MANAGERS · KANS",col:"#c6a0ff"},
-  "non-starter-agent":{naam:"Non-starter-agent",tag:"OPGAVES · NIET GESTART",col:"#ff5470"}
+  "non-starter-agent":{naam:"Uitval-analist",tag:"OPGAVES · NIET GESTART",col:"#ff5470"}
 };
 function analystList(){
   const base = agentsInfo.map(a=>{ const m=AGENT_META[a.agent]||{naam:a.agent,tag:(a.type||"").toUpperCase(),col:"#9db0ff"};
@@ -672,11 +674,14 @@ function renderAgentsGrid(){
     </div>`).join("");
 }
 function renderPool(){
-  const pool=[...db.riders].sort((a,b)=>b.pts-a.pts); const el=$("#poolList");
+  const q=(($("#riderSearch")||{}).value||"").trim().toLowerCase();
+  let pool=[...db.riders].sort((a,b)=>b.pts-a.pts);
+  if(q) pool=pool.filter(r=>(r.name||"").toLowerCase().includes(q)||(r.team||"").toLowerCase().includes(q));
+  const el=$("#poolList");
   el.innerHTML = pool.length ? pool.map(r=>riderRow(r,
     `<button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
      <button class="sm ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit">🚫</button>`)).join("")
-    : `<div class="empty">${dataStatus==="none"?"Geen verbinding — kon de rennerslijst niet laden.":dataStatus==="laden"?"Data laden…":"Geen renners."}</div>`;
+    : `<div class="empty">${q?`Geen renner gevonden voor “${esc(q)}”.`:(dataStatus==="none"?"Geen verbinding — kon de rennerslijst niet laden.":dataStatus==="laden"?"Data laden…":"Geen renners.")}</div>`;
 }
 
 // ---- agent overlay ----
@@ -722,6 +727,8 @@ window.applySwap=(o,i)=>{ const a=db.riders.find(x=>x.id===o),b=db.riders.find(x
 
 $("#autoBuild").onclick=()=>{ if(!db.riders.length){ alert("Data nog niet geladen."); return; } buildBestTeam(); };
 $("#saveCfg").onclick=()=>{ db.cfg.budget=+$("#cfgBudget").value||0; db.cfg.squad=+$("#cfgSquad").value||0; db.cfg.transfers=+$("#cfgTransfers").value||0; buildBestTeam(); alert("Regels opgeslagen."); };
+$("#riderSearch").oninput=renderPool;
+$("#resetKeuzes").onclick=()=>{ if(confirm("Al je 📌 pins en 🚫 bans wissen?")){ db.riders.forEach(r=>{r.pin=false;r.ban=false;}); buildBestTeam(); } };
 $("#refreshData").onclick=()=>{ if(confirm("Verse data laden? Je pins/bans blijven behouden.")) loadRealData(true); };
 $("#exportBtn").onclick=()=>{ const b=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="wielermanager-backup.json"; a.click(); };
 $("#wipeBtn").onclick=()=>{ if(confirm("Alles wissen?")){ db=JSON.parse(JSON.stringify(defaults)); localStorage.removeItem(DB_KEY); loadRealData(true); } };
