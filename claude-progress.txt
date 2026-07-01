@@ -1,17 +1,29 @@
 == Wielermanager Helper — logboek ==
 
 2026-07-01 — Sessie 0 (fundering + eerste werkende app)
-- Repo opgezet, git klaar als undo-knop.
-- spec.md geschreven: doel = ploeg samenstellen + dagelijks wissel-advies, ADVISEERT
-  (Tom past zelf toe in Sporza), volledig mobiel, online bereikbaar.
-- index.html gebouwd: één bestand, werkt op telefoon zonder server, data lokaal opgeslagen.
-  Functies: regels instellen, rennerspool, "stel beste ploeg samen" (budget-optimalisatie),
-  wissel-advies, 4 tabbladen onderaan.
-- Getest via preview: voorbeeldlijst -> ploeg samengesteld (11 renners, exact €100, budget
-  gerespecteerd) -> stats kloppen -> advies berekent correct ("ploeg zit goed" bij vol budget).
-- Features 1-5 op PASS. 6-10 nog te doen.
+- Repo + git opgezet. spec.md geschreven. index.html: mobiele app, 4 tabs, lokale opslag.
+- Getest: voorbeeldlijst -> ploeg -> advies. Features 1-5 PASS.
 
-VOLGENDE STAP (belangrijkste eerst):
-- Feature 6+7: echte Sporza-regels en rennerslijst+prijzen ophalen. Zonder die data blijft
-  het advies op voorbeeldcijfers. Vraagt input van Tom of het inloggen op Sporza.
-- Feature 10: online zetten (hosting) zodat Tom de link op zijn telefoon kan openen.
+2026-07-01 — Sessie 1 (multi-agent architectuur)
+- Tom wil een team van gespecialiseerde AI-agents (uitslagen, vorm, odds, prono,
+  parcours, historiek, weer, ploegtactiek, blessures) + consolidator + reken-agent.
+- Diagram gemaakt. feature_list.json uitgebreid met agent-roster + extra voorstellen.
+- Run-time keuze: dagelijkse CLOUD-agent (Tom is op reis, geen pc mee).
+
+2026-07-01 — Sessie 2 (eerste ECHTE keten met echte data)
+- Echte Sporza-regels opgehaald: budget 100M, 16 renners, 3 gratis transfers (daarna oplopend).
+- Tom leverde de echte rennerslijst met waarden -> data/riders.json (207 renners, geen dubbels).
+- Vorm-agent (A2) eerste output: data/signals/form-2026-07-01.json (uit web-research).
+- Consolidator (A11): scripts/consolidate.mjs bundelt riders + signalen -> data/ratings.json.
+- App leest nu ratings.json automatisch (feature 6). Config auto-ingesteld op 100/16/3.
+- Reken-agent (A12) HERSCHREVEN: was greedy en gaf maar 13 renners; nu exacte knapsack-DP
+  -> kiest PRECIES 16 renners, exact 100M, max punten. Getest en correct.
+- PASS nu: app 1-6, agents A2/A10/A11/A12.
+
+VOLGENDE STAP:
+- Feature 7: app ONLINE zetten zodat Tom hem op zijn telefoon opent (belangrijkste voor reis).
+- Feature 8: dagelijkse cloud-agent die 's ochtends research doet + ratings.json ververst.
+- Meer specialist-agents bouwen (A1 uitslagen, A5 parcours, A3 odds, ...), elk als
+  een signaal-bestand in data/signals/. Consolidator pakt ze automatisch op.
+- Model verfijnen: cheap domestiques worden nu overschat (value*45); historiek/rol-agent moet
+  dat corrigeren zodat fillers realistisch laag scoren.

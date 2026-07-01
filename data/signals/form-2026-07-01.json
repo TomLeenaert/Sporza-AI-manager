@@ -1,0 +1,21 @@
+{
+  "agent": "vorm/uitslagen-agent",
+  "datum": "2026-07-01",
+  "bron": "wielerflits, wieler revue, eurosport, sporza (Tour 2026 previews)",
+  "uitleg": "Multiplier op de basisscore. >1 = in vorm / kansrijk profiel, <1 = twijfel. Neutraal = 1.0.",
+  "signalen": {
+    "Tadej Pogacar": { "mult": 1.18, "reden": "topfavoriet geel, jaagt 5e Tour, sterke ploeg" },
+    "Jonas Vingegaard": { "mult": 1.06, "reden": "2e favoriet maar Visma verzwakt (Van Aert/Laporte weg)" },
+    "Mads Pedersen": { "mult": 1.16, "reden": "topfavoriet groen, constante scorer over 3 weken" },
+    "Tim Merlier": { "mult": 1.10, "reden": "topsprinter, meerdere ritzeges mogelijk" },
+    "Jasper Philipsen": { "mult": 1.10, "reden": "topsprinter, groen-outsider" },
+    "Biniam Girmay": { "mult": 1.06, "reden": "in vorm, sprint + puncheur" },
+    "Isaac Del Toro": { "mult": 1.06, "reden": "sterke schaduwkopman UAE, ritkansen" },
+    "Paul Seixas": { "mult": 0.90, "reden": "groot talent maar val in voorbereiding" },
+    "Mathieu van der Poel": { "mult": 1.04, "reden": "ritten + gele trui vroege week" },
+    "Florian Lipowitz": { "mult": 1.04, "reden": "podium-outsider GC" },
+    "Primoz Roglic": { "mult": 1.00, "reden": "outsider, blessuregevoelig" },
+    "Kevin Vauquelin": { "mult": 1.05, "reden": "sterke jonge klimmer, ritkansen" },
+    "Ben Healy": { "mult": 1.05, "reden": "aanvaller, ritten + tijd in trui" }
+  }
+}

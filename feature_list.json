@@ -8,13 +8,13 @@
     { "id": 3, "name": "Beste ploeg samenstellen binnen budget/grootte", "passes": true },
     { "id": 4, "name": "Wissel-advies binnen budget/transfers", "passes": true },
     { "id": 5, "name": "Mobiele tab-layout", "passes": true },
-    { "id": 6, "name": "App leest een consolidated ratings-bestand (data-contract)", "passes": false },
+    { "id": 6, "name": "App leest een consolidated ratings-bestand (data-contract)", "passes": true },
     { "id": 7, "name": "Online gezet zodat Tom het op zijn telefoon opent", "passes": false },
     { "id": 8, "name": "Dagelijkse cloud-run vult verse data terwijl Tom op reis is", "passes": false }
   ],
   "agents": [
     { "id": "A1",  "name": "Uitslagen-agent — resultaten recente koersen", "passes": false },
-    { "id": "A2",  "name": "Vorm/trend-agent — wie is nu goed, ook richting Tour", "passes": false },
+    { "id": "A2",  "name": "Vorm/trend-agent — wie is nu goed, ook richting Tour", "passes": true },
     { "id": "A3",  "name": "Odds-agent — noteringen van goksites", "passes": false },
     { "id": "A4",  "name": "Voorbeschouwing-agent — prono's/previews", "passes": false },
     { "id": "A5",  "name": "Parcours-agent — rittype + wie ligt dat goed", "passes": false },
@@ -22,9 +22,9 @@
     { "id": "A7",  "name": "Weer-agent — wind/regen/hitte per rit", "passes": false },
     { "id": "A8",  "name": "Ploegtactiek-agent — wie rijdt voor klassement vs ritten", "passes": false },
     { "id": "A9",  "name": "Blessure/non-starter-agent — opgaves, zieken, niet-starters", "passes": false },
-    { "id": "A10", "name": "Reglement-agent — kent en bewaakt Sporza-regels", "passes": false },
-    { "id": "A11", "name": "Consolidator — bundelt alle signalen tot 1 score/renner", "passes": false },
-    { "id": "A12", "name": "Reken-agent — optimale ploeg (bestaat als basis in app)", "passes": false }
+    { "id": "A10", "name": "Reglement-agent — kent en bewaakt Sporza-regels (budget100/16/3 transfers)", "passes": true },
+    { "id": "A11", "name": "Consolidator — bundelt alle signalen tot 1 score/renner", "passes": true },
+    { "id": "A12", "name": "Reken-agent — optimale ploeg (exacte knapsack, precies 16 binnen budget)", "passes": true }
   ],
   "voorgestelde_extra_agents": [
     { "id": "X1", "name": "Differential-agent — goede renners die weinig managers hebben" },

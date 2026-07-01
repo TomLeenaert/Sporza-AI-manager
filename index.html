@@ -71,6 +71,7 @@
 <header>
   <h1>🚴 Wielermanager Helper</h1>
   <div class="sub">Tour M 2026 · adviseert, jij past toe in Sporza</div>
+  <div class="sub" id="dataStamp" style="color:var(--good)"></div>
   <div class="budgetbar">
     <div class="stat" id="stBudget"><small>Budget over</small><b id="budgetLeft">–</b></div>
     <div class="stat" id="stSquad"><small>Renners</small><b id="squadCount">0</b></div>
@@ -141,7 +142,8 @@
     </div>
     <div class="card">
       <h2>Data</h2>
-      <button id="exportBtn" class="ghost">⬇️ Back-up exporteren</button>
+      <button id="refreshData" class="ghost">🔄 Verse renners-data laden (overschrijft pool)</button>
+      <button id="exportBtn" class="ghost" style="margin-top:8px">⬇️ Back-up exporteren</button>
       <button id="wipeBtn" class="ghost" style="margin-top:8px;color:var(--bad)">🗑️ Alles wissen</button>
     </div>
   </section>
@@ -160,10 +162,32 @@ const money = n => "€" + (Math.round(n*10)/10);
 const DB_KEY = "wm_helper_v1";
 
 const defaults = {
-  cfg: { budget: 100, squad: 15, transfers: 2 },
+  cfg: { budget: 100, squad: 16, transfers: 3 },
   riders: [],      // {id,name,team,price,pts,inTeam}
 };
 let db = load();
+
+// Laad de echte Sporza-data (door de agents/consolidator gemaakt) als de pool leeg is.
+async function loadRealData(force){
+  try{
+    const res = await fetch("./data/ratings.json", {cache:"no-store"});
+    if(!res.ok) return;
+    const data = await res.json();
+    if(data.budget) db.cfg.budget = data.budget;
+    if(data.squad) db.cfg.squad = data.squad;
+    if(data.freeTransfers) db.cfg.transfers = data.freeTransfers;
+    if(force || !db.riders.length){
+      const keep = new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
+      db.riders = data.riders.map(r=>({
+        id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
+        note:r.note||"", inTeam: keep.has(r.name)
+      }));
+      const stamp = document.getElementById("dataStamp");
+      if(stamp) stamp.textContent = "Data bijgewerkt: " + (data.updated||"?");
+      save(); syncCfgInputs();
+    }
+  }catch(e){ /* offline of geen server: app blijft werken met lokale data */ }
+}
 
 function load(){
   try { return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }
@@ -178,33 +202,36 @@ function teamCost(){ return team().reduce((s,r)=>s+(+r.price||0),0); }
 function teamPts(){ return team().reduce((s,r)=>s+(+r.pts||0),0); }
 function budgetLeft(){ return (+db.cfg.budget||0) - teamCost(); }
 
-// Greedy value optimizer: best expected points within budget & squad size.
+// Exacte optimalisatie: kies PRECIES 'squad' renners binnen budget met max punten.
+// Knapsack met kardinaliteit (DP over aantal x budget). Prijzen zijn hele getallen.
 function buildBestTeam(){
-  const cap = +db.cfg.squad||0, budget = +db.cfg.budget||0;
-  const pool = db.riders.map(r=>({...r, price:+r.price||0, pts:+r.pts||0}));
-  // sort by points-per-euro (value), then raw points
-  const byValue = [...pool].sort((a,b)=>
-    (b.pts/Math.max(b.price,0.01)) - (a.pts/Math.max(a.price,0.01)) || b.pts-a.pts);
-  const chosen = new Set(); let cost=0;
-  for(const r of byValue){
-    if(chosen.size>=cap) break;
-    if(cost + r.price <= budget){ chosen.add(r.id); cost+=r.price; }
-  }
-  // try to upgrade: swap a cheap low-point pick for a better affordable one
-  let improved=true;
-  while(improved){
-    improved=false;
-    for(const inId of [...chosen]){
-      const inR = pool.find(p=>p.id===inId);
-      for(const cand of byValue){
-        if(chosen.has(cand.id)) continue;
-        const newCost = cost - inR.price + cand.price;
-        if(newCost<=budget && cand.pts>inR.pts){
-          chosen.delete(inId); chosen.add(cand.id);
-          cost=newCost; improved=true; break;
+  const K = +db.cfg.squad||0, C = Math.round(+db.cfg.budget||0);
+  const pool = db.riders.map(r=>({id:r.id, price:Math.round(+r.price||0), pts:+r.pts||0}));
+  const n = pool.length;
+  if(!n || !K){ return; }
+  const W = C+1, S=(K+1)*W, NEG=-1e9;
+  const idx=(k,c)=>k*W+c;
+  let dp = new Float64Array(S).fill(NEG); dp[idx(0,0)]=0;
+  const take = new Uint8Array(n*S);
+  for(let i=0;i<n;i++){
+    const {price,pts}=pool[i], off=i*S;
+    for(let k=K;k>=1;k--){
+      for(let c=C;c>=price;c--){
+        const prev=dp[idx(k-1,c-price)];
+        if(prev>NEG && prev+pts>dp[idx(k,c)]){
+          dp[idx(k,c)]=prev+pts; take[off+idx(k,c)]=1;
         }
       }
-      if(improved) break;
+    }
+  }
+  // beste kost c* met exact K renners
+  let bestC=-1,bestV=NEG;
+  for(let c=0;c<=C;c++){ const v=dp[idx(K,c)]; if(v>bestV){bestV=v;bestC=c;} }
+  const chosen=new Set();
+  if(bestC>=0){
+    let k=K,c=bestC;
+    for(let i=n-1;i>=0 && k>0;i--){
+      if(take[i*S+idx(k,c)]){ chosen.add(pool[i].id); c-=pool[i].price; k--; }
     }
   }
   db.riders.forEach(r=> r.inTeam = chosen.has(r.id));
@@ -310,6 +337,7 @@ $("#saveCfg").onclick=()=>{
   db.cfg.transfers=+$("#cfgTransfers").value||0;
   save(); alert("Regels opgeslagen.");
 };
+$("#refreshData").onclick=()=>{ if(confirm("Verse data laden? Je rennerspool wordt vervangen; je geselecteerde ploeg blijft behouden.")) loadRealData(true); };
 $("#exportBtn").onclick=()=>{
   const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
   const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
@@ -354,6 +382,7 @@ function syncCfgInputs(){
 }
 syncCfgInputs();
 render();
+loadRealData(false);
 </script>
 </body>
 </html>
