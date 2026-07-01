@@ -245,6 +245,7 @@
               <div class="lbl"><span class="d"></span><span class="t">VOLGENDE RIT</span></div>
               <h3 id="nsTitle">–</h3>
               <div class="sub" id="nsSub">–</div>
+              <div class="sub" id="nsDeadline" style="color:var(--acc);margin-top:5px"></div>
             </div>
             <div style="flex:0 0 auto;text-align:right">
               <div class="nr" id="nsNr">–</div>
@@ -455,6 +456,15 @@ const MAAND=["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","
 function nlDate(iso){ const d=new Date(iso+"T12:00:00"); return `${DAG[d.getDay()]} ${d.getDate()} ${MAAND[d.getMonth()]}`; }
 function teamHue(t){ let h=0; for(const c of (t||"")) h=(h*31+c.charCodeAt(0))%360; return h; }
 function nextStage(){ if(!stagesInfo||!stagesInfo.stages) return null; const iso=new Date().toISOString().slice(0,10); return stagesInfo.stages.find(s=>s.datum>=iso)||null; }
+function deadlineText(s){
+  if(!s) return "";
+  const t=new Date(); t.setHours(0,0,0,0);
+  const d=new Date(s.datum+"T00:00:00");
+  const days=Math.round((d-t)/86400000);
+  const when = days<=0?"vandaag":days===1?"morgen":`over ${days} dagen`;
+  const note = s.deadline || ((stagesInfo||{}).deadlineNote) || "wissel vóór de start van de rit";
+  return `${when} · ${note}`;
+}
 
 // Kapitein-agent: kies uit JOUW ploeg de renner met de grootste scorekans op de volgende rit
 // (die krijgt de dubbele-punten-boost). Kiest op basis van rittype en verwachte punten.
@@ -506,7 +516,7 @@ function renderVandaag(){
   const s=nextStage(); if(!s || !team().length){ el.innerHTML=""; return; }
   const meta=((stagesInfo||{}).typeUitleg||{})[s.type]||{label:s.type,emoji:""};
   const cap=captainPick(); const best=adviceSwaps()[0];
-  const deadline = s.deadline || "wissel vóór de start van de rit";
+  const deadline = deadlineText(s);
   const zet = best
     ? `${esc(best.out.name.split(" ").slice(-1)[0])} → <b>${esc(best.inn.name.split(" ").slice(-1)[0])}</b> (+${best.gain} pt${best.free?", gratis":", kost "+money(best.tcost)})`
     : `je ploeg zit goed — geen wissel nodig 👍`;
@@ -541,6 +551,7 @@ function renderNextStage(){
   $("#nsSub").textContent = `Rit ${s.nr} · ${s.van} → ${s.naar} · ${nlDate(s.datum)}`;
   $("#nsNr").textContent = String(s.nr).padStart(2,"0");
   $("#nsOf").textContent = "VAN "+(stagesInfo.stages.length);
+  const dl=$("#nsDeadline"); if(dl) dl.textContent = "⏰ deadline "+deadlineText(s);
 }
 function renderSquad(){
   const t=team().sort((a,b)=>b.pts-a.pts); const maxP=Math.max(1,...t.map(r=>r.pts));

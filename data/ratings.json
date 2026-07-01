@@ -123,6 +123,7 @@
   ],
   "stages": {
     "bron": "touretappe.nl (Tour de France 2026 parcours)",
+    "deadlineNote": "Wissels sluiten bij de start van elke rit.",
     "typeUitleg": {
       "ploegentijdrit": {
         "emoji": "🧑‍🤝‍🧑",

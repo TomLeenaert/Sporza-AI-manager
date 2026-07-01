@@ -114,3 +114,6 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - Fix: advies + build respecteren nu dekking (geen wissel die je enige sprinter/tijdrijder wegneemt).
 - Fix: verbeter-pass in buildBestTeam herstelt dubbele coverage-reservering -> ploeg optimaler (7264 pt).
 - Getest: 16/100M, dekking OK, Vandaag toont "ploeg zit goed". PASS.
+
+2026-07-01 — LOOP S3.2 (deadline): deadlineNote in stages + urgentie (vandaag/morgen/over N dagen) uit datum.
+- Getoond op rit-kaart (#nsDeadline) en Vandaag-briefing. Getest: "over 3 dagen". 16/100M OK.
