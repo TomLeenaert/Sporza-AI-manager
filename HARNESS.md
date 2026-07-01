@@ -33,9 +33,8 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
       aanvallende teams (EF/Uno-X/Tudor…). Toont als 14e analist.
 - [x] **S4.3 Differential-agent** — DONE. type "ownership"; lage eigenaarschap-% -> lichte boost (max 1.1)
       + 💎-badge op ploeg/renners. differential-2026.json seed (schatting), research vult echte %. 15e analist.
-- [ ] **S4.4 Voorbeschouwing- + vlucht-inzicht** — breid `scripts/daily-research.md` uit zodat de
-      dagelijkse agent ook weer (S4.1), recap (S3.3), ownership (S4.3) en voorbeschouwing/vluchtkansen
-      onderhoudt. (Geen app-wijziging; enkel de prompt.)
+- [x] **S4.4 Voorbeschouwing- + vlucht-inzicht** — DONE. daily-research.md uitgebreid: dagelijkse agent
+      onderhoudt nu ook weer, recap, ownership (differential) en voorbeschouwing/vluchtkansen.
 
 ### Sprint 5 — verfijning
 - [ ] **S5.1 Scoreregels kalibreren** — zoek de exacte Sporza-puntentelling (punten tot plaats 30,

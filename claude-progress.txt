@@ -130,3 +130,6 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 
 2026-07-01 — LOOP S4.3 (differential-agent): type "ownership"; lage eigenaarschap-% -> boost + 💎-badge.
 - differential-2026.json seed (schatting). 15e analist. Getest: 4 differentials in ploeg, 16/100M.
+
+2026-07-01 — LOOP S4.4 (research-prompt): daily-research.md onderhoudt nu ook weer, recap, ownership, voorbeschouwing.
+- SPRINT 4 COMPLEET (S4.1-4.4).
