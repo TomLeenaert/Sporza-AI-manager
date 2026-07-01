@@ -28,10 +28,12 @@
     { "id": "Attt", "name": "TTT-agent — goedkope ploegmaats van sterke ploegentijdrit-teams", "passes": true },
     { "id": "A7",  "name": "Weer-agent — wind/regen/hitte per rit", "passes": false },
     { "id": "A8",  "name": "Ploegtactiek-agent — wie rijdt voor klassement vs ritten", "passes": false },
-    { "id": "A9",  "name": "Blessure/non-starter-agent — opgaves, zieken, niet-starters", "passes": false },
+    { "id": "A9",  "name": "Non-starter-agent — opgaves/niet-gestart (via dagelijkse research, type exclude)", "passes": true },
     { "id": "A10", "name": "Reglement-agent — kent en bewaakt Sporza-regels (budget100/16/3 transfers)", "passes": true },
     { "id": "A11", "name": "Consolidator — bundelt alle signalen tot 1 score/renner", "passes": true },
-    { "id": "A12", "name": "Reken-agent — optimale ploeg (exacte knapsack, precies 16 binnen budget)", "passes": true }
+    { "id": "A12", "name": "Reken-agent — optimale ploeg (exacte knapsack, precies 16 binnen budget)", "passes": true },
+    { "id": "Ameta", "name": "Meta-strateeg — winstpatronen van vorige edities (types/tiers, valstrikken)", "passes": true },
+    { "id": "Akap", "name": "Kapitein-agent — dubbele-punten-boost per rit op beste scorer", "passes": true }
   ],
   "voorgestelde_extra_agents": [
     { "id": "X1", "name": "Differential-agent — goede renners die weinig managers hebben" },
