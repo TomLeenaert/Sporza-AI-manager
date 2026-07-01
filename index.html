@@ -80,6 +80,10 @@
   .wall .nr{font-family:var(--grotesk);font-weight:700;font-size:30px;color:var(--acc);line-height:1;text-shadow:0 0 18px rgba(255,211,78,.4)}
   .wall .of{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:#8a97b8;margin-top:3px;text-align:right}
 
+  #captainPick{margin-top:12px;padding:9px 11px;border-radius:12px;font-size:12.5px;color:var(--txt);
+    background:linear-gradient(180deg,rgba(255,211,78,.14),rgba(255,255,255,.02));border:1px solid rgba(255,211,78,.3)}
+  #captainPick .crown{margin-right:4px}
+  #captainPick .cwhy{color:var(--muted)}
   .squadhead{display:flex;align-items:center;justify-content:space-between;margin:14px 0 9px}
   .squadhead .a{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#cfe0ff}
   .squadhead .b{font-family:var(--mono);font-size:10px;color:#8a97b8}
@@ -235,6 +239,7 @@
               <div class="of" id="nsOf">VAN 21</div>
             </div>
           </div>
+          <div id="captainPick"></div>
           <div class="squadhead"><span class="a">JOUW PLOEG</span><span class="b" id="squadMeta">16 RENNERS</span></div>
           <div class="cards" id="squadCards"></div>
           <div class="warnline" id="squadWarn" style="display:none"></div>
@@ -419,6 +424,18 @@ function nlDate(iso){ const d=new Date(iso+"T12:00:00"); return `${DAG[d.getDay(
 function teamHue(t){ let h=0; for(const c of (t||"")) h=(h*31+c.charCodeAt(0))%360; return h; }
 function nextStage(){ if(!stagesInfo||!stagesInfo.stages) return null; const iso=new Date().toISOString().slice(0,10); return stagesInfo.stages.find(s=>s.datum>=iso)||null; }
 
+// Kapitein-agent: kies uit JOUW ploeg de renner met de grootste scorekans op de volgende rit
+// (die krijgt de dubbele-punten-boost). Kiest op basis van rittype en verwachte punten.
+function captainPick(){
+  const s=nextStage(); if(!s) return null;
+  const roles=TYPE_ROLLEN[s.type]||[];
+  const passend=team().filter(r=>roles.includes(r.rol));
+  const pool=passend.length?passend:team();
+  if(!pool.length) return null;
+  const best=[...pool].sort((a,b)=>b.pts-a.pts)[0];
+  return { rider:best, stage:s };
+}
+
 // agent visuals
 const AGENT_META={
   "vorm/uitslagen-agent":{naam:"Vorm-analist",tag:"VORM · MOMENTUM",col:"#39d98a"},
@@ -439,14 +456,25 @@ function analystList(){
     uitleg:"Bundelt alle signalen van de andere analisten tot één verwachte-punten-score per renner.",highlights:["Rol × parcours × vorm × historiek × ploegentijdrit"]});
   base.push({naam:"De Rekenaar",tag:"AI · OPTIMALISATIE",col:"#ffd34e",short:"AI",host:true,
     uitleg:"Kiest uit alle scores de best mogelijke ploeg van 16 renners binnen €100M, met dekking op elk rittype, en respecteert je pins en bans.",highlights:["Exacte optimalisatie (knapsack)","Altijd 16 renners, binnen budget"]});
+  const cap=captainPick();
+  base.push({naam:"Kapitein-agent",tag:"BOOST · DUBBELE PUNTEN",col:"#ffd34e",short:"KAPITEIN",host:false,
+    uitleg:"In Sporza krijgt je kapitein per rit dubbele punten. Zet die boost elke dag op de renner met de grootste scorekans voor dat rittype — dat is vaak het verschil in het klassement.",
+    highlights: cap ? [`Vandaag: ${cap.rider.name}`, `Past bij de ${(((stagesInfo||{}).typeUitleg||{})[cap.stage.type]||{}).label||cap.stage.type}`, `${cap.rider.pts} verwachte punten`] : ["Stel eerst je ploeg samen"]});
   return base;
 }
 
 // ---- render ----
 function render(){
   renderStatus();
-  renderTicker(); renderNextStage(); renderSquad(); renderAnalysts(); renderBriefing();
+  renderTicker(); renderNextStage(); renderCaptain(); renderSquad(); renderAnalysts(); renderBriefing();
   renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool();
+}
+function renderCaptain(){
+  const el=$("#captainPick"); if(!el) return;
+  const c=captainPick();
+  if(!c){ el.style.display="none"; return; } el.style.display="";
+  const meta=((stagesInfo||{}).typeUitleg||{})[c.stage.type]||{label:c.stage.type};
+  el.innerHTML=`<span class="crown">👑</span>Kapitein vandaag: <b>${esc(c.rider.name)}</b> <span class="cwhy">— beste keuze voor een ${esc(meta.label.toLowerCase())} (dubbele punten)</span>`;
 }
 function renderTicker(){
   const s=nextStage(); const el=$("#ticker"); if(!el) return;
@@ -475,6 +503,7 @@ function renderSquad(){
   else warn.style.display="none";
   const el=$("#squadCards");
   if(!t.length){ el.innerHTML=`<div class="note" style="padding:10px">${dataStatus==="none"?"Geen data geladen — verbind met internet.":"Nog geen ploeg — tik “Stel beste ploeg samen”."}</div>`; return; }
+  const cap=captainPick(); const capId=cap?cap.rider.id:null;
   el.innerHTML = t.map(r=>{
     const col=ROL_COL[r.rol]||"#39d98a", hue=teamHue(r.team), pct=Math.round(r.pts/maxP*100);
     return `<div class="rcard ${r.pin?'pin':''}">
@@ -482,7 +511,7 @@ function renderSquad(){
         <div class="price">${money(r.price)}</div>
         <div class="role" style="background:${col}">${ROL_AB[r.rol]||"?"}</div>
       </div>
-      <div class="nm">${r.pin?"📌 ":""}${esc(r.name)}</div>
+      <div class="nm">${r.id===capId?"👑 ":""}${r.pin?"📌 ":""}${esc(r.name)}</div>
       <div class="tm"><span class="sw" style="background:oklch(0.8 0.13 ${hue})"></span><span>${esc(r.team)}</span></div>
       <div class="ptsrow"><div class="top2"><span>PUNTEN</span><span style="color:${col}">${r.pts}</span></div>
         <div class="track"><div class="fill" style="width:${pct}%"></div></div></div>

@@ -104,3 +104,8 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - 7 leesbare strategieregels getoond in de app (kapitein-tip, hoofd-niet-hart, punten tot P30...).
 - Legde rolfout bloot: Jorgenson stond als knecht -> gecorrigeerd naar gc (nu 365pt). Ook Aranburu/Baudin.
 - App: 12 analisten, meta-strateeg + non-starter kregen naam/kleur. Getest: 16/100M, dekking OK.
+
+2026-07-01 — Nieuwe agent: KAPITEIN-AGENT (app-side, dynamisch per rit + ploeg).
+- captainPick(): kiest uit jouw ploeg de best scorende renner voor het volgende rittype (dubbele punten).
+- Toont banner op home ("Kapitein vandaag: X"), kroontje op zijn ploegkaart, en als 13e analist met uitleg.
+- Getest: TTT -> Pogacar aanbevolen; banner+kroon+overlay tonen correct.
