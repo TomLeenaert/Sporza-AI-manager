@@ -1,0 +1,8 @@
+{
+  "agent": "non-starter-agent",
+  "type": "exclude",
+  "datum": "2026-07-01",
+  "bron": "cyclingnews, cyclinguptodate, flobikes (juni 2026, pre-Tour)",
+  "uitleg": "Renners die opgegeven of niet gestart zijn — uit de selectie.",
+  "names": ["Oscar Onley"]
+}
