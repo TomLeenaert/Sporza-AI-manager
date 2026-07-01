@@ -40,8 +40,10 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
 - [x] **S5.1 Scoreregels kalibreren** — DONE. Sporza-mechanieken gedocumenteerd bovenaan consolidate.mjs
       (P30-constantie, winnaar-ploegmaats-bonus, TTT ~492pt, kapitein, sprinters 2026). Sprinter-archetype
       +5%. Model = relatief rangschikkingsmodel (exacte punten niet nodig voor selectie).
-- [ ] **S5.2 Rol-agent nauwkeuriger** — corrigeer resterende mislabels (vooral €4M+ renners die als
-      "knecht" staan maar echte scorers zijn). Verifieer dat geen echte kopman op ~0 punten staat.
+- [x] **S5.2 Rol-agent nauwkeuriger** — DONE. 16 mislabels gecorrigeerd (Wellens/Abrahamsen/Dunbar/
+      McNulty/Caruso... van knecht -> aanvaller/klimmer/puncheur/sprinter/tijdrit). Geen kopman meer op ~0.
+
+## ✅ ALLE BACKLOG-ITEMS DONE — Sprint 3-4-5 compleet.
 
 ## Kwaliteitslat (wanneer stoppen)
 Stop wanneer alle items hierboven op done staan én de app in de preview correct werkt (geldige ploeg,

@@ -137,3 +137,7 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 2026-07-01 — LOOP S5.1 (kalibratie): Sporza-scoreregels gedocumenteerd bovenaan consolidate.mjs.
 - P30-constantie, winnaar-ploegmaats-bonus, TTT ~492pt, sprinters 2026 extra. Sprinter-archetype +5%.
 - Model bevestigd als relatief rangschikkingsmodel. Getest: 16/100M, dekking OK.
+
+2026-07-01 — LOOP S5.2 (rol-agent): 16 mislabels gecorrigeerd (Wellens/Abrahamsen/Dunbar/McNulty... uit knecht).
+- Wellens 27->185pt. 5 resterende 4M-knechten zijn echte waterdragers. Getest: 16/100M, dekking OK.
+- === SPRINT 3-4-5 VOLLEDIG AF. Loop gestopt. ===
