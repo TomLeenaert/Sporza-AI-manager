@@ -1,0 +1,39 @@
+name: Dagelijkse update
+
+# Draait elke ochtend (en handmatig via de Actions-knop).
+on:
+  schedule:
+    - cron: "30 5 * * *"   # 05:30 UTC ≈ 07:30 Belgische tijd, ruim voor de rit
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v4
+
+      - name: Node opzetten
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ratings herrekenen + bundelen
+        run: |
+          node scripts/consolidate.mjs
+          node scripts/bundle.mjs
+
+      - name: Publiceren indien er iets veranderde
+        run: |
+          git config user.name "wielermanager-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen — niets te publiceren."
+          else
+            git commit -m "Dagelijkse update"
+            git push
+          fi
