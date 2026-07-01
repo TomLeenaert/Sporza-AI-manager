@@ -13,7 +13,7 @@
     { "id": 8, "name": "Dagelijkse cloud-run vult verse data terwijl Tom op reis is", "passes": false }
   ],
   "agents": [
-    { "id": "A1",  "name": "Uitslagen-agent — resultaten recente koersen", "passes": false },
+    { "id": "A1",  "name": "Uitslagen-agent — Dauphine + Ronde v Zwitserland juni 2026", "passes": true },
     { "id": "A2",  "name": "Vorm/trend-agent — wie is nu goed, ook richting Tour", "passes": true },
     { "id": "A3",  "name": "Odds-agent — noteringen van goksites (geel/groen/rit)", "passes": true },
     { "id": "A4",  "name": "Voorbeschouwing-agent — prono's/previews", "passes": false },

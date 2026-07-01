@@ -41,3 +41,8 @@ VOLGENDE STAP:
 2026-07-01 — Loop-ronde 3 (A3): odds-agent (data/signals/odds-2026.json, type form).
 - Goksite-noteringen (Pogacar 1.25, Vingegaard ~5, Evenepoel 16/1 + sprintfavs) als lichte mult,
   stapelt met vorm. Getest: ploeg blijft 16/100M en dekt sprint+tijdrit. PASS.
+
+2026-07-01 — Loop-ronde 4 (A1): uitslagen-agent (data/signals/uitslagen-2026.json).
+- Juni-vorm: Del Toro won Dauphine, Pogacar won Zwitserland, Carapaz 2e, Vacek 3e (koopje), Seixas viel.
+- Legde rolfout bloot: Vacek stond als knecht -> gecorrigeerd naar klimmer (nu 206pt @4M).
+- Getest: ploeg 16/100M, dekt sprint+tijdrit. PASS.

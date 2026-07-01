@@ -13,8 +13,8 @@
       "team": "UAE",
       "price": 12,
       "rol": "gc",
-      "pts": 1306,
-      "note": "geel 1.25 - torenhoog favoriet"
+      "pts": 1357,
+      "note": "domineerde Ronde van Zwitserland (solo 72km + ITT)"
     },
     {
       "name": "Jonas Vingegaard",
@@ -65,20 +65,20 @@
       "note": "favoriet ritzeges/groen"
     },
     {
-      "name": "Paul Seixas",
-      "team": "Decathlon",
-      "price": 8,
-      "rol": "gc",
-      "pts": 525,
-      "note": "groot talent maar val in voorbereiding"
-    },
-    {
       "name": "Isaac Del Toro",
       "team": "UAE",
       "price": 7,
       "rol": "gc",
-      "pts": 451,
-      "note": "sterke schaduwkopman UAE, ritkansen"
+      "pts": 493,
+      "note": "won de Dauphine - topvorm richting Tour"
+    },
+    {
+      "name": "Paul Seixas",
+      "team": "Decathlon",
+      "price": 8,
+      "rol": "gc",
+      "pts": 478,
+      "note": "viel en gaf op in Dauphine - vormtwijfel"
     },
     {
       "name": "Mathieu van der Poel",
@@ -193,6 +193,22 @@
       "note": ""
     },
     {
+      "name": "Richard Carapaz",
+      "team": "EF Education",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 250,
+      "note": "2e in Ronde van Zwitserland - sterke klimvorm"
+    },
+    {
+      "name": "Lenny Martinez",
+      "team": "Bahrain",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 243,
+      "note": "dapper weerwerk in Zwitserse slotrit"
+    },
+    {
       "name": "Adam Yates",
       "team": "UAE",
       "price": 5,
@@ -209,24 +225,8 @@
       "note": ""
     },
     {
-      "name": "Lenny Martinez",
-      "team": "Bahrain",
-      "price": 5,
-      "rol": "klimmer",
-      "pts": 230,
-      "note": ""
-    },
-    {
       "name": "Matthew Riccitello",
       "team": "Decathlon",
-      "price": 5,
-      "rol": "klimmer",
-      "pts": 230,
-      "note": ""
-    },
-    {
-      "name": "Richard Carapaz",
-      "team": "EF Education",
       "price": 5,
       "rol": "klimmer",
       "pts": 230,
@@ -263,6 +263,14 @@
       "rol": "aanvaller",
       "pts": 211,
       "note": "aanvaller, ritten + tijd in trui"
+    },
+    {
+      "name": "Mathias Vacek",
+      "team": "Lidl-Trek",
+      "price": 4,
+      "rol": "klimmer",
+      "pts": 206,
+      "note": "verrassend 3e in Ronde van Zwitserland - koopje (4M)"
     },
     {
       "name": "Filippo Ganna",
@@ -739,14 +747,6 @@
     {
       "name": "Magnus Sheffield",
       "team": "INEOS",
-      "price": 4,
-      "rol": "knecht",
-      "pts": 54,
-      "note": ""
-    },
-    {
-      "name": "Mathias Vacek",
-      "team": "Lidl-Trek",
       "price": 4,
       "rol": "knecht",
       "pts": 54,

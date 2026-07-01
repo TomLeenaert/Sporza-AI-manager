@@ -1,0 +1,15 @@
+{
+  "agent": "uitslagen-agent",
+  "type": "form",
+  "datum": "2026-07-01",
+  "bron": "wielerflits, wielerrevue, cyclist (Dauphine + Ronde van Zwitserland, juni 2026)",
+  "uitleg": "Verse resultaten uit de voorbereidingsrondes vlak voor de Tour. Vangt vorm die de andere agents nog niet hadden. Stapelt met vorm/odds.",
+  "signalen": {
+    "Isaac Del Toro": { "mult": 1.10, "reden": "won de Dauphine - topvorm richting Tour" },
+    "Tadej Pogacar": { "mult": 1.05, "reden": "domineerde Ronde van Zwitserland (solo 72km + ITT)" },
+    "Richard Carapaz": { "mult": 1.09, "reden": "2e in Ronde van Zwitserland - sterke klimvorm" },
+    "Mathias Vacek": { "mult": 1.12, "reden": "verrassend 3e in Ronde van Zwitserland - koopje (4M)" },
+    "Lenny Martinez": { "mult": 1.06, "reden": "dapper weerwerk in Zwitserse slotrit" },
+    "Paul Seixas": { "mult": 0.92, "reden": "viel en gaf op in Dauphine - vormtwijfel" }
+  }
+}
