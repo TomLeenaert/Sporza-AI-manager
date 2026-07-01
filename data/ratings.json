@@ -3,6 +3,10 @@
   "budget": 100,
   "squad": 16,
   "freeTransfers": 3,
+  "coverage": {
+    "sprinter": 1,
+    "tijdrit": 1
+  },
   "riders": [
     {
       "name": "Tadej Pogacar",

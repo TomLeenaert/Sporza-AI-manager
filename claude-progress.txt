@@ -27,3 +27,8 @@ VOLGENDE STAP:
   een signaal-bestand in data/signals/. Consolidator pakt ze automatisch op.
 - Model verfijnen: cheap domestiques worden nu overschat (value*45); historiek/rol-agent moet
   dat corrigeren zodat fillers realistisch laag scoren.
+
+2026-07-01 — Loop-ronde 1 (Aspread): spreidings-agent + dekking in reken-agent.
+- data/signals/spreiding-2026.json (min 1 sprinter, 1 tijdrit). Consolidator geeft coverage door.
+- Optimizer reserveert beste per rol, dan knapsack-DP op de rest. Oude DP-code opgeruimd.
+- Getest: ploeg dekt nu sprint (Philipsen) + berg/GC + tijdrit (Ganna), 16 renners, 100M. PASS.

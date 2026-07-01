@@ -1,0 +1,7 @@
+{
+  "agent": "spreidings-agent",
+  "type": "coverage",
+  "datum": "2026-07-01",
+  "uitleg": "Minimale dekking per rittype zodat de ploeg elke dag kan scoren. De reken-agent reserveert de beste renner(s) van elke rol voor hij de rest optimaliseert. 7 vlakke ritten + groene trui => min 1 topsprinter; 26km ITT + ploegentijdrit => min 1 tijdritspecialist.",
+  "min": { "sprinter": 1, "tijdrit": 1 }
+}

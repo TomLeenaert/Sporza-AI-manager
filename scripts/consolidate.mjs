@@ -17,7 +17,7 @@ const riders = JSON.parse(readFileSync(join(root, "data/riders.json"), "utf8"));
 const sigDir = join(root, "data/signals");
 
 let roleWeight = {}, roleOf = {}, defaultRole = "knecht";
-let formAdj = {}, notes = {};
+let formAdj = {}, notes = {}, coverage = {};
 
 for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
   const s = JSON.parse(readFileSync(join(sigDir, f), "utf8"));
@@ -27,6 +27,8 @@ for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
   } else if (type === "roles") {
     roleOf = { ...roleOf, ...(s.roles || {}) };
     if (s.default) defaultRole = s.default;
+  } else if (type === "coverage") {
+    for (const [rol, m] of Object.entries(s.min || {})) coverage[rol] = Math.max(coverage[rol] || 0, m);
   } else { // form: multipliers -> additieve aanpassing die stapelt en gedempt wordt
     for (const [naam, sig] of Object.entries(s.signalen || {})) {
       formAdj[naam] = (formAdj[naam] || 0) + ((sig.mult ?? 1) - 1);
@@ -49,6 +51,7 @@ const ratings = riders.riders.map(r => {
 const out = {
   updated: process.env.RUN_DATE || riders.bron,
   budget: riders.budget, squad: riders.squad, freeTransfers: riders.freeTransfers,
+  coverage,
   riders: ratings.sort((a, b) => b.pts - a.pts)
 };
 writeFileSync(join(root, "data/ratings.json"), JSON.stringify(out, null, 2));

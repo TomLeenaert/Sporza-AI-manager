@@ -166,6 +166,7 @@ const defaults = {
   riders: [],      // {id,name,team,price,pts,inTeam}
 };
 let db = load();
+let coverageReq = {};  // min. aantal per rol (van de spreidings-agent)
 
 // Laad de echte Sporza-data (door de agents/consolidator gemaakt) als de pool leeg is.
 async function loadRealData(force){
@@ -176,11 +177,12 @@ async function loadRealData(force){
     if(data.budget) db.cfg.budget = data.budget;
     if(data.squad) db.cfg.squad = data.squad;
     if(data.freeTransfers) db.cfg.transfers = data.freeTransfers;
+    coverageReq = data.coverage || {};
     if(force || !db.riders.length){
       const keep = new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
       db.riders = data.riders.map(r=>({
         id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
-        note:r.note||"", inTeam: keep.has(r.name)
+        rol:r.rol||"knecht", note:r.note||"", inTeam: keep.has(r.name)
       }));
       const stamp = document.getElementById("dataStamp");
       if(stamp) stamp.textContent = "Data bijgewerkt: " + (data.updated||"?");
@@ -204,36 +206,45 @@ function budgetLeft(){ return (+db.cfg.budget||0) - teamCost(); }
 
 // Exacte optimalisatie: kies PRECIES 'squad' renners binnen budget met max punten.
 // Knapsack met kardinaliteit (DP over aantal x budget). Prijzen zijn hele getallen.
-function buildBestTeam(){
-  const K = +db.cfg.squad||0, C = Math.round(+db.cfg.budget||0);
-  const pool = db.riders.map(r=>({id:r.id, price:Math.round(+r.price||0), pts:+r.pts||0}));
-  const n = pool.length;
-  if(!n || !K){ return; }
-  const W = C+1, S=(K+1)*W, NEG=-1e9;
-  const idx=(k,c)=>k*W+c;
-  let dp = new Float64Array(S).fill(NEG); dp[idx(0,0)]=0;
-  const take = new Uint8Array(n*S);
+// Knapsack-DP: kies precies K renners uit 'pool' binnen budget C, max punten.
+function knapsackPick(pool, K, C){
+  const n=pool.length;
+  if(!n||K<=0) return {ids:new Set(), cost:0};
+  const W=C+1, S=(K+1)*W, NEG=-1e9, idx=(k,c)=>k*W+c;
+  let dp=new Float64Array(S).fill(NEG); dp[idx(0,0)]=0;
+  const take=new Uint8Array(n*S);
   for(let i=0;i<n;i++){
     const {price,pts}=pool[i], off=i*S;
-    for(let k=K;k>=1;k--){
-      for(let c=C;c>=price;c--){
-        const prev=dp[idx(k-1,c-price)];
-        if(prev>NEG && prev+pts>dp[idx(k,c)]){
-          dp[idx(k,c)]=prev+pts; take[off+idx(k,c)]=1;
-        }
-      }
+    const p=Math.min(price,C);
+    for(let k=K;k>=1;k--) for(let c=C;c>=p;c--){
+      const prev=dp[idx(k-1,c-p)];
+      if(prev>NEG && prev+pts>dp[idx(k,c)]){ dp[idx(k,c)]=prev+pts; take[off+idx(k,c)]=1; }
     }
   }
-  // beste kost c* met exact K renners
   let bestC=-1,bestV=NEG;
   for(let c=0;c<=C;c++){ const v=dp[idx(K,c)]; if(v>bestV){bestV=v;bestC=c;} }
-  const chosen=new Set();
-  if(bestC>=0){
-    let k=K,c=bestC;
-    for(let i=n-1;i>=0 && k>0;i--){
-      if(take[i*S+idx(k,c)]){ chosen.add(pool[i].id); c-=pool[i].price; k--; }
-    }
+  const ids=new Set(); let cost=0;
+  if(bestC>=0){ let k=K,c=bestC;
+    for(let i=n-1;i>=0&&k>0;i--){ if(take[i*S+idx(k,c)]){ ids.add(pool[i].id); cost+=Math.min(pool[i].price,C); c-=Math.min(pool[i].price,C); k--; } }
   }
+  return {ids,cost};
+}
+
+// Exacte optimalisatie MET dekking: reserveer eerst de beste renner(s) van elke vereiste
+// rol (spreidings-agent), optimaliseer dan de resterende plaatsen.
+function buildBestTeam(){
+  const K = +db.cfg.squad||0, C = Math.round(+db.cfg.budget||0);
+  const all = db.riders.map(r=>({id:r.id, rol:r.rol||"knecht", price:Math.round(+r.price||0), pts:+r.pts||0}));
+  if(!all.length || !K){ return; }
+  // Reserveer per vereiste rol de best scorende renner(s).
+  const reserved=new Set(); let rCost=0;
+  for(const [rol,need] of Object.entries(coverageReq||{})){
+    const cand=all.filter(r=>r.rol===rol && !reserved.has(r.id)).sort((a,b)=>b.pts-a.pts);
+    for(let i=0;i<Math.min(need,cand.length);i++){ reserved.add(cand[i].id); rCost+=cand[i].price; }
+  }
+  const rest = all.filter(r=>!reserved.has(r.id));
+  const pick = knapsackPick(rest, K-reserved.size, Math.max(0,C-rCost));
+  const chosen = new Set([...reserved, ...pick.ids]);
   db.riders.forEach(r=> r.inTeam = chosen.has(r.id));
   save();
 }
