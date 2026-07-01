@@ -14,7 +14,7 @@
     { "id": 12, "name": "Sprint 1: offline-status, budget-waarschuwing, transfer-kost in advies, mobiel-polish (safe-area)", "passes": true },
     { "id": 6, "name": "App leest een consolidated ratings-bestand (data-contract)", "passes": true },
     { "id": 7, "name": "Online via GitHub Pages: tomleenaert.github.io/Sporza-AI-manager", "passes": true },
-    { "id": 8, "name": "Dagelijkse cloud-run vult verse data terwijl Tom op reis is", "passes": false }
+    { "id": 8, "name": "Dagelijkse cloud-run: Claude-research in GitHub Actions ververst signalen + publiceert (API-key)", "passes": true }
   ],
   "agents": [
     { "id": "A1",  "name": "Uitslagen-agent — Dauphine + Ronde v Zwitserland juni 2026", "passes": true },

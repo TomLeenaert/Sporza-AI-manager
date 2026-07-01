@@ -90,3 +90,9 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - Handmatige testrun: SUCCESS (groen).
 - OPEN: de research-motor (verse vorm/uitslagen). Vereist Toms keuze: (A) Anthropic API-key als GitHub-secret
   -> Claude draait in Actions en ververst de signalen autonoom; of (B) ik ververs de signalen tijdens sessies (gratis).
+
+2026-07-01 — SPRINT 2 VOLTOOID + geverifieerd. API-key als GitHub-secret gezet door Tom.
+- Testrun (handmatig): SUCCESS. Claude-research-agent draaide in Actions, deed web-research,
+  vond afmelding Oscar Onley -> nonstarters-2026.json (type exclude) -> Onley 0pt.
+- consolidate+bundle+push door de bot; Pages herbouwd; LIVE site toont Onley 0pt. End-to-end bevestigd.
+- Draait voortaan elke ochtend 07:30 CET automatisch. Research is non-fataal (breekt publiceren nooit).
