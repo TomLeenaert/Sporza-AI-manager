@@ -63,6 +63,11 @@
   .swap .arrow{color:var(--good);font-weight:700}
   .gain{color:var(--good);font-weight:700}
   .x{color:var(--bad);background:none;width:auto;padding:6px;font-size:18px;font-weight:700}
+  .rider.pin{border-color:var(--acc);box-shadow:inset 0 0 0 1px var(--acc)}
+  .rider.ban{opacity:.4}
+  .rider.ban .name{text-decoration:line-through}
+  button.sm.on{background:var(--acc);color:#20180a;border-color:var(--acc)}
+  button.sm.ban-on{background:var(--bad);color:#2a0d0d;border-color:var(--bad)}
   .note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
   .seed{font-size:13px}
 </style>
@@ -134,6 +139,9 @@
     </div>
     <div class="card">
       <h2>Rennerspool (<span id="poolCount">0</span>)</h2>
+      <div class="note" style="margin-top:0">Tik <b>📌</b> om een renner <b>altijd</b> in je ploeg te forceren,
+        of <b>🚫</b> om er een <b>nooit</b> in te zetten. De reken-agent herberekent je ploeg meteen
+        en houdt rekening met je keuzes.</div>
       <div id="poolList"></div>
     </div>
   </section>
@@ -200,9 +208,13 @@ async function loadRealData(force){
     agentsInfo = data.agents || [];
     if(force || !db.riders.length){
       const keep = new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
+      const pins = new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
+      const bans = new Set(db.riders.filter(r=>r.ban).map(r=>r.name));
       db.riders = data.riders.map(r=>({
         id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
-        rol:r.rol||"knecht", note:r.note||"", inTeam: keep.has(r.name)
+        rol:r.rol||"knecht", note:r.note||"",
+        pin: pins.has(r.name), ban: bans.has(r.name),
+        inTeam: keep.has(r.name) || pins.has(r.name)
       }));
       const stamp = document.getElementById("dataStamp");
       if(stamp) stamp.textContent = "Data bijgewerkt: " + (data.updated||"?");
@@ -255,16 +267,25 @@ function knapsackPick(pool, K, C){
 // rol (spreidings-agent), optimaliseer dan de resterende plaatsen.
 function buildBestTeam(){
   const K = +db.cfg.squad||0, C = Math.round(+db.cfg.budget||0);
-  const all = db.riders.map(r=>({id:r.id, rol:r.rol||"knecht", price:Math.round(+r.price||0), pts:+r.pts||0}));
-  if(!all.length || !K){ return; }
-  // Reserveer per vereiste rol de best scorende renner(s).
+  // Gebande renners doen niet mee.
+  const all = db.riders.filter(r=>!r.ban)
+    .map(r=>({id:r.id, rol:r.rol||"knecht", price:Math.round(+r.price||0), pts:+r.pts||0, pin:!!r.pin}));
+  if(!all.length || !K){ db.riders.forEach(r=>{ if(r.ban) r.inTeam=false; }); return; }
   const reserved=new Set(); let rCost=0;
+  const reserve=r=>{ if(!reserved.has(r.id)){ reserved.add(r.id); rCost+=r.price; } };
+  // 1) Vastgezette (pin) renners altijd erin.
+  all.forEach(r=>{ if(r.pin) reserve(r); });
+  // 2) Dekking per rittype aanvullen (tel pins mee).
+  const have={}; all.forEach(r=>{ if(reserved.has(r.id)) have[r.rol]=(have[r.rol]||0)+1; });
   for(const [rol,need] of Object.entries(coverageReq||{})){
+    let n=have[rol]||0;
     const cand=all.filter(r=>r.rol===rol && !reserved.has(r.id)).sort((a,b)=>b.pts-a.pts);
-    for(let i=0;i<Math.min(need,cand.length);i++){ reserved.add(cand[i].id); rCost+=cand[i].price; }
+    for(let i=0;i<Math.min(Math.max(0,need-n),cand.length);i++) reserve(cand[i]);
   }
+  // 3) Vul de rest optimaal binnen resterend budget en plaatsen.
   const rest = all.filter(r=>!reserved.has(r.id));
-  const pick = knapsackPick(rest, K-reserved.size, Math.max(0,C-rCost));
+  const slots = K - reserved.size;
+  const pick = slots>0 ? knapsackPick(rest, slots, Math.max(0,C-rCost)) : {ids:new Set()};
   const chosen = new Set([...reserved, ...pick.ids]);
   db.riders.forEach(r=> r.inTeam = chosen.has(r.id));
   save();
@@ -279,9 +300,9 @@ function adviceSwaps(){
   for(let k=0;k<cap;k++){
     let best=null;
     for(const out of inTeam){
-      if(usedOut.has(out.id)) continue;
+      if(usedOut.has(out.id) || out.pin) continue;   // vastgezette renner niet wisselen
       for(const inn of bench){
-        if(usedIn.has(inn.id)) continue;
+        if(usedIn.has(inn.id) || inn.ban) continue;   // geband: nooit voorstellen
         const gain=(+inn.pts||0)-(+out.pts||0);
         const deltaCost=(+inn.price||0)-(+out.price||0);
         if(gain<=0) continue;
@@ -300,9 +321,10 @@ function adviceSwaps(){
 // ---- render ----
 function riderRow(r, actions){
   const rol = ROL_LABEL[r.rol]||r.rol||"";
-  return `<div class="rider">
+  const cls = r.pin?" pin":(r.ban?" ban":"");
+  return `<div class="rider${cls}">
     <div class="info">
-      <div class="name">${esc(r.name)||"?"}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
+      <div class="name">${r.pin?"📌 ":""}${esc(r.name)||"?"}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
       <div class="meta">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span style="color:var(--muted)">${esc(r.note)}</span>`:""}</div>
     </div>
     <div class="pts"><b>${(+r.pts||0)}</b><span>pt</span></div>
@@ -433,8 +455,8 @@ function render(){
   $("#poolCount").textContent = db.riders.length;
   const pool = [...db.riders].sort((a,b)=>b.pts-a.pts);
   $("#poolList").innerHTML = pool.length ? pool.map(r=>riderRow(r,
-     `<button class="sm ghost" onclick="toggle('${r.id}')">${r.inTeam?"−":"+"}</button>
-      <button class="x" onclick="del('${r.id}')">🗑️</button>`)).join("")
+     `<button class="sm ghost ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd in ploeg">📌</button>
+      <button class="sm ghost ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit in ploeg">🚫</button>`)).join("")
      : `<div class="empty">Nog geen renners toegevoegd.</div>`;
 
   // info-schermen
@@ -446,6 +468,8 @@ function render(){
 // ---- actions (global for inline handlers) ----
 window.toggle = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.inTeam=!r.inTeam; save(); } };
 window.del = id=>{ db.riders = db.riders.filter(x=>x.id!==id); save(); };
+window.togglePin = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.pin=!r.pin; if(r.pin){ r.ban=false; r.inTeam=true; } buildBestTeam(); } };
+window.toggleBan = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.ban=!r.ban; if(r.ban){ r.pin=false; r.inTeam=false; } buildBestTeam(); } };
 window.applySwap = (outId,inId)=>{
   const o=db.riders.find(x=>x.id===outId), i=db.riders.find(x=>x.id===inId);
   if(o)o.inTeam=false; if(i)i.inTeam=true; save();

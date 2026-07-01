@@ -67,3 +67,8 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 2026-07-01 — App uitgebreid: Agents-tab (alle agents + uitleg), Volgende rit-kaart (rittenschema 2026 + datumlogica), en Waarom-deze-ploeg-uitleg + per-renner reden.
 - data/stages-2026.json toegevoegd; consolidator geeft agents+stages mee in ratings.json.
 - Getest in preview: volgende rit = Rit 1 ploegentijdrit, teamlogica + 10 agent-kaarten tonen. PASS.
+
+2026-07-01 — Pin/ban toegevoegd: renner altijd (pin) of nooit (ban) in ploeg.
+- Renners-tab knoppen 📌/🚫; togglePin/toggleBan herbouwen ploeg meteen.
+- buildBestTeam: bans eruit, pins gereserveerd, dan dekking + knapsack. Advies respecteert pins/bans.
+- Pins/bans blijven bij data-refresh. Getest: ban Pogacar (eruit) + pin De Lie (erin), 16/100M, dekking OK.

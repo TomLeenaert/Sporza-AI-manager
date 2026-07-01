@@ -8,6 +8,8 @@
     { "id": 3, "name": "Beste ploeg samenstellen binnen budget/grootte", "passes": true },
     { "id": 4, "name": "Wissel-advies binnen budget/transfers", "passes": true },
     { "id": 5, "name": "Mobiele tab-layout", "passes": true },
+    { "id": 9, "name": "Pin/ban: renner altijd (📌) of nooit (🚫) forceren; reken-agent respecteert dit", "passes": true },
+    { "id": 10, "name": "Agents-tab + Volgende rit + Waarom-deze-ploeg uitleg", "passes": true },
     { "id": 6, "name": "App leest een consolidated ratings-bestand (data-contract)", "passes": true },
     { "id": 7, "name": "Online via GitHub Pages: tomleenaert.github.io/Sporza-AI-manager", "passes": true },
     { "id": 8, "name": "Dagelijkse cloud-run vult verse data terwijl Tom op reis is", "passes": false }
