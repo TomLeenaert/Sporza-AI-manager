@@ -31,9 +31,8 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
       Info-type, geen analist. Research-agent ververst dagelijks.
 - [x] **S4.2 Ploegtactiek-agent** — DONE. type "teamboost" in consolidator; ploegtactiek-2026.json boost
       aanvallende teams (EF/Uno-X/Tudor…). Toont als 14e analist.
-- [ ] **S4.3 Differential-agent** — nieuw type "ownership" ({ "type":"ownership", "pct": { "Naam": 12 } });
-      renners met lage eigenaarschap-% én goede score krijgen een lichte boost (max 1.1) en een
-      "differential"-badge in de app. Zonder data = geen effect. Research-agent vult pct later.
+- [x] **S4.3 Differential-agent** — DONE. type "ownership"; lage eigenaarschap-% -> lichte boost (max 1.1)
+      + 💎-badge op ploeg/renners. differential-2026.json seed (schatting), research vult echte %. 15e analist.
 - [ ] **S4.4 Voorbeschouwing- + vlucht-inzicht** — breid `scripts/daily-research.md` uit zodat de
       dagelijkse agent ook weer (S4.1), recap (S3.3), ownership (S4.3) en voorbeschouwing/vluchtkansen
       onderhoudt. (Geen app-wijziging; enkel de prompt.)

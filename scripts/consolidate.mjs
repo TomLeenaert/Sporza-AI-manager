@@ -17,7 +17,7 @@ const riders = JSON.parse(readFileSync(join(root, "data/riders.json"), "utf8"));
 const sigDir = join(root, "data/signals");
 
 let roleWeight = {}, roleOf = {}, defaultRole = "knecht";
-let formAdj = {}, notes = {}, coverage = {}, tiers = null, ttt = null, strat = null, teamBoost = {};
+let formAdj = {}, notes = {}, coverage = {}, tiers = null, ttt = null, strat = null, teamBoost = {}, ownership = {};
 const excluded = new Set();   // opgegeven / niet-gestarte renners (research-agent)
 const agentsMeta = [];
 let recap = null;             // gisteren/vandaag-verhaal (research-agent)
@@ -39,6 +39,7 @@ for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
   else if (type === "ttt") highlights = [`Sterke teams: ${(s.strongTeams || []).join(", ")}`];
   else if (type === "strategy") highlights = (s.regels || []).slice(0, 6);
   else if (type === "teamboost") highlights = Object.entries(s.teams || {}).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([t,m])=>`${t} (+${Math.round((m-1)*100)}%)`);
+  else if (type === "ownership") highlights = Object.entries(s.pct || {}).sort((a,b)=>a[1]-b[1]).slice(0,5).map(([n,p])=>`${n} — ${p}% managers`);
   agentsMeta.push({ agent: s.agent || f.replace(/\.json$/, ""), type, datum: s.datum || "", uitleg: s.uitleg || "", bron: s.bron || "", highlights });
   if (type === "parcours") {
     roleWeight = { ...roleWeight, ...(s.rolgewicht || {}) };
@@ -57,6 +58,8 @@ for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
     strat = { arch: s.archetypeMult || {}, trap: s.trap || null };
   } else if (type === "teamboost") {
     teamBoost = { ...teamBoost, ...(s.teams || {}) };
+  } else if (type === "ownership") {
+    ownership = { ...ownership, ...(s.pct || {}) };
   } else { // form: multipliers -> additieve aanpassing die stapelt en gedempt wordt
     for (const [naam, sig] of Object.entries(s.signalen || {})) {
       formAdj[naam] = (formAdj[naam] || 0) + ((sig.mult ?? 1) - 1);
@@ -83,8 +86,12 @@ const ratings = riders.riders.map(r => {
     if (tr && (tr.roles || []).includes(rol) && r.v >= (tr.minValue ?? 4)) stratMult *= (tr.mult ?? 1);
   }
   const tbMult = teamBoost[r.t] ?? 1;
-  const pts = Math.round(r.v * BASE * rw * vorm * tierMult(r.v) * tttMult * stratMult * tbMult);
-  return { name: r.n, team: r.t, price: r.v, rol, pts, note: notes[r.n] || "" };
+  // Differential: renners met weinig managers krijgen een lichte boost + een vlag voor de app.
+  let diffMult = 1, differential = false;
+  const own = ownership[r.n];
+  if (own != null && own < 20) { diffMult = 1 + Math.min(0.10, (20 - own) / 20 * 0.10); differential = own < 15; }
+  const pts = Math.round(r.v * BASE * rw * vorm * tierMult(r.v) * tttMult * stratMult * tbMult * diffMult);
+  return { name: r.n, team: r.t, price: r.v, rol, pts, note: notes[r.n] || "", differential };
 });
 
 // Rittenschema meenemen (indien aanwezig).

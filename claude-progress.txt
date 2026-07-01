@@ -127,3 +127,6 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 
 2026-07-01 — LOOP S4.2 (ploegtactiek-agent): type "teamboost"; ploegtactiek-2026.json boost aanvallende teams.
 - EF/Uno-X/Tudor/Cofidis/Total... +5-10%. 14e analist. Getest: 16/100M, dekking OK.
+
+2026-07-01 — LOOP S4.3 (differential-agent): type "ownership"; lage eigenaarschap-% -> boost + 💎-badge.
+- differential-2026.json seed (schatting). 15e analist. Getest: 4 differentials in ploeg, 16/100M.

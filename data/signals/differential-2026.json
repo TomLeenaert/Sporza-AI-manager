@@ -1,0 +1,15 @@
+{
+  "agent": "differential-agent",
+  "type": "ownership",
+  "datum": "2026-07-01",
+  "bron": "schatting — wordt door de dagelijkse research vervangen door echte eigenaarschap-%",
+  "uitleg": "Renners die weinig managers hebben maar toch scoren, laten je STIJGEN in het klassement (terwijl de populaire toppers iedereen even veel opleveren). Lage eigenaarschap-% + goede score = een lichte differential-boost.",
+  "pct": {
+    "Mathias Vacek": 8,
+    "Kevin Vauquelin": 12,
+    "Tobias Johannessen": 9,
+    "Ben Healy": 14,
+    "Quinn Simmons": 6,
+    "Marc Hirschi": 11
+  }
+}

@@ -338,6 +338,20 @@
   },
   "agents": [
     {
+      "agent": "differential-agent",
+      "type": "ownership",
+      "datum": "2026-07-01",
+      "uitleg": "Renners die weinig managers hebben maar toch scoren, laten je STIJGEN in het klassement (terwijl de populaire toppers iedereen even veel opleveren). Lage eigenaarschap-% + goede score = een lichte differential-boost.",
+      "bron": "schatting — wordt door de dagelijkse research vervangen door echte eigenaarschap-%",
+      "highlights": [
+        "Quinn Simmons — 6% managers",
+        "Mathias Vacek — 8% managers",
+        "Tobias Johannessen — 9% managers",
+        "Marc Hirschi — 11% managers",
+        "Kevin Vauquelin — 12% managers"
+      ]
+    },
+    {
       "agent": "vorm/uitslagen-agent",
       "type": "form",
       "datum": "2026-07-01",
@@ -661,7 +675,8 @@
       "price": 12,
       "rol": "gc",
       "pts": 1357,
-      "note": "domineerde Ronde van Zwitserland (solo 72km + ITT)"
+      "note": "domineerde Ronde van Zwitserland (solo 72km + ITT)",
+      "differential": false
     },
     {
       "name": "Jonas Vingegaard",
@@ -669,7 +684,8 @@
       "price": 10,
       "rol": "gc",
       "pts": 953,
-      "note": "geel ~5.0 - eerste uitdager"
+      "note": "geel ~5.0 - eerste uitdager",
+      "differential": false
     },
     {
       "name": "Remco Evenepoel",
@@ -677,7 +693,8 @@
       "price": 9,
       "rol": "gc",
       "pts": 682,
-      "note": "geel 16/1 - beste van de rest"
+      "note": "geel 16/1 - beste van de rest",
+      "differential": false
     },
     {
       "name": "Jasper Philipsen",
@@ -685,7 +702,8 @@
       "price": 9,
       "rol": "sprinter",
       "pts": 640,
-      "note": "korte notering massasprint"
+      "note": "korte notering massasprint",
+      "differential": false
     },
     {
       "name": "Florian Lipowitz",
@@ -693,7 +711,8 @@
       "price": 8,
       "rol": "gc",
       "pts": 624,
-      "note": "podium-notering"
+      "note": "podium-notering",
+      "differential": false
     },
     {
       "name": "Tim Merlier",
@@ -701,7 +720,8 @@
       "price": 9,
       "rol": "sprinter",
       "pts": 609,
-      "note": "korte notering massasprint"
+      "note": "korte notering massasprint",
+      "differential": false
     },
     {
       "name": "Mads Pedersen",
@@ -709,7 +729,8 @@
       "price": 8,
       "rol": "sprinter",
       "pts": 575,
-      "note": "favoriet ritzeges/groen"
+      "note": "favoriet ritzeges/groen",
+      "differential": false
     },
     {
       "name": "Mathieu van der Poel",
@@ -717,7 +738,8 @@
       "price": 8,
       "rol": "klassieker",
       "pts": 528,
-      "note": "ritten + gele trui vroege week"
+      "note": "ritten + gele trui vroege week",
+      "differential": false
     },
     {
       "name": "Isaac Del Toro",
@@ -725,7 +747,8 @@
       "price": 7,
       "rol": "gc",
       "pts": 493,
-      "note": "won de Dauphine - topvorm richting Tour"
+      "note": "won de Dauphine - topvorm richting Tour",
+      "differential": false
     },
     {
       "name": "Paul Seixas",
@@ -733,7 +756,8 @@
       "price": 8,
       "rol": "gc",
       "pts": 478,
-      "note": "viel en gaf op in Dauphine - vormtwijfel"
+      "note": "viel en gaf op in Dauphine - vormtwijfel",
+      "differential": false
     },
     {
       "name": "Juan Ayuso",
@@ -741,15 +765,26 @@
       "price": 7,
       "rol": "gc",
       "pts": 438,
-      "note": "top-5 notering"
+      "note": "top-5 notering",
+      "differential": false
     },
     {
       "name": "Tobias Johannessen",
       "team": "Uno-X",
       "price": 6,
       "rol": "gc",
-      "pts": 401,
-      "note": ""
+      "pts": 423,
+      "note": "",
+      "differential": true
+    },
+    {
+      "name": "Kevin Vauquelin",
+      "team": "INEOS",
+      "price": 6,
+      "rol": "gc",
+      "pts": 398,
+      "note": "sterke jonge klimmer, ritkansen",
+      "differential": true
     },
     {
       "name": "Tom Pidcock",
@@ -757,15 +792,8 @@
       "price": 6,
       "rol": "gc",
       "pts": 394,
-      "note": ""
-    },
-    {
-      "name": "Kevin Vauquelin",
-      "team": "INEOS",
-      "price": 6,
-      "rol": "gc",
-      "pts": 383,
-      "note": "sterke jonge klimmer, ritkansen"
+      "note": "",
+      "differential": false
     },
     {
       "name": "Derek Gee",
@@ -773,7 +801,8 @@
       "price": 6,
       "rol": "gc",
       "pts": 365,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jai Hindley",
@@ -781,7 +810,8 @@
       "price": 6,
       "rol": "gc",
       "pts": 365,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matteo Jorgenson",
@@ -789,7 +819,8 @@
       "price": 6,
       "rol": "gc",
       "pts": 365,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Olav Kooij",
@@ -797,7 +828,17 @@
       "price": 7,
       "rol": "sprinter",
       "pts": 347,
-      "note": ""
+      "note": "",
+      "differential": false
+    },
+    {
+      "name": "Ben Healy",
+      "team": "EF Education",
+      "price": 5,
+      "rol": "aanvaller",
+      "pts": 275,
+      "note": "aanvaller, ritten + tijd in trui",
+      "differential": true
     },
     {
       "name": "Richard Carapaz",
@@ -805,7 +846,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 275,
-      "note": "2e in Ronde van Zwitserland - sterke klimvorm"
+      "note": "2e in Ronde van Zwitserland - sterke klimvorm",
+      "differential": false
     },
     {
       "name": "Antonio Tiberi",
@@ -813,15 +855,8 @@
       "price": 5,
       "rol": "gc",
       "pts": 271,
-      "note": ""
-    },
-    {
-      "name": "Ben Healy",
-      "team": "EF Education",
-      "price": 5,
-      "rol": "aanvaller",
-      "pts": 267,
-      "note": "aanvaller, ritten + tijd in trui"
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ben O'Connor",
@@ -829,7 +864,8 @@
       "price": 5,
       "rol": "gc",
       "pts": 258,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Cian Uijtdebroeks",
@@ -837,7 +873,8 @@
       "price": 5,
       "rol": "gc",
       "pts": 258,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Egan Bernal",
@@ -845,7 +882,8 @@
       "price": 5,
       "rol": "gc",
       "pts": 258,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Mattias Skjelmose",
@@ -853,7 +891,8 @@
       "price": 5,
       "rol": "gc",
       "pts": 258,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lenny Martinez",
@@ -861,7 +900,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 255,
-      "note": "dapper weerwerk in Zwitserse slotrit"
+      "note": "dapper weerwerk in Zwitserse slotrit",
+      "differential": false
     },
     {
       "name": "Adam Yates",
@@ -869,7 +909,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 230,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Davide Piganzoli",
@@ -877,7 +918,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 230,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matthew Riccitello",
@@ -885,7 +927,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 230,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Sepp Kuss",
@@ -893,7 +936,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 230,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Thymen Arensman",
@@ -901,7 +945,8 @@
       "price": 5,
       "rol": "klimmer",
       "pts": 230,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Romain Gregoire",
@@ -909,7 +954,8 @@
       "price": 5,
       "rol": "puncheur",
       "pts": 226,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Biniam Girmay",
@@ -917,7 +963,17 @@
       "price": 5,
       "rol": "sprinter",
       "pts": 223,
-      "note": "in vorm, sprint + puncheur"
+      "note": "in vorm, sprint + puncheur",
+      "differential": false
+    },
+    {
+      "name": "Mathias Vacek",
+      "team": "Lidl-Trek",
+      "price": 4,
+      "rol": "klimmer",
+      "pts": 218,
+      "note": "verrassend 3e in Ronde van Zwitserland - koopje (4M)",
+      "differential": true
     },
     {
       "name": "Filippo Ganna",
@@ -925,15 +981,8 @@
       "price": 5,
       "rol": "tijdrit",
       "pts": 211,
-      "note": ""
-    },
-    {
-      "name": "Mathias Vacek",
-      "team": "Lidl-Trek",
-      "price": 4,
-      "rol": "klimmer",
-      "pts": 206,
-      "note": "verrassend 3e in Ronde van Zwitserland - koopje (4M)"
+      "note": "",
+      "differential": false
     },
     {
       "name": "Georg Steinhauser",
@@ -941,7 +990,8 @@
       "price": 4,
       "rol": "aanvaller",
       "pts": 203,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Alex Baudin",
@@ -949,7 +999,8 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 202,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Quinten Hermans",
@@ -957,7 +1008,8 @@
       "price": 4,
       "rol": "aanvaller",
       "pts": 200,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jordan Jegat",
@@ -965,7 +1017,8 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 198,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Michael Storer",
@@ -973,7 +1026,17 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 198,
-      "note": ""
+      "note": "",
+      "differential": false
+    },
+    {
+      "name": "Quinn Simmons",
+      "team": "Lidl-Trek",
+      "price": 4,
+      "rol": "aanvaller",
+      "pts": 198,
+      "note": "",
+      "differential": true
     },
     {
       "name": "Guillaume Martin",
@@ -981,7 +1044,17 @@
       "price": 4,
       "rol": "aanvaller",
       "pts": 194,
-      "note": ""
+      "note": "",
+      "differential": false
+    },
+    {
+      "name": "Marc Hirschi",
+      "team": "Tudor",
+      "price": 4,
+      "rol": "puncheur",
+      "pts": 194,
+      "note": "",
+      "differential": true
     },
     {
       "name": "Alex Aranburu",
@@ -989,7 +1062,8 @@
       "price": 4,
       "rol": "puncheur",
       "pts": 186,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Julian Alaphilippe",
@@ -997,15 +1071,8 @@
       "price": 4,
       "rol": "puncheur",
       "pts": 186,
-      "note": ""
-    },
-    {
-      "name": "Marc Hirschi",
-      "team": "Tudor",
-      "price": 4,
-      "rol": "puncheur",
-      "pts": 186,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matteo Trentin",
@@ -1013,15 +1080,8 @@
       "price": 4,
       "rol": "klassieker",
       "pts": 185,
-      "note": ""
-    },
-    {
-      "name": "Quinn Simmons",
-      "team": "Lidl-Trek",
-      "price": 4,
-      "rol": "aanvaller",
-      "pts": 185,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Soren Waerenskjold",
@@ -1029,7 +1089,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 185,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Carlos Rodriguez",
@@ -1037,7 +1098,8 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 184,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Einer Rubio",
@@ -1045,7 +1107,8 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 184,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Harold Tejada",
@@ -1053,7 +1116,8 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 184,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Valentin Paret-Peintre",
@@ -1061,7 +1125,8 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 184,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Arvid de Kleijn",
@@ -1069,7 +1134,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 182,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Milan Fretin",
@@ -1077,7 +1143,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 182,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Sam Bennett",
@@ -1085,7 +1152,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 182,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Arnaud De Lie",
@@ -1093,7 +1161,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 178,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Phil Bauhaus",
@@ -1101,7 +1170,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 177,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Maxim Van Gils",
@@ -1109,7 +1179,8 @@
       "price": 4,
       "rol": "puncheur",
       "pts": 172,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Michael Matthews",
@@ -1117,7 +1188,8 @@
       "price": 4,
       "rol": "puncheur",
       "pts": 172,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jasper Stuyven",
@@ -1125,7 +1197,8 @@
       "price": 4,
       "rol": "klassieker",
       "pts": 171,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Tiesj Benoot",
@@ -1133,7 +1206,8 @@
       "price": 4,
       "rol": "klassieker",
       "pts": 171,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Toms Skujins",
@@ -1141,7 +1215,8 @@
       "price": 3,
       "rol": "aanvaller",
       "pts": 171,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Joshua Tarling",
@@ -1149,7 +1224,8 @@
       "price": 4,
       "rol": "tijdrit",
       "pts": 169,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Victor Campenaerts",
@@ -1157,7 +1233,8 @@
       "price": 4,
       "rol": "tijdrit",
       "pts": 169,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Fernando Gaviria",
@@ -1165,7 +1242,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 168,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Pascal Ackermann",
@@ -1173,7 +1251,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 168,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Pavel Bittner",
@@ -1181,7 +1260,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 168,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Sam Welsford",
@@ -1189,7 +1269,8 @@
       "price": 4,
       "rol": "sprinter",
       "pts": 168,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Edoardo Affini",
@@ -1197,7 +1278,8 @@
       "price": 3,
       "rol": "tijdrit",
       "pts": 156,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Magnus Cort",
@@ -1205,7 +1287,8 @@
       "price": 3,
       "rol": "aanvaller",
       "pts": 126,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ewen Costiou",
@@ -1213,7 +1296,8 @@
       "price": 3,
       "rol": "aanvaller",
       "pts": 120,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matej Mohoric",
@@ -1221,7 +1305,8 @@
       "price": 3,
       "rol": "aanvaller",
       "pts": 120,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Warren Barguil",
@@ -1229,7 +1314,8 @@
       "price": 3,
       "rol": "aanvaller",
       "pts": 114,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Aurelien Paret-Peintre",
@@ -1237,7 +1323,8 @@
       "price": 3,
       "rol": "klimmer",
       "pts": 113,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Nicolas Prodhomme",
@@ -1245,7 +1332,8 @@
       "price": 3,
       "rol": "klimmer",
       "pts": 113,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "John Degenkolb",
@@ -1253,7 +1341,8 @@
       "price": 3,
       "rol": "klassieker",
       "pts": 106,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Cees Bol",
@@ -1261,7 +1350,8 @@
       "price": 3,
       "rol": "sprinter",
       "pts": 104,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Edward Planckaert",
@@ -1269,7 +1359,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 52,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ramses Debruyne",
@@ -1277,7 +1368,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 52,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "AJ August",
@@ -1285,7 +1377,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Artem Shmidt",
@@ -1293,7 +1386,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Bob Jungels",
@@ -1301,7 +1395,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Brandon Rivera",
@@ -1309,7 +1404,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Carlos Verona",
@@ -1317,7 +1413,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Dylan van Baarle",
@@ -1325,7 +1422,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Embret Svestad-Bardseng",
@@ -1333,7 +1431,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Felix Grossschartner",
@@ -1341,7 +1440,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jack Haig",
@@ -1349,7 +1449,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jan Tratnik",
@@ -1357,7 +1458,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Laurens De Plus",
@@ -1365,7 +1467,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Mattia Cattaneo",
@@ -1373,7 +1476,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Michal Kwiatkowski",
@@ -1381,7 +1485,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Nico Denz",
@@ -1389,7 +1494,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Nils Politt",
@@ -1397,7 +1503,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Pascal Eenkhoorn",
@@ -1405,7 +1512,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Sam Watson",
@@ -1413,7 +1521,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Tim van Dijke",
@@ -1421,7 +1530,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Tobias Foss",
@@ -1429,7 +1539,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Victor Langellotti",
@@ -1437,7 +1548,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 50,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Aime De Gendt",
@@ -1445,7 +1557,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Alexandre Delettre",
@@ -1453,7 +1566,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Anthon Charmig",
@@ -1461,7 +1575,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Anthony Turgis",
@@ -1469,7 +1584,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Benjamin Thomas",
@@ -1477,7 +1593,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Brent Van Moer",
@@ -1485,7 +1602,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Chris Harper",
@@ -1493,7 +1611,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "David De La Cruz",
@@ -1501,7 +1620,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "David Gonzalez",
@@ -1509,7 +1629,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Emmanuel Houcou",
@@ -1517,7 +1638,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Fabio Christen",
@@ -1525,7 +1647,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Fred Wright",
@@ -1533,7 +1656,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Hugo Page",
@@ -1541,7 +1665,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ion Izagirre",
@@ -1549,7 +1674,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jenthe Biermans",
@@ -1557,7 +1683,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Kasper Asgreen",
@@ -1565,7 +1692,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Milan Vader",
@@ -1573,7 +1701,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Rick Pluimers",
@@ -1581,7 +1710,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Torstein Traen",
@@ -1589,7 +1719,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Xandro Meurisse",
@@ -1597,7 +1728,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Yannis Voisard",
@@ -1605,7 +1737,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jonas Rickaert",
@@ -1613,7 +1746,8 @@
       "price": 2,
       "rol": "leadout",
       "pts": 36,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Clement Berthet",
@@ -1621,7 +1755,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 35,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Clement Russo",
@@ -1629,7 +1764,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 35,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Georg Zimmermann",
@@ -1637,7 +1773,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 35,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jenno Berckmoes",
@@ -1645,7 +1782,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 35,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Quentin Pacher",
@@ -1653,7 +1791,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 35,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Abel Balderstone",
@@ -1661,7 +1800,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Frank van den Broek",
@@ -1669,7 +1809,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Frits Biesterbos",
@@ -1677,7 +1818,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "George Bennett",
@@ -1685,7 +1827,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jake Stewart",
@@ -1693,7 +1836,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Javier Romo",
@@ -1701,7 +1845,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jefferson Cepeda",
@@ -1709,7 +1854,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lewis Askey",
@@ -1717,7 +1863,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Marco Frigo",
@@ -1725,7 +1872,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Mike Teunissen",
@@ -1733,7 +1881,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Pablo Castrillo",
@@ -1741,7 +1890,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Raul Garcia Pierna",
@@ -1749,7 +1899,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Sergio Higuita",
@@ -1757,7 +1908,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Simone Velasco",
@@ -1765,7 +1917,8 @@
       "price": 3,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ben Swift",
@@ -1773,7 +1926,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Bert Van Lerberghe",
@@ -1781,7 +1935,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Connor Swift",
@@ -1789,7 +1944,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Kim Heiduk",
@@ -1797,7 +1953,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Louis Vervaeke",
@@ -1805,7 +1962,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lucas Hamilton",
@@ -1813,7 +1971,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 33,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jonas Abrahamsen",
@@ -1821,7 +1980,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 27,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Michael Valgren",
@@ -1829,7 +1989,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 27,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Eddie Dunbar",
@@ -1837,7 +1998,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 26,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lennert Van Eetvelt",
@@ -1845,7 +2007,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 26,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matteo Moschetti",
@@ -1853,7 +2016,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 26,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Damiano Caruso",
@@ -1861,7 +2025,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 25,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Davide Ballerini",
@@ -1869,7 +2034,8 @@
       "price": 4,
       "rol": "leadout",
       "pts": 25,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Emiel Verstrynge",
@@ -1877,7 +2043,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 25,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Axel Laurance",
@@ -1885,7 +2052,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ben Turner",
@@ -1893,7 +2061,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Brandon McNulty",
@@ -1901,7 +2070,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Bruno Armirail",
@@ -1909,7 +2079,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Daan Hoole",
@@ -1917,7 +2088,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Dorian Godon",
@@ -1925,7 +2097,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Florian Vermeersch",
@@ -1933,7 +2106,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Ilan Van Wilder",
@@ -1941,7 +2115,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lucas Plapp",
@@ -1949,7 +2124,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Magnus Sheffield",
@@ -1957,7 +2133,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Mauro Schmid",
@@ -1965,7 +2142,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Max Kanter",
@@ -1973,7 +2151,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Per Strand Hagenes",
@@ -1981,7 +2160,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Tim Wellens",
@@ -1989,7 +2169,8 @@
       "price": 4,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Alex Kirsch",
@@ -1997,7 +2178,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Anders Johannessen",
@@ -2005,7 +2187,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Anders Skaarseth",
@@ -2013,7 +2196,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Damien Howson",
@@ -2021,7 +2205,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Emils Liepins",
@@ -2029,7 +2214,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Frederik Frison",
@@ -2037,7 +2223,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Harm Vanhoucke",
@@ -2045,7 +2232,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Joe Pidcock",
@@ -2053,7 +2241,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Joris Delbove",
@@ -2061,7 +2250,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Kamil Malecki",
@@ -2069,7 +2259,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Marcel Camprubi",
@@ -2077,7 +2268,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Marco Haller",
@@ -2085,7 +2277,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Mark Donovan",
@@ -2093,7 +2286,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Mathis Le Berre",
@@ -2101,7 +2295,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matteo Badilatti",
@@ -2109,7 +2304,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matteo Vercher",
@@ -2117,7 +2313,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Max Walker",
@@ -2125,7 +2322,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Nick Zukowsky",
@@ -2133,7 +2331,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Nicolas Breuillard",
@@ -2141,7 +2340,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 24,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Baptiste Veistroffer",
@@ -2149,7 +2349,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Clement Braz Afonso",
@@ -2157,7 +2358,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Huub Artz",
@@ -2165,7 +2367,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Kamil Gradek",
@@ -2173,7 +2376,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lars Craps",
@@ -2181,7 +2385,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Liam Slock",
@@ -2189,7 +2394,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Lorenzo Germani",
@@ -2197,7 +2403,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 23,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Aaron Gate",
@@ -2205,7 +2412,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Alex Molenaar",
@@ -2213,7 +2421,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Felix Engelhardt",
@@ -2221,7 +2430,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jakub Otruba",
@@ -2229,7 +2439,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Joel Nicolau",
@@ -2237,7 +2448,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Jose Felix Parra",
@@ -2245,7 +2457,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Julius van den Berg",
@@ -2253,7 +2466,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Kelland O'Brien",
@@ -2261,7 +2475,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Krists Neilands",
@@ -2269,7 +2484,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Luke Durbridge",
@@ -2277,7 +2493,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Matis Louvel",
@@ -2285,7 +2502,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Michel Hessmann",
@@ -2293,7 +2511,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Nelson Oliveira",
@@ -2301,7 +2520,8 @@
       "price": 2,
       "rol": "knecht",
       "pts": 22,
-      "note": ""
+      "note": "",
+      "differential": false
     },
     {
       "name": "Oscar Onley",
@@ -2341,7 +2561,7 @@ async function loadRealData(force){
       const pins=new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
       const bans=new Set(db.riders.filter(r=>r.ban).map(r=>r.name));
       db.riders = data.riders.map(r=>({ id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
-        rol:r.rol||"knecht", note:r.note||"", pin:pins.has(r.name), ban:bans.has(r.name),
+        rol:r.rol||"knecht", note:r.note||"", differential:!!r.differential, pin:pins.has(r.name), ban:bans.has(r.name),
         inTeam: keep.has(r.name)||pins.has(r.name) }));
       const stamp=$("#dataStamp"); if(stamp) stamp.textContent="Data bijgewerkt: "+(data.updated||"?");
       if(force || !team().length) buildBestTeam();
@@ -2478,6 +2698,7 @@ const AGENT_META={
   "uitslagen-agent":{naam:"Verslaggever",tag:"NIEUWS · UITSLAGEN",col:"#ff96a6"},
   "meta-strateeg":{naam:"Meta-strateeg",tag:"WINSTPATRONEN · HISTORIEK",col:"#ffb84e"},
   "ploegtactiek-agent":{naam:"Ploegtactiek-analist",tag:"KOERSSTIJL · TEAMS",col:"#5ad1a0"},
+  "differential-agent":{naam:"Differential-analist",tag:"WEINIG MANAGERS · KANS",col:"#c6a0ff"},
   "non-starter-agent":{naam:"Non-starter-agent",tag:"OPGAVES · NIET GESTART",col:"#ff5470"}
 };
 function analystList(){
@@ -2569,7 +2790,7 @@ function renderSquad(){
         <div class="price">${money(r.price)}</div>
         <div class="role" style="background:${col}">${ROL_AB[r.rol]||"?"}</div>
       </div>
-      <div class="nm">${r.id===capId?"👑 ":""}${r.pin?"📌 ":""}${esc(r.name)}</div>
+      <div class="nm">${r.id===capId?"👑 ":""}${r.pin?"📌 ":""}${r.differential?"💎 ":""}${esc(r.name)}</div>
       <div class="tm"><span class="sw" style="background:oklch(0.8 0.13 ${hue})"></span><span>${esc(r.team)}</span></div>
       <div class="ptsrow"><div class="top2"><span>PUNTEN</span><span style="color:${col}">${r.pts}</span></div>
         <div class="track"><div class="fill" style="width:${pct}%"></div></div></div>
@@ -2622,7 +2843,7 @@ function renderTeamLogic(){
 function riderRow(r,actions){
   const rol=ROL_LABEL[r.rol]||r.rol||""; const cls=r.pin?" pin":(r.ban?" ban":"");
   return `<div class="rider${cls}"><div class="ri">
-      <div class="rn">${r.pin?"📌 ":""}${esc(r.name)}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
+      <div class="rn">${r.pin?"📌 ":""}${r.differential?"💎 ":""}${esc(r.name)}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
       <div class="rm">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span>${esc(r.note)}</span>`:""}</div>
     </div><div class="rp"><b>${(+r.pts||0)}</b><span style="font-size:10px;color:var(--muted)">pt</span></div>${actions||""}</div>`;
 }

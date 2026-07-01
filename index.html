@@ -355,7 +355,7 @@ async function loadRealData(force){
       const pins=new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
       const bans=new Set(db.riders.filter(r=>r.ban).map(r=>r.name));
       db.riders = data.riders.map(r=>({ id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
-        rol:r.rol||"knecht", note:r.note||"", pin:pins.has(r.name), ban:bans.has(r.name),
+        rol:r.rol||"knecht", note:r.note||"", differential:!!r.differential, pin:pins.has(r.name), ban:bans.has(r.name),
         inTeam: keep.has(r.name)||pins.has(r.name) }));
       const stamp=$("#dataStamp"); if(stamp) stamp.textContent="Data bijgewerkt: "+(data.updated||"?");
       if(force || !team().length) buildBestTeam();
@@ -492,6 +492,7 @@ const AGENT_META={
   "uitslagen-agent":{naam:"Verslaggever",tag:"NIEUWS · UITSLAGEN",col:"#ff96a6"},
   "meta-strateeg":{naam:"Meta-strateeg",tag:"WINSTPATRONEN · HISTORIEK",col:"#ffb84e"},
   "ploegtactiek-agent":{naam:"Ploegtactiek-analist",tag:"KOERSSTIJL · TEAMS",col:"#5ad1a0"},
+  "differential-agent":{naam:"Differential-analist",tag:"WEINIG MANAGERS · KANS",col:"#c6a0ff"},
   "non-starter-agent":{naam:"Non-starter-agent",tag:"OPGAVES · NIET GESTART",col:"#ff5470"}
 };
 function analystList(){
@@ -583,7 +584,7 @@ function renderSquad(){
         <div class="price">${money(r.price)}</div>
         <div class="role" style="background:${col}">${ROL_AB[r.rol]||"?"}</div>
       </div>
-      <div class="nm">${r.id===capId?"👑 ":""}${r.pin?"📌 ":""}${esc(r.name)}</div>
+      <div class="nm">${r.id===capId?"👑 ":""}${r.pin?"📌 ":""}${r.differential?"💎 ":""}${esc(r.name)}</div>
       <div class="tm"><span class="sw" style="background:oklch(0.8 0.13 ${hue})"></span><span>${esc(r.team)}</span></div>
       <div class="ptsrow"><div class="top2"><span>PUNTEN</span><span style="color:${col}">${r.pts}</span></div>
         <div class="track"><div class="fill" style="width:${pct}%"></div></div></div>
@@ -636,7 +637,7 @@ function renderTeamLogic(){
 function riderRow(r,actions){
   const rol=ROL_LABEL[r.rol]||r.rol||""; const cls=r.pin?" pin":(r.ban?" ban":"");
   return `<div class="rider${cls}"><div class="ri">
-      <div class="rn">${r.pin?"📌 ":""}${esc(r.name)}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
+      <div class="rn">${r.pin?"📌 ":""}${r.differential?"💎 ":""}${esc(r.name)}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
       <div class="rm">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span>${esc(r.note)}</span>`:""}</div>
     </div><div class="rp"><b>${(+r.pts||0)}</b><span style="font-size:10px;color:var(--muted)">pt</span></div>${actions||""}</div>`;
 }
