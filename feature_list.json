@@ -21,7 +21,7 @@
     { "id": "Arol","name": "Rol-agent — profiel per renner (fixt overschatting knechten)", "passes": true },
     { "id": "A6",  "name": "Historiek-agent — tier-curve: elites concentreren punten", "passes": true },
     { "id": "Aspread", "name": "Spreidings-agent — dek elk rittype (sprint/berg/TT) af", "passes": true },
-    { "id": "Attt", "name": "TTT-agent — goedkope ploegmaats van sterke ploegentijdrit-teams", "passes": false },
+    { "id": "Attt", "name": "TTT-agent — goedkope ploegmaats van sterke ploegentijdrit-teams", "passes": true },
     { "id": "A7",  "name": "Weer-agent — wind/regen/hitte per rit", "passes": false },
     { "id": "A8",  "name": "Ploegtactiek-agent — wie rijdt voor klassement vs ritten", "passes": false },
     { "id": "A9",  "name": "Blessure/non-starter-agent — opgaves, zieken, niet-starters", "passes": false },

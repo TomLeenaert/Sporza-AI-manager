@@ -17,7 +17,7 @@ const riders = JSON.parse(readFileSync(join(root, "data/riders.json"), "utf8"));
 const sigDir = join(root, "data/signals");
 
 let roleWeight = {}, roleOf = {}, defaultRole = "knecht";
-let formAdj = {}, notes = {}, coverage = {}, tiers = null;
+let formAdj = {}, notes = {}, coverage = {}, tiers = null, ttt = null;
 
 for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
   const s = JSON.parse(readFileSync(join(sigDir, f), "utf8"));
@@ -31,6 +31,8 @@ for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
     for (const [rol, m] of Object.entries(s.min || {})) coverage[rol] = Math.max(coverage[rol] || 0, m);
   } else if (type === "baseline") {
     tiers = (s.tiers || []).slice().sort((a, b) => b.min - a.min); // hoog->laag
+  } else if (type === "ttt") {
+    ttt = { teams: new Set(s.strongTeams || []), maxValue: s.maxValue ?? 3, boost: s.cheapBoost ?? 1.5 };
   } else { // form: multipliers -> additieve aanpassing die stapelt en gedempt wordt
     for (const [naam, sig] of Object.entries(s.signalen || {})) {
       formAdj[naam] = (formAdj[naam] || 0) + ((sig.mult ?? 1) - 1);
@@ -47,7 +49,8 @@ const ratings = riders.riders.map(r => {
   const rol = roleOf[r.n] || defaultRole;
   const rw = roleWeight[rol] ?? 1;
   const vorm = clamp(1 + (formAdj[r.n] || 0), 0.6, 1.6); // demping tegen ontploffing
-  const pts = Math.round(r.v * BASE * rw * vorm * tierMult(r.v));
+  const tttMult = (ttt && ttt.teams.has(r.t) && r.v <= ttt.maxValue) ? ttt.boost : 1;
+  const pts = Math.round(r.v * BASE * rw * vorm * tierMult(r.v) * tttMult);
   return { name: r.n, team: r.t, price: r.v, rol, pts, note: notes[r.n] || "" };
 });
 

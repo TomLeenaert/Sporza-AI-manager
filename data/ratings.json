@@ -521,6 +521,22 @@
       "note": ""
     },
     {
+      "name": "Edoardo Affini",
+      "team": "Visma",
+      "price": 3,
+      "rol": "tijdrit",
+      "pts": 149,
+      "note": ""
+    },
+    {
+      "name": "Toms Skujins",
+      "team": "Lidl-Trek",
+      "price": 3,
+      "rol": "aanvaller",
+      "pts": 149,
+      "note": ""
+    },
+    {
       "name": "Aurelien Paret-Peintre",
       "team": "Decathlon",
       "price": 3,
@@ -545,14 +561,6 @@
       "note": ""
     },
     {
-      "name": "Edoardo Affini",
-      "team": "Visma",
-      "price": 3,
-      "rol": "tijdrit",
-      "pts": 99,
-      "note": ""
-    },
-    {
       "name": "Ewen Costiou",
       "team": "Groupama-FDJ",
       "price": 3,
@@ -571,14 +579,6 @@
     {
       "name": "Matej Mohoric",
       "team": "Bahrain",
-      "price": 3,
-      "rol": "aanvaller",
-      "pts": 99,
-      "note": ""
-    },
-    {
-      "name": "Toms Skujins",
-      "team": "Lidl-Trek",
       "price": 3,
       "rol": "aanvaller",
       "pts": 99,
@@ -801,6 +801,190 @@
       "note": ""
     },
     {
+      "name": "AJ August",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Artem Shmidt",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Bob Jungels",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Brandon Rivera",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Carlos Verona",
+      "team": "Lidl-Trek",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Dylan van Baarle",
+      "team": "Soudal Quick-Step",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Edward Planckaert",
+      "team": "Alpecin",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Embret Svestad-Bardseng",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Felix Grossschartner",
+      "team": "UAE",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Jack Haig",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Jan Tratnik",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Laurens De Plus",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Mattia Cattaneo",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Michal Kwiatkowski",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Nico Denz",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Nils Politt",
+      "team": "UAE",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Pascal Eenkhoorn",
+      "team": "Soudal Quick-Step",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Ramses Debruyne",
+      "team": "Alpecin",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Sam Watson",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Tim van Dijke",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Tobias Foss",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Victor Langellotti",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 50,
+      "note": ""
+    },
+    {
+      "name": "Jonas Rickaert",
+      "team": "Alpecin",
+      "price": 2,
+      "rol": "leadout",
+      "pts": 38,
+      "note": ""
+    },
+    {
       "name": "Abel Balderstone",
       "team": "Caja Rural",
       "price": 3,
@@ -811,14 +995,6 @@
     {
       "name": "Aime De Gendt",
       "team": "Q36.5",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "AJ August",
-      "team": "INEOS",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -849,14 +1025,6 @@
       "note": ""
     },
     {
-      "name": "Artem Shmidt",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Benjamin Thomas",
       "team": "Cofidis",
       "price": 3,
@@ -865,32 +1033,8 @@
       "note": ""
     },
     {
-      "name": "Bob Jungels",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Brandon Rivera",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Brent Van Moer",
       "team": "Q36.5",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Carlos Verona",
-      "team": "Lidl-Trek",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -937,30 +1081,6 @@
       "note": ""
     },
     {
-      "name": "Dylan van Baarle",
-      "team": "Soudal Quick-Step",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Edward Planckaert",
-      "team": "Alpecin",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Embret Svestad-Bardseng",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Emmanuel Houcou",
       "team": "Q36.5",
       "price": 3,
@@ -971,14 +1091,6 @@
     {
       "name": "Fabio Christen",
       "team": "Q36.5",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Felix Grossschartner",
-      "team": "UAE",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -1041,24 +1153,8 @@
       "note": ""
     },
     {
-      "name": "Jack Haig",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Jake Stewart",
       "team": "NSN",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Jan Tratnik",
-      "team": "Red Bull-BORA",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -1105,14 +1201,6 @@
       "note": ""
     },
     {
-      "name": "Laurens De Plus",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Lewis Askey",
       "team": "NSN",
       "price": 3,
@@ -1123,22 +1211,6 @@
     {
       "name": "Marco Frigo",
       "team": "NSN",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Mattia Cattaneo",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Michal Kwiatkowski",
-      "team": "INEOS",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -1161,22 +1233,6 @@
       "note": ""
     },
     {
-      "name": "Nico Denz",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Nils Politt",
-      "team": "UAE",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Pablo Castrillo",
       "team": "Movistar",
       "price": 3,
@@ -1185,24 +1241,8 @@
       "note": ""
     },
     {
-      "name": "Pascal Eenkhoorn",
-      "team": "Soudal Quick-Step",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Quentin Pacher",
       "team": "Groupama-FDJ",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Ramses Debruyne",
-      "team": "Alpecin",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -1225,14 +1265,6 @@
       "note": ""
     },
     {
-      "name": "Sam Watson",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Sergio Higuita",
       "team": "XDS Astana",
       "price": 3,
@@ -1249,32 +1281,8 @@
       "note": ""
     },
     {
-      "name": "Tim van Dijke",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Tobias Foss",
-      "team": "INEOS",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
       "name": "Torstein Traen",
       "team": "Uno-X",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 33,
-      "note": ""
-    },
-    {
-      "name": "Victor Langellotti",
-      "team": "INEOS",
       "price": 3,
       "rol": "knecht",
       "pts": 33,
@@ -1297,11 +1305,51 @@
       "note": ""
     },
     {
-      "name": "Jonas Rickaert",
-      "team": "Alpecin",
+      "name": "Ben Swift",
+      "team": "INEOS",
       "price": 2,
-      "rol": "leadout",
-      "pts": 25,
+      "rol": "knecht",
+      "pts": 33,
+      "note": ""
+    },
+    {
+      "name": "Bert Van Lerberghe",
+      "team": "Soudal Quick-Step",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 33,
+      "note": ""
+    },
+    {
+      "name": "Connor Swift",
+      "team": "INEOS",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 33,
+      "note": ""
+    },
+    {
+      "name": "Kim Heiduk",
+      "team": "INEOS",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 33,
+      "note": ""
+    },
+    {
+      "name": "Louis Vervaeke",
+      "team": "Soudal Quick-Step",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 33,
+      "note": ""
+    },
+    {
+      "name": "Lucas Hamilton",
+      "team": "INEOS",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 33,
       "note": ""
     },
     {
@@ -1353,32 +1401,8 @@
       "note": ""
     },
     {
-      "name": "Ben Swift",
-      "team": "INEOS",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 22,
-      "note": ""
-    },
-    {
-      "name": "Bert Van Lerberghe",
-      "team": "Soudal Quick-Step",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 22,
-      "note": ""
-    },
-    {
       "name": "Clement Braz Afonso",
       "team": "Groupama-FDJ",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 22,
-      "note": ""
-    },
-    {
-      "name": "Connor Swift",
-      "team": "INEOS",
       "price": 2,
       "rol": "knecht",
       "pts": 22,
@@ -1505,14 +1529,6 @@
       "note": ""
     },
     {
-      "name": "Kim Heiduk",
-      "team": "INEOS",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 22,
-      "note": ""
-    },
-    {
       "name": "Krists Neilands",
       "team": "NSN",
       "price": 2,
@@ -1539,22 +1555,6 @@
     {
       "name": "Lorenzo Germani",
       "team": "Groupama-FDJ",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 22,
-      "note": ""
-    },
-    {
-      "name": "Louis Vervaeke",
-      "team": "Soudal Quick-Step",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 22,
-      "note": ""
-    },
-    {
-      "name": "Lucas Hamilton",
-      "team": "INEOS",
       "price": 2,
       "rol": "knecht",
       "pts": 22,

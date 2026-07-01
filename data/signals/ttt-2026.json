@@ -1,0 +1,10 @@
+{
+  "agent": "ttt-agent",
+  "type": "ttt",
+  "datum": "2026-07-01",
+  "bron": "Sporza-tip: goedkope ploegmaats van sterke ploegentijdrit-teams scoren in de openingsrit (19,7km TTT Barcelona)",
+  "uitleg": "De Tour opent met een ploegentijdrit. Alle renners van het winnende/sterke team pakken punten. Goedkope knechten (<=3M) van sterke TTT-teams zijn dus koopjes: ze vullen je ploeg en scoren toch mee op dag 1.",
+  "strongTeams": ["UAE", "Visma", "Lidl-Trek", "Red Bull-BORA", "INEOS", "Alpecin", "Soudal Quick-Step"],
+  "maxValue": 3,
+  "cheapBoost": 1.5
+}

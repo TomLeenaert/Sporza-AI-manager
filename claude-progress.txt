@@ -46,3 +46,11 @@ VOLGENDE STAP:
 - Juni-vorm: Del Toro won Dauphine, Pogacar won Zwitserland, Carapaz 2e, Vacek 3e (koopje), Seixas viel.
 - Legde rolfout bloot: Vacek stond als knecht -> gecorrigeerd naar klimmer (nu 206pt @4M).
 - Getest: ploeg 16/100M, dekt sprint+tijdrit. PASS.
+
+2026-07-01 — Loop-ronde 5 (Attt): TTT-agent (data/signals/ttt-2026.json, type ttt).
+- Boost goedkope renners (<=3M) van sterke TTT-teams x1.5 -> Affini/Skujins worden koopjes.
+- Getest: ploeg 16/100M, dekt sprint+berg+tijdrit, bevat nu slimme koopjes. PASS.
+
+== KWALITEITSLAT GEHAALD ==
+Kern-agents Aspread/A6/A3/A1/Attt PASS + gebalanceerde ploeg. Loop gestopt.
+Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-run activeren.
