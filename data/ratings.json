@@ -8,132 +8,239 @@
       "name": "Tadej Pogacar",
       "team": "UAE",
       "price": 12,
-      "pts": 637,
+      "rol": "gc",
+      "pts": 860,
       "note": "topfavoriet geel, jaagt 5e Tour, sterke ploeg"
     },
     {
       "name": "Jonas Vingegaard",
       "team": "Visma",
       "price": 10,
-      "pts": 477,
+      "rol": "gc",
+      "pts": 644,
       "note": "2e favoriet maar Visma verzwakt (Van Aert/Laporte weg)"
-    },
-    {
-      "name": "Jasper Philipsen",
-      "team": "Alpecin",
-      "price": 9,
-      "pts": 446,
-      "note": "topsprinter, groen-outsider"
-    },
-    {
-      "name": "Tim Merlier",
-      "team": "Soudal Quick-Step",
-      "price": 9,
-      "pts": 446,
-      "note": "topsprinter, meerdere ritzeges mogelijk"
-    },
-    {
-      "name": "Mads Pedersen",
-      "team": "Lidl-Trek",
-      "price": 8,
-      "pts": 418,
-      "note": "topfavoriet groen, constante scorer over 3 weken"
     },
     {
       "name": "Remco Evenepoel",
       "team": "Red Bull-BORA",
       "price": 9,
-      "pts": 405,
+      "rol": "gc",
+      "pts": 547,
       "note": ""
     },
     {
       "name": "Florian Lipowitz",
       "team": "Red Bull-BORA",
       "price": 8,
-      "pts": 374,
+      "rol": "gc",
+      "pts": 505,
       "note": "podium-outsider GC"
     },
     {
-      "name": "Mathieu van der Poel",
+      "name": "Jasper Philipsen",
       "team": "Alpecin",
+      "price": 9,
+      "rol": "sprinter",
+      "pts": 490,
+      "note": "topsprinter, groen-outsider"
+    },
+    {
+      "name": "Tim Merlier",
+      "team": "Soudal Quick-Step",
+      "price": 9,
+      "rol": "sprinter",
+      "pts": 490,
+      "note": "topsprinter, meerdere ritzeges mogelijk"
+    },
+    {
+      "name": "Mads Pedersen",
+      "team": "Lidl-Trek",
       "price": 8,
-      "pts": 374,
-      "note": "ritten + gele trui vroege week"
+      "rol": "sprinter",
+      "pts": 459,
+      "note": "topfavoriet groen, constante scorer over 3 weken"
     },
     {
       "name": "Isaac Del Toro",
       "team": "UAE",
       "price": 7,
-      "pts": 334,
+      "rol": "gc",
+      "pts": 451,
       "note": "sterke schaduwkopman UAE, ritkansen"
     },
     {
       "name": "Paul Seixas",
       "team": "Decathlon",
       "price": 8,
-      "pts": 324,
+      "rol": "gc",
+      "pts": 437,
       "note": "groot talent maar val in voorbereiding"
     },
     {
       "name": "Juan Ayuso",
       "team": "Lidl-Trek",
       "price": 7,
-      "pts": 315,
-      "note": ""
-    },
-    {
-      "name": "Olav Kooij",
-      "team": "Decathlon",
-      "price": 7,
-      "pts": 315,
+      "rol": "gc",
+      "pts": 425,
       "note": ""
     },
     {
       "name": "Kevin Vauquelin",
       "team": "INEOS",
       "price": 6,
-      "pts": 284,
+      "rol": "gc",
+      "pts": 383,
       "note": "sterke jonge klimmer, ritkansen"
+    },
+    {
+      "name": "Mathieu van der Poel",
+      "team": "Alpecin",
+      "price": 8,
+      "rol": "klassieker",
+      "pts": 374,
+      "note": "ritten + gele trui vroege week"
     },
     {
       "name": "Derek Gee",
       "team": "Lidl-Trek",
       "price": 6,
-      "pts": 270,
+      "rol": "gc",
+      "pts": 365,
       "note": ""
     },
     {
       "name": "Jai Hindley",
       "team": "Red Bull-BORA",
       "price": 6,
-      "pts": 270,
-      "note": ""
-    },
-    {
-      "name": "Matteo Jorgenson",
-      "team": "Visma",
-      "price": 6,
-      "pts": 270,
+      "rol": "gc",
+      "pts": 365,
       "note": ""
     },
     {
       "name": "Oscar Onley",
       "team": "INEOS",
       "price": 6,
-      "pts": 270,
+      "rol": "gc",
+      "pts": 365,
       "note": ""
     },
     {
       "name": "Tobias Johannessen",
       "team": "Uno-X",
       "price": 6,
-      "pts": 270,
+      "rol": "gc",
+      "pts": 365,
       "note": ""
     },
     {
       "name": "Tom Pidcock",
       "team": "Q36.5",
       "price": 6,
+      "rol": "gc",
+      "pts": 365,
+      "note": ""
+    },
+    {
+      "name": "Olav Kooij",
+      "team": "Decathlon",
+      "price": 7,
+      "rol": "sprinter",
+      "pts": 347,
+      "note": ""
+    },
+    {
+      "name": "Antonio Tiberi",
+      "team": "Bahrain",
+      "price": 5,
+      "rol": "gc",
+      "pts": 304,
+      "note": ""
+    },
+    {
+      "name": "Ben O'Connor",
+      "team": "Jayco",
+      "price": 5,
+      "rol": "gc",
+      "pts": 304,
+      "note": ""
+    },
+    {
+      "name": "Cian Uijtdebroeks",
+      "team": "Movistar",
+      "price": 5,
+      "rol": "gc",
+      "pts": 304,
+      "note": ""
+    },
+    {
+      "name": "Egan Bernal",
+      "team": "INEOS",
+      "price": 5,
+      "rol": "gc",
+      "pts": 304,
+      "note": ""
+    },
+    {
+      "name": "Mattias Skjelmose",
+      "team": "Lidl-Trek",
+      "price": 5,
+      "rol": "gc",
+      "pts": 304,
+      "note": ""
+    },
+    {
+      "name": "Adam Yates",
+      "team": "UAE",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 270,
+      "note": ""
+    },
+    {
+      "name": "Davide Piganzoli",
+      "team": "Visma",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 270,
+      "note": ""
+    },
+    {
+      "name": "Lenny Martinez",
+      "team": "Bahrain",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 270,
+      "note": ""
+    },
+    {
+      "name": "Matthew Riccitello",
+      "team": "Decathlon",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 270,
+      "note": ""
+    },
+    {
+      "name": "Richard Carapaz",
+      "team": "EF Education",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 270,
+      "note": ""
+    },
+    {
+      "name": "Sepp Kuss",
+      "team": "Visma",
+      "price": 5,
+      "rol": "klimmer",
+      "pts": 270,
+      "note": ""
+    },
+    {
+      "name": "Thymen Arensman",
+      "team": "INEOS",
+      "price": 5,
+      "rol": "klimmer",
       "pts": 270,
       "note": ""
     },
@@ -141,342 +248,247 @@
       "name": "Biniam Girmay",
       "team": "NSN",
       "price": 5,
-      "pts": 239,
+      "rol": "sprinter",
+      "pts": 262,
       "note": "in vorm, sprint + puncheur"
     },
     {
       "name": "Ben Healy",
       "team": "EF Education",
       "price": 5,
-      "pts": 236,
+      "rol": "aanvaller",
+      "pts": 248,
       "note": "aanvaller, ritten + tijd in trui"
-    },
-    {
-      "name": "Adam Yates",
-      "team": "UAE",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Antonio Tiberi",
-      "team": "Bahrain",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Ben O'Connor",
-      "team": "Jayco",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Cian Uijtdebroeks",
-      "team": "Movistar",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Davide Piganzoli",
-      "team": "Visma",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Egan Bernal",
-      "team": "INEOS",
-      "price": 5,
-      "pts": 225,
-      "note": ""
     },
     {
       "name": "Filippo Ganna",
       "team": "INEOS",
       "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Lenny Martinez",
-      "team": "Bahrain",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Matthew Riccitello",
-      "team": "Decathlon",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Mattias Skjelmose",
-      "team": "Lidl-Trek",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Richard Carapaz",
-      "team": "EF Education",
-      "price": 5,
-      "pts": 225,
+      "rol": "tijdrit",
+      "pts": 236,
       "note": ""
     },
     {
       "name": "Romain Gregoire",
       "team": "Groupama-FDJ",
       "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Sepp Kuss",
-      "team": "Visma",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Thymen Arensman",
-      "team": "INEOS",
-      "price": 5,
-      "pts": 225,
-      "note": ""
-    },
-    {
-      "name": "Alex Aranburu",
-      "team": "Cofidis",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Alex Baudin",
-      "team": "EF Education",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Arnaud De Lie",
-      "team": "Lotto Intermarche",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Arvid de Kleijn",
-      "team": "Tudor",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Axel Laurance",
-      "team": "INEOS",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Ben Turner",
-      "team": "INEOS",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Brandon McNulty",
-      "team": "UAE",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Bruno Armirail",
-      "team": "Visma",
-      "price": 4,
-      "pts": 180,
+      "rol": "puncheur",
+      "pts": 236,
       "note": ""
     },
     {
       "name": "Carlos Rodriguez",
       "team": "INEOS",
       "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Daan Hoole",
-      "team": "Decathlon",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Damiano Caruso",
-      "team": "Bahrain",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Davide Ballerini",
-      "team": "XDS Astana",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Dorian Godon",
-      "team": "INEOS",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Eddie Dunbar",
-      "team": "Q36.5",
-      "price": 4,
-      "pts": 180,
+      "rol": "klimmer",
+      "pts": 216,
       "note": ""
     },
     {
       "name": "Einer Rubio",
       "team": "Movistar",
       "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Emiel Verstrynge",
-      "team": "Alpecin",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Fernando Gaviria",
-      "team": "Caja Rural",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Florian Vermeersch",
-      "team": "UAE",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Georg Steinhauser",
-      "team": "EF Education",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Guillaume Martin",
-      "team": "Groupama-FDJ",
-      "price": 4,
-      "pts": 180,
+      "rol": "klimmer",
+      "pts": 216,
       "note": ""
     },
     {
       "name": "Harold Tejada",
       "team": "XDS Astana",
       "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Ilan Van Wilder",
-      "team": "Soudal Quick-Step",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Jasper Stuyven",
-      "team": "Soudal Quick-Step",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Jonas Abrahamsen",
-      "team": "Uno-X",
-      "price": 4,
-      "pts": 180,
+      "rol": "klimmer",
+      "pts": 216,
       "note": ""
     },
     {
       "name": "Jordan Jegat",
       "team": "TotalEnergies",
       "price": 4,
-      "pts": 180,
+      "rol": "klimmer",
+      "pts": 216,
+      "note": ""
+    },
+    {
+      "name": "Michael Storer",
+      "team": "Tudor",
+      "price": 4,
+      "rol": "klimmer",
+      "pts": 216,
+      "note": ""
+    },
+    {
+      "name": "Valentin Paret-Peintre",
+      "team": "Soudal Quick-Step",
+      "price": 4,
+      "rol": "klimmer",
+      "pts": 216,
+      "note": ""
+    },
+    {
+      "name": "Arnaud De Lie",
+      "team": "Lotto Intermarche",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Arvid de Kleijn",
+      "team": "Tudor",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Fernando Gaviria",
+      "team": "Caja Rural",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Milan Fretin",
+      "team": "Cofidis",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Pascal Ackermann",
+      "team": "Jayco",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Pavel Bittner",
+      "team": "Picnic-PostNL",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Phil Bauhaus",
+      "team": "Bahrain",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Sam Bennett",
+      "team": "Q36.5",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Sam Welsford",
+      "team": "INEOS",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Soren Waerenskjold",
+      "team": "Uno-X",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 198,
+      "note": ""
+    },
+    {
+      "name": "Georg Steinhauser",
+      "team": "EF Education",
+      "price": 4,
+      "rol": "aanvaller",
+      "pts": 189,
+      "note": ""
+    },
+    {
+      "name": "Guillaume Martin",
+      "team": "Groupama-FDJ",
+      "price": 4,
+      "rol": "aanvaller",
+      "pts": 189,
       "note": ""
     },
     {
       "name": "Joshua Tarling",
       "team": "INEOS",
       "price": 4,
-      "pts": 180,
+      "rol": "tijdrit",
+      "pts": 189,
       "note": ""
     },
     {
       "name": "Julian Alaphilippe",
       "team": "Tudor",
       "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Lennert Van Eetvelt",
-      "team": "Lotto Intermarche",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Lucas Plapp",
-      "team": "Jayco",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Magnus Sheffield",
-      "team": "INEOS",
-      "price": 4,
-      "pts": 180,
+      "rol": "puncheur",
+      "pts": 189,
       "note": ""
     },
     {
       "name": "Marc Hirschi",
       "team": "Tudor",
       "price": 4,
-      "pts": 180,
+      "rol": "puncheur",
+      "pts": 189,
       "note": ""
     },
     {
-      "name": "Mathias Vacek",
+      "name": "Maxim Van Gils",
+      "team": "Red Bull-BORA",
+      "price": 4,
+      "rol": "puncheur",
+      "pts": 189,
+      "note": ""
+    },
+    {
+      "name": "Michael Matthews",
+      "team": "Jayco",
+      "price": 4,
+      "rol": "puncheur",
+      "pts": 189,
+      "note": ""
+    },
+    {
+      "name": "Quinn Simmons",
       "team": "Lidl-Trek",
       "price": 4,
-      "pts": 180,
+      "rol": "aanvaller",
+      "pts": 189,
       "note": ""
     },
     {
-      "name": "Matteo Moschetti",
+      "name": "Quinten Hermans",
       "team": "Q36.5",
       "price": 4,
+      "rol": "aanvaller",
+      "pts": 189,
+      "note": ""
+    },
+    {
+      "name": "Victor Campenaerts",
+      "team": "Visma",
+      "price": 4,
+      "rol": "tijdrit",
+      "pts": 189,
+      "note": ""
+    },
+    {
+      "name": "Jasper Stuyven",
+      "team": "Soudal Quick-Step",
+      "price": 4,
+      "rol": "klassieker",
       "pts": 180,
       "note": ""
     },
@@ -484,118 +496,7 @@
       "name": "Matteo Trentin",
       "team": "Tudor",
       "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Mauro Schmid",
-      "team": "Jayco",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Max Kanter",
-      "team": "XDS Astana",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Maxim Van Gils",
-      "team": "Red Bull-BORA",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Michael Matthews",
-      "team": "Jayco",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Michael Storer",
-      "team": "Tudor",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Michael Valgren",
-      "team": "EF Education",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Milan Fretin",
-      "team": "Cofidis",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Pascal Ackermann",
-      "team": "Jayco",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Pavel Bittner",
-      "team": "Picnic-PostNL",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Per Strand Hagenes",
-      "team": "Visma",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Phil Bauhaus",
-      "team": "Bahrain",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Quinn Simmons",
-      "team": "Lidl-Trek",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Quinten Hermans",
-      "team": "Q36.5",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Sam Bennett",
-      "team": "Q36.5",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Sam Welsford",
-      "team": "INEOS",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Soren Waerenskjold",
-      "team": "Uno-X",
-      "price": 4,
+      "rol": "klassieker",
       "pts": 180,
       "note": ""
     },
@@ -603,854 +504,1160 @@
       "name": "Tiesj Benoot",
       "team": "Decathlon",
       "price": 4,
+      "rol": "klassieker",
       "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Tim Wellens",
-      "team": "UAE",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Valentin Paret-Peintre",
-      "team": "Soudal Quick-Step",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Victor Campenaerts",
-      "team": "Visma",
-      "price": 4,
-      "pts": 180,
-      "note": ""
-    },
-    {
-      "name": "Abel Balderstone",
-      "team": "Caja Rural",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Aime De Gendt",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "AJ August",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Alexandre Delettre",
-      "team": "TotalEnergies",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Anthon Charmig",
-      "team": "Uno-X",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Anthony Turgis",
-      "team": "TotalEnergies",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Artem Shmidt",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
       "note": ""
     },
     {
       "name": "Aurelien Paret-Peintre",
       "team": "Decathlon",
       "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Benjamin Thomas",
-      "team": "Cofidis",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Bob Jungels",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Brandon Rivera",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Brent Van Moer",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Carlos Verona",
-      "team": "Lidl-Trek",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Cees Bol",
-      "team": "Decathlon",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Chris Harper",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Clement Berthet",
-      "team": "Groupama-FDJ",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Clement Russo",
-      "team": "Groupama-FDJ",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "David De La Cruz",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "David Gonzalez",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Dylan van Baarle",
-      "team": "Soudal Quick-Step",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Edoardo Affini",
-      "team": "Visma",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Edward Planckaert",
-      "team": "Alpecin",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Embret Svestad-Bardseng",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Emmanuel Houcou",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Ewen Costiou",
-      "team": "Groupama-FDJ",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Fabio Christen",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Felix Grossschartner",
-      "team": "UAE",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Frank van den Broek",
-      "team": "Picnic-PostNL",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Fred Wright",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Frits Biesterbos",
-      "team": "Picnic-PostNL",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Georg Zimmermann",
-      "team": "Lotto Intermarche",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "George Bennett",
-      "team": "NSN",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Hugo Page",
-      "team": "Cofidis",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Ion Izagirre",
-      "team": "Cofidis",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Jack Haig",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Jake Stewart",
-      "team": "NSN",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Jan Tratnik",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Javier Romo",
-      "team": "Movistar",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Jefferson Cepeda",
-      "team": "Movistar",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Jenno Berckmoes",
-      "team": "Lotto Intermarche",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Jenthe Biermans",
-      "team": "Cofidis",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "John Degenkolb",
-      "team": "Picnic-PostNL",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Kasper Asgreen",
-      "team": "EF Education",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Laurens De Plus",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Lewis Askey",
-      "team": "NSN",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Magnus Cort",
-      "team": "Uno-X",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Marco Frigo",
-      "team": "NSN",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Matej Mohoric",
-      "team": "Bahrain",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Mattia Cattaneo",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Michal Kwiatkowski",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Mike Teunissen",
-      "team": "XDS Astana",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Milan Vader",
-      "team": "Q36.5",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Nico Denz",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "pts": 135,
+      "rol": "klimmer",
+      "pts": 162,
       "note": ""
     },
     {
       "name": "Nicolas Prodhomme",
       "team": "Decathlon",
       "price": 3,
-      "pts": 135,
+      "rol": "klimmer",
+      "pts": 162,
       "note": ""
     },
     {
-      "name": "Nils Politt",
-      "team": "UAE",
+      "name": "Cees Bol",
+      "team": "Decathlon",
       "price": 3,
-      "pts": 135,
+      "rol": "sprinter",
+      "pts": 149,
       "note": ""
     },
     {
-      "name": "Pablo Castrillo",
-      "team": "Movistar",
+      "name": "Edoardo Affini",
+      "team": "Visma",
       "price": 3,
-      "pts": 135,
+      "rol": "tijdrit",
+      "pts": 142,
       "note": ""
     },
     {
-      "name": "Pascal Eenkhoorn",
-      "team": "Soudal Quick-Step",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Quentin Pacher",
+      "name": "Ewen Costiou",
       "team": "Groupama-FDJ",
       "price": 3,
-      "pts": 135,
+      "rol": "aanvaller",
+      "pts": 142,
       "note": ""
     },
     {
-      "name": "Ramses Debruyne",
-      "team": "Alpecin",
+      "name": "Magnus Cort",
+      "team": "Uno-X",
       "price": 3,
-      "pts": 135,
+      "rol": "aanvaller",
+      "pts": 142,
       "note": ""
     },
     {
-      "name": "Raul Garcia Pierna",
-      "team": "Movistar",
+      "name": "Matej Mohoric",
+      "team": "Bahrain",
       "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Rick Pluimers",
-      "team": "Tudor",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Sam Watson",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Sergio Higuita",
-      "team": "XDS Astana",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Simone Velasco",
-      "team": "XDS Astana",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Tim van Dijke",
-      "team": "Red Bull-BORA",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Tobias Foss",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
+      "rol": "aanvaller",
+      "pts": 142,
       "note": ""
     },
     {
       "name": "Toms Skujins",
       "team": "Lidl-Trek",
       "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Torstein Traen",
-      "team": "Uno-X",
-      "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Victor Langellotti",
-      "team": "INEOS",
-      "price": 3,
-      "pts": 135,
+      "rol": "aanvaller",
+      "pts": 142,
       "note": ""
     },
     {
       "name": "Warren Barguil",
       "team": "Picnic-PostNL",
       "price": 3,
+      "rol": "aanvaller",
+      "pts": 142,
+      "note": ""
+    },
+    {
+      "name": "John Degenkolb",
+      "team": "Picnic-PostNL",
+      "price": 3,
+      "rol": "klassieker",
       "pts": 135,
+      "note": ""
+    },
+    {
+      "name": "Matteo Jorgenson",
+      "team": "Visma",
+      "price": 6,
+      "rol": "knecht",
+      "pts": 95,
+      "note": ""
+    },
+    {
+      "name": "Davide Ballerini",
+      "team": "XDS Astana",
+      "price": 4,
+      "rol": "leadout",
+      "pts": 72,
+      "note": ""
+    },
+    {
+      "name": "Alex Aranburu",
+      "team": "Cofidis",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Alex Baudin",
+      "team": "EF Education",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Axel Laurance",
+      "team": "INEOS",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Ben Turner",
+      "team": "INEOS",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Brandon McNulty",
+      "team": "UAE",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Bruno Armirail",
+      "team": "Visma",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Daan Hoole",
+      "team": "Decathlon",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Damiano Caruso",
+      "team": "Bahrain",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Dorian Godon",
+      "team": "INEOS",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Eddie Dunbar",
+      "team": "Q36.5",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Emiel Verstrynge",
+      "team": "Alpecin",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Florian Vermeersch",
+      "team": "UAE",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Ilan Van Wilder",
+      "team": "Soudal Quick-Step",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Jonas Abrahamsen",
+      "team": "Uno-X",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Lennert Van Eetvelt",
+      "team": "Lotto Intermarche",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Lucas Plapp",
+      "team": "Jayco",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Magnus Sheffield",
+      "team": "INEOS",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Mathias Vacek",
+      "team": "Lidl-Trek",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Matteo Moschetti",
+      "team": "Q36.5",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Mauro Schmid",
+      "team": "Jayco",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Max Kanter",
+      "team": "XDS Astana",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Michael Valgren",
+      "team": "EF Education",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Per Strand Hagenes",
+      "team": "Visma",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Tim Wellens",
+      "team": "UAE",
+      "price": 4,
+      "rol": "knecht",
+      "pts": 63,
+      "note": ""
+    },
+    {
+      "name": "Abel Balderstone",
+      "team": "Caja Rural",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Aime De Gendt",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "AJ August",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Alexandre Delettre",
+      "team": "TotalEnergies",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Anthon Charmig",
+      "team": "Uno-X",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Anthony Turgis",
+      "team": "TotalEnergies",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Artem Shmidt",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Benjamin Thomas",
+      "team": "Cofidis",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Bob Jungels",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Brandon Rivera",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Brent Van Moer",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Carlos Verona",
+      "team": "Lidl-Trek",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Chris Harper",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Clement Berthet",
+      "team": "Groupama-FDJ",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Clement Russo",
+      "team": "Groupama-FDJ",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "David De La Cruz",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "David Gonzalez",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Dylan van Baarle",
+      "team": "Soudal Quick-Step",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Edward Planckaert",
+      "team": "Alpecin",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Embret Svestad-Bardseng",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Emmanuel Houcou",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Fabio Christen",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Felix Grossschartner",
+      "team": "UAE",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Frank van den Broek",
+      "team": "Picnic-PostNL",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Fred Wright",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Frits Biesterbos",
+      "team": "Picnic-PostNL",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Georg Zimmermann",
+      "team": "Lotto Intermarche",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "George Bennett",
+      "team": "NSN",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Hugo Page",
+      "team": "Cofidis",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Ion Izagirre",
+      "team": "Cofidis",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Jack Haig",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Jake Stewart",
+      "team": "NSN",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Jan Tratnik",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Javier Romo",
+      "team": "Movistar",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Jefferson Cepeda",
+      "team": "Movistar",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Jenno Berckmoes",
+      "team": "Lotto Intermarche",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Jenthe Biermans",
+      "team": "Cofidis",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Kasper Asgreen",
+      "team": "EF Education",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Laurens De Plus",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Lewis Askey",
+      "team": "NSN",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Marco Frigo",
+      "team": "NSN",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Mattia Cattaneo",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Michal Kwiatkowski",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Mike Teunissen",
+      "team": "XDS Astana",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Milan Vader",
+      "team": "Q36.5",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Nico Denz",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Nils Politt",
+      "team": "UAE",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Pablo Castrillo",
+      "team": "Movistar",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Pascal Eenkhoorn",
+      "team": "Soudal Quick-Step",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Quentin Pacher",
+      "team": "Groupama-FDJ",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Ramses Debruyne",
+      "team": "Alpecin",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Raul Garcia Pierna",
+      "team": "Movistar",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Rick Pluimers",
+      "team": "Tudor",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Sam Watson",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Sergio Higuita",
+      "team": "XDS Astana",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Simone Velasco",
+      "team": "XDS Astana",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Tim van Dijke",
+      "team": "Red Bull-BORA",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Tobias Foss",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Torstein Traen",
+      "team": "Uno-X",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
+      "note": ""
+    },
+    {
+      "name": "Victor Langellotti",
+      "team": "INEOS",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 47,
       "note": ""
     },
     {
       "name": "Xandro Meurisse",
       "team": "Q36.5",
       "price": 3,
-      "pts": 135,
+      "rol": "knecht",
+      "pts": 47,
       "note": ""
     },
     {
       "name": "Yannis Voisard",
       "team": "Tudor",
       "price": 3,
-      "pts": 135,
-      "note": ""
-    },
-    {
-      "name": "Aaron Gate",
-      "team": "XDS Astana",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Alex Kirsch",
-      "team": "Cofidis",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Alex Molenaar",
-      "team": "Caja Rural",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Anders Johannessen",
-      "team": "Uno-X",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Anders Skaarseth",
-      "team": "Uno-X",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Baptiste Veistroffer",
-      "team": "Lotto Intermarche",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Ben Swift",
-      "team": "INEOS",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Bert Van Lerberghe",
-      "team": "Soudal Quick-Step",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Clement Braz Afonso",
-      "team": "Groupama-FDJ",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Connor Swift",
-      "team": "INEOS",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Damien Howson",
-      "team": "Q36.5",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Emils Liepins",
-      "team": "Q36.5",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Felix Engelhardt",
-      "team": "Jayco",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Frederik Frison",
-      "team": "Q36.5",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Harm Vanhoucke",
-      "team": "Q36.5",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Huub Artz",
-      "team": "Lotto Intermarche",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Jakub Otruba",
-      "team": "Caja Rural",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Joe Pidcock",
-      "team": "Q36.5",
-      "price": 2,
-      "pts": 90,
-      "note": ""
-    },
-    {
-      "name": "Joel Nicolau",
-      "team": "Caja Rural",
-      "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 47,
       "note": ""
     },
     {
       "name": "Jonas Rickaert",
       "team": "Alpecin",
       "price": 2,
-      "pts": 90,
+      "rol": "leadout",
+      "pts": 36,
+      "note": ""
+    },
+    {
+      "name": "Aaron Gate",
+      "team": "XDS Astana",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Alex Kirsch",
+      "team": "Cofidis",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Alex Molenaar",
+      "team": "Caja Rural",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Anders Johannessen",
+      "team": "Uno-X",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Anders Skaarseth",
+      "team": "Uno-X",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Baptiste Veistroffer",
+      "team": "Lotto Intermarche",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Ben Swift",
+      "team": "INEOS",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Bert Van Lerberghe",
+      "team": "Soudal Quick-Step",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Clement Braz Afonso",
+      "team": "Groupama-FDJ",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Connor Swift",
+      "team": "INEOS",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Damien Howson",
+      "team": "Q36.5",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Emils Liepins",
+      "team": "Q36.5",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Felix Engelhardt",
+      "team": "Jayco",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Frederik Frison",
+      "team": "Q36.5",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Harm Vanhoucke",
+      "team": "Q36.5",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Huub Artz",
+      "team": "Lotto Intermarche",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Jakub Otruba",
+      "team": "Caja Rural",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Joe Pidcock",
+      "team": "Q36.5",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
+      "note": ""
+    },
+    {
+      "name": "Joel Nicolau",
+      "team": "Caja Rural",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Joris Delbove",
       "team": "TotalEnergies",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Jose Felix Parra",
       "team": "Caja Rural",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Julius van den Berg",
       "team": "Picnic-PostNL",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Kamil Gradek",
       "team": "Bahrain",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Kamil Malecki",
       "team": "Q36.5",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Kelland O'Brien",
       "team": "Jayco",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Kim Heiduk",
       "team": "INEOS",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Krists Neilands",
       "team": "NSN",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Lars Craps",
       "team": "Lotto Intermarche",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Liam Slock",
       "team": "Lotto Intermarche",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Lorenzo Germani",
       "team": "Groupama-FDJ",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Louis Vervaeke",
       "team": "Soudal Quick-Step",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Lucas Hamilton",
       "team": "INEOS",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Luke Durbridge",
       "team": "Jayco",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Marcel Camprubi",
       "team": "Q36.5",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Marco Haller",
       "team": "Tudor",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Mark Donovan",
       "team": "Q36.5",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Mathis Le Berre",
       "team": "TotalEnergies",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Matis Louvel",
       "team": "NSN",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Matteo Badilatti",
       "team": "Q36.5",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Matteo Vercher",
       "team": "TotalEnergies",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Max Walker",
       "team": "EF Education",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Michel Hessmann",
       "team": "Movistar",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Nelson Oliveira",
       "team": "Movistar",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Nick Zukowsky",
       "team": "Q36.5",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     },
     {
       "name": "Nicolas Breuillard",
       "team": "TotalEnergies",
       "price": 2,
-      "pts": 90,
+      "rol": "knecht",
+      "pts": 31,
       "note": ""
     }
   ]

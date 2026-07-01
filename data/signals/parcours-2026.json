@@ -1,0 +1,19 @@
+{
+  "agent": "parcours-agent",
+  "type": "parcours",
+  "datum": "2026-07-01",
+  "bron": "cyclingstage, bet365, velo101 (officieel Tour 2026 parcours)",
+  "samenstelling": { "berg": 7, "heuvel": 5, "vlak": 7, "tijdrit_individueel": 1, "ploegentijdrit": 1 },
+  "uitleg": "Klimmerseditie: 7 bergritten met aankomst bergop (dubbele Alpe d'Huez), 26km ITT. GC/klimmers premium; 7 vlakke ritten geven topsprinters kansen.",
+  "rolgewicht": {
+    "gc": 1.35,
+    "klimmer": 1.20,
+    "puncheur": 1.05,
+    "sprinter": 1.10,
+    "klassieker": 1.00,
+    "tijdrit": 1.05,
+    "aanvaller": 1.05,
+    "knecht": 0.35,
+    "leadout": 0.40
+  }
+}
