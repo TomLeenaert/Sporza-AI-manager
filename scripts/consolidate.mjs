@@ -18,6 +18,7 @@ const sigDir = join(root, "data/signals");
 
 let roleWeight = {}, roleOf = {}, defaultRole = "knecht";
 let formAdj = {}, notes = {}, coverage = {}, tiers = null, ttt = null;
+const excluded = new Set();   // opgegeven / niet-gestarte renners (research-agent)
 const agentsMeta = [];
 
 for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
@@ -43,6 +44,8 @@ for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
     tiers = (s.tiers || []).slice().sort((a, b) => b.min - a.min); // hoog->laag
   } else if (type === "ttt") {
     ttt = { teams: new Set(s.strongTeams || []), maxValue: s.maxValue ?? 3, boost: s.cheapBoost ?? 1.5 };
+  } else if (type === "exclude") {
+    (s.names || []).forEach(n => excluded.add(n));
   } else { // form: multipliers -> additieve aanpassing die stapelt en gedempt wordt
     for (const [naam, sig] of Object.entries(s.signalen || {})) {
       formAdj[naam] = (formAdj[naam] || 0) + ((sig.mult ?? 1) - 1);
@@ -57,6 +60,7 @@ const tierMult = v => tiers ? (tiers.find(t => v >= t.min)?.mult ?? 1) : 1;
 
 const ratings = riders.riders.map(r => {
   const rol = roleOf[r.n] || defaultRole;
+  if (excluded.has(r.n)) return { name: r.n, team: r.t, price: r.v, rol, pts: 0, note: "niet gestart / opgegeven" };
   const rw = roleWeight[rol] ?? 1;
   const vorm = clamp(1 + (formAdj[r.n] || 0), 0.6, 1.6); // demping tegen ontploffing
   const tttMult = (ttt && ttt.teams.has(r.t) && r.v <= ttt.maxValue) ? ttt.boost : 1;

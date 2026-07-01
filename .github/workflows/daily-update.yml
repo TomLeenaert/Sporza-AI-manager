@@ -12,6 +12,8 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
     steps:
       - name: Code ophalen
         uses: actions/checkout@v4
@@ -20,6 +22,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      # --- Verse research door de AI-agent (alleen als de API-key is ingesteld) ---
+      - name: Claude CLI installeren
+        if: env.HAS_KEY == 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Verse research (agents)
+        if: env.HAS_KEY == 'true'
+        continue-on-error: true      # research mag nooit het publiceren blokkeren
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "$(cat scripts/daily-research.md)" \
+            --allowedTools "WebSearch,Read,Write,Edit" \
+            --permission-mode acceptEdits \
+            || echo "Research-stap overgeslagen (fout of geen nieuwe info)."
 
       - name: Ratings herrekenen + bundelen
         run: |
@@ -34,6 +52,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Geen wijzigingen — niets te publiceren."
           else
-            git commit -m "Dagelijkse update"
+            git commit -m "Dagelijkse update ($(date -u +%F))"
             git push
           fi
