@@ -29,9 +29,8 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
 ### Sprint 4 — extra analisten
 - [x] **S4.1 Weer-agent** — DONE. weer-2026.json (type "weer") -> weerregel op rit-kaart (ratings.weer).
       Info-type, geen analist. Research-agent ververst dagelijks.
-- [ ] **S4.2 Ploegtactiek-agent** — nieuw signaaltype "teamboost" in de consolidator
-      ({ "type":"teamboost", "teams": { "Team X": 1.08 } }) dat renners van aanvallende/rittenjagende
-      teams licht boost. Seed met een gegrond bestand (bekende koersstijl 2026). Toon als analist.
+- [x] **S4.2 Ploegtactiek-agent** — DONE. type "teamboost" in consolidator; ploegtactiek-2026.json boost
+      aanvallende teams (EF/Uno-X/Tudor…). Toont als 14e analist.
 - [ ] **S4.3 Differential-agent** — nieuw type "ownership" ({ "type":"ownership", "pct": { "Naam": 12 } });
       renners met lage eigenaarschap-% én goede score krijgen een lichte boost (max 1.1) en een
       "differential"-badge in de app. Zonder data = geen effect. Research-agent vult pct later.

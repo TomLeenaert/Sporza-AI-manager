@@ -124,3 +124,6 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 
 2026-07-01 — LOOP S4.1 (weer-agent): weer-2026.json (type weer) -> weerregel op rit-kaart (ratings.weer).
 - Info-type, geen analist. Getest: toont, 13 analisten, 16/100M. Research-agent ververst dagelijks.
+
+2026-07-01 — LOOP S4.2 (ploegtactiek-agent): type "teamboost"; ploegtactiek-2026.json boost aanvallende teams.
+- EF/Uno-X/Tudor/Cofidis/Total... +5-10%. 14e analist. Getest: 16/100M, dekking OK.

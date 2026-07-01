@@ -1,0 +1,19 @@
+{
+  "agent": "ploegtactiek-agent",
+  "type": "teamboost",
+  "datum": "2026-07-01",
+  "bron": "koersstijl 2026 — aanvallende / rittenjagende teams",
+  "uitleg": "Sommige teams jagen op ritten en zitten constant in de vlucht; hun renners (ook de mindere namen) pakken zo vaker punten dan renners van controlerende klassementsteams. Lichte boost per team.",
+  "teams": {
+    "EF Education": 1.10,
+    "Uno-X": 1.10,
+    "Tudor": 1.08,
+    "Q36.5": 1.08,
+    "Cofidis": 1.08,
+    "TotalEnergies": 1.08,
+    "Lotto Intermarche": 1.06,
+    "Groupama-FDJ": 1.05,
+    "Bahrain": 1.05,
+    "Alpecin": 1.05
+  }
+}
