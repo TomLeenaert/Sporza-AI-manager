@@ -72,3 +72,9 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - Renners-tab knoppen 📌/🚫; togglePin/toggleBan herbouwen ploeg meteen.
 - buildBestTeam: bans eruit, pins gereserveerd, dan dekking + knapsack. Advies respecteert pins/bans.
 - Pins/bans blijven bij data-refresh. Getest: ban Pogacar (eruit) + pin De Lie (erin), 16/100M, dekking OK.
+
+2026-07-01 — NIEUW DESIGN: studio-look (Claude Design) herbouwd als echte responsive app.
+- index.html volledig herschreven: ON AIR-header + ticker, LED-wall (volgende rit + ploegkaarten),
+  rij analisten (=agents) met tap-overlay, anchor-briefing, glazen tab-bar. Fonts Space Grotesk/Manrope/Space Mono.
+- Alle motor behouden: knapsack + pin/ban + coverage, loadRealData, volgende-rit-logica, agents-data.
+- localStorage-key -> wm_studio_v1. Getest: 16/100M, volgende rit, 10 analisten, overlay, pin/ban OK.

@@ -4,539 +4,588 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1220">
-<title>Wielermanager Helper</title>
+<title>Wielermanager Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b1220; --card:#131c2e; --card2:#1a2540; --line:#26314d;
-    --txt:#e8eef7; --muted:#93a2bd; --acc:#ffd34e; --good:#39d98a; --bad:#ff6b6b;
-    --pill:#22304f;
+    --bg:#0b1220; --bg2:#080d18; --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+    --txt:#eef3ff; --muted:#93a4c6; --acc:#ffd34e; --mint:#39d98a; --red:#ff5470; --blue:#7fbfff;
+    --grotesk:'Space Grotesk',sans-serif; --sans:'Manrope',system-ui,sans-serif; --mono:'Space Mono',monospace;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--txt);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    -webkit-text-size-adjust:100%}
-  body{padding:0 0 90px;max-width:640px;margin:0 auto}
-  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#0b1220 70%,transparent);
-    padding:16px 16px 10px}
-  h1{font-size:20px;margin:0;letter-spacing:.2px}
-  .sub{color:var(--muted);font-size:13px;margin-top:2px}
-  .budgetbar{display:flex;gap:10px;margin-top:12px}
-  .stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:10px 12px}
-  .stat b{display:block;font-size:18px;margin-top:2px}
-  .stat.warn b{color:var(--bad)} .stat.ok b{color:var(--good)}
-  .stat small{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
-  main{padding:0 16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:14px;margin:12px 0}
-  .card h2{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:uppercase;
-    letter-spacing:.6px;font-weight:600}
-  label{display:block;font-size:12px;color:var(--muted);margin:8px 0 4px}
-  input,select{width:100%;background:var(--card2);border:1px solid var(--line);
-    color:var(--txt);border-radius:10px;padding:11px 12px;font-size:16px}
-  .row{display:flex;gap:8px} .row>*{flex:1}
-  button{border:0;border-radius:12px;padding:13px 14px;font-size:15px;font-weight:600;
-    background:var(--acc);color:#20180a;width:100%;cursor:pointer}
-  button.ghost{background:var(--card2);color:var(--txt);border:1px solid var(--line)}
-  button.sm{padding:8px 10px;font-size:13px;width:auto}
-  .rider{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;
-    background:var(--card2);border:1px solid var(--line);margin:8px 0}
-  .rider .info{flex:1;min-width:0}
-  .rider .name{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;
-    text-overflow:ellipsis}
-  .rider .meta{color:var(--muted);font-size:12px;margin-top:2px}
-  .rider .pts{text-align:right;font-size:13px}
-  .rider .pts b{display:block;color:var(--acc);font-size:16px}
-  .pill{display:inline-block;background:var(--pill);border:1px solid var(--line);
-    border-radius:999px;padding:2px 8px;font-size:11px;color:var(--muted);margin-left:6px}
-  .chip{background:var(--card2);border:1px solid var(--line);border-radius:999px;
-    padding:6px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+  ::-webkit-scrollbar{width:0;height:0;display:none} *{scrollbar-width:none}
+  html,body{margin:0;padding:0}
+  body{background:radial-gradient(130% 90% at 50% -12%,#101d38 0%,#0b1220 46%,#06090f 100%);
+    background-attachment:fixed; color:var(--txt); font-family:var(--sans);
+    -webkit-font-smoothing:antialiased; min-height:100vh}
+  #app{max-width:440px;margin:0 auto;min-height:100vh;position:relative;padding-bottom:96px}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,84,112,.55)}50%{opacity:.5;box-shadow:0 0 0 5px rgba(255,84,112,0)}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes fadeUp{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
+
+  /* header */
+  header{position:sticky;top:0;z-index:30;padding:14px 16px 10px;
+    background:linear-gradient(180deg,rgba(11,18,32,.97) 66%,rgba(11,18,32,0))}
+  .toprow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .onair{display:flex;align-items:center;gap:7px;padding:6px 11px 6px 8px;border-radius:999px;
+    background:rgba(255,84,112,.13);border:1px solid rgba(255,84,112,.4)}
+  .onair span.dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:livePulse 1.7s ease infinite}
+  .onair span.t{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;color:#ff96a6}
+  .brand{display:flex;flex-direction:column;align-items:center;line-height:1}
+  .brand .r{display:flex;align-items:center;gap:7px}
+  .brand .sq{width:15px;height:15px;border-radius:5px;background:linear-gradient(135deg,var(--acc),var(--mint));box-shadow:0 0 12px rgba(255,211,78,.5)}
+  .brand .nm{font-family:var(--grotesk);font-weight:700;font-size:15px;color:var(--txt)}
+  .brand .su{font-family:var(--mono);font-size:9px;letter-spacing:.42em;color:#8ff0c0;margin-top:4px;padding-left:.42em}
+  .avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(160deg,#28345a,#141b2e);
+    border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+    font-family:var(--grotesk);font-weight:700;font-size:12px;color:#cfe0ff}
+  .tickerwrap{margin-top:11px;overflow:hidden;border-radius:11px;border:1px solid rgba(255,255,255,.07);
+    background:rgba(255,255,255,.03);height:28px;display:flex;align-items:center}
+  .tickerwrap .move{display:flex;white-space:nowrap;animation:ticker 32s linear infinite;will-change:transform}
+  .tickerwrap .seg{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#9fb0d0;padding:0 6px}
+
+  main{padding:6px 14px 0}
+  section.tab{display:none;animation:fadeUp .35s ease}
+  section.tab.on{display:block}
+
+  .scene{position:relative;border-radius:26px;overflow:hidden;background:var(--bg2);
+    box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.05) inset;padding-bottom:14px}
+  .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(90% 60% at 50% 0%,rgba(60,110,220,.12),transparent 70%)}
+
+  /* LED wall */
+  .wall{position:relative;z-index:2;margin:14px 14px 0;border-radius:18px 18px 30px 30px;padding:15px 15px 17px;
+    background:radial-gradient(130% 100% at 50% -6%,#16264a 0%,#0c1730 52%,#0a1120 100%);
+    border:1px solid rgba(120,160,255,.16);box-shadow:0 0 42px rgba(60,110,220,.16) inset,0 8px 26px rgba(0,0,0,.4)}
+  .wall .bar{position:absolute;top:0;left:11%;right:11%;height:3px;border-radius:3px;
+    background:linear-gradient(90deg,transparent,rgba(140,200,255,.55),transparent)}
+  .wall .lbl{display:flex;align-items:center;gap:6px}
+  .wall .lbl .d{width:5px;height:5px;border-radius:50%;background:#7fe0ff;box-shadow:0 0 8px #7fe0ff}
+  .wall .lbl .t{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:#7fe0ff}
+  .wall h3{font-family:var(--grotesk);font-weight:700;font-size:22px;color:#f2f6ff;margin:6px 0 0;line-height:1.05}
+  .wall .sub{font-size:12.5px;color:#9db0d4;margin-top:4px}
+  .wall .nr{font-family:var(--grotesk);font-weight:700;font-size:30px;color:var(--acc);line-height:1;text-shadow:0 0 18px rgba(255,211,78,.4)}
+  .wall .of{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:#8a97b8;margin-top:3px;text-align:right}
+
+  .squadhead{display:flex;align-items:center;justify-content:space-between;margin:14px 0 9px}
+  .squadhead .a{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#cfe0ff}
+  .squadhead .b{font-family:var(--mono);font-size:10px;color:#8a97b8}
+  .cards{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+  .rcard{scroll-snap-align:start;flex:0 0 auto;width:136px;border-radius:14px;padding:11px;position:relative;overflow:hidden;
+    background:linear-gradient(158deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 6px 18px rgba(0,0,0,.35)}
+  .rcard .top{display:flex;align-items:flex-start;justify-content:space-between}
+  .rcard .price{font-family:var(--grotesk);font-weight:700;font-size:22px;color:#f2f6ff;line-height:1}
+  .rcard .role{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.06em;color:#0b1220;padding:3px 6px;border-radius:6px}
+  .rcard .nm{font-weight:600;font-size:13px;color:#eaf0ff;margin-top:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rcard .tm{display:flex;align-items:center;gap:5px;margin-top:3px}
+  .rcard .tm .sw{width:8px;height:8px;border-radius:2px}
+  .rcard .tm span{font-size:10.5px;color:#93a4c6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rcard .ptsrow{margin-top:9px}
+  .rcard .ptsrow .top2{display:flex;justify-content:space-between;font-family:var(--mono);font-size:8px;letter-spacing:.06em;color:#7f90b3}
+  .rcard .track{margin-top:3px;height:4px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden}
+  .rcard .fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--mint),var(--acc))}
+  .rcard.pin{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc),0 6px 18px rgba(0,0,0,.35)}
+
+  /* analysts desk */
+  .desk{position:relative;z-index:2;margin-top:18px}
+  .deskhead{display:flex;align-items:center;justify-content:space-between;padding:0 16px 4px}
+  .deskhead .a{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#cfe0ff}
+  .deskhead .b{font-family:var(--mono);font-size:10px;color:var(--acc)}
+  .deskwrap{position:relative}
+  .deskwrap .desktop{position:absolute;left:0;right:0;bottom:0;height:50px;
+    background:linear-gradient(180deg,rgba(32,44,76,.92),rgba(13,19,34,.96));border-top:1px solid rgba(255,255,255,.13);
+    box-shadow:0 -8px 22px rgba(0,0,0,.4),0 0 30px rgba(120,160,255,.1) inset;z-index:1}
+  .deskwrap .edge{position:absolute;left:16px;right:16px;bottom:49px;height:2px;z-index:3;
+    background:linear-gradient(90deg,transparent,rgba(255,211,78,.6),rgba(57,217,138,.6),transparent)}
+  .analysts{position:relative;z-index:2;display:flex;gap:0;overflow-x:auto;padding:8px 14px 9px;align-items:flex-end}
+  .analyst{flex:0 0 auto;width:78px;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+  .bust{position:relative;width:58px;height:66px;display:flex;align-items:flex-end;justify-content:center;animation:bob 6s ease-in-out infinite}
+  .bust .host{position:absolute;top:-3px;font-family:var(--mono);font-size:7px;font-weight:700;letter-spacing:.1em;color:#0b1220;background:var(--acc);padding:2px 5px;border-radius:5px;box-shadow:0 0 12px rgba(255,211,78,.5)}
+  .bust .sh{position:absolute;bottom:5px;width:52px;height:16px;border-radius:50%;filter:blur(7px);opacity:.6}
+  .bust .body{position:absolute;bottom:7px;width:46px;height:32px;border-radius:26px 26px 9px 9px;opacity:.94}
+  .bust .head{position:absolute;bottom:30px;width:25px;height:25px;border-radius:50%}
+  .analyst .nm{font-family:var(--grotesk);font-weight:600;font-size:10px;color:#e6edff;line-height:1.1;margin-top:8px;text-align:center}
+  .analyst .tg{font-family:var(--mono);font-size:7px;letter-spacing:.05em;margin-top:2px;text-align:center}
+
+  /* briefing */
+  .briefing{margin-top:16px;border-radius:20px;padding:15px;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,rgba(255,211,78,.1),rgba(255,255,255,.02));border:1px solid rgba(255,211,78,.22)}
+  .briefing .h{display:flex;align-items:center;gap:8px}
+  .briefing .h .o{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.9),var(--acc) 60%);box-shadow:0 0 14px rgba(255,211,78,.55)}
+  .briefing .h .t{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--acc)}
+  .briefing .q{font-family:var(--grotesk);font-weight:600;font-size:15px;color:#f2f6ff;margin-top:10px;line-height:1.34}
+  .briefing .tags{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+  .briefing .tags span{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:#cfe0ff;padding:5px 9px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+
+  h2.sec{font-family:var(--grotesk);font-weight:600;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin:4px 2px 10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0}
+  .note{font-size:12.5px;color:var(--muted);line-height:1.55}
   .empty{color:var(--muted);text-align:center;padding:22px 10px;font-size:14px}
-  .tabs{position:fixed;bottom:0;left:0;right:0;background:#0e1626;border-top:1px solid var(--line);
-    display:flex;max-width:640px;margin:0 auto;z-index:6}
-  .tabs button{background:none;color:var(--muted);border-radius:0;font-size:12px;
-    padding:10px 4px 14px;display:flex;flex-direction:column;align-items:center;gap:3px}
-  .tabs button.active{color:var(--acc)}
-  .tabs .ic{font-size:20px}
-  .hide{display:none}
-  .swap{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0}
-  .swap .arrow{color:var(--good);font-weight:700}
-  .gain{color:var(--good);font-weight:700}
-  .x{color:var(--bad);background:none;width:auto;padding:6px;font-size:18px;font-weight:700}
-  .rider.pin{border-color:var(--acc);box-shadow:inset 0 0 0 1px var(--acc)}
-  .rider.ban{opacity:.4}
-  .rider.ban .name{text-decoration:line-through}
-  button.sm.on{background:var(--acc);color:#20180a;border-color:var(--acc)}
-  button.sm.ban-on{background:var(--bad);color:#2a0d0d;border-color:var(--bad)}
-  .note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
-  .seed{font-size:13px}
+
+  button{border:0;border-radius:14px;font-family:var(--grotesk);font-weight:700;font-size:15px;cursor:pointer}
+  .primary{width:100%;padding:15px;background:linear-gradient(180deg,#ffe07a,#ffcb3e);color:#241a00;box-shadow:0 10px 26px rgba(255,203,62,.3)}
+  .ghost{width:100%;padding:13px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);font-weight:600;font-size:14px}
+  label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px;font-family:var(--sans)}
+  input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:12px;font-size:16px;font-family:var(--sans)}
+
+  /* rider list rows (advice/riders) */
+  .rider{display:flex;align-items:center;gap:10px;padding:11px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line);margin:8px 0}
+  .rider.pin{border-color:var(--acc)} .rider.ban{opacity:.4}
+  .rider.ban .rn{text-decoration:line-through}
+  .rider .ri{flex:1;min-width:0}
+  .rider .rn{font-weight:600;font-size:14.5px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rider .rm{color:var(--muted);font-size:11.5px;margin-top:2px}
+  .rider .rp{text-align:right} .rider .rp b{display:block;color:var(--acc);font-size:16px;font-family:var(--grotesk)}
+  .pill{display:inline-block;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:1px 7px;font-size:10.5px;color:var(--muted);margin-left:6px}
+  .sm{padding:8px 10px;font-size:13px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);border-radius:10px;width:auto;font-weight:600}
+  .sm.on{background:var(--acc);color:#241a00;border-color:var(--acc)}
+  .sm.ban-on{background:var(--red);color:#2a0d0d;border-color:var(--red)}
+  .swap{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:13px;margin:8px 0}
+  .gain{color:var(--mint);font-weight:700}
+
+  /* tab bar */
+  nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;max-width:440px;margin:0 auto;padding:0 14px 14px}
+  nav.tabs .inner{height:66px;border-radius:24px;background:rgba(16,24,42,.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,.1);box-shadow:0 16px 40px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.06) inset;
+    display:flex;align-items:center;justify-content:space-around;padding:0 6px}
+  nav.tabs button{background:none;display:flex;flex-direction:column;align-items:center;gap:5px;padding:7px 6px 6px;flex:1;border-radius:14px;color:#6f80a4}
+  nav.tabs button .lb{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em}
+  nav.tabs button.active{background:rgba(255,211,78,.12);color:var(--acc)}
+
+  /* agent overlay */
+  #overlay{position:fixed;inset:0;z-index:60;max-width:440px;margin:0 auto;
+    background:radial-gradient(120% 70% at 50% 0%,#10203c 0%,#0a1020 55%,#070b16 100%);
+    transform:translateY(101%);opacity:0;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease;overflow-y:auto}
+  #overlay.open{transform:translateY(0);opacity:1}
+  #overlay .oh{position:sticky;top:0;padding:18px 16px 12px;display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(180deg,rgba(10,16,32,.92),transparent);z-index:5}
+  #overlay .obtn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;color:#dfe8ff;font-size:18px}
+  #overlay .live{display:flex;align-items:center;gap:7px}
+  #overlay .live .d{width:7px;height:7px;border-radius:50%;background:var(--red);animation:livePulse 1.7s infinite}
+  #overlay .live .t{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#ff96a6}
+  #overlay .body{padding:6px 16px 40px}
+  .obust{position:relative;width:150px;height:170px;margin:0 auto;display:flex;align-items:flex-end;justify-content:center}
+  .obust .sh{position:absolute;bottom:6px;width:132px;height:26px;border-radius:50%;filter:blur(10px);opacity:.55}
+  .obust .body2{position:absolute;bottom:10px;width:120px;height:86px;border-radius:60px 60px 22px 22px;box-shadow:0 0 44px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.09) inset}
+  .obust .head2{position:absolute;bottom:80px;width:64px;height:64px;border-radius:50%}
+  .oname{font-family:var(--grotesk);font-weight:700;font-size:24px;color:#f4f7ff;text-align:center;margin-top:8px}
+  .otag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-align:center;margin-top:6px}
+  .orole{font-size:12.5px;color:#93a4c6;text-align:center;margin-top:3px}
+  .oquote{margin-top:18px;border-radius:20px;padding:16px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+  .oquote .q{font-family:var(--grotesk);font-weight:600;font-size:16px;color:#f2f6ff;line-height:1.4}
+  .keyreads{margin-top:16px}
+  .keyreads .h{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:#7f90b3;margin-bottom:10px}
+  .kr{display:flex;align-items:center;gap:11px;padding:12px 13px;border-radius:13px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);margin-bottom:8px}
+  .kr .d{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+  .kr span{font-size:13px;color:#dbe4f7}
+  .rail{position:sticky;bottom:0;padding:12px 10px 16px;background:linear-gradient(0deg,#0a1020 62%,transparent);display:flex;gap:8px;overflow-x:auto}
+  .rail .ra{flex:0 0 auto;width:52px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .rail .rb{width:44px;height:44px;border-radius:13px;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--line)}
+  .rail .rb .b{position:absolute;bottom:5px;width:24px;height:16px;border-radius:12px 12px 4px 4px}
+  .rail .rb .h{position:absolute;bottom:18px;width:13px;height:13px;border-radius:50%}
+  .rail .rt{font-family:var(--mono);font-size:7px;text-align:center;line-height:1}
 </style>
 </head>
 <body>
-<header>
-  <h1>🚴 Wielermanager Helper</h1>
-  <div class="sub">Tour M 2026 · adviseert, jij past toe in Sporza</div>
-  <div class="sub" id="dataStamp" style="color:var(--good)"></div>
-  <div class="budgetbar">
-    <div class="stat" id="stBudget"><small>Budget over</small><b id="budgetLeft">–</b></div>
-    <div class="stat" id="stSquad"><small>Renners</small><b id="squadCount">0</b></div>
-    <div class="stat"><small>Verw. punten</small><b id="ptsTotal">0</b></div>
-  </div>
-</header>
-
-<main>
-  <!-- TAB: PLOEG -->
-  <section id="tab-team">
-    <div class="card" id="nextStage"></div>
-    <div class="card">
-      <h2>Mijn ploeg</h2>
-      <div id="teamList"></div>
-      <div class="row" style="margin-top:10px">
-        <button id="autoBuild">✨ Stel beste ploeg samen</button>
+<div id="app">
+  <header>
+    <div class="toprow">
+      <div class="onair"><span class="dot"></span><span class="t">ON AIR</span></div>
+      <div class="brand">
+        <div class="r"><span class="sq"></span><span class="nm">Wielermanager</span></div>
+        <span class="su">STUDIO</span>
       </div>
-      <div class="note">Kiest automatisch de beste renners binnen je budget en ploeggrootte,
-        op basis van verwachte punten per euro. Jij bevestigt daarna in de Sporza-app.</div>
+      <div class="avatar">TL</div>
     </div>
-    <div class="card" id="teamLogic"></div>
-  </section>
+    <div class="tickerwrap"><div class="move" id="ticker"></div></div>
+  </header>
 
-  <!-- TAB: ADVIES -->
-  <section id="tab-advice" class="hide">
-    <div class="card">
-      <h2>Wissel-advies van vandaag</h2>
+  <main>
+    <!-- TEAM / HOME -->
+    <section id="tab-team" class="tab on">
+      <div class="scene">
+        <div class="glow"></div>
+        <div class="wall">
+          <div class="bar"></div>
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+            <div style="min-width:0">
+              <div class="lbl"><span class="d"></span><span class="t">VOLGENDE RIT</span></div>
+              <h3 id="nsTitle">–</h3>
+              <div class="sub" id="nsSub">–</div>
+            </div>
+            <div style="flex:0 0 auto;text-align:right">
+              <div class="nr" id="nsNr">–</div>
+              <div class="of" id="nsOf">VAN 21</div>
+            </div>
+          </div>
+          <div class="squadhead"><span class="a">JOUW PLOEG</span><span class="b" id="squadMeta">16 RENNERS</span></div>
+          <div class="cards" id="squadCards"></div>
+          <button class="primary" id="autoBuild" style="margin-top:14px">✨ Stel beste ploeg samen</button>
+        </div>
+
+        <div class="desk">
+          <div class="deskhead"><span class="a">DE ANALISTEN</span><span class="b">TIK OM TE RAADPLEGEN →</span></div>
+          <div class="deskwrap">
+            <div class="desktop"></div><div class="edge"></div>
+            <div class="analysts" id="analystsRow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="briefing" id="briefing"></div>
+      <div class="card" id="teamLogic"></div>
+    </section>
+
+    <!-- ADVICE -->
+    <section id="tab-advice" class="tab">
+      <h2 class="sec">Wissel-advies van vandaag</h2>
       <div id="adviceList"></div>
-      <button id="refreshAdvice" class="ghost" style="margin-top:10px">🔄 Opnieuw berekenen</button>
-      <div class="note">Toont wissels die je verwachte punten verhogen zonder je budget te
-        overschrijden. Max. wissels = wat je bij transfers instelt.</div>
-    </div>
-  </section>
+      <div class="note" style="margin-top:12px">Toont wissels die je verwachte punten verhogen binnen je budget en transfers.
+        Vastgezette (📌) renners worden nooit voorgesteld om te wisselen; gebande (🚫) nooit binnengehaald.</div>
+    </section>
 
-  <!-- TAB: AGENTS -->
-  <section id="tab-agents" class="hide">
-    <div class="card">
-      <h2>De AI-agents</h2>
-      <div class="note" style="margin-top:0">Elke agent volgt één ding en levert een signaal.
-        De consolidator bundelt alles tot één score per renner; de reken-agent kiest je ploeg.</div>
-      <div id="agentsList" style="margin-top:10px"></div>
-    </div>
-  </section>
+    <!-- AGENTS -->
+    <section id="tab-agents" class="tab">
+      <h2 class="sec">De AI-agents</h2>
+      <div class="note" style="margin:0 2px 10px">Elke agent volgt één ding en levert een signaal. De consolidator bundelt alles;
+        de rekenaar kiest je ploeg. Tik een agent voor zijn analyse.</div>
+      <div id="agentsGrid"></div>
+    </section>
 
-  <!-- TAB: RENNERS -->
-  <section id="tab-riders" class="hide">
-    <div class="card">
-      <h2>Renner toevoegen</h2>
-      <label>Naam</label>
-      <input id="rName" placeholder="bv. Tadej Pogačar">
-      <div class="row">
-        <div><label>Prijs</label><input id="rPrice" type="number" inputmode="decimal" placeholder="bv. 24"></div>
-        <div><label>Verw. punten</label><input id="rPts" type="number" inputmode="decimal" placeholder="bv. 900"></div>
-      </div>
-      <label>Ploeg (optioneel)</label>
-      <input id="rTeam" placeholder="bv. UAE">
-      <button id="addRider" style="margin-top:12px">➕ Toevoegen</button>
-      <div class="note seed">Nog geen renners? <a href="#" id="loadSeed" style="color:var(--acc)">Laad
-        een voorbeeldlijst</a> om de app meteen te testen (later vervangen door echte Sporza-data).</div>
-    </div>
-    <div class="card">
-      <h2>Rennerspool (<span id="poolCount">0</span>)</h2>
-      <div class="note" style="margin-top:0">Tik <b>📌</b> om een renner <b>altijd</b> in je ploeg te forceren,
-        of <b>🚫</b> om er een <b>nooit</b> in te zetten. De reken-agent herberekent je ploeg meteen
-        en houdt rekening met je keuzes.</div>
+    <!-- RIDERS -->
+    <section id="tab-riders" class="tab">
+      <h2 class="sec">Renners</h2>
+      <div class="note" style="margin:0 2px 10px">Tik <b>📌</b> om een renner <b>altijd</b> in je ploeg te forceren,
+        of <b>🚫</b> om er een <b>nooit</b> in te zetten. De rekenaar herberekent meteen.</div>
       <div id="poolList"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TAB: REGELS -->
-  <section id="tab-rules" class="hide">
-    <div class="card">
-      <h2>Spelregels</h2>
-      <label>Budget</label>
-      <input id="cfgBudget" type="number" inputmode="decimal">
-      <label>Aantal renners in ploeg</label>
-      <input id="cfgSquad" type="number" inputmode="numeric">
-      <label>Max. wissels (transfers)</label>
-      <input id="cfgTransfers" type="number" inputmode="numeric">
-      <button id="saveCfg" style="margin-top:12px">💾 Opslaan</button>
-      <div class="note">⚠️ Deze waarden zijn voorlopig. Zodra we de échte Sporza-regels en
-        rennersprijzen ophalen, vullen we ze correct in.</div>
-    </div>
-    <div class="card">
-      <h2>Data</h2>
-      <button id="refreshData" class="ghost">🔄 Verse renners-data laden (overschrijft pool)</button>
-      <button id="exportBtn" class="ghost" style="margin-top:8px">⬇️ Back-up exporteren</button>
-      <button id="wipeBtn" class="ghost" style="margin-top:8px;color:var(--bad)">🗑️ Alles wissen</button>
-    </div>
-  </section>
-</main>
+    <!-- SETTINGS -->
+    <section id="tab-settings" class="tab">
+      <h2 class="sec">Spelregels</h2>
+      <div class="card">
+        <label>Budget (miljoen)</label><input id="cfgBudget" type="number" inputmode="decimal">
+        <label>Aantal renners</label><input id="cfgSquad" type="number" inputmode="numeric">
+        <label>Gratis transfers</label><input id="cfgTransfers" type="number" inputmode="numeric">
+        <button class="ghost" id="saveCfg" style="margin-top:12px">💾 Opslaan</button>
+      </div>
+      <h2 class="sec">Data</h2>
+      <div class="card">
+        <div class="note" id="dataStamp" style="color:var(--mint);margin-bottom:10px"></div>
+        <button class="ghost" id="refreshData">🔄 Verse renners-data laden</button>
+        <button class="ghost" id="exportBtn" style="margin-top:8px">⬇️ Back-up exporteren</button>
+        <button class="ghost" id="wipeBtn" style="margin-top:8px;color:var(--red)">🗑️ Alles wissen</button>
+      </div>
+    </section>
+  </main>
 
-<nav class="tabs">
-  <button data-tab="team" class="active"><span class="ic">🚴</span>Ploeg</button>
-  <button data-tab="advice"><span class="ic">💡</span>Advies</button>
-  <button data-tab="agents"><span class="ic">🤖</span>Agents</button>
-  <button data-tab="riders"><span class="ic">📋</span>Renners</button>
-  <button data-tab="rules"><span class="ic">⚙️</span>Regels</button>
-</nav>
+  <nav class="tabs"><div class="inner">
+    <button data-tab="team" class="active"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="14" x2="6" y2="19"/><line x1="12" y1="10" x2="12" y2="19"/><line x1="18" y1="12" x2="18" y2="19"/><circle cx="6" cy="10.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="8.5" r="1.5" fill="currentColor" stroke="none"/></svg><span class="lb">Ploeg</span></button>
+    <button data-tab="advice"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9.5" r="5"/><line x1="10" y1="17" x2="14" y2="17"/><line x1="11" y1="19.5" x2="13" y2="19.5"/></svg><span class="lb">Advies</span></button>
+    <button data-tab="agents"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19 a6.5 6.5 0 0 1 13 0"/></svg><span class="lb">Agents</span></button>
+    <button data-tab="riders"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="lb">Renners</span></button>
+    <button data-tab="settings"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/><circle cx="9" cy="8" r="2.3" fill="#0b1220"/><circle cx="15" cy="16" r="2.3" fill="#0b1220"/></svg><span class="lb">Regels</span></button>
+  </div></nav>
+</div>
+
+<div id="overlay"></div>
 
 <script>
 const $ = s => document.querySelector(s);
-const money = n => "€" + (Math.round(n*10)/10);
-const DB_KEY = "wm_helper_v1";
-
-const defaults = {
-  cfg: { budget: 100, squad: 16, transfers: 3 },
-  riders: [],      // {id,name,team,price,pts,inTeam}
-};
+const money = n => "€" + (Math.round(n*10)/10) + "M";
+const esc = s => (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
+const DB_KEY = "wm_studio_v1";
+const defaults = { cfg:{budget:100,squad:16,transfers:3}, riders:[] };
 let db = load();
-let coverageReq = {};  // min. aantal per rol (van de spreidings-agent)
-let stagesInfo = null; // rittenschema (van de parcours/ritten-data)
-let agentsInfo = [];   // overzicht van de agents
+let coverageReq={}, stagesInfo=null, agentsInfo=[];
+let uiTab="team", overlayIdx=0;
 
-// Laad de echte Sporza-data (door de agents/consolidator gemaakt) als de pool leeg is.
-async function loadRealData(force){
-  try{
-    let data = window.__RATINGS__ || null;   // ingebakken data (single-file build)
-    if(!data){
-      const res = await fetch("./data/ratings.json", {cache:"no-store"});
-      if(!res.ok) return;
-      data = await res.json();
-    }
-    if(data.budget) db.cfg.budget = data.budget;
-    if(data.squad) db.cfg.squad = data.squad;
-    if(data.freeTransfers) db.cfg.transfers = data.freeTransfers;
-    coverageReq = data.coverage || {};
-    stagesInfo = data.stages || null;
-    agentsInfo = data.agents || [];
-    if(force || !db.riders.length){
-      const keep = new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
-      const pins = new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
-      const bans = new Set(db.riders.filter(r=>r.ban).map(r=>r.name));
-      db.riders = data.riders.map(r=>({
-        id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
-        rol:r.rol||"knecht", note:r.note||"",
-        pin: pins.has(r.name), ban: bans.has(r.name),
-        inTeam: keep.has(r.name) || pins.has(r.name)
-      }));
-      const stamp = document.getElementById("dataStamp");
-      if(stamp) stamp.textContent = "Data bijgewerkt: " + (data.updated||"?");
-      save(); syncCfgInputs();
-    }
-    render();  // altijd verversen (volgende rit + agents ook zonder herladen pool)
-  }catch(e){ /* offline of geen server: app blijft werken met lokale data */ }
-}
-
-function load(){
-  try { return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }
-  catch(e){ return JSON.parse(JSON.stringify(defaults)); }
-}
+function load(){ try{ return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
 function save(){ localStorage.setItem(DB_KEY, JSON.stringify(db)); render(); }
 function uid(){ return "r"+Math.random().toString(36).slice(2,9); }
+
+// ---- data ----
+async function loadRealData(force){
+  try{
+    let data = window.__RATINGS__ || null;
+    if(!data){ const res = await fetch("./data/ratings.json",{cache:"no-store"}); if(!res.ok) return; data = await res.json(); }
+    if(data.budget) db.cfg.budget=data.budget;
+    if(data.squad) db.cfg.squad=data.squad;
+    if(data.freeTransfers) db.cfg.transfers=data.freeTransfers;
+    coverageReq = data.coverage||{}; stagesInfo = data.stages||null; agentsInfo = data.agents||[];
+    if(force || !db.riders.length){
+      const keep=new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
+      const pins=new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
+      const bans=new Set(db.riders.filter(r=>r.ban).map(r=>r.name));
+      db.riders = data.riders.map(r=>({ id:uid(), name:r.name, team:r.team, price:+r.price||0, pts:+r.pts||0,
+        rol:r.rol||"knecht", note:r.note||"", pin:pins.has(r.name), ban:bans.has(r.name),
+        inTeam: keep.has(r.name)||pins.has(r.name) }));
+      const stamp=$("#dataStamp"); if(stamp) stamp.textContent="Data bijgewerkt: "+(data.updated||"?");
+      if(force || !team().length) buildBestTeam();
+      syncCfg();
+    }
+    render();
+  }catch(e){ /* offline: lokale data blijft werken */ }
+}
 
 // ---- team math ----
 function team(){ return db.riders.filter(r=>r.inTeam); }
 function teamCost(){ return team().reduce((s,r)=>s+(+r.price||0),0); }
 function teamPts(){ return team().reduce((s,r)=>s+(+r.pts||0),0); }
-function budgetLeft(){ return (+db.cfg.budget||0) - teamCost(); }
+function budgetLeft(){ return (+db.cfg.budget||0)-teamCost(); }
 
-// Exacte optimalisatie: kies PRECIES 'squad' renners binnen budget met max punten.
-// Knapsack met kardinaliteit (DP over aantal x budget). Prijzen zijn hele getallen.
-// Knapsack-DP: kies precies K renners uit 'pool' binnen budget C, max punten.
-function knapsackPick(pool, K, C){
-  const n=pool.length;
-  if(!n||K<=0) return {ids:new Set(), cost:0};
-  const W=C+1, S=(K+1)*W, NEG=-1e9, idx=(k,c)=>k*W+c;
-  let dp=new Float64Array(S).fill(NEG); dp[idx(0,0)]=0;
-  const take=new Uint8Array(n*S);
-  for(let i=0;i<n;i++){
-    const {price,pts}=pool[i], off=i*S;
-    const p=Math.min(price,C);
-    for(let k=K;k>=1;k--) for(let c=C;c>=p;c--){
-      const prev=dp[idx(k-1,c-p)];
-      if(prev>NEG && prev+pts>dp[idx(k,c)]){ dp[idx(k,c)]=prev+pts; take[off+idx(k,c)]=1; }
-    }
-  }
-  let bestC=-1,bestV=NEG;
-  for(let c=0;c<=C;c++){ const v=dp[idx(K,c)]; if(v>bestV){bestV=v;bestC=c;} }
-  const ids=new Set(); let cost=0;
-  if(bestC>=0){ let k=K,c=bestC;
-    for(let i=n-1;i>=0&&k>0;i--){ if(take[i*S+idx(k,c)]){ ids.add(pool[i].id); cost+=Math.min(pool[i].price,C); c-=Math.min(pool[i].price,C); k--; } }
-  }
-  return {ids,cost};
+function knapsackPick(pool,K,C){
+  const n=pool.length; if(!n||K<=0) return {ids:new Set()};
+  const W=C+1,S=(K+1)*W,NEG=-1e9,idx=(k,c)=>k*W+c;
+  let dp=new Float64Array(S).fill(NEG); dp[idx(0,0)]=0; const take=new Uint8Array(n*S);
+  for(let i=0;i<n;i++){ const p=Math.min(pool[i].price,C),pts=pool[i].pts,off=i*S;
+    for(let k=K;k>=1;k--) for(let c=C;c>=p;c--){ const prev=dp[idx(k-1,c-p)];
+      if(prev>NEG&&prev+pts>dp[idx(k,c)]){ dp[idx(k,c)]=prev+pts; take[off+idx(k,c)]=1; } } }
+  let bC=-1,bV=NEG; for(let c=0;c<=C;c++){ const v=dp[idx(K,c)]; if(v>bV){bV=v;bC=c;} }
+  const ids=new Set(); if(bC>=0){ let k=K,c=bC; for(let i=n-1;i>=0&&k>0;i--){ if(take[i*S+idx(k,c)]){ ids.add(pool[i].id); c-=Math.min(pool[i].price,C); k--; } } }
+  return {ids};
 }
-
-// Exacte optimalisatie MET dekking: reserveer eerst de beste renner(s) van elke vereiste
-// rol (spreidings-agent), optimaliseer dan de resterende plaatsen.
 function buildBestTeam(){
-  const K = +db.cfg.squad||0, C = Math.round(+db.cfg.budget||0);
-  // Gebande renners doen niet mee.
-  const all = db.riders.filter(r=>!r.ban)
-    .map(r=>({id:r.id, rol:r.rol||"knecht", price:Math.round(+r.price||0), pts:+r.pts||0, pin:!!r.pin}));
-  if(!all.length || !K){ db.riders.forEach(r=>{ if(r.ban) r.inTeam=false; }); return; }
+  const K=+db.cfg.squad||0, C=Math.round(+db.cfg.budget||0);
+  const all=db.riders.filter(r=>!r.ban).map(r=>({id:r.id,rol:r.rol||"knecht",price:Math.round(+r.price||0),pts:+r.pts||0,pin:!!r.pin}));
+  if(!all.length||!K){ db.riders.forEach(r=>{ if(r.ban) r.inTeam=false; }); return; }
   const reserved=new Set(); let rCost=0;
   const reserve=r=>{ if(!reserved.has(r.id)){ reserved.add(r.id); rCost+=r.price; } };
-  // 1) Vastgezette (pin) renners altijd erin.
   all.forEach(r=>{ if(r.pin) reserve(r); });
-  // 2) Dekking per rittype aanvullen (tel pins mee).
   const have={}; all.forEach(r=>{ if(reserved.has(r.id)) have[r.rol]=(have[r.rol]||0)+1; });
-  for(const [rol,need] of Object.entries(coverageReq||{})){
-    let n=have[rol]||0;
-    const cand=all.filter(r=>r.rol===rol && !reserved.has(r.id)).sort((a,b)=>b.pts-a.pts);
-    for(let i=0;i<Math.min(Math.max(0,need-n),cand.length);i++) reserve(cand[i]);
-  }
-  // 3) Vul de rest optimaal binnen resterend budget en plaatsen.
-  const rest = all.filter(r=>!reserved.has(r.id));
-  const slots = K - reserved.size;
-  const pick = slots>0 ? knapsackPick(rest, slots, Math.max(0,C-rCost)) : {ids:new Set()};
-  const chosen = new Set([...reserved, ...pick.ids]);
-  db.riders.forEach(r=> r.inTeam = chosen.has(r.id));
+  for(const [rol,need] of Object.entries(coverageReq||{})){ let n=have[rol]||0;
+    const cand=all.filter(r=>r.rol===rol&&!reserved.has(r.id)).sort((a,b)=>b.pts-a.pts);
+    for(let i=0;i<Math.min(Math.max(0,need-n),cand.length);i++) reserve(cand[i]); }
+  const rest=all.filter(r=>!reserved.has(r.id)); const slots=K-reserved.size;
+  const pick=slots>0?knapsackPick(rest,slots,Math.max(0,C-rCost)):{ids:new Set()};
+  const chosen=new Set([...reserved,...pick.ids]);
+  db.riders.forEach(r=> r.inTeam=chosen.has(r.id));
   save();
 }
-
-// Transfer advice: best single swaps that raise points within budget, up to max transfers.
 function adviceSwaps(){
-  const cap = +db.cfg.transfers||0, budget=+db.cfg.budget||0;
-  const inTeam = team(), bench = db.riders.filter(r=>!r.inTeam);
-  const swaps=[];
-  const usedOut=new Set(), usedIn=new Set();
-  for(let k=0;k<cap;k++){
-    let best=null;
-    for(const out of inTeam){
-      if(usedOut.has(out.id) || out.pin) continue;   // vastgezette renner niet wisselen
-      for(const inn of bench){
-        if(usedIn.has(inn.id) || inn.ban) continue;   // geband: nooit voorstellen
-        const gain=(+inn.pts||0)-(+out.pts||0);
-        const deltaCost=(+inn.price||0)-(+out.price||0);
-        if(gain<=0) continue;
-        if(budgetLeft()-deltaCost < 0) continue; // must stay within budget
-        const score=gain;
-        if(!best||score>best.gain) best={out,inn,gain,deltaCost};
-      }
-    }
-    if(!best) break;
-    usedOut.add(best.out.id); usedIn.add(best.inn.id);
-    swaps.push(best);
-  }
+  const cap=+db.cfg.transfers||0; const inT=team(), bench=db.riders.filter(r=>!r.inTeam);
+  const swaps=[],uo=new Set(),ui=new Set();
+  for(let k=0;k<cap;k++){ let best=null;
+    for(const out of inT){ if(uo.has(out.id)||out.pin) continue;
+      for(const inn of bench){ if(ui.has(inn.id)||inn.ban) continue;
+        const gain=(+inn.pts||0)-(+out.pts||0), dc=(+inn.price||0)-(+out.price||0);
+        if(gain<=0) continue; if(budgetLeft()-dc<0) continue;
+        if(!best||gain>best.gain) best={out,inn,gain,dc}; } }
+    if(!best) break; uo.add(best.out.id); ui.add(best.inn.id); swaps.push(best); }
   return swaps;
 }
 
-// ---- render ----
-function riderRow(r, actions){
-  const rol = ROL_LABEL[r.rol]||r.rol||"";
-  const cls = r.pin?" pin":(r.ban?" ban":"");
-  return `<div class="rider${cls}">
-    <div class="info">
-      <div class="name">${r.pin?"📌 ":""}${esc(r.name)||"?"}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
-      <div class="meta">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span style="color:var(--muted)">${esc(r.note)}</span>`:""}</div>
-    </div>
-    <div class="pts"><b>${(+r.pts||0)}</b><span>pt</span></div>
-    ${actions||""}
-  </div>`;
-}
-function esc(s){ return (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
-
-// ---- info-helpers ----
-const MAAND = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
-const DAG = ["zo","ma","di","wo","do","vr","za"];
+// ---- meta ----
+const ROL_LABEL={gc:"Klassement",klimmer:"Klimmer",sprinter:"Sprinter",puncheur:"Puncheur",klassieker:"Klassieker",tijdrit:"Tijdrijder",aanvaller:"Aanvaller",knecht:"Knecht",leadout:"Lead-out"};
+const ROL_AB={gc:"GC",klimmer:"KLIM",sprinter:"SPR",puncheur:"PUN",klassieker:"KLAS",tijdrit:"TT",aanvaller:"AANV",knecht:"KNE",leadout:"LEAD"};
+const ROL_COL={gc:"#ffd34e",klimmer:"#c6a0ff",sprinter:"#ff8f6b",puncheur:"#7fe0ff",klassieker:"#7fe0ff",tijdrit:"#8ab4ff",aanvaller:"#5ad1a0",knecht:"#39d98a",leadout:"#39d98a"};
+const TYPE_ROLLEN={ploegentijdrit:["tijdrit","gc","knecht","leadout","klimmer","sprinter","puncheur","klassieker","aanvaller"],vlak:["sprinter","leadout"],heuvel:["puncheur","aanvaller","klassieker"],berg:["klimmer","gc"],tijdrit:["tijdrit","gc"]};
+const MAAND=["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"], DAG=["zo","ma","di","wo","do","vr","za"];
 function nlDate(iso){ const d=new Date(iso+"T12:00:00"); return `${DAG[d.getDay()]} ${d.getDate()} ${MAAND[d.getMonth()]}`; }
-const ROL_LABEL = { gc:"Klassement", klimmer:"Klimmer", sprinter:"Sprinter", puncheur:"Puncheur",
-  klassieker:"Klassieker", tijdrit:"Tijdrijder", aanvaller:"Aanvaller", knecht:"Knecht", leadout:"Lead-out" };
-// Welke rollen scoren op welk rittype
-const TYPE_ROLLEN = { ploegentijdrit:["tijdrit","gc","knecht","leadout","klimmer","sprinter","puncheur","klassieker","aanvaller"],
-  vlak:["sprinter","leadout"], heuvel:["puncheur","aanvaller","klassieker"],
-  berg:["klimmer","gc"], tijdrit:["tijdrit","gc"] };
+function teamHue(t){ let h=0; for(const c of (t||"")) h=(h*31+c.charCodeAt(0))%360; return h; }
+function nextStage(){ if(!stagesInfo||!stagesInfo.stages) return null; const iso=new Date().toISOString().slice(0,10); return stagesInfo.stages.find(s=>s.datum>=iso)||null; }
 
-function nextStage(){
-  if(!stagesInfo || !stagesInfo.stages) return null;
-  const today = new Date(); const iso = today.toISOString().slice(0,10);
-  const up = stagesInfo.stages.find(s=>s.datum >= iso);
-  return up || null; // null = Tour afgelopen
+// agent visuals
+const AGENT_META={
+  "vorm/uitslagen-agent":{naam:"Vorm-analist",tag:"VORM · MOMENTUM",col:"#39d98a"},
+  "historiek-agent":{naam:"Historicus",tag:"HISTORIE · DATA",col:"#8ab4ff"},
+  "odds-agent":{naam:"Odds-analist",tag:"ODDS · MARKT",col:"#ffd34e"},
+  "parcours-agent":{naam:"Parcours-expert",tag:"ROUTE · TERREIN",col:"#7fe0ff"},
+  "rol-agent":{naam:"Profieler",tag:"RENNERS · TYPE",col:"#c6a0ff"},
+  "spreidings-agent":{naam:"Strateeg",tag:"TACTIEK · SPREIDING",col:"#5ad1a0"},
+  "ttt-agent":{naam:"TTT-analist",tag:"PLOEGENTIJDRIT",col:"#ff8f6b"},
+  "uitslagen-agent":{naam:"Verslaggever",tag:"NIEUWS · UITSLAGEN",col:"#ff96a6"}
+};
+function analystList(){
+  const base = agentsInfo.map(a=>{ const m=AGENT_META[a.agent]||{naam:a.agent,tag:(a.type||"").toUpperCase(),col:"#9db0ff"};
+    return {naam:m.naam,tag:m.tag,col:m.col,short:m.tag.split(" ")[0],uitleg:a.uitleg,highlights:a.highlights||[],bron:a.bron,host:false}; });
+  base.push({naam:"Consolidator",tag:"BUNDELT SIGNALEN",col:"#9db0ff",short:"BUNDEL",host:false,
+    uitleg:"Bundelt alle signalen van de andere analisten tot één verwachte-punten-score per renner.",highlights:["Rol × parcours × vorm × historiek × ploegentijdrit"]});
+  base.push({naam:"De Rekenaar",tag:"AI · OPTIMALISATIE",col:"#ffd34e",short:"AI",host:true,
+    uitleg:"Kiest uit alle scores de best mogelijke ploeg van 16 renners binnen €100M, met dekking op elk rittype, en respecteert je pins en bans.",highlights:["Exacte optimalisatie (knapsack)","Altijd 16 renners, binnen budget"]});
+  return base;
 }
 
+// ---- render ----
+function render(){
+  renderTicker(); renderNextStage(); renderSquad(); renderAnalysts(); renderBriefing();
+  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool();
+}
+function renderTicker(){
+  const s=nextStage(); const el=$("#ticker"); if(!el) return;
+  let txt;
+  if(s){ const meta=(stagesInfo.typeUitleg||{})[s.type]||{label:s.type};
+    txt=`<span class="seg"><span style="color:var(--acc);font-weight:700">RIT ${s.nr}</span> · ${meta.label.toUpperCase()} · ${esc(s.van).toUpperCase()} → ${esc(s.naar).toUpperCase()} &nbsp;•&nbsp; ${nlDate(s.datum).toUpperCase()} &nbsp;•&nbsp; JOUW PLOEG <span style="color:var(--mint)">${teamPts()} PT</span> &nbsp;•&nbsp; BUDGET OVER <span style="color:var(--acc)">${money(budgetLeft())}</span> &nbsp;•&nbsp;&nbsp;</span>`; }
+  else { txt=`<span class="seg">WIELERMANAGER STUDIO &nbsp;•&nbsp; STEL JE PLOEG SAMEN &nbsp;•&nbsp;&nbsp;</span>`; }
+  el.innerHTML = txt+txt;
+}
 function renderNextStage(){
-  const el = $("#nextStage"); if(!el) return;
-  const s = nextStage();
-  if(!s){ el.innerHTML = stagesInfo ? `<h2>Volgende rit</h2><div class="empty">De Tour is afgelopen. 🏁</div>` : ""; el.style.display = stagesInfo?"":"none"; return; }
-  el.style.display = "";
-  const meta = (stagesInfo.typeUitleg||{})[s.type] || {emoji:"🚴",label:s.type,scoort:""};
-  const roles = TYPE_ROLLEN[s.type] || [];
-  const mine = team().filter(r=> roles.includes(r.rol));
-  const isTTT = s.type==="ploegentijdrit";
-  el.innerHTML = `<h2>Volgende rit</h2>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div style="font-size:34px">${meta.emoji}</div>
-      <div style="flex:1">
-        <div style="font-weight:600;font-size:16px">Rit ${s.nr} · ${meta.label}</div>
-        <div style="color:var(--muted);font-size:13px">${nlDate(s.datum)} · ${esc(s.van)} → ${esc(s.naar)}</div>
+  const s=nextStage();
+  if(!s){ $("#nsTitle").textContent = stagesInfo?"Tour afgelopen 🏁":"Volgende rit"; $("#nsSub").textContent=""; $("#nsNr").textContent="–"; return; }
+  const meta=(stagesInfo.typeUitleg||{})[s.type]||{emoji:"🚴",label:s.type};
+  $("#nsTitle").textContent = `${meta.emoji||""} ${meta.label}`.trim();
+  $("#nsSub").textContent = `Rit ${s.nr} · ${s.van} → ${s.naar} · ${nlDate(s.datum)}`;
+  $("#nsNr").textContent = String(s.nr).padStart(2,"0");
+  $("#nsOf").textContent = "VAN "+(stagesInfo.stages.length);
+}
+function renderSquad(){
+  const t=team().sort((a,b)=>b.pts-a.pts); const maxP=Math.max(1,...t.map(r=>r.pts));
+  $("#squadMeta").textContent = `${t.length} RENNERS · ${money(teamCost())}`;
+  const el=$("#squadCards");
+  if(!t.length){ el.innerHTML=`<div class="note" style="padding:10px">Nog geen ploeg — tik “Stel beste ploeg samen”.</div>`; return; }
+  el.innerHTML = t.map(r=>{
+    const col=ROL_COL[r.rol]||"#39d98a", hue=teamHue(r.team), pct=Math.round(r.pts/maxP*100);
+    return `<div class="rcard ${r.pin?'pin':''}">
+      <div class="top">
+        <div class="price">${money(r.price)}</div>
+        <div class="role" style="background:${col}">${ROL_AB[r.rol]||"?"}</div>
       </div>
-    </div>
-    <div class="note" style="margin-top:10px">Vandaag scoren vooral: <b style="color:var(--txt)">${meta.scoort}</b>.</div>
-    <div class="note">Uit jouw ploeg ${isTTT?"doet iedereen mee (ploegentijdrit)":`passen hier <b style="color:var(--good)">${mine.length}</b> renners`}:
-      ${mine.slice(0,8).map(r=>esc(r.name.split(" ").slice(-1)[0])).join(", ")||"–"}.</div>`;
+      <div class="nm">${r.pin?"📌 ":""}${esc(r.name)}</div>
+      <div class="tm"><span class="sw" style="background:oklch(0.8 0.13 ${hue})"></span><span>${esc(r.team)}</span></div>
+      <div class="ptsrow"><div class="top2"><span>PUNTEN</span><span style="color:${col}">${r.pts}</span></div>
+        <div class="track"><div class="fill" style="width:${pct}%"></div></div></div>
+    </div>`; }).join("");
+}
+function renderAnalysts(){
+  const el=$("#analystsRow"); if(!el) return; const list=analystList();
+  el.innerHTML = list.map((a,i)=>`
+    <div class="analyst" onclick="openAgent(${i})">
+      <div class="bust" style="animation-delay:${(i%5)*0.3}s">
+        ${a.host?`<div class="host">HOST</div>`:""}
+        <div class="sh" style="background:${a.col}"></div>
+        <div class="body" style="background:linear-gradient(180deg,${a.col},${a.col}22);box-shadow:0 0 18px ${a.col}66"></div>
+        <div class="head" style="background:radial-gradient(circle at 40% 34%,rgba(255,255,255,.85),${a.col} 54%,${a.col}33);box-shadow:0 0 16px ${a.col}66"></div>
+      </div>
+      <div class="nm">${esc(a.naam)}</div>
+      <div class="tg" style="color:${a.col}">${esc(a.short)}</div>
+    </div>`).join("");
+}
+function renderBriefing(){
+  const el=$("#briefing"); const t=team(); const s=nextStage();
+  if(!t.length){ el.style.display="none"; return; } el.style.display="";
+  const stars=[...t].sort((a,b)=>b.price-a.price).slice(0,3).map(r=>r.name.split(" ").slice(-1)[0]).join(", ");
+  const sw=adviceSwaps().length;
+  let line;
+  if(s){ const meta=(stagesInfo.typeUitleg||{})[s.type]||{label:s.type,scoort:""};
+    line=`Volgende rit is een ${meta.label.toLowerCase()}. Vandaag pakken vooral ${meta.scoort.toLowerCase()} punten — jouw kopmannen ${stars} staan klaar.`; }
+  else line=`Je ploeg leunt op ${stars}. Zorg dat je op elk rittype scoorders hebt.`;
+  el.innerHTML = `<div class="h"><span class="o"></span><span class="t">ANCHOR-BRIEFING</span></div>
+    <div class="q">"${line}"</div>
+    <div class="tags"><span>${t.length} RENNERS</span><span>${money(teamCost())} BESTEED</span>
+      <span style="color:var(--mint);background:rgba(57,217,138,.08);border-color:rgba(57,217,138,.25)">${sw} WISSEL${sw===1?"":"S"} GEADVISEERD</span></div>`;
+}
+function renderTeamLogic(){
+  const el=$("#teamLogic"); const t=team(); if(!t.length){ el.style.display="none"; return; } el.style.display="";
+  const byRole={}; t.forEach(r=>byRole[r.rol]=(byRole[r.rol]||0)+1);
+  const rolLine=Object.entries(byRole).sort((a,b)=>b[1]-a[1]).map(([r,n])=>`${n}× ${ROL_LABEL[r]||r}`).join(" · ");
+  const koopjes=t.filter(r=>r.price<=3).map(r=>r.name.split(" ").slice(-1)[0]).slice(0,5).join(", ");
+  const cov=Object.keys(coverageReq||{}).map(r=>ROL_LABEL[r]||r).join(" + ");
+  el.innerHTML=`<h2 class="sec" style="margin-top:0">Waarom deze ploeg</h2>
+    <div class="note" style="color:var(--txt)">
+      <p style="margin:.2em 0 .6em">De rekenaar koos <b>${t.length} renners</b> voor <b>${money(teamCost())}</b> (van ${money(+db.cfg.budget||0)}).</p>
+      <p style="margin:.2em 0"><b>Verdeling:</b> ${rolLine}.</p>
+      <ul style="margin:.6em 0;padding-left:18px;line-height:1.7">
+        <li><b>Sterren:</b> de toppers scoren onevenredig veel (historicus).</li>
+        <li><b>Dekking:</b> minstens ${cov||"sprint + tijdrit"} in de ploeg (strateeg), zodat je élke dag scoort.</li>
+        <li><b>Koopjes:</b> ${koopjes||"–"} — goedkoop maar scoren mee.</li>
+      </ul></div>`;
+}
+function riderRow(r,actions){
+  const rol=ROL_LABEL[r.rol]||r.rol||""; const cls=r.pin?" pin":(r.ban?" ban":"");
+  return `<div class="rider${cls}"><div class="ri">
+      <div class="rn">${r.pin?"📌 ":""}${esc(r.name)}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
+      <div class="rm">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span>${esc(r.note)}</span>`:""}</div>
+    </div><div class="rp"><b>${(+r.pts||0)}</b><span style="font-size:10px;color:var(--muted)">pt</span></div>${actions||""}</div>`;
+}
+function renderAdvice(){
+  const sw=adviceSwaps(); const el=$("#adviceList");
+  el.innerHTML = sw.length ? sw.map(s=>`<div class="swap">
+      <div>❌ <b>${esc(s.out.name)}</b> <span class="pill">${s.out.pts}pt · ${money(s.out.price)}</span></div>
+      <div style="margin:6px 0;color:var(--mint);font-weight:700">↓ vervang door ↓</div>
+      <div>✅ <b>${esc(s.inn.name)}</b> <span class="pill">${s.inn.pts}pt · ${money(s.inn.price)}</span></div>
+      <div class="note" style="margin-top:6px">Winst <span class="gain">+${s.gain} pt</span> · budgetverschil ${s.dc>=0?"+":""}${money(s.dc)}</div>
+      <button class="sm" style="margin-top:8px;width:100%" onclick="applySwap('${s.out.id}','${s.inn.id}')">Markeer als gewisseld</button>
+    </div>`).join("") : `<div class="empty">Geen winstgevende wissel gevonden. Je ploeg zit goed! 👍</div>`;
+}
+function renderAgentsGrid(){
+  const el=$("#agentsGrid"); const list=analystList();
+  el.innerHTML = list.map((a,i)=>`<div class="swap" onclick="openAgent(${i})" style="cursor:pointer">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:34px;height:34px;border-radius:10px;flex:0 0 auto;background:linear-gradient(180deg,${a.col},${a.col}22);box-shadow:0 0 14px ${a.col}55"></div>
+        <div style="flex:1"><b style="font-family:var(--grotesk)">${esc(a.naam)}</b>
+          <div class="note" style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:${a.col}">${esc(a.tag)}</div></div>
+        <span style="color:var(--muted)">›</span>
+      </div>
+      <div class="note" style="margin-top:8px;color:#cbd6ee">${esc((a.uitleg||"").slice(0,110))}${(a.uitleg||"").length>110?"…":""}</div>
+    </div>`).join("");
+}
+function renderPool(){
+  const pool=[...db.riders].sort((a,b)=>b.pts-a.pts); const el=$("#poolList");
+  el.innerHTML = pool.length ? pool.map(r=>riderRow(r,
+    `<button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
+     <button class="sm ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit">🚫</button>`)).join("")
+    : `<div class="empty">Data laden…</div>`;
 }
 
-function renderTeamLogic(){
-  const el = $("#teamLogic"); if(!el) return;
-  const t = team();
-  if(!t.length){ el.style.display="none"; return; }
-  el.style.display="";
-  const byRole = {}; t.forEach(r=> byRole[r.rol]=(byRole[r.rol]||0)+1);
-  const rolLine = Object.entries(byRole).sort((a,b)=>b[1]-a[1])
-    .map(([r,n])=>`${n}× ${ROL_LABEL[r]||r}`).join(" · ");
-  const stars = [...t].sort((a,b)=>b.price-a.price).slice(0,3).map(r=>r.name.split(" ").slice(-1)[0]);
-  const koopjes = t.filter(r=>r.price<=3).map(r=>r.name.split(" ").slice(-1)[0]);
-  const cov = Object.keys(coverageReq||{}).map(r=>ROL_LABEL[r]||r).join(" + ");
-  el.innerHTML = `<h2>Waarom deze ploeg</h2>
-    <div class="note" style="margin-top:0;color:var(--txt)">
-      <p style="margin:.2em 0 .6em">De reken-agent koos <b>${t.length} renners</b> voor <b>${money(teamCost())}</b> (van ${money(+db.cfg.budget||0)}).</p>
-      <p style="margin:.2em 0"><b>Verdeling:</b> ${rolLine}.</p>
-      <p style="margin:.6em 0 .2em"><b>De logica in het kort:</b></p>
-      <ul style="margin:.2em 0;padding-left:18px;line-height:1.6">
-        <li><b>Sterren die punten pakken:</b> ${stars.join(", ")} — de toppers scoren onevenredig veel (historiek-agent).</li>
-        <li><b>Dekking op elk rittype:</b> minstens ${cov||"sprint + tijdrit"} in de ploeg (spreidings-agent), zodat je élke dag scoort.</li>
-        <li><b>Slimme koopjes:</b> ${koopjes.slice(0,5).join(", ")||"–"} — goedkoop, maar scoren mee (o.a. ploegentijdrit-teams).</li>
-      </ul>
-      <p style="margin:.4em 0 0;color:var(--muted)">Tik op een renner hieronder in “Renners” voor zijn individuele reden.</p>
+// ---- agent overlay ----
+window.openAgent=i=>{ overlayIdx=i; renderOverlay(); $("#overlay").classList.add("open"); };
+window.closeAgent=()=>{ $("#overlay").classList.remove("open"); };
+function renderOverlay(){
+  const list=analystList(); const a=list[overlayIdx]; if(!a) return;
+  $("#overlay").innerHTML=`
+    <div class="oh">
+      <div class="obtn" onclick="closeAgent()">‹</div>
+      <div class="live"><span class="d"></span><span class="t">LIVE ANALYSE</span></div>
+      <div class="obtn" style="font-size:14px">⋮</div>
+    </div>
+    <div class="body">
+      <div class="obust">
+        <div class="sh" style="background:${a.col}"></div>
+        <div class="body2" style="background:linear-gradient(180deg,${a.col},${a.col}22)"></div>
+        <div class="head2" style="background:radial-gradient(circle at 40% 34%,rgba(255,255,255,.88),${a.col} 52%,${a.col}33);box-shadow:0 0 40px ${a.col}66"></div>
+      </div>
+      <div class="otag" style="color:${a.col}">${esc(a.tag)}</div>
+      <div class="oname">${esc(a.naam)}</div>
+      <div class="oquote" style="border-color:${a.col}66">
+        <div style="font-family:var(--grotesk);font-weight:700;font-size:30px;color:${a.col};line-height:0;height:14px">"</div>
+        <div class="q">${esc(a.uitleg||"")}</div>
+      </div>
+      ${(a.highlights&&a.highlights.length)?`<div class="keyreads"><div class="h">BEVINDINGEN</div>
+        ${a.highlights.map(k=>`<div class="kr"><span class="d" style="background:${a.col};box-shadow:0 0 8px ${a.col}88"></span><span>${esc(k)}</span></div>`).join("")}</div>`:""}
+      ${a.bron?`<div class="note" style="margin-top:14px;font-style:italic">bron: ${esc(a.bron)}</div>`:""}
+      <button class="primary" style="margin-top:20px" onclick="closeAgent()">Sluit analyse</button>
+    </div>
+    <div class="rail">
+      ${list.map((x,i)=>`<div class="ra" onclick="openAgent(${i})" style="opacity:${i===overlayIdx?1:.45}">
+        <div class="rb" style="border-color:${i===overlayIdx?x.col:'rgba(255,255,255,.08)'}">
+          <div class="b" style="background:${x.col}"></div><div class="h" style="background:${x.col}"></div></div>
+        <span class="rt" style="color:${i===overlayIdx?x.col:'#6a7ba0'}">${esc(x.short)}</span></div>`).join("")}
     </div>`;
 }
 
-function renderAgents(){
-  const el = $("#agentsList"); if(!el) return;
-  if(!agentsInfo || !agentsInfo.length){ el.innerHTML = `<div class="empty">Agents laden…</div>`; return; }
-  const ICON = { form:"📈", roles:"🏷️", parcours:"🗺️", coverage:"⚖️", baseline:"📊", ttt:"🧑‍🤝‍🧑" };
-  const NAAM = { "vorm/uitslagen-agent":"Vorm-agent", "historiek-agent":"Historiek-agent",
-    "odds-agent":"Odds-agent", "parcours-agent":"Parcours-agent", "rol-agent":"Rol-agent",
-    "spreidings-agent":"Spreidings-agent", "ttt-agent":"Ploegentijdrit-agent", "uitslagen-agent":"Uitslagen-agent" };
-  const extra = [
-    {icon:"🧩", naam:"Consolidator", uitleg:"Bundelt alle signalen hierboven tot één verwachte-punten-score per renner."},
-    {icon:"🧮", naam:"Reken-agent", uitleg:"Kiest uit die scores de best mogelijke ploeg van 16 renners binnen €100M, met dekking op elk rittype."}
-  ];
-  el.innerHTML = agentsInfo.map(a=>`
-    <div class="swap">
-      <div style="display:flex;align-items:center;gap:8px">
-        <div style="font-size:20px">${ICON[a.type]||"🤖"}</div>
-        <b>${esc(NAAM[a.agent]||a.agent)}</b>
-        ${a.datum?`<span class="pill">${esc(a.datum)}</span>`:""}
-      </div>
-      <div class="note" style="margin-top:6px;color:var(--txt)">${esc(a.uitleg||"")}</div>
-      ${(a.highlights&&a.highlights.length)?`<div class="note" style="margin-top:4px">${a.highlights.map(h=>"• "+esc(h)).join("<br>")}</div>`:""}
-      ${a.bron?`<div class="note" style="margin-top:2px;font-style:italic">bron: ${esc(a.bron)}</div>`:""}
-    </div>`).join("")
-    + extra.map(e=>`<div class="swap"><div style="display:flex;align-items:center;gap:8px">
-        <div style="font-size:20px">${e.icon}</div><b>${e.naam}</b></div>
-        <div class="note" style="margin-top:6px;color:var(--txt)">${e.uitleg}</div></div>`).join("");
-}
+// ---- actions ----
+window.togglePin=id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.pin=!r.pin; if(r.pin){ r.ban=false; r.inTeam=true; } buildBestTeam(); } };
+window.toggleBan=id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.ban=!r.ban; if(r.ban){ r.pin=false; r.inTeam=false; } buildBestTeam(); } };
+window.applySwap=(o,i)=>{ const a=db.riders.find(x=>x.id===o),b=db.riders.find(x=>x.id===i); if(a)a.inTeam=false; if(b)b.inTeam=true; save(); };
 
-function render(){
-  // stats
-  $("#budgetLeft").textContent = money(budgetLeft());
-  $("#stBudget").className = "stat " + (budgetLeft()<0?"warn":"ok");
-  $("#squadCount").textContent = team().length + "/" + (db.cfg.squad||0);
-  $("#stSquad").className = "stat " + (team().length> (db.cfg.squad||0)?"warn":"");
-  $("#ptsTotal").textContent = teamPts();
+$("#autoBuild").onclick=()=>{ if(!db.riders.length){ alert("Data nog niet geladen."); return; } buildBestTeam(); };
+$("#saveCfg").onclick=()=>{ db.cfg.budget=+$("#cfgBudget").value||0; db.cfg.squad=+$("#cfgSquad").value||0; db.cfg.transfers=+$("#cfgTransfers").value||0; buildBestTeam(); alert("Regels opgeslagen."); };
+$("#refreshData").onclick=()=>{ if(confirm("Verse data laden? Je pins/bans blijven behouden.")) loadRealData(true); };
+$("#exportBtn").onclick=()=>{ const b=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="wielermanager-backup.json"; a.click(); };
+$("#wipeBtn").onclick=()=>{ if(confirm("Alles wissen?")){ db=JSON.parse(JSON.stringify(defaults)); localStorage.removeItem(DB_KEY); loadRealData(true); } };
 
-  // team tab
-  const t = team().sort((a,b)=>b.pts-a.pts);
-  $("#teamList").innerHTML = t.length ? t.map(r=>riderRow(r,
-     `<button class="x" onclick="toggle('${r.id}')" title="uit ploeg">✕</button>`)).join("")
-     : `<div class="empty">Nog geen ploeg. Voeg renners toe en tik “Stel beste ploeg samen”.</div>`;
-
-  // advice tab
-  const sw = adviceSwaps();
-  $("#adviceList").innerHTML = sw.length ? sw.map(s=>`
-    <div class="swap">
-      <div>❌ <b>${esc(s.out.name)}</b> <span class="pill">${s.out.pts}pt · ${money(s.out.price)}</span></div>
-      <div style="margin:6px 0"><span class="arrow">↓ vervang door ↓</span></div>
-      <div>✅ <b>${esc(s.inn.name)}</b> <span class="pill">${s.inn.pts}pt · ${money(s.inn.price)}</span></div>
-      <div class="note">Winst: <span class="gain">+${s.gain} pt</span> · budgetverschil ${s.deltaCost>=0?"+":""}${money(s.deltaCost)}</div>
-      <button class="sm ghost" style="margin-top:8px;width:100%" onclick="applySwap('${s.out.id}','${s.inn.id}')">In app markeren als gewisseld</button>
-    </div>`).join("")
-    : `<div class="empty">Geen winstgevende wissel gevonden binnen je budget. Je ploeg zit goed! 👍</div>`;
-
-  // riders tab
-  $("#poolCount").textContent = db.riders.length;
-  const pool = [...db.riders].sort((a,b)=>b.pts-a.pts);
-  $("#poolList").innerHTML = pool.length ? pool.map(r=>riderRow(r,
-     `<button class="sm ghost ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd in ploeg">📌</button>
-      <button class="sm ghost ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit in ploeg">🚫</button>`)).join("")
-     : `<div class="empty">Nog geen renners toegevoegd.</div>`;
-
-  // info-schermen
-  renderNextStage();
-  renderTeamLogic();
-  renderAgents();
-}
-
-// ---- actions (global for inline handlers) ----
-window.toggle = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.inTeam=!r.inTeam; save(); } };
-window.del = id=>{ db.riders = db.riders.filter(x=>x.id!==id); save(); };
-window.togglePin = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.pin=!r.pin; if(r.pin){ r.ban=false; r.inTeam=true; } buildBestTeam(); } };
-window.toggleBan = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.ban=!r.ban; if(r.ban){ r.pin=false; r.inTeam=false; } buildBestTeam(); } };
-window.applySwap = (outId,inId)=>{
-  const o=db.riders.find(x=>x.id===outId), i=db.riders.find(x=>x.id===inId);
-  if(o)o.inTeam=false; if(i)i.inTeam=true; save();
-};
-
-$("#addRider").onclick=()=>{
-  const name=$("#rName").value.trim();
-  if(!name){ $("#rName").focus(); return; }
-  db.riders.push({id:uid(),name,team:$("#rTeam").value.trim(),
-    price:+$("#rPrice").value||0, pts:+$("#rPts").value||0, inTeam:false});
-  $("#rName").value=$("#rPrice").value=$("#rPts").value=$("#rTeam").value="";
-  save(); $("#rName").focus();
-};
-$("#autoBuild").onclick=()=>{ if(!db.riders.length){ alert("Voeg eerst renners toe (tab Renners)."); return;} buildBestTeam(); };
-$("#refreshAdvice").onclick=render;
-$("#saveCfg").onclick=()=>{
-  db.cfg.budget=+$("#cfgBudget").value||0;
-  db.cfg.squad=+$("#cfgSquad").value||0;
-  db.cfg.transfers=+$("#cfgTransfers").value||0;
-  save(); alert("Regels opgeslagen.");
-};
-$("#refreshData").onclick=()=>{ if(confirm("Verse data laden? Je rennerspool wordt vervangen; je geselecteerde ploeg blijft behouden.")) loadRealData(true); };
-$("#exportBtn").onclick=()=>{
-  const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
-  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
-  a.download="wielermanager-backup.json"; a.click();
-};
-$("#wipeBtn").onclick=()=>{ if(confirm("Alles wissen? Dit kan niet ongedaan gemaakt worden.")){
-  db=JSON.parse(JSON.stringify(defaults)); save(); syncCfgInputs(); } };
-
-$("#loadSeed").onclick=(e)=>{
-  e.preventDefault();
-  const seed=[
-    ["Tadej Pogačar","UAE",24,1000],["Jonas Vingegaard","Visma",22,940],
-    ["Remco Evenepoel","Soudal",20,820],["Primož Roglič","Bora",16,700],
-    ["Mathieu van der Poel","Alpecin",15,520],["Wout van Aert","Visma",15,560],
-    ["Juan Ayuso","UAE",11,520],["Carlos Rodríguez","Ineos",10,480],
-    ["Felix Gall","Decathlon",8,430],["Ben O'Connor","Jayco",8,410],
-    ["Biniam Girmay","Intermarché",9,470],["Jasper Philipsen","Alpecin",10,500],
-    ["Mads Pedersen","Lidl",9,450],["Tom Pidcock","Q36.5",8,360],
-    ["Santiago Buitrago","Bahrain",6,340],["Aleksandr Vlasov","Bora",6,300],
-    ["Guillaume Martin","Groupama",5,270],["Romain Bardet","Picnic",5,250],
-    ["Kévin Vauquelin","Arkéa",4,240],["Oier Lazkano","Movistar",4,210],
-    ["Michael Woods","Israel",4,200],["Simon Yates","Visma",7,330],
-    ["Enric Mas","Movistar",7,320],["Egan Bernal","Ineos",6,300],
-    ["Marc Hirschi","Tudor",6,310]
-  ].map(([name,tm,price,pts])=>({id:uid(),name,team:tm,price,pts,inTeam:false}));
-  db.riders = seed; save();
-  alert("Voorbeeldlijst geladen ("+seed.length+" renners). Ga naar Ploeg en tik “Stel beste ploeg samen”.");
-};
-
-// ---- tabs ----
-document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  ["team","advice","agents","riders","rules"].forEach(t=>
-    $("#tab-"+t).classList.toggle("hide", t!==b.dataset.tab));
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("nav.tabs button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); uiTab=b.dataset.tab;
+  ["team","advice","agents","riders","settings"].forEach(t=>$("#tab-"+t).classList.toggle("on",t===uiTab));
   window.scrollTo(0,0);
 });
 
-function syncCfgInputs(){
-  $("#cfgBudget").value=db.cfg.budget; $("#cfgSquad").value=db.cfg.squad;
-  $("#cfgTransfers").value=db.cfg.transfers;
-}
-syncCfgInputs();
-render();
-loadRealData(false);
+function syncCfg(){ $("#cfgBudget").value=db.cfg.budget; $("#cfgSquad").value=db.cfg.squad; $("#cfgTransfers").value=db.cfg.transfers; }
+syncCfg(); render(); loadRealData(false);
 </script>
 </body>
 </html>

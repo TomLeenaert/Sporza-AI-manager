@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #05080f; font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  ::-webkit-scrollbar { width: 0; height: 0; display: none; }
+  *::-webkit-scrollbar { display: none; }
+  * { scrollbar-width: none; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @keyframes livePulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,84,112,.55); } 50% { opacity: .5; box-shadow: 0 0 0 5px rgba(255,84,112,0); } }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @keyframes drift { 0% { transform: translate(0,0); } 50% { transform: translate(16px,-12px); } 100% { transform: translate(0,0); } }
+  @keyframes drift2 { 0% { transform: translate(0,0); } 50% { transform: translate(-18px,10px); } 100% { transform: translate(0,0); } }
+  @keyframes shimmer { 0% { transform: translateX(-120%); } 100% { transform: translateX(320%); } }
+  @keyframes fadeUp { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+<div style="min-height:100vh; width:100%; display:flex; align-items:center; justify-content:center; padding:28px; background:radial-gradient(130% 90% at 50% -12%, #101d38 0%, #0b1220 46%, #06090f 100%);">
+  <div style="position:relative; width:402px; height:874px; border-radius:54px; padding:11px; background:linear-gradient(155deg,#222d4d,#0a0f1c 60%); box-shadow:0 50px 130px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.05) inset, 0 2px 1px rgba(255,255,255,.09) inset;">
+    <div style="position:relative; width:100%; height:100%; border-radius:44px; overflow:hidden; background:#0b1220;">
+
+      <!-- STATUS BAR -->
+      <div style="position:absolute; top:0; left:0; right:0; z-index:65; height:46px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; pointer-events:none;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px; color:#eef3ff; letter-spacing:.02em;">9:41</span>
+        <div style="display:flex; gap:7px; align-items:center;">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="#eef3ff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity="0.4"/></svg>
+          <span style="font-family:'Space Mono',monospace; font-size:10px; color:#eef3ff; font-weight:700;">5G</span>
+          <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x="1" y="1.5" width="19" height="9" rx="2.5" stroke="#eef3ff" stroke-opacity="0.5"/><rect x="2.5" y="3" width="14" height="6" rx="1.5" fill="#eef3ff"/><rect x="21" y="4" width="2" height="4" rx="1" fill="#eef3ff" fill-opacity="0.6"/></svg>
+        </div>
+      </div>
+      <!-- DYNAMIC ISLAND -->
+      <div style="position:absolute; top:13px; left:50%; transform:translateX(-50%); width:116px; height:33px; background:#000; border-radius:20px; z-index:70;"></div>
+
+      <!-- ===================== HOME ===================== -->
+      <div style="position:absolute; inset:0; z-index:10;">
+
+        <!-- HEADER -->
+        <div style="position:absolute; top:0; left:0; right:0; z-index:30; padding:52px 16px 11px; background:linear-gradient(180deg, rgba(11,18,32,.97) 62%, rgba(11,18,32,0));">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+            <div style="display:flex; align-items:center; gap:7px; padding:6px 11px 6px 8px; border-radius:999px; background:rgba(255,84,112,.13); border:1px solid rgba(255,84,112,.4);">
+              <span style="width:8px; height:8px; border-radius:50%; background:#ff5470; animation:livePulse 1.7s ease infinite;"></span>
+              <span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.13em; color:#ff96a6;">ON AIR</span>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; line-height:1;">
+              <div style="display:flex; align-items:center; gap:7px;">
+                <span style="width:15px; height:15px; border-radius:5px; background:linear-gradient(135deg,#ffd34e,#39d98a); box-shadow:0 0 12px rgba(255,211,78,.5);"></span>
+                <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; color:#eef3ff; letter-spacing:.01em;">Wielermanager</span>
+              </div>
+              <span style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.42em; color:#8ff0c0; margin-top:4px; padding-left:.42em;">STUDIO</span>
+            </div>
+            <div style="width:34px; height:34px; border-radius:50%; background:linear-gradient(160deg,#28345a,#141b2e); border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:12px; color:#cfe0ff;">JD</div>
+          </div>
+          <div style="margin-top:11px; overflow:hidden; border-radius:11px; border:1px solid rgba(255,255,255,.07); background:rgba(255,255,255,.03); height:28px; display:flex; align-items:center;">
+            <div style="display:flex; white-space:nowrap; animation:ticker 30s linear infinite; will-change:transform;">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.05em; color:#9fb0d0; padding:0 6px;"><span style="color:#ffd34e; font-weight:700;">STAGE 1</span> · TEAM TIME TRIAL · BARCELONA 18.9 KM &nbsp;&nbsp;•&nbsp;&nbsp; START <span style="color:#39d98a;">14:35 CET</span> &nbsp;&nbsp;•&nbsp;&nbsp; WIND 12 KM/H NE &nbsp;&nbsp;•&nbsp;&nbsp; PROJECTED WINNER <span style="color:#39d98a;">TEAM C</span> &nbsp;&nbsp;•&nbsp;&nbsp; YOUR SQUAD <span style="color:#ffd34e;">P3</span> &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.05em; color:#9fb0d0; padding:0 6px;"><span style="color:#ffd34e; font-weight:700;">STAGE 1</span> · TEAM TIME TRIAL · BARCELONA 18.9 KM &nbsp;&nbsp;•&nbsp;&nbsp; START <span style="color:#39d98a;">14:35 CET</span> &nbsp;&nbsp;•&nbsp;&nbsp; WIND 12 KM/H NE &nbsp;&nbsp;•&nbsp;&nbsp; PROJECTED WINNER <span style="color:#39d98a;">TEAM C</span> &nbsp;&nbsp;•&nbsp;&nbsp; YOUR SQUAD <span style="color:#ffd34e;">P3</span> &nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCROLL AREA -->
+        <div style="position:absolute; top:0; left:0; right:0; bottom:0; overflow-y:auto; padding:138px 0 108px;">
+
+          <!-- STUDIO SCENE -->
+          <div style="padding:0 14px;">
+            <div style="position:relative; border-radius:26px; overflow:hidden; background:#080d18; box-shadow:0 22px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.05) inset;">
+              <div style="position:absolute; inset:0; background:{{ moodTint }}; pointer-events:none; z-index:1;"></div>
+              <sc-if value="{{ motion }}" hint-placeholder-val="{{ true }}">
+                <div style="position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden;">
+                  <div style="position:absolute; top:26px; left:18px; width:60px; height:60px; border-radius:50%; background:radial-gradient(circle, rgba(255,211,78,.28), transparent 70%); filter:blur(6px); animation:drift 11s ease-in-out infinite;"></div>
+                  <div style="position:absolute; top:60px; right:26px; width:80px; height:80px; border-radius:50%; background:radial-gradient(circle, rgba(57,217,138,.22), transparent 70%); filter:blur(8px); animation:drift2 13s ease-in-out infinite;"></div>
+                  <div style="position:absolute; bottom:60px; left:40%; width:70px; height:70px; border-radius:50%; background:radial-gradient(circle, rgba(90,150,255,.2), transparent 70%); filter:blur(9px); animation:drift 15s ease-in-out infinite;"></div>
+                </div>
+              </sc-if>
+
+              <!-- LED VIDEO WALL -->
+              <div style="position:relative; z-index:2; margin:14px 14px 0; border-radius:18px 18px 30px 30px; padding:15px 15px 17px; background:radial-gradient(130% 100% at 50% -6%, #16264a 0%, #0c1730 52%, #0a1120 100%); border:1px solid rgba(120,160,255,.16); box-shadow:0 0 42px rgba(60,110,220,.16) inset, 0 8px 26px rgba(0,0,0,.4);">
+                <div style="position:absolute; top:0; left:11%; right:11%; height:3px; border-radius:3px; background:linear-gradient(90deg, transparent, rgba(140,200,255,.55), transparent);"></div>
+                <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:8px;">
+                  <div>
+                    <div style="display:flex; align-items:center; gap:6px;"><span style="width:5px; height:5px; border-radius:50%; background:#7fe0ff; box-shadow:0 0 8px #7fe0ff;"></span><span style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.24em; color:#7fe0ff;">NEXT STAGE</span></div>
+                    <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:23px; color:#f2f6ff; margin-top:6px; line-height:1.02;">Team Time Trial</div>
+                    <div style="font-family:'Manrope',sans-serif; font-size:12.5px; color:#9db0d4; margin-top:4px;">Stage 1 · Barcelona · 18.9 km · Jul 5</div>
+                  </div>
+                  <div style="text-align:right; flex:0 0 auto;">
+                    <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:30px; color:#ffd34e; line-height:1; text-shadow:0 0 18px rgba(255,211,78,.4);">01</div>
+                    <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.16em; color:#8a97b8; margin-top:3px;">OF 21</div>
+                  </div>
+                </div>
+                <sc-if value="{{ showRoute }}" hint-placeholder-val="{{ true }}">
+                  <div style="margin-top:12px; height:44px; position:relative;">
+                    <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width:100%; height:40px; display:block;">
+                      <polyline points="0,40 0,30 14,28 26,31 38,25 50,23 60,27 72,15 82,25 100,30 100,40" fill="rgba(57,217,138,.12)" stroke="none"/>
+                      <polyline points="0,30 14,28 26,31 38,25 50,23 60,27 72,15 82,25 100,30" fill="none" stroke="#39d98a" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+                    </svg>
+                    <span style="position:absolute; bottom:-3px; left:0; font-family:'Space Mono',monospace; font-size:8px; color:#5f7093;">KM 0</span>
+                    <span style="position:absolute; top:-2px; left:70%; font-family:'Space Mono',monospace; font-size:8px; color:#39d98a;">RAMP 4%</span>
+                    <span style="position:absolute; bottom:-3px; right:0; font-family:'Space Mono',monospace; font-size:8px; color:#5f7093;">KM 18.9</span>
+                  </div>
+                </sc-if>
+                <div style="margin-top:14px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:9px;">
+                    <span style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#cfe0ff;">YOUR SQUAD</span>
+                    <span style="font-family:'Space Mono',monospace; font-size:10px; color:#8a97b8;">16 RIDERS</span>
+                  </div>
+                  <div style="display:flex; gap:10px; overflow-x:auto; padding-bottom:4px; scroll-snap-type:x mandatory;">
+                    <sc-for list="{{ riders }}" as="r" hint-placeholder-count="6">
+                      <div style="scroll-snap-align:start; flex:0 0 auto; width:132px; border-radius:14px; padding:11px; background:linear-gradient(158deg, rgba(255,255,255,.09), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.1); box-shadow:0 6px 18px rgba(0,0,0,.35); position:relative; overflow:hidden;">
+                        <div style="position:absolute; top:-22px; right:-22px; width:72px; height:72px; border-radius:50%; background:{{ r.teamColor }}; opacity:.2; filter:blur(13px);"></div>
+                        <div style="position:absolute; top:0; left:0; right:0; height:42%; background:linear-gradient(180deg, rgba(255,255,255,.13), transparent);"></div>
+                        <div style="position:relative; display:flex; align-items:flex-start; justify-content:space-between;">
+                          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; color:#f2f6ff; line-height:1;">{{ r.num }}</div>
+                          <div style="font-family:'Space Mono',monospace; font-size:8.5px; font-weight:700; letter-spacing:.06em; color:#0b1220; background:{{ r.roleColor }}; padding:3px 6px; border-radius:6px;">{{ r.role }}</div>
+                        </div>
+                        <div style="position:relative; margin-top:10px; font-family:'Manrope',sans-serif; font-weight:600; font-size:13px; color:#eaf0ff;">{{ r.name }}</div>
+                        <div style="position:relative; display:flex; align-items:center; gap:5px; margin-top:3px;">
+                          <span style="width:8px; height:8px; border-radius:2px; background:{{ r.teamColor }};"></span>
+                          <span style="font-family:'Manrope',sans-serif; font-size:10.5px; color:#93a4c6;">{{ r.team }}</span>
+                        </div>
+                        <div style="position:relative; margin-top:9px;">
+                          <div style="display:flex; justify-content:space-between; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.06em; color:#7f90b3;"><span>FORM</span><span style="color:{{ r.formColor }};">{{ r.form }}</span></div>
+                          <div style="margin-top:3px; height:4px; border-radius:3px; background:rgba(255,255,255,.09); overflow:hidden;"><div style="height:100%; width:{{ r.formPct }}; border-radius:3px; background:linear-gradient(90deg,#39d98a,#ffd34e);"></div></div>
+                        </div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DESK + ANALYSTS -->
+              <div style="position:relative; z-index:2; margin-top:18px;">
+                <div style="display:flex; align-items:center; justify-content:space-between; padding:0 16px 4px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#cfe0ff;">THE ANALYSTS</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10px; color:#ffd34e;">TAP TO CONSULT →</span>
+                </div>
+                <div style="position:relative;">
+                  <div style="position:absolute; left:0; right:0; bottom:0; height:50px; background:linear-gradient(180deg, rgba(32,44,76,.92), rgba(13,19,34,.96)); border-top:1px solid rgba(255,255,255,.13); box-shadow:0 -8px 22px rgba(0,0,0,.4), 0 0 30px rgba(120,160,255,.1) inset; z-index:1;"></div>
+                  <div style="position:absolute; left:16px; right:16px; bottom:49px; height:2px; background:linear-gradient(90deg, transparent, rgba(255,211,78,.6), rgba(57,217,138,.6), transparent); z-index:3;"></div>
+                  <div style="position:relative; z-index:2; display:flex; gap:0; overflow-x:auto; padding:8px 14px 9px; align-items:flex-end;">
+                    <sc-for list="{{ analysts }}" as="a" hint-placeholder-count="6">
+                      <div onClick="{{ a.open }}" style="scroll-snap-align:center; flex:0 0 auto; width:76px; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+                        <div style="position:relative; width:58px; height:66px; display:flex; align-items:flex-end; justify-content:center; animation:bob {{ a.bobDur }} ease-in-out infinite;">
+                          <sc-if value="{{ a.host }}" hint-placeholder-val="{{ false }}">
+                            <div style="position:absolute; top:-3px; font-family:'Space Mono',monospace; font-size:7px; font-weight:700; letter-spacing:.1em; color:#0b1220; background:#ffd34e; padding:2px 5px; border-radius:5px; box-shadow:0 0 12px rgba(255,211,78,.5);">HOST</div>
+                          </sc-if>
+                          <div style="position:absolute; bottom:5px; width:52px; height:16px; border-radius:50%; background:{{ a.line }}; filter:blur(7px); opacity:.6;"></div>
+                          <div style="position:absolute; bottom:7px; width:46px; height:32px; border-radius:26px 26px 9px 9px; background:linear-gradient(180deg, {{ a.line }}, {{ a.soft }}); box-shadow:0 0 18px {{ a.glow }}; opacity:.94;"></div>
+                          <div style="position:absolute; bottom:30px; width:25px; height:25px; border-radius:50%; background:radial-gradient(circle at 40% 34%, rgba(255,255,255,.85), {{ a.line }} 54%, {{ a.soft }}); box-shadow:0 0 16px {{ a.glow }};"></div>
+                          <div style="position:absolute; bottom:7px; width:46px; height:55px; border-radius:26px 26px 9px 9px; background:repeating-linear-gradient(0deg, transparent 0 2px, rgba(255,255,255,.06) 2px 3px); opacity:.55; mix-blend-mode:overlay;"></div>
+                        </div>
+                        <div style="margin-top:8px; width:100%; text-align:center; position:relative; z-index:2;">
+                          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:10px; color:#e6edff; line-height:1.1;">{{ a.deskName }}</div>
+                          <div style="font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.05em; color:{{ a.accent }}; margin-top:2px;">{{ a.tagShort }}</div>
+                        </div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRIEFING -->
+          <div style="padding:16px 14px 0;">
+            <div style="border-radius:20px; padding:15px; background:linear-gradient(180deg, rgba(255,211,78,.1), rgba(255,255,255,.02)); border:1px solid rgba(255,211,78,.22); position:relative; overflow:hidden;">
+              <div style="position:absolute; top:-30px; right:-20px; width:90px; height:90px; border-radius:50%; background:radial-gradient(circle, rgba(255,211,78,.25), transparent 70%); filter:blur(10px);"></div>
+              <div style="display:flex; align-items:center; gap:8px; position:relative;">
+                <span style="width:22px; height:22px; border-radius:50%; background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.9),#ffd34e 60%); box-shadow:0 0 14px rgba(255,211,78,.55);"></span>
+                <span style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.18em; color:#ffd34e;">ANCHOR BRIEFING</span>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; color:#f2f6ff; margin-top:10px; line-height:1.32; position:relative; text-wrap:pretty;">"Cohesion beats star power on a time trial. Lock your line-up — the podium sits within eight seconds."</div>
+              <div style="display:flex; gap:8px; margin-top:13px; flex-wrap:wrap; position:relative;">
+                <span style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.05em; color:#cfe0ff; padding:5px 9px; border-radius:8px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09);">PROJECTED P3</span>
+                <span style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.05em; color:#cfe0ff; padding:5px 9px; border-radius:8px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09);">+0:08 TO LEAD</span>
+                <span style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.05em; color:#39d98a; padding:5px 9px; border-radius:8px; background:rgba(57,217,138,.08); border:1px solid rgba(57,217,138,.25);">3 SWAPS ADVISED</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TAB BAR -->
+        <div style="position:absolute; left:14px; right:14px; bottom:14px; z-index:40; height:66px; border-radius:24px; background:rgba(16,24,42,.72); backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border:1px solid rgba(255,255,255,.1); box-shadow:0 16px 40px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.06) inset; display:flex; align-items:center; justify-content:space-around; padding:0 6px;">
+          <div onClick="{{ teamSel }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; padding:7px 6px 6px; flex:1; border-radius:14px; background:{{ teamBg }};">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="{{ teamCol }}" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="14" x2="6" y2="19"/><line x1="12" y1="10" x2="12" y2="19"/><line x1="18" y1="12" x2="18" y2="19"/><circle cx="6" cy="10.5" r="1.5" fill="{{ teamCol }}" stroke="none"/><circle cx="12" cy="6" r="1.5" fill="{{ teamCol }}" stroke="none"/><circle cx="18" cy="8.5" r="1.5" fill="{{ teamCol }}" stroke="none"/></svg>
+            <span style="font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:.04em; color:{{ teamCol }};">Team</span>
+          </div>
+          <div onClick="{{ adviceSel }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; padding:7px 6px 6px; flex:1; border-radius:14px; background:{{ adviceBg }};">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="{{ adviceCol }}" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9.5" r="5"/><line x1="10" y1="17" x2="14" y2="17"/><line x1="11" y1="19.5" x2="13" y2="19.5"/></svg>
+            <span style="font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:.04em; color:{{ adviceCol }};">Advice</span>
+          </div>
+          <div onClick="{{ agentsSel }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; padding:7px 6px 6px; flex:1; border-radius:14px; background:{{ agentsBg }};">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="{{ agentsCol }}" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19 a6.5 6.5 0 0 1 13 0"/></svg>
+            <span style="font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:.04em; color:{{ agentsCol }};">Agents</span>
+          </div>
+          <div onClick="{{ ridersSel }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; padding:7px 6px 6px; flex:1; border-radius:14px; background:{{ ridersBg }};">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="{{ ridersCol }}" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/><circle cx="12" cy="12" r="1.6" fill="{{ ridersCol }}" stroke="none"/></svg>
+            <span style="font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:.04em; color:{{ ridersCol }};">Riders</span>
+          </div>
+          <div onClick="{{ settingsSel }}" style="display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; padding:7px 6px 6px; flex:1; border-radius:14px; background:{{ settingsBg }};">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="{{ settingsCol }}" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/><circle cx="9" cy="8" r="2.3" fill="#0b1220"/><circle cx="15" cy="16" r="2.3" fill="#0b1220"/></svg>
+            <span style="font-family:'Space Mono',monospace; font-size:8.5px; letter-spacing:.04em; color:{{ settingsCol }};">Settings</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================== AGENT DETAIL ===================== -->
+      <sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ overlayStyle }}">
+          <div style="position:absolute; inset:0; background:radial-gradient(120% 70% at 50% 0%, #10203c 0%, #0a1020 55%, #070b16 100%); overflow:hidden;">
+
+            <!-- accent glow -->
+            <div style="position:absolute; top:60px; left:50%; transform:translateX(-50%); width:360px; height:360px; border-radius:50%; background:radial-gradient(circle, {{ sel.glow }}, transparent 62%); filter:blur(50px); opacity:.4; pointer-events:none;"></div>
+
+            <!-- header -->
+            <div style="position:absolute; top:0; left:0; right:0; z-index:20; padding:52px 14px 12px; display:flex; align-items:center; justify-content:space-between; background:linear-gradient(180deg, rgba(10,16,32,.9), transparent);">
+              <div onClick="{{ closeAgent }}" style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.13); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#dfe8ff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="9.5,3 4.5,8 9.5,13"/></svg>
+              </div>
+              <div style="display:flex; align-items:center; gap:7px;">
+                <span style="width:7px; height:7px; border-radius:50%; background:#ff5470; animation:livePulse 1.7s infinite;"></span>
+                <span style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.18em; color:#ff96a6;">LIVE ANALYSIS</span>
+              </div>
+              <div style="width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.13); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="#dfe8ff"><circle cx="8" cy="3.5" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="8" cy="12.5" r="1.5"/></svg>
+              </div>
+            </div>
+
+            <!-- scroll content -->
+            <div style="position:absolute; top:0; left:0; right:0; bottom:0; overflow-y:auto; padding:92px 16px 128px;">
+              <div key="{{ activeIndex }}" style="animation:fadeUp .45s ease;">
+
+                <!-- big bust -->
+                <div style="position:relative; display:flex; flex-direction:column; align-items:center;">
+                  <div style="position:relative; width:150px; height:184px; display:flex; align-items:flex-end; justify-content:center;">
+                    <div style="position:absolute; bottom:22px; width:140px; height:140px; border-radius:50%; background:radial-gradient(circle, {{ sel.glow }}, transparent 64%); filter:blur(10px); opacity:.6;"></div>
+                    <div style="position:absolute; bottom:6px; width:132px; height:26px; border-radius:50%; background:{{ sel.line }}; filter:blur(10px); opacity:.55;"></div>
+                    <div style="position:absolute; bottom:10px; width:120px; height:86px; border-radius:60px 60px 22px 22px; background:linear-gradient(180deg, {{ sel.line }}, {{ sel.soft }}); box-shadow:0 0 44px {{ sel.glow }}, 0 0 0 1px rgba(255,255,255,.09) inset;"></div>
+                    <div style="position:absolute; bottom:80px; width:64px; height:64px; border-radius:50%; background:radial-gradient(circle at 40% 34%, rgba(255,255,255,.88), {{ sel.line }} 52%, {{ sel.soft }}); box-shadow:0 0 40px {{ sel.glow }}, 0 0 0 1px rgba(255,255,255,.12) inset;"></div>
+                    <div style="position:absolute; bottom:10px; width:120px; height:150px; border-radius:60px 60px 22px 22px; background:repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.06) 3px 4px); opacity:.5; mix-blend-mode:overlay;"></div>
+                  </div>
+                  <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em; color:{{ sel.accent }}; margin-top:10px;">{{ sel.tag }}</div>
+                  <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:25px; color:#f4f7ff; margin-top:5px;">{{ sel.name }}</div>
+                  <div style="font-family:'Manrope',sans-serif; font-size:12.5px; color:#93a4c6; margin-top:2px;">{{ sel.role }}</div>
+                </div>
+
+                <!-- confidence + recommendation -->
+                <div style="margin-top:22px; display:flex; gap:13px; align-items:center; border-radius:20px; padding:14px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.09);">
+                  <div style="position:relative; width:66px; height:66px; flex:0 0 auto; border-radius:50%; background:{{ confRing }}; display:flex; align-items:center; justify-content:center;">
+                    <div style="position:absolute; inset:5px; border-radius:50%; background:#101a2e;"></div>
+                    <div style="position:relative; text-align:center;">
+                      <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; color:#f4f7ff; line-height:1;">{{ sel.confidence }}</div>
+                      <div style="font-family:'Space Mono',monospace; font-size:6.5px; letter-spacing:.1em; color:#93a4c6; margin-top:1px;">CONF %</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.16em; color:{{ sel.accent }};">RECOMMENDATION</div>
+                    <div style="font-family:'Manrope',sans-serif; font-weight:600; font-size:13.5px; color:#eaf0ff; margin-top:5px; line-height:1.32; text-wrap:pretty;">{{ sel.rec }}</div>
+                  </div>
+                </div>
+
+                <!-- insight quote -->
+                <div style="margin-top:12px; border-radius:20px; padding:15px 16px 17px; background:linear-gradient(180deg, {{ sel.soft }}, rgba(255,255,255,.015)); border:1px solid {{ sel.line }}; position:relative;">
+                  <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:{{ sel.line }}; line-height:0; height:12px;">"</div>
+                  <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#f2f6ff; line-height:1.42; text-wrap:pretty;">{{ sel.insight }}</div>
+                </div>
+
+                <!-- VIZ: trend -->
+                <sc-if value="{{ vizIsTrend }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:12px; border-radius:20px; padding:15px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                      <span style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.15em; color:#9fb0d0;">{{ sel.vizCaption }}</span>
+                      <span style="font-family:'Space Mono',monospace; font-size:10px; color:{{ sel.accent }};">{{ sel.vizTrendTag }}</span>
+                    </div>
+                    <div style="margin-top:12px; height:98px;">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%; height:98px;">
+                        <polyline points="{{ areaPoints }}" fill="{{ sel.soft }}" stroke="none"/>
+                        <polyline points="{{ trendPoints }}" fill="none" stroke="{{ sel.accent }}" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <div style="display:flex; gap:8px; margin-top:12px;">
+                      <sc-for list="{{ sel.viz }}" as="v" hint-placeholder-count="3">
+                        <div style="flex:1; text-align:center; padding:9px 4px; border-radius:12px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
+                          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; color:{{ sel.accent }};">{{ v.value }}</div>
+                          <div style="font-family:'Manrope',sans-serif; font-size:10px; color:#93a4c6; margin-top:3px;">{{ v.label }}</div>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+
+                <!-- VIZ: stats -->
+                <sc-if value="{{ vizIsStats }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                    <sc-for list="{{ sel.viz }}" as="v" hint-placeholder-count="4">
+                      <div style="border-radius:16px; padding:14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); position:relative; overflow:hidden;">
+                        <div style="position:absolute; top:-16px; right:-16px; width:56px; height:56px; border-radius:50%; background:{{ sel.glow }}; opacity:.16; filter:blur(9px);"></div>
+                        <div style="position:relative; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px; color:{{ sel.accent }}; line-height:1;">{{ v.value }}</div>
+                        <div style="position:relative; font-family:'Manrope',sans-serif; font-size:11px; color:#93a4c6; margin-top:6px;">{{ v.label }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+
+                <!-- VIZ: odds -->
+                <sc-if value="{{ vizIsOdds }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:12px; display:flex; gap:10px; overflow-x:auto; padding-bottom:2px;">
+                    <sc-for list="{{ sel.viz }}" as="v" hint-placeholder-count="4">
+                      <div style="flex:0 0 auto; min-width:106px; border-radius:16px; padding:13px; background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.09);">
+                        <div style="font-family:'Manrope',sans-serif; font-size:10.5px; color:#93a4c6;">{{ v.label }}</div>
+                        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; color:{{ sel.accent }}; margin-top:7px;">{{ v.value }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+
+                <!-- key reads -->
+                <div style="margin-top:18px;">
+                  <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em; color:#7f90b3; margin-bottom:10px;">KEY READS</div>
+                  <div style="display:flex; flex-direction:column; gap:8px;">
+                    <sc-for list="{{ sel.keyReads }}" as="k" hint-placeholder-count="3">
+                      <div style="display:flex; align-items:center; gap:11px; padding:12px 13px; border-radius:13px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07);">
+                        <span style="width:6px; height:6px; border-radius:50%; flex:0 0 auto; background:{{ sel.accent }}; box-shadow:0 0 8px {{ sel.glow }};"></span>
+                        <span style="font-family:'Manrope',sans-serif; font-size:13px; color:#dbe4f7;">{{ k }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <!-- CTA -->
+                <div style="margin-top:20px; display:flex; gap:10px;">
+                  <div onClick="{{ closeAgent }}" style="flex:1; text-align:center; padding:15px; border-radius:16px; background:linear-gradient(180deg,#ffe07a,#ffcb3e); color:#241a00; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; box-shadow:0 10px 26px rgba(255,203,62,.3); cursor:pointer;">Apply to my team</div>
+                  <div style="width:54px; display:flex; align-items:center; justify-content:center; border-radius:16px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); cursor:pointer;">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#dfe8ff" stroke-width="1.8" stroke-linejoin="round"><path d="M6 4 h12 v16 l-6 -4 l-6 4 z"/></svg>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- switch rail -->
+            <div style="position:absolute; left:0; right:0; bottom:0; z-index:20; padding:12px 10px 16px; background:linear-gradient(0deg, #0a1020 62%, transparent);">
+              <div style="display:flex; gap:8px; overflow-x:auto; padding:4px 4px 2px;">
+                <sc-for list="{{ analysts }}" as="a" hint-placeholder-count="6">
+                  <div onClick="{{ a.select }}" style="flex:0 0 auto; width:52px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:6px; opacity:{{ a.dim }};">
+                    <div style="width:44px; height:44px; border-radius:13px; background:{{ a.soft }}; border:1px solid {{ a.railBorder }}; display:flex; align-items:flex-end; justify-content:center; position:relative; overflow:hidden;">
+                      <div style="position:absolute; bottom:5px; width:24px; height:16px; border-radius:12px 12px 4px 4px; background:{{ a.line }};"></div>
+                      <div style="position:absolute; bottom:18px; width:13px; height:13px; border-radius:50%; background:{{ a.line }};"></div>
+                    </div>
+                    <span style="font-family:'Space Mono',monospace; font-size:7px; color:{{ a.railText }}; text-align:center; line-height:1;">{{ a.short }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#0b1220"/>
+    <rect x="18" y="24" width="64" height="30" rx="4" fill="#12233f" stroke="#5a8cff" stroke-opacity="0.4"/>
+    <circle cx="34" cy="66" r="7" fill="#ffd34e"/>
+    <circle cx="50" cy="66" r="7" fill="#39d98a"/>
+    <circle cx="66" cy="66" r="7" fill="#7fbfff"/>
+    <rect x="24" y="78" width="52" height="8" rx="4" fill="#101a2e" stroke="#ffffff" stroke-opacity="0.1"/>
+  </svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:402,&quot;height&quot;:874},&quot;ambientMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Studio&quot;},&quot;showRoute&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Studio&quot;},&quot;studioMood&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Broadcast Night&quot;,&quot;options&quot;:[&quot;Broadcast Night&quot;,&quot;Warm Booth&quot;,&quot;Cool Ice&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Studio&quot;}}">
+class Component extends DCLogic {
+  state = { view: 'home', active: 0, tab: 'Team' };
+
+  acc(l, c, h) {
+    const b = `oklch(${l} ${c} ${h}`;
+    return { accent: b + ')', glow: b + ' / 0.55)', line: b + ' / 0.85)', soft: b + ' / 0.16)' };
+  }
+
+  data() {
+    const A = (l, c, h) => this.acc(l, c, h);
+    return [
+      { deskName: 'Anchor', name: 'The Anchor', short: 'ANCHOR', role: 'Host · Studio Desk', tag: 'HOST', tagShort: 'HOST', host: true, bobDur: '6.2s', ...A(0.87, 0.15, 92),
+        confidence: 91,
+        insight: 'Team Time Trial opens the race. Cohesion beats star power today — your squad chemistry is the story.',
+        rec: 'Lock your line-up early. No late swaps before the ramp.',
+        vizType: 'odds',
+        viz: [{ label: 'Squad cohesion', value: '96%' }, { label: 'Stage risk', value: 'LOW' }, { label: 'Podium upside', value: 'HIGH' }],
+        keyReads: ['Flat 18.9 km course, fully exposed', 'Light NE crosswind in the forecast', 'Three GC teams within six seconds'] },
+      { deskName: 'Form', name: 'Form Analyst', short: 'FORM', role: 'Form · Momentum', tag: 'FORM · MOMENTUM', tagShort: 'FORM', bobDur: '5.4s', ...A(0.82, 0.15, 158),
+        confidence: 84,
+        insight: 'Four of your riders are trending up across the last ten race days. Ride the momentum, not the reputation.',
+        rec: 'Promote Rider 04 into your engine role.',
+        vizType: 'trend',
+        series: [24, 30, 27, 38, 50, 58, 70, 80],
+        vizCaption: '10-DAY FORM INDEX', vizTrendTag: '▲ RISING',
+        viz: [{ label: 'Rider 04', value: '+18%' }, { label: 'Rider 11', value: 'PEAK' }, { label: 'Rider 07', value: 'TIRED' }],
+        keyReads: ['Rider 04 up 18% over ten days', 'Rider 11 peaking right on schedule', 'Rest Rider 07 — fatigue flag raised'] },
+      { deskName: 'Stats', name: 'Stats Historian', short: 'STATS', role: 'History · Archive', tag: 'HISTORY · DATA', tagShort: 'HISTORY', bobDur: '6.8s', ...A(0.82, 0.13, 232),
+        confidence: 88,
+        insight: 'In twelve previous Barcelona time trials, cohesive squads won by an average of fourteen seconds.',
+        rec: 'Favour riders with shared team history.',
+        vizType: 'stats',
+        viz: [{ label: 'TTT editions', value: '12' }, { label: 'Avg margin', value: '14s' }, { label: 'Upsets', value: '0' }, { label: 'Course record', value: '20:31' }],
+        keyReads: ['Course record stands at 20:31', 'Wind has rarely been decisive here', 'Short cobbled sector at km 12'] },
+      { deskName: 'Odds', name: 'Odds Pundit', short: 'ODDS', role: 'Markets · Prices', tag: 'ODDS · MARKETS', tagShort: 'ODDS', bobDur: '5.9s', ...A(0.82, 0.15, 66),
+        confidence: 76,
+        insight: 'The market likes your squad — you are the third shortest price for tonight\u2019s stage win.',
+        rec: 'Real value sits on a top-three finish, not the win.',
+        vizType: 'odds',
+        viz: [{ label: 'Stage win', value: '6.5' }, { label: 'Top 3', value: '2.10' }, { label: 'Top 5', value: '1.45' }, { label: 'Yellow S1', value: '4.0' }],
+        keyReads: ['Team A drifting overnight', 'Team C shortening quickly', 'Your line moved +0.5 today'] },
+      { deskName: 'Route', name: 'Route Expert', short: 'ROUTE', role: 'Route · Terrain', tag: 'ROUTE · TERRAIN', tagShort: 'ROUTE', bobDur: '6.5s', ...A(0.83, 0.13, 196),
+        confidence: 82,
+        insight: 'Two technical corners inside the final three kilometres will decide seconds. Positioning is everything.',
+        rec: 'Prioritise bike handling over raw power in your closers.',
+        vizType: 'trend',
+        series: [40, 42, 41, 45, 44, 47, 42, 66],
+        vizCaption: 'STAGE PROFILE · 18.9 KM', vizTrendTag: 'FLAT + TECH FINISH',
+        viz: [{ label: 'Distance', value: '18.9' }, { label: 'Ramp', value: 'KM 12' }, { label: 'Finish', value: 'TECH' }],
+        keyReads: ['Mostly flat, exposed run to town', 'Short 4% ramp at km 12', 'Twisting finish through old town'] },
+      { deskName: 'Profiler', name: 'Rider Profiler', short: 'RIDERS', role: 'Riders · Traits', tag: 'RIDERS · TRAITS', tagShort: 'TRAITS', bobDur: '5.6s', ...A(0.78, 0.14, 300),
+        confidence: 85,
+        insight: 'Your squad skews to time-trial specialists — an ideal fit for a flat TTT opener.',
+        rec: 'Bench the pure climbers for today only.',
+        vizType: 'stats',
+        viz: [{ label: 'TT types', value: '6' }, { label: 'GC riders', value: '4' }, { label: 'Sprinters', value: '3' }, { label: 'Climbers', value: '3' }],
+        keyReads: ['Rider 02 is an aero specialist', 'Rider 09 is a metronome pacer', 'Rider 14 climber — rest today'] },
+      { deskName: 'Coach', name: 'Strategy Coach', short: 'TACTICS', role: 'Tactics · Game Plan', tag: 'TACTICS · PLAN', tagShort: 'TACTICS', bobDur: '6.1s', ...A(0.83, 0.15, 142),
+        confidence: 80,
+        insight: 'Run a four-rider rotation up front and shed your weakest two after ten kilometres.',
+        rec: 'Set the pace order: 02 \u2192 06 \u2192 11 \u2192 04.',
+        vizType: 'odds',
+        viz: [{ label: 'Launch', value: '0\u20135 km' }, { label: 'Drive', value: '5\u201312' }, { label: 'Shelter', value: '12\u201316' }, { label: 'Sprint', value: '16\u201319' }],
+        keyReads: ['Even thirty-second turns up front', 'Save Rider 07 for the finale', 'Regroup fully by km 12'] },
+      { deskName: 'Time-Trial', name: 'Time-Trial Specialist', short: 'TT', role: 'Time Trial · Aero', tag: 'TT · AERO', tagShort: 'AERO', bobDur: '5.7s', ...A(0.80, 0.14, 258),
+        confidence: 83,
+        insight: 'On this profile, fifteen aero watts saved is worth roughly nine seconds. Detail wins medals.',
+        rec: 'Optimise your two weakest riding positions.',
+        vizType: 'stats',
+        viz: [{ label: 'Time upside', value: '9s' }, { label: 'Target speed', value: '48' }, { label: 'Watts to save', value: '15' }, { label: 'Target time', value: '20:45' }],
+        keyReads: ['Hold even power splits throughout', 'Aero position over raw power', 'Target a 20:45 finish time'] },
+      { deskName: 'Results', name: 'Results Reporter', short: 'RESULTS', role: 'Newsroom · Results', tag: 'NEWS · RESULTS', tagShort: 'NEWS', bobDur: '6.4s', ...A(0.78, 0.16, 20),
+        confidence: 78,
+        insight: 'The provisional grid has your squad projected third, eight seconds off the stage lead.',
+        rec: 'A clean, mistake-free run puts yellow in reach.',
+        vizType: 'stats',
+        viz: [{ label: 'Projected', value: 'P3' }, { label: 'Gap to lead', value: '+0:08' }, { label: 'Finishers', value: '16/16' }, { label: 'Penalties', value: '0' }],
+        keyReads: ['Team C leads the provisional grid', 'Team A second at +0:03', 'Yellow jersey within eight seconds'] },
+      { deskName: 'Calculator', name: 'The Calculator', short: 'AI CALC', role: 'AI · Squad Optimiser', tag: 'AI · OPTIMISER', tagShort: 'AI', bobDur: '5.2s', ...A(0.86, 0.16, 128),
+        confidence: 94,
+        insight: 'I have assembled your optimal TTT line-up: a projected eleven seconds faster than your current order.',
+        rec: 'Apply the optimised squad and pace plan.',
+        vizType: 'odds',
+        viz: [{ label: 'Time gain', value: '+11s' }, { label: 'Swaps', value: '3' }, { label: 'Cohesion', value: '96%' }, { label: 'Risk', value: 'LOW' }],
+        keyReads: ['Swap Rider 07 for Rider 12', 'Re-order the front pace line', 'Model confidence at 94%'] },
+    ];
+  }
+
+  ridersData() {
+    const roles = ['TT', 'GC', 'TT', 'DOM', 'SPR', 'GC', 'DOM', 'TT', 'CLM', 'GC', 'TT', 'DOM', 'SPR', 'TT', 'GC', 'CLM'];
+    const forms = [88, 79, 92, 74, 83, 90, 71, 86, 77, 94, 82, 73, 85, 80, 89, 76];
+    const hues = [92, 158, 232, 66, 196, 300, 142, 20];
+    const roleColors = { TT: '#8ab4ff', GC: '#ffd34e', SPR: '#ff8f6b', CLM: '#c6a0ff', DOM: '#39d98a' };
+    return Array.from({ length: 16 }, (_, i) => {
+      const num = String(i + 1).padStart(2, '0');
+      const ti = Math.floor(i / 2);
+      const form = forms[i];
+      const role = roles[i];
+      return {
+        num, name: 'Rider ' + num, team: 'Team ' + String.fromCharCode(65 + ti),
+        teamColor: `oklch(0.8 0.13 ${hues[ti]})`, role, roleColor: roleColors[role],
+        form: form + '%', formPct: form + '%',
+        formColor: form >= 85 ? '#39d98a' : (form >= 78 ? '#ffd34e' : '#ff9a6b'),
+      };
+    });
+  }
+
+  renderVals() {
+    const active = this.state.active;
+    const view = this.state.view;
+    const tab = this.state.tab;
+    const analysts = this.data().map((a, i) => ({
+      ...a,
+      open: () => this.setState({ view: 'agent', active: i }),
+      select: () => this.setState({ active: i }),
+      dim: i === active ? '1' : '0.4',
+      railBorder: i === active ? a.line : 'rgba(255,255,255,0.08)',
+      railText: i === active ? a.accent : '#6a7ba0',
+    }));
+    const sel = analysts[active];
+    let trendPoints = '', areaPoints = '';
+    if (sel.vizType === 'trend' && sel.series) {
+      const n = sel.series.length;
+      const pts = sel.series.map((v, i) => `${(i / (n - 1) * 100).toFixed(1)},${(100 - v).toFixed(1)}`);
+      trendPoints = pts.join(' ');
+      areaPoints = `0,100 ${trendPoints} 100,100`;
+    }
+    const mood = this.props.studioMood ?? 'Broadcast Night';
+    const moodTint = {
+      'Broadcast Night': 'radial-gradient(90% 60% at 50% 0%, rgba(60,110,220,0.12), transparent 70%)',
+      'Warm Booth': 'radial-gradient(90% 60% at 50% 0%, rgba(255,170,70,0.14), transparent 70%)',
+      'Cool Ice': 'radial-gradient(90% 60% at 50% 0%, rgba(60,200,230,0.16), transparent 70%)',
+    }[mood];
+    const tabBg = (n) => tab === n ? 'rgba(255,211,78,0.12)' : 'transparent';
+    const tabCol = (n) => tab === n ? '#ffd34e' : '#6f80a4';
+    return {
+      analysts, riders: this.ridersData(), sel, activeIndex: active,
+      ready: true,
+      motion: this.props.ambientMotion ?? true,
+      showRoute: this.props.showRoute ?? true,
+      moodTint,
+      overlayStyle: {
+        position: 'absolute', left: 0, right: 0, height: '100%', zIndex: 60,
+        top: view === 'agent' ? '0%' : '101%',
+        opacity: view === 'agent' ? 1 : 0,
+        pointerEvents: view === 'agent' ? 'auto' : 'none',
+        transition: 'top .55s cubic-bezier(.22,1,.36,1), opacity .4s ease',
+      },
+      closeAgent: () => this.setState({ view: 'home' }),
+      vizIsTrend: sel.vizType === 'trend',
+      vizIsStats: sel.vizType === 'stats',
+      vizIsOdds: sel.vizType === 'odds',
+      trendPoints, areaPoints,
+      confRing: `conic-gradient(${sel.accent} ${(sel.confidence * 3.6).toFixed(0)}deg, rgba(255,255,255,0.09) 0deg)`,
+      teamSel: () => this.setState({ tab: 'Team' }), teamCol: tabCol('Team'), teamBg: tabBg('Team'),
+      adviceSel: () => this.setState({ tab: 'Advice' }), adviceCol: tabCol('Advice'), adviceBg: tabBg('Advice'),
+      agentsSel: () => this.setState({ tab: 'Agents' }), agentsCol: tabCol('Agents'), agentsBg: tabBg('Agents'),
+      ridersSel: () => this.setState({ tab: 'Riders' }), ridersCol: tabCol('Riders'), ridersBg: tabBg('Riders'),
+      settingsSel: () => this.setState({ tab: 'Settings' }), settingsCol: tabCol('Settings'), settingsBg: tabBg('Settings'),
+    };
+  }
+}
+</script>
+</body>
+</html>
