@@ -20,10 +20,13 @@ let roleWeight = {}, roleOf = {}, defaultRole = "knecht";
 let formAdj = {}, notes = {}, coverage = {}, tiers = null, ttt = null, strat = null;
 const excluded = new Set();   // opgegeven / niet-gestarte renners (research-agent)
 const agentsMeta = [];
+let recap = null;             // gisteren/vandaag-verhaal (research-agent)
 
 for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
   const s = JSON.parse(readFileSync(join(sigDir, f), "utf8"));
   const type = s.type || (s.rolgewicht ? "parcours" : s.roles ? "roles" : "form");
+  // Info-dragers (geen analist): sla apart op en sla de agent-registratie over.
+  if (type === "recap") { recap = { gisteren: s.gisteren || "", vandaag: s.vandaag || "", datum: s.datum || "" }; continue; }
   // Korte samenvatting per agent voor het Agents-scherm in de app.
   let highlights = [];
   if (type === "form") highlights = Object.entries(s.signalen || {}).slice(0, 4).map(([n, x]) => `${n}: ${x.reden || ""}`);
@@ -88,6 +91,7 @@ const out = {
   coverage,
   agents: agentsMeta,
   stages,
+  recap,
   riders: ratings.sort((a, b) => b.pts - a.pts)
 };
 writeFileSync(join(root, "data/ratings.json"), JSON.stringify(out, null, 2));

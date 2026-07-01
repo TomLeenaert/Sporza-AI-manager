@@ -117,3 +117,7 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 
 2026-07-01 — LOOP S3.2 (deadline): deadlineNote in stages + urgentie (vandaag/morgen/over N dagen) uit datum.
 - Getoond op rit-kaart (#nsDeadline) en Vandaag-briefing. Getest: "over 3 dagen". 16/100M OK.
+
+2026-07-01 — LOOP S3.3 (rit-recap): recap-2026.json (type recap) -> Koersverhaal-kaart (Gisteren/Vandaag).
+- Consolidator: ratings.recap, info-types worden geen analist. Getest: kaart toont, 13 analisten, 16/100M.
+- SPRINT 3 COMPLEET (S3.1-3.3).

@@ -23,9 +23,8 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
       (Bonus: verbeter-pass in buildBestTeam + coverage-guard in advies; ploeg nu echt optimaal.)
 - [x] **S3.2 Deadline-info** — DONE. deadlineNote in stages + urgentie (vandaag/morgen/over N dagen)
       berekend uit datum; getoond op rit-kaart en Vandaag-briefing.
-- [ ] **S3.3 Rit-recap** — de app leest optioneel `data/signals/recap-2026.json`
-      ({ "type":"info", "gisteren":"...", "vandaag":"..." }) en toont een "Gisteren / Vandaag"-kaart.
-      Seed het bestand met een korte placeholder; de dagelijkse research-agent vult het later.
+- [x] **S3.3 Rit-recap** — DONE. recap-2026.json (type "recap") -> "Koersverhaal"-kaart (Gisteren/Vandaag).
+      Consolidator zet het in ratings.recap; recap-agent verschijnt NIET als analist. Research-agent vult later.
 
 ### Sprint 4 — extra analisten
 - [ ] **S4.1 Weer-agent** — app toont een weerregel op de rit-kaart uit `data/signals/weer-2026.json`

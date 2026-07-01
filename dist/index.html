@@ -268,6 +268,7 @@
         </div>
       </div>
       <div class="briefing" id="briefing"></div>
+      <div class="card" id="recapCard"></div>
       <div class="card" id="teamLogic"></div>
     </section>
 
@@ -627,6 +628,11 @@
         "type": "vlak"
       }
     ]
+  },
+  "recap": {
+    "gisteren": "De Tour start op 4 juli — er zijn nog geen ritten verreden.",
+    "vandaag": "Bouw je ploeg voor de openingsrit: een ploegentijdrit in Barcelona. Zet je kapitein op je sterkste troef.",
+    "datum": "2026-07-01"
   },
   "riders": [
     {
@@ -2294,7 +2300,7 @@ const esc = s => (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&g
 const DB_KEY = "wm_studio_v1";
 const defaults = { cfg:{budget:100,squad:16,transfers:3}, riders:[] };
 let db = load();
-let coverageReq={}, stagesInfo=null, agentsInfo=[];
+let coverageReq={}, stagesInfo=null, agentsInfo=[], recapInfo=null;
 let uiTab="team", overlayIdx=0, dataStatus="laden";
 
 function load(){ try{ return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
@@ -2309,7 +2315,7 @@ async function loadRealData(force){
     if(data.budget) db.cfg.budget=data.budget;
     if(data.squad) db.cfg.squad=data.squad;
     if(data.freeTransfers) db.cfg.transfers=data.freeTransfers;
-    coverageReq = data.coverage||{}; stagesInfo = data.stages||null; agentsInfo = data.agents||[];
+    coverageReq = data.coverage||{}; stagesInfo = data.stages||null; agentsInfo = data.agents||[]; recapInfo = data.recap||null;
     if(force || !db.riders.length){
       const keep=new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
       const pins=new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
@@ -2471,7 +2477,15 @@ function analystList(){
 function render(){
   renderStatus(); renderVandaag();
   renderTicker(); renderNextStage(); renderCaptain(); renderSquad(); renderAnalysts(); renderBriefing();
-  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool();
+  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool(); renderRecap();
+}
+function renderRecap(){
+  const el=$("#recapCard"); if(!el) return;
+  const r=recapInfo;
+  if(!r || (!r.gisteren && !r.vandaag)){ el.style.display="none"; return; } el.style.display="";
+  el.innerHTML = `<h2 class="sec" style="margin-top:0">Koersverhaal</h2>
+    ${r.gisteren?`<div class="note" style="color:var(--txt)"><b style="color:var(--muted)">Gisteren — </b>${esc(r.gisteren)}</div>`:""}
+    ${r.vandaag?`<div class="note" style="color:var(--txt);margin-top:8px"><b style="color:var(--muted)">Vandaag — </b>${esc(r.vandaag)}</div>`:""}`;
 }
 function renderVandaag(){
   const el=$("#vandaag"); if(!el) return;

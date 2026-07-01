@@ -301,6 +301,11 @@
       }
     ]
   },
+  "recap": {
+    "gisteren": "De Tour start op 4 juli — er zijn nog geen ritten verreden.",
+    "vandaag": "Bouw je ploeg voor de openingsrit: een ploegentijdrit in Barcelona. Zet je kapitein op je sterkste troef.",
+    "datum": "2026-07-01"
+  },
   "riders": [
     {
       "name": "Tadej Pogacar",
