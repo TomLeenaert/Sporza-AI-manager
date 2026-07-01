@@ -84,3 +84,9 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - Transfer-kost in advies: eerste 3 gratis, daarna oplopend (4e=1M...), budget-bewust, met GRATIS/TRANSFERKOST-labels. Getest.
 - Budget-over + te-weinig-renners waarschuwing in de wall.
 - Mobiel-polish: safe-area insets (notch/home-indicator), tap-states, overflow-x fix.
+
+2026-07-01 — SPRINT 2a: GitHub Actions dagelijkse workflow (.github/workflows/daily-update.yml).
+- Cron 05:30 UTC + handmatig. Herrekent consolidate + bundle, commit+push enkel bij wijziging -> Pages ververst.
+- Handmatige testrun: SUCCESS (groen).
+- OPEN: de research-motor (verse vorm/uitslagen). Vereist Toms keuze: (A) Anthropic API-key als GitHub-secret
+  -> Claude draait in Actions en ververst de signalen autonoom; of (B) ik ververs de signalen tijdens sessies (gratis).
