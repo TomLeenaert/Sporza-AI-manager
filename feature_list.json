@@ -15,7 +15,7 @@
   "agents": [
     { "id": "A1",  "name": "Uitslagen-agent — resultaten recente koersen", "passes": false },
     { "id": "A2",  "name": "Vorm/trend-agent — wie is nu goed, ook richting Tour", "passes": true },
-    { "id": "A3",  "name": "Odds-agent — noteringen van goksites", "passes": false },
+    { "id": "A3",  "name": "Odds-agent — noteringen van goksites (geel/groen/rit)", "passes": true },
     { "id": "A4",  "name": "Voorbeschouwing-agent — prono's/previews", "passes": false },
     { "id": "A5",  "name": "Parcours-agent — 7berg/5heuvel/7vlak/2TT, rolgewichten", "passes": true },
     { "id": "Arol","name": "Rol-agent — profiel per renner (fixt overschatting knechten)", "passes": true },

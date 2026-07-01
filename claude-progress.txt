@@ -37,3 +37,7 @@ VOLGENDE STAP:
 - Punten niet meer lineair met prijs: >=10M x1.4, 8-9M x1.2, 6-7M x1.0, 4-5M x0.85, <=3M x0.7.
 - Consolidator past tierMult toe. Getest: ploeg is nu sterren+koopjes (top6 stars + 2M vullers),
   16 renners, 100M, dekt sprint/berg/tijdrit. PASS.
+
+2026-07-01 — Loop-ronde 3 (A3): odds-agent (data/signals/odds-2026.json, type form).
+- Goksite-noteringen (Pogacar 1.25, Vingegaard ~5, Evenepoel 16/1 + sprintfavs) als lichte mult,
+  stapelt met vorm. Getest: ploeg blijft 16/100M en dekt sprint+tijdrit. PASS.

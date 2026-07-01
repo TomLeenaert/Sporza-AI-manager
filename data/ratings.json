@@ -13,56 +13,56 @@
       "team": "UAE",
       "price": 12,
       "rol": "gc",
-      "pts": 1204,
-      "note": "topfavoriet geel, jaagt 5e Tour, sterke ploeg"
+      "pts": 1306,
+      "note": "geel 1.25 - torenhoog favoriet"
     },
     {
       "name": "Jonas Vingegaard",
       "team": "Visma",
       "price": 10,
       "rol": "gc",
-      "pts": 902,
-      "note": "2e favoriet maar Visma verzwakt (Van Aert/Laporte weg)"
+      "pts": 953,
+      "note": "geel ~5.0 - eerste uitdager"
     },
     {
       "name": "Remco Evenepoel",
       "team": "Red Bull-BORA",
       "price": 9,
       "rol": "gc",
-      "pts": 656,
-      "note": ""
+      "pts": 682,
+      "note": "geel 16/1 - beste van de rest"
     },
     {
       "name": "Florian Lipowitz",
       "team": "Red Bull-BORA",
       "price": 8,
       "rol": "gc",
-      "pts": 607,
-      "note": "podium-outsider GC"
+      "pts": 624,
+      "note": "podium-notering"
     },
     {
       "name": "Jasper Philipsen",
       "team": "Alpecin",
       "price": 9,
       "rol": "sprinter",
-      "pts": 588,
-      "note": "topsprinter, groen-outsider"
+      "pts": 609,
+      "note": "korte notering massasprint"
     },
     {
       "name": "Tim Merlier",
       "team": "Soudal Quick-Step",
       "price": 9,
       "rol": "sprinter",
-      "pts": 588,
-      "note": "topsprinter, meerdere ritzeges mogelijk"
+      "pts": 609,
+      "note": "korte notering massasprint"
     },
     {
       "name": "Mads Pedersen",
       "team": "Lidl-Trek",
       "price": 8,
       "rol": "sprinter",
-      "pts": 551,
-      "note": "topfavoriet groen, constante scorer over 3 weken"
+      "pts": 575,
+      "note": "favoriet ritzeges/groen"
     },
     {
       "name": "Paul Seixas",
@@ -93,8 +93,8 @@
       "team": "Lidl-Trek",
       "price": 7,
       "rol": "gc",
-      "pts": 425,
-      "note": ""
+      "pts": 438,
+      "note": "top-5 notering"
     },
     {
       "name": "Kevin Vauquelin",

@@ -1,0 +1,17 @@
+{
+  "agent": "odds-agent",
+  "type": "form",
+  "datum": "2026-07-01",
+  "bron": "tips.gg, William Hill, Cyclingnews (Tour 2026 outright odds)",
+  "uitleg": "Goksite-noteringen (geel + ritwinkansen) omgezet in een lichte multiplier. Bewust klein: bevestigt de markt, overheerst het model niet. Stapelt met het vorm-signaal.",
+  "signalen": {
+    "Tadej Pogacar": { "mult": 1.10, "reden": "geel 1.25 - torenhoog favoriet" },
+    "Jonas Vingegaard": { "mult": 1.06, "reden": "geel ~5.0 - eerste uitdager" },
+    "Remco Evenepoel": { "mult": 1.04, "reden": "geel 16/1 - beste van de rest" },
+    "Florian Lipowitz": { "mult": 1.03, "reden": "podium-notering" },
+    "Juan Ayuso": { "mult": 1.03, "reden": "top-5 notering" },
+    "Mads Pedersen": { "mult": 1.05, "reden": "favoriet ritzeges/groen" },
+    "Tim Merlier": { "mult": 1.04, "reden": "korte notering massasprint" },
+    "Jasper Philipsen": { "mult": 1.04, "reden": "korte notering massasprint" }
+  }
+}
