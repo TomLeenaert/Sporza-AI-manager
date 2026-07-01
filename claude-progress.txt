@@ -78,3 +78,9 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
   rij analisten (=agents) met tap-overlay, anchor-briefing, glazen tab-bar. Fonts Space Grotesk/Manrope/Space Mono.
 - Alle motor behouden: knapsack + pin/ban + coverage, loadRealData, volgende-rit-logica, agents-data.
 - localStorage-key -> wm_studio_v1. Getest: 16/100M, volgende rit, 10 analisten, overlay, pin/ban OK.
+
+2026-07-01 — SPRINT 1 (betrouwbaarheid) afgewerkt:
+- Offline/foutafhandeling: statusbalk (offline=cached / geen verbinding=none), app draait door op opgeslagen data. Getest.
+- Transfer-kost in advies: eerste 3 gratis, daarna oplopend (4e=1M...), budget-bewust, met GRATIS/TRANSFERKOST-labels. Getest.
+- Budget-over + te-weinig-renners waarschuwing in de wall.
+- Mobiel-polish: safe-area insets (notch/home-indicator), tap-states, overflow-x fix.

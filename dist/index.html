@@ -14,20 +14,25 @@
     --txt:#eef3ff; --muted:#93a4c6; --acc:#ffd34e; --mint:#39d98a; --red:#ff5470; --blue:#7fbfff;
     --grotesk:'Space Grotesk',sans-serif; --sans:'Manrope',system-ui,sans-serif; --mono:'Space Mono',monospace;
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   ::-webkit-scrollbar{width:0;height:0;display:none} *{scrollbar-width:none}
   html,body{margin:0;padding:0}
   body{background:radial-gradient(130% 90% at 50% -12%,#101d38 0%,#0b1220 46%,#06090f 100%);
     background-attachment:fixed; color:var(--txt); font-family:var(--sans);
-    -webkit-font-smoothing:antialiased; min-height:100vh}
-  #app{max-width:440px;margin:0 auto;min-height:100vh;position:relative;padding-bottom:96px}
+    -webkit-font-smoothing:antialiased; min-height:100vh; overflow-x:hidden}
+  #app{max-width:440px;margin:0 auto;min-height:100vh;position:relative;
+    padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+  button{touch-action:manipulation}
+  button:active{filter:brightness(1.12)}
+  .analyst:active,.rcard:active,.swap:active{transform:scale(.98)}
+  .analyst,.rcard,.swap,button{transition:transform .12s ease,filter .12s ease}
   @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   @keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,84,112,.55)}50%{opacity:.5;box-shadow:0 0 0 5px rgba(255,84,112,0)}}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
   @keyframes fadeUp{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
 
   /* header */
-  header{position:sticky;top:0;z-index:30;padding:14px 16px 10px;
+  header{position:sticky;top:0;z-index:30;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 10px;
     background:linear-gradient(180deg,rgba(11,18,32,.97) 66%,rgba(11,18,32,0))}
   .toprow{display:flex;align-items:center;justify-content:space-between;gap:10px}
   .onair{display:flex;align-items:center;gap:7px;padding:6px 11px 6px 8px;border-radius:999px;
@@ -47,6 +52,12 @@
   .tickerwrap .move{display:flex;white-space:nowrap;animation:ticker 32s linear infinite;will-change:transform}
   .tickerwrap .seg{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#9fb0d0;padding:0 6px}
 
+  #statusBar:empty{display:none}
+  #statusBar{margin-top:8px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-align:center;padding:7px 10px;border-radius:9px}
+  #statusBar.cached{background:rgba(255,211,78,.1);border:1px solid rgba(255,211,78,.3);color:var(--acc)}
+  #statusBar.none{background:rgba(255,84,112,.12);border:1px solid rgba(255,84,112,.35);color:#ff96a6}
+  .warnline{margin-top:9px;font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:#ff96a6;
+    background:rgba(255,84,112,.1);border:1px solid rgba(255,84,112,.3);border-radius:9px;padding:7px 9px;text-align:center}
   main{padding:6px 14px 0}
   section.tab{display:none;animation:fadeUp .35s ease}
   section.tab.on{display:block}
@@ -147,7 +158,8 @@
   .gain{color:var(--mint);font-weight:700}
 
   /* tab bar */
-  nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;max-width:440px;margin:0 auto;padding:0 14px 14px}
+  nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;max-width:440px;margin:0 auto;
+    padding:0 14px calc(14px + env(safe-area-inset-bottom,0px))}
   nav.tabs .inner{height:66px;border-radius:24px;background:rgba(16,24,42,.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
     border:1px solid rgba(255,255,255,.1);box-shadow:0 16px 40px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.06) inset;
     display:flex;align-items:center;justify-content:space-around;padding:0 6px}
@@ -202,6 +214,7 @@
       <div class="avatar">TL</div>
     </div>
     <div class="tickerwrap"><div class="move" id="ticker"></div></div>
+    <div id="statusBar"></div>
   </header>
 
   <main>
@@ -224,6 +237,7 @@
           </div>
           <div class="squadhead"><span class="a">JOUW PLOEG</span><span class="b" id="squadMeta">16 RENNERS</span></div>
           <div class="cards" id="squadCards"></div>
+          <div class="warnline" id="squadWarn" style="display:none"></div>
           <button class="primary" id="autoBuild" style="margin-top:14px">✨ Stel beste ploeg samen</button>
         </div>
 
@@ -2239,7 +2253,7 @@ const DB_KEY = "wm_studio_v1";
 const defaults = { cfg:{budget:100,squad:16,transfers:3}, riders:[] };
 let db = load();
 let coverageReq={}, stagesInfo=null, agentsInfo=[];
-let uiTab="team", overlayIdx=0;
+let uiTab="team", overlayIdx=0, dataStatus="laden";
 
 function load(){ try{ return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
 function save(){ localStorage.setItem(DB_KEY, JSON.stringify(db)); render(); }
@@ -2249,7 +2263,7 @@ function uid(){ return "r"+Math.random().toString(36).slice(2,9); }
 async function loadRealData(force){
   try{
     let data = window.__RATINGS__ || null;
-    if(!data){ const res = await fetch("./data/ratings.json",{cache:"no-store"}); if(!res.ok) return; data = await res.json(); }
+    if(!data){ const res = await fetch("./data/ratings.json",{cache:"no-store"}); if(!res.ok) throw new Error("http "+res.status); data = await res.json(); }
     if(data.budget) db.cfg.budget=data.budget;
     if(data.squad) db.cfg.squad=data.squad;
     if(data.freeTransfers) db.cfg.transfers=data.freeTransfers;
@@ -2265,8 +2279,18 @@ async function loadRealData(force){
       if(force || !team().length) buildBestTeam();
       syncCfg();
     }
+    dataStatus="ok"; render();
+  }catch(e){
+    // Geen verbinding: draai door op opgeslagen data indien aanwezig.
+    dataStatus = (db.riders && db.riders.length) ? "cached" : "none";
     render();
-  }catch(e){ /* offline: lokale data blijft werken */ }
+  }
+}
+function renderStatus(){
+  const el=$("#statusBar"); if(!el) return;
+  if(dataStatus==="cached"){ el.className="cached"; el.textContent="⚠ OFFLINE — LAATSTE OPGESLAGEN DATA WORDT GETOOND"; }
+  else if(dataStatus==="none"){ el.className="none"; el.textContent="⚠ GEEN VERBINDING — KON DATA NIET LADEN. VERBIND EN HERLAAD."; }
+  else { el.className=""; el.textContent=""; }
 }
 
 // ---- team math ----
@@ -2303,16 +2327,23 @@ function buildBestTeam(){
   db.riders.forEach(r=> r.inTeam=chosen.has(r.id));
   save();
 }
+// Wissel-advies met Sporza-transferkost: eerste 'free' gratis, daarna 4e=1M, 5e=2M, ...
+// De transferkost knabbelt mee aan je budget, dus verder wisselen wordt duurder.
 function adviceSwaps(){
-  const cap=+db.cfg.transfers||0; const inT=team(), bench=db.riders.filter(r=>!r.inTeam);
-  const swaps=[],uo=new Set(),ui=new Set();
-  for(let k=0;k<cap;k++){ let best=null;
+  const free=+db.cfg.transfers||0, maxShow=free+2;
+  const inT=team(), bench=db.riders.filter(r=>!r.inTeam);
+  const swaps=[],uo=new Set(),ui=new Set(); let budgetRunning=budgetLeft();
+  for(let k=1;k<=maxShow;k++){
+    const tcost=Math.max(0,k-free); let best=null;
     for(const out of inT){ if(uo.has(out.id)||out.pin) continue;
       for(const inn of bench){ if(ui.has(inn.id)||inn.ban) continue;
         const gain=(+inn.pts||0)-(+out.pts||0), dc=(+inn.price||0)-(+out.price||0);
-        if(gain<=0) continue; if(budgetLeft()-dc<0) continue;
+        if(gain<=0) continue; if(budgetRunning-dc-tcost<0) continue;
         if(!best||gain>best.gain) best={out,inn,gain,dc}; } }
-    if(!best) break; uo.add(best.out.id); ui.add(best.inn.id); swaps.push(best); }
+    if(!best) break;
+    uo.add(best.out.id); ui.add(best.inn.id);
+    best.tcost=tcost; best.free=(tcost===0); budgetRunning-=best.dc+tcost;
+    swaps.push(best); }
   return swaps;
 }
 
@@ -2349,6 +2380,7 @@ function analystList(){
 
 // ---- render ----
 function render(){
+  renderStatus();
   renderTicker(); renderNextStage(); renderSquad(); renderAnalysts(); renderBriefing();
   renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool();
 }
@@ -2371,9 +2403,14 @@ function renderNextStage(){
 }
 function renderSquad(){
   const t=team().sort((a,b)=>b.pts-a.pts); const maxP=Math.max(1,...t.map(r=>r.pts));
-  $("#squadMeta").textContent = `${t.length} RENNERS · ${money(teamCost())}`;
+  const over=teamCost()>(+db.cfg.budget||0), few=t.length&&t.length<(+db.cfg.squad||0);
+  $("#squadMeta").innerHTML = `${t.length} RENNERS · <span style="color:${over?'#ff96a6':'inherit'}">${money(teamCost())}</span>`;
+  const warn=$("#squadWarn");
+  if(over){ warn.style.display=""; warn.textContent=`⚠ €${(teamCost()-db.cfg.budget)}M OVER BUDGET — DEBAN OF DEPIN EEN DURE RENNER`; }
+  else if(few){ warn.style.display=""; warn.textContent=`⚠ SLECHTS ${t.length}/${db.cfg.squad} RENNERS — TE VEEL GEBAND OF BUDGET TE KRAP`; }
+  else warn.style.display="none";
   const el=$("#squadCards");
-  if(!t.length){ el.innerHTML=`<div class="note" style="padding:10px">Nog geen ploeg — tik “Stel beste ploeg samen”.</div>`; return; }
+  if(!t.length){ el.innerHTML=`<div class="note" style="padding:10px">${dataStatus==="none"?"Geen data geladen — verbind met internet.":"Nog geen ploeg — tik “Stel beste ploeg samen”."}</div>`; return; }
   el.innerHTML = t.map(r=>{
     const col=ROL_COL[r.rol]||"#39d98a", hue=teamHue(r.team), pct=Math.round(r.pts/maxP*100);
     return `<div class="rcard ${r.pin?'pin':''}">
@@ -2440,13 +2477,21 @@ function riderRow(r,actions){
 }
 function renderAdvice(){
   const sw=adviceSwaps(); const el=$("#adviceList");
-  el.innerHTML = sw.length ? sw.map(s=>`<div class="swap">
+  el.innerHTML = sw.length ? sw.map((s,i)=>`<div class="swap">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted)">WISSEL ${i+1}</span>
+        ${s.free
+          ? `<span style="font-family:var(--mono);font-size:9px;color:var(--mint);background:rgba(57,217,138,.1);border:1px solid rgba(57,217,138,.3);padding:3px 7px;border-radius:7px">GRATIS</span>`
+          : `<span style="font-family:var(--mono);font-size:9px;color:var(--acc);background:rgba(255,211,78,.1);border:1px solid rgba(255,211,78,.3);padding:3px 7px;border-radius:7px">TRANSFERKOST ${money(s.tcost)}</span>`}
+      </div>
       <div>❌ <b>${esc(s.out.name)}</b> <span class="pill">${s.out.pts}pt · ${money(s.out.price)}</span></div>
       <div style="margin:6px 0;color:var(--mint);font-weight:700">↓ vervang door ↓</div>
       <div>✅ <b>${esc(s.inn.name)}</b> <span class="pill">${s.inn.pts}pt · ${money(s.inn.price)}</span></div>
-      <div class="note" style="margin-top:6px">Winst <span class="gain">+${s.gain} pt</span> · budgetverschil ${s.dc>=0?"+":""}${money(s.dc)}</div>
+      <div class="note" style="margin-top:6px">Winst <span class="gain">+${s.gain} pt</span> · budgetverschil ${s.dc>=0?"+":""}${money(s.dc)}${s.free?"":` · <span style="color:var(--acc)">kost ${money(s.tcost)} transfer</span>`}</div>
       <button class="sm" style="margin-top:8px;width:100%" onclick="applySwap('${s.out.id}','${s.inn.id}')">Markeer als gewisseld</button>
-    </div>`).join("") : `<div class="empty">Geen winstgevende wissel gevonden. Je ploeg zit goed! 👍</div>`;
+    </div>`).join("")
+    + `<div class="note" style="margin-top:10px">De eerste ${+db.cfg.transfers||0} wissels zijn gratis; daarna kost elke extra wissel oplopend budget (Sporza-regel).</div>`
+    : `<div class="empty">Geen winstgevende wissel gevonden binnen je budget. Je ploeg zit goed! 👍</div>`;
 }
 function renderAgentsGrid(){
   const el=$("#agentsGrid"); const list=analystList();
@@ -2465,7 +2510,7 @@ function renderPool(){
   el.innerHTML = pool.length ? pool.map(r=>riderRow(r,
     `<button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
      <button class="sm ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit">🚫</button>`)).join("")
-    : `<div class="empty">Data laden…</div>`;
+    : `<div class="empty">${dataStatus==="none"?"Geen verbinding — kon de rennerslijst niet laden.":dataStatus==="laden"?"Data laden…":"Geen renners."}</div>`;
 }
 
 // ---- agent overlay ----
