@@ -19,8 +19,8 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
 ## Backlog (bouw in deze volgorde)
 
 ### Sprint 3 — slim tijdens de Tour
-- [ ] **S3.1 Vandaag-briefing** — één prominente kaart bovenaan de Ploeg-tab die vandaag samenvat:
-      rit-nr + type, aanbevolen kapitein, de beste wissel (of "ploeg zit goed"), en een deadline-regel.
+- [x] **S3.1 Vandaag-briefing** — DONE. Prominente kaart bovenaan: rit+type, kapitein, beste zet, deadline.
+      (Bonus: verbeter-pass in buildBestTeam + coverage-guard in advies; ploeg nu echt optimaal.)
 - [ ] **S3.2 Deadline-info** — voeg per etappe in `data/stages-2026.json` een veld "deadline" toe
       (tekst, bv. "vóór de start"), en toon dit op de volgende-rit-kaart + in de Vandaag-briefing.
 - [ ] **S3.3 Rit-recap** — de app leest optioneel `data/signals/recap-2026.json`

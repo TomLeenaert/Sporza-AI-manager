@@ -58,6 +58,17 @@
   #statusBar.none{background:rgba(255,84,112,.12);border:1px solid rgba(255,84,112,.35);color:#ff96a6}
   .warnline{margin-top:9px;font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:#ff96a6;
     background:rgba(255,84,112,.1);border:1px solid rgba(255,84,112,.3);border-radius:9px;padding:7px 9px;text-align:center}
+  #vandaag:empty{display:none}
+  #vandaag{margin:8px 0 4px;border-radius:18px;padding:15px;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,rgba(127,224,255,.12),rgba(255,255,255,.02));border:1px solid rgba(127,224,255,.28)}
+  #vandaag .vh{display:flex;align-items:center;justify-content:space-between}
+  #vandaag .vt{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:#7fe0ff}
+  #vandaag .vd{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  #vandaag h3{font-family:var(--grotesk);font-weight:700;font-size:19px;color:var(--txt);margin:8px 0 2px}
+  #vandaag .vrow{display:flex;align-items:flex-start;gap:8px;margin-top:9px;font-size:13px;color:var(--txt);line-height:1.4}
+  #vandaag .vrow .k{flex:0 0 auto;width:76px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--muted);padding-top:2px}
+  #vandaag .vdl{margin-top:11px;font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:var(--acc);
+    background:rgba(255,211,78,.1);border:1px solid rgba(255,211,78,.28);border-radius:9px;padding:7px 9px;text-align:center}
   main{padding:6px 14px 0}
   section.tab{display:none;animation:fadeUp .35s ease}
   section.tab.on{display:block}
@@ -224,6 +235,7 @@
   <main>
     <!-- TEAM / HOME -->
     <section id="tab-team" class="tab on">
+      <div id="vandaag"></div>
       <div class="scene">
         <div class="glow"></div>
         <div class="wall">
@@ -2353,6 +2365,22 @@ function buildBestTeam(){
   const pick=slots>0?knapsackPick(rest,slots,Math.max(0,C-rCost)):{ids:new Set()};
   const chosen=new Set([...reserved,...pick.ids]);
   db.riders.forEach(r=> r.inTeam=chosen.has(r.id));
+  // Verbeter-pass: pas beneficiële, dekking-behoudende ruilen toe tot niets meer verbetert
+  // (herstelt dubbele reserveringen; geen gratis winst blijft liggen).
+  const need=coverageReq||{}; let improved=true, guard=0;
+  while(improved && guard++<300){
+    improved=false;
+    const inT=db.riders.filter(r=>r.inTeam), bench=db.riders.filter(r=>!r.inTeam && !r.ban);
+    const rc=rol=>inT.filter(r=>r.rol===rol).length;
+    let best=null;
+    for(const out of inT){ if(out.pin) continue;
+      for(const inn of bench){
+        if(need[out.rol] && rc(out.rol)<=need[out.rol] && inn.rol!==out.rol) continue;
+        const gain=(+inn.pts||0)-(+out.pts||0), dc=(+inn.price||0)-(+out.price||0);
+        if(gain<=0) continue; if(budgetLeft()-dc<0) continue;
+        if(!best||gain>best.gain) best={out,inn,gain}; } }
+    if(best){ best.out.inTeam=false; best.inn.inTeam=true; improved=true; }
+  }
   save();
 }
 // Wissel-advies met Sporza-transferkost: eerste 'free' gratis, daarna 4e=1M, 5e=2M, ...
@@ -2361,10 +2389,14 @@ function adviceSwaps(){
   const free=+db.cfg.transfers||0, maxShow=free+2;
   const inT=team(), bench=db.riders.filter(r=>!r.inTeam);
   const swaps=[],uo=new Set(),ui=new Set(); let budgetRunning=budgetLeft();
+  const need=coverageReq||{};
+  const roleCount=rol=>inT.filter(r=>!uo.has(r.id)&&r.rol===rol).length;
   for(let k=1;k<=maxShow;k++){
     const tcost=Math.max(0,k-free); let best=null;
     for(const out of inT){ if(uo.has(out.id)||out.pin) continue;
       for(const inn of bench){ if(ui.has(inn.id)||inn.ban) continue;
+        // nooit de laatste renner van een vereiste rol wegwisselen (breekt dekking)
+        if(need[out.rol] && roleCount(out.rol)<=need[out.rol] && inn.rol!==out.rol) continue;
         const gain=(+inn.pts||0)-(+out.pts||0), dc=(+inn.price||0)-(+out.price||0);
         if(gain<=0) continue; if(budgetRunning-dc-tcost<0) continue;
         if(!best||gain>best.gain) best={out,inn,gain,dc}; } }
@@ -2426,9 +2458,26 @@ function analystList(){
 
 // ---- render ----
 function render(){
-  renderStatus();
+  renderStatus(); renderVandaag();
   renderTicker(); renderNextStage(); renderCaptain(); renderSquad(); renderAnalysts(); renderBriefing();
   renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool();
+}
+function renderVandaag(){
+  const el=$("#vandaag"); if(!el) return;
+  const s=nextStage(); if(!s || !team().length){ el.innerHTML=""; return; }
+  const meta=((stagesInfo||{}).typeUitleg||{})[s.type]||{label:s.type,emoji:""};
+  const cap=captainPick(); const best=adviceSwaps()[0];
+  const deadline = s.deadline || "wissel vóór de start van de rit";
+  const zet = best
+    ? `${esc(best.out.name.split(" ").slice(-1)[0])} → <b>${esc(best.inn.name.split(" ").slice(-1)[0])}</b> (+${best.gain} pt${best.free?", gratis":", kost "+money(best.tcost)})`
+    : `je ploeg zit goed — geen wissel nodig 👍`;
+  el.innerHTML = `
+    <div class="vh"><span class="vt">VANDAAG</span><span class="vd">${nlDate(s.datum).toUpperCase()}</span></div>
+    <h3>${meta.emoji||""} Rit ${s.nr} · ${esc(meta.label)}</h3>
+    <div class="vd" style="font-family:var(--sans);font-size:12px;color:var(--muted)">${esc(s.van)} → ${esc(s.naar)}</div>
+    <div class="vrow"><span class="k">👑 KAPITEIN</span><span>${cap?`<b>${esc(cap.rider.name)}</b> — grootste scorekans vandaag`:"stel eerst je ploeg samen"}</span></div>
+    <div class="vrow"><span class="k">↔ BESTE ZET</span><span>${zet}</span></div>
+    <div class="vdl">⏰ ${esc(deadline)}</div>`;
 }
 function renderCaptain(){
   const el=$("#captainPick"); if(!el) return;

@@ -109,3 +109,8 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - captainPick(): kiest uit jouw ploeg de best scorende renner voor het volgende rittype (dubbele punten).
 - Toont banner op home ("Kapitein vandaag: X"), kroontje op zijn ploegkaart, en als 13e analist met uitleg.
 - Getest: TTT -> Pogacar aanbevolen; banner+kroon+overlay tonen correct.
+
+2026-07-01 — LOOP S3.1 (Vandaag-briefing): prominente kaart met rit, kapitein, beste zet, deadline.
+- Fix: advies + build respecteren nu dekking (geen wissel die je enige sprinter/tijdrijder wegneemt).
+- Fix: verbeter-pass in buildBestTeam herstelt dubbele coverage-reservering -> ploeg optimaler (7264 pt).
+- Getest: 16/100M, dekking OK, Vandaag toont "ploeg zit goed". PASS.
