@@ -82,6 +82,7 @@
 <main>
   <!-- TAB: PLOEG -->
   <section id="tab-team">
+    <div class="card" id="nextStage"></div>
     <div class="card">
       <h2>Mijn ploeg</h2>
       <div id="teamList"></div>
@@ -91,6 +92,7 @@
       <div class="note">Kiest automatisch de beste renners binnen je budget en ploeggrootte,
         op basis van verwachte punten per euro. Jij bevestigt daarna in de Sporza-app.</div>
     </div>
+    <div class="card" id="teamLogic"></div>
   </section>
 
   <!-- TAB: ADVIES -->
@@ -101,6 +103,16 @@
       <button id="refreshAdvice" class="ghost" style="margin-top:10px">🔄 Opnieuw berekenen</button>
       <div class="note">Toont wissels die je verwachte punten verhogen zonder je budget te
         overschrijden. Max. wissels = wat je bij transfers instelt.</div>
+    </div>
+  </section>
+
+  <!-- TAB: AGENTS -->
+  <section id="tab-agents" class="hide">
+    <div class="card">
+      <h2>De AI-agents</h2>
+      <div class="note" style="margin-top:0">Elke agent volgt één ding en levert een signaal.
+        De consolidator bundelt alles tot één score per renner; de reken-agent kiest je ploeg.</div>
+      <div id="agentsList" style="margin-top:10px"></div>
     </div>
   </section>
 
@@ -152,6 +164,7 @@
 <nav class="tabs">
   <button data-tab="team" class="active"><span class="ic">🚴</span>Ploeg</button>
   <button data-tab="advice"><span class="ic">💡</span>Advies</button>
+  <button data-tab="agents"><span class="ic">🤖</span>Agents</button>
   <button data-tab="riders"><span class="ic">📋</span>Renners</button>
   <button data-tab="rules"><span class="ic">⚙️</span>Regels</button>
 </nav>
@@ -164,6 +177,276 @@
   "coverage": {
     "sprinter": 1,
     "tijdrit": 1
+  },
+  "agents": [
+    {
+      "agent": "vorm/uitslagen-agent",
+      "type": "form",
+      "datum": "2026-07-01",
+      "uitleg": "Multiplier op de basisscore. >1 = in vorm / kansrijk profiel, <1 = twijfel. Neutraal = 1.0.",
+      "bron": "wielerflits, wieler revue, eurosport, sporza (Tour 2026 previews)",
+      "highlights": [
+        "Tadej Pogacar: topfavoriet geel, jaagt 5e Tour, sterke ploeg",
+        "Jonas Vingegaard: 2e favoriet maar Visma verzwakt (Van Aert/Laporte weg)",
+        "Mads Pedersen: topfavoriet groen, constante scorer over 3 weken",
+        "Tim Merlier: topsprinter, meerdere ritzeges mogelijk"
+      ]
+    },
+    {
+      "agent": "historiek-agent",
+      "type": "baseline",
+      "datum": "2026-07-01",
+      "uitleg": "Fantasy-punten zijn NIET recht evenredig met de prijs. Historisch pakken de absolute toppers een onevenredig deel (ritzeges + trui + eindklassement), terwijl de middenmoot weinig scoort. Deze tier-curve maakt elites scherper en dempt de middenmoot -> realistische 'sterren + koopjes'-strategie.",
+      "bron": "",
+      "highlights": [
+        "Elites scoren onevenredig veel (tier-curve)"
+      ]
+    },
+    {
+      "agent": "odds-agent",
+      "type": "form",
+      "datum": "2026-07-01",
+      "uitleg": "Goksite-noteringen (geel + ritwinkansen) omgezet in een lichte multiplier. Bewust klein: bevestigt de markt, overheerst het model niet. Stapelt met het vorm-signaal.",
+      "bron": "tips.gg, William Hill, Cyclingnews (Tour 2026 outright odds)",
+      "highlights": [
+        "Tadej Pogacar: geel 1.25 - torenhoog favoriet",
+        "Jonas Vingegaard: geel ~5.0 - eerste uitdager",
+        "Remco Evenepoel: geel 16/1 - beste van de rest",
+        "Florian Lipowitz: podium-notering"
+      ]
+    },
+    {
+      "agent": "parcours-agent",
+      "type": "parcours",
+      "datum": "2026-07-01",
+      "uitleg": "Klimmerseditie: 7 bergritten met aankomst bergop (dubbele Alpe d'Huez), 26km ITT. GC/klimmers premium; 7 vlakke ritten geven topsprinters kansen.",
+      "bron": "cyclingstage, bet365, velo101 (officieel Tour 2026 parcours)",
+      "highlights": [
+        "7 berg, 5 heuvel, 7 vlak, 1 tijdrit_individueel, 1 ploegentijdrit"
+      ]
+    },
+    {
+      "agent": "rol-agent",
+      "type": "roles",
+      "datum": "2026-07-01",
+      "uitleg": "Profiel per renner. Niet-vermelde renners = 'knecht' (scoren zelden in fantasy). Rollen: gc, klimmer, puncheur, sprinter, klassieker, tijdrit, aanvaller, knecht, leadout.",
+      "bron": "",
+      "highlights": [
+        "76 renners een profiel gegeven"
+      ]
+    },
+    {
+      "agent": "spreidings-agent",
+      "type": "coverage",
+      "datum": "2026-07-01",
+      "uitleg": "Minimale dekking per rittype zodat de ploeg elke dag kan scoren. De reken-agent reserveert de beste renner(s) van elke rol voor hij de rest optimaliseert. 7 vlakke ritten + groene trui => min 1 topsprinter; 26km ITT + ploegentijdrit => min 1 tijdritspecialist.",
+      "bron": "",
+      "highlights": [
+        "Minimaal: 1 sprinter, 1 tijdrit"
+      ]
+    },
+    {
+      "agent": "ttt-agent",
+      "type": "ttt",
+      "datum": "2026-07-01",
+      "uitleg": "De Tour opent met een ploegentijdrit. Alle renners van het winnende/sterke team pakken punten. Goedkope knechten (<=3M) van sterke TTT-teams zijn dus koopjes: ze vullen je ploeg en scoren toch mee op dag 1.",
+      "bron": "Sporza-tip: goedkope ploegmaats van sterke ploegentijdrit-teams scoren in de openingsrit (19,7km TTT Barcelona)",
+      "highlights": [
+        "Sterke teams: UAE, Visma, Lidl-Trek, Red Bull-BORA, INEOS, Alpecin, Soudal Quick-Step"
+      ]
+    },
+    {
+      "agent": "uitslagen-agent",
+      "type": "form",
+      "datum": "2026-07-01",
+      "uitleg": "Verse resultaten uit de voorbereidingsrondes vlak voor de Tour. Vangt vorm die de andere agents nog niet hadden. Stapelt met vorm/odds.",
+      "bron": "wielerflits, wielerrevue, cyclist (Dauphine + Ronde van Zwitserland, juni 2026)",
+      "highlights": [
+        "Isaac Del Toro: won de Dauphine - topvorm richting Tour",
+        "Tadej Pogacar: domineerde Ronde van Zwitserland (solo 72km + ITT)",
+        "Richard Carapaz: 2e in Ronde van Zwitserland - sterke klimvorm",
+        "Mathias Vacek: verrassend 3e in Ronde van Zwitserland - koopje (4M)"
+      ]
+    }
+  ],
+  "stages": {
+    "bron": "touretappe.nl (Tour de France 2026 parcours)",
+    "typeUitleg": {
+      "ploegentijdrit": {
+        "emoji": "🧑‍🤝‍🧑",
+        "label": "Ploegentijdrit",
+        "scoort": "Renners van sterke tijdrit-teams"
+      },
+      "vlak": {
+        "emoji": "🏁",
+        "label": "Vlakke rit",
+        "scoort": "Sprinters"
+      },
+      "heuvel": {
+        "emoji": "⛰️",
+        "label": "Heuvelrit",
+        "scoort": "Puncheurs, aanvallers, klassiekers"
+      },
+      "berg": {
+        "emoji": "🏔️",
+        "label": "Bergrit",
+        "scoort": "Klimmers en klassementsrenners"
+      },
+      "tijdrit": {
+        "emoji": "⏱️",
+        "label": "Tijdrit",
+        "scoort": "Tijdritspecialisten en klassement"
+      }
+    },
+    "stages": [
+      {
+        "nr": 1,
+        "datum": "2026-07-04",
+        "van": "Barcelona",
+        "naar": "Barcelona",
+        "type": "ploegentijdrit"
+      },
+      {
+        "nr": 2,
+        "datum": "2026-07-05",
+        "van": "Tarragona",
+        "naar": "Barcelona",
+        "type": "heuvel"
+      },
+      {
+        "nr": 3,
+        "datum": "2026-07-06",
+        "van": "Granollers",
+        "naar": "Les Angles",
+        "type": "berg"
+      },
+      {
+        "nr": 4,
+        "datum": "2026-07-07",
+        "van": "Carcassonne",
+        "naar": "Foix",
+        "type": "heuvel"
+      },
+      {
+        "nr": 5,
+        "datum": "2026-07-08",
+        "van": "Lannemezan",
+        "naar": "Pau",
+        "type": "vlak"
+      },
+      {
+        "nr": 6,
+        "datum": "2026-07-09",
+        "van": "Pau",
+        "naar": "Gavarnie-Gèdre",
+        "type": "berg"
+      },
+      {
+        "nr": 7,
+        "datum": "2026-07-10",
+        "van": "Hagetmau",
+        "naar": "Bordeaux",
+        "type": "vlak"
+      },
+      {
+        "nr": 8,
+        "datum": "2026-07-11",
+        "van": "Périgueux",
+        "naar": "Bergerac",
+        "type": "vlak"
+      },
+      {
+        "nr": 9,
+        "datum": "2026-07-12",
+        "van": "Malemort",
+        "naar": "Ussel",
+        "type": "heuvel"
+      },
+      {
+        "nr": 10,
+        "datum": "2026-07-14",
+        "van": "Aurillac",
+        "naar": "Le Lioran",
+        "type": "heuvel"
+      },
+      {
+        "nr": 11,
+        "datum": "2026-07-15",
+        "van": "Vichy",
+        "naar": "Nevers",
+        "type": "vlak"
+      },
+      {
+        "nr": 12,
+        "datum": "2026-07-16",
+        "van": "Magny-Cours",
+        "naar": "Châlon-sur-Saône",
+        "type": "vlak"
+      },
+      {
+        "nr": 13,
+        "datum": "2026-07-17",
+        "van": "Dole",
+        "naar": "Belfort",
+        "type": "heuvel"
+      },
+      {
+        "nr": 14,
+        "datum": "2026-07-18",
+        "van": "Mulhouse",
+        "naar": "Le Markstein",
+        "type": "berg"
+      },
+      {
+        "nr": 15,
+        "datum": "2026-07-19",
+        "van": "Champagnole",
+        "naar": "Plateau de Solaison",
+        "type": "berg"
+      },
+      {
+        "nr": 16,
+        "datum": "2026-07-21",
+        "van": "Evian-les-Bains",
+        "naar": "Thonon-les-Bains",
+        "type": "tijdrit"
+      },
+      {
+        "nr": 17,
+        "datum": "2026-07-22",
+        "van": "Chambéry",
+        "naar": "Voiron",
+        "type": "vlak"
+      },
+      {
+        "nr": 18,
+        "datum": "2026-07-23",
+        "van": "Voiron",
+        "naar": "Orcières-Merlette",
+        "type": "berg"
+      },
+      {
+        "nr": 19,
+        "datum": "2026-07-24",
+        "van": "Gap",
+        "naar": "Alpe d'Huez",
+        "type": "berg"
+      },
+      {
+        "nr": 20,
+        "datum": "2026-07-25",
+        "van": "Bourg d'Oissans",
+        "naar": "Alpe d'Huez",
+        "type": "berg"
+      },
+      {
+        "nr": 21,
+        "datum": "2026-07-26",
+        "van": "Thoiry",
+        "naar": "Paris",
+        "type": "vlak"
+      }
+    ]
   },
   "riders": [
     {
@@ -1835,6 +2118,8 @@ const defaults = {
 };
 let db = load();
 let coverageReq = {};  // min. aantal per rol (van de spreidings-agent)
+let stagesInfo = null; // rittenschema (van de parcours/ritten-data)
+let agentsInfo = [];   // overzicht van de agents
 
 // Laad de echte Sporza-data (door de agents/consolidator gemaakt) als de pool leeg is.
 async function loadRealData(force){
@@ -1849,6 +2134,8 @@ async function loadRealData(force){
     if(data.squad) db.cfg.squad = data.squad;
     if(data.freeTransfers) db.cfg.transfers = data.freeTransfers;
     coverageReq = data.coverage || {};
+    stagesInfo = data.stages || null;
+    agentsInfo = data.agents || [];
     if(force || !db.riders.length){
       const keep = new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
       db.riders = data.riders.map(r=>({
@@ -1859,6 +2146,7 @@ async function loadRealData(force){
       if(stamp) stamp.textContent = "Data bijgewerkt: " + (data.updated||"?");
       save(); syncCfgInputs();
     }
+    render();  // altijd verversen (volgende rit + agents ook zonder herladen pool)
   }catch(e){ /* offline of geen server: app blijft werken met lokale data */ }
 }
 
@@ -1949,16 +2237,109 @@ function adviceSwaps(){
 
 // ---- render ----
 function riderRow(r, actions){
+  const rol = ROL_LABEL[r.rol]||r.rol||"";
   return `<div class="rider">
     <div class="info">
       <div class="name">${esc(r.name)||"?"}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
-      <div class="meta">${money(+r.price||0)}</div>
+      <div class="meta">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span style="color:var(--muted)">${esc(r.note)}</span>`:""}</div>
     </div>
     <div class="pts"><b>${(+r.pts||0)}</b><span>pt</span></div>
     ${actions||""}
   </div>`;
 }
 function esc(s){ return (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+// ---- info-helpers ----
+const MAAND = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+const DAG = ["zo","ma","di","wo","do","vr","za"];
+function nlDate(iso){ const d=new Date(iso+"T12:00:00"); return `${DAG[d.getDay()]} ${d.getDate()} ${MAAND[d.getMonth()]}`; }
+const ROL_LABEL = { gc:"Klassement", klimmer:"Klimmer", sprinter:"Sprinter", puncheur:"Puncheur",
+  klassieker:"Klassieker", tijdrit:"Tijdrijder", aanvaller:"Aanvaller", knecht:"Knecht", leadout:"Lead-out" };
+// Welke rollen scoren op welk rittype
+const TYPE_ROLLEN = { ploegentijdrit:["tijdrit","gc","knecht","leadout","klimmer","sprinter","puncheur","klassieker","aanvaller"],
+  vlak:["sprinter","leadout"], heuvel:["puncheur","aanvaller","klassieker"],
+  berg:["klimmer","gc"], tijdrit:["tijdrit","gc"] };
+
+function nextStage(){
+  if(!stagesInfo || !stagesInfo.stages) return null;
+  const today = new Date(); const iso = today.toISOString().slice(0,10);
+  const up = stagesInfo.stages.find(s=>s.datum >= iso);
+  return up || null; // null = Tour afgelopen
+}
+
+function renderNextStage(){
+  const el = $("#nextStage"); if(!el) return;
+  const s = nextStage();
+  if(!s){ el.innerHTML = stagesInfo ? `<h2>Volgende rit</h2><div class="empty">De Tour is afgelopen. 🏁</div>` : ""; el.style.display = stagesInfo?"":"none"; return; }
+  el.style.display = "";
+  const meta = (stagesInfo.typeUitleg||{})[s.type] || {emoji:"🚴",label:s.type,scoort:""};
+  const roles = TYPE_ROLLEN[s.type] || [];
+  const mine = team().filter(r=> roles.includes(r.rol));
+  const isTTT = s.type==="ploegentijdrit";
+  el.innerHTML = `<h2>Volgende rit</h2>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="font-size:34px">${meta.emoji}</div>
+      <div style="flex:1">
+        <div style="font-weight:600;font-size:16px">Rit ${s.nr} · ${meta.label}</div>
+        <div style="color:var(--muted);font-size:13px">${nlDate(s.datum)} · ${esc(s.van)} → ${esc(s.naar)}</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:10px">Vandaag scoren vooral: <b style="color:var(--txt)">${meta.scoort}</b>.</div>
+    <div class="note">Uit jouw ploeg ${isTTT?"doet iedereen mee (ploegentijdrit)":`passen hier <b style="color:var(--good)">${mine.length}</b> renners`}:
+      ${mine.slice(0,8).map(r=>esc(r.name.split(" ").slice(-1)[0])).join(", ")||"–"}.</div>`;
+}
+
+function renderTeamLogic(){
+  const el = $("#teamLogic"); if(!el) return;
+  const t = team();
+  if(!t.length){ el.style.display="none"; return; }
+  el.style.display="";
+  const byRole = {}; t.forEach(r=> byRole[r.rol]=(byRole[r.rol]||0)+1);
+  const rolLine = Object.entries(byRole).sort((a,b)=>b[1]-a[1])
+    .map(([r,n])=>`${n}× ${ROL_LABEL[r]||r}`).join(" · ");
+  const stars = [...t].sort((a,b)=>b.price-a.price).slice(0,3).map(r=>r.name.split(" ").slice(-1)[0]);
+  const koopjes = t.filter(r=>r.price<=3).map(r=>r.name.split(" ").slice(-1)[0]);
+  const cov = Object.keys(coverageReq||{}).map(r=>ROL_LABEL[r]||r).join(" + ");
+  el.innerHTML = `<h2>Waarom deze ploeg</h2>
+    <div class="note" style="margin-top:0;color:var(--txt)">
+      <p style="margin:.2em 0 .6em">De reken-agent koos <b>${t.length} renners</b> voor <b>${money(teamCost())}</b> (van ${money(+db.cfg.budget||0)}).</p>
+      <p style="margin:.2em 0"><b>Verdeling:</b> ${rolLine}.</p>
+      <p style="margin:.6em 0 .2em"><b>De logica in het kort:</b></p>
+      <ul style="margin:.2em 0;padding-left:18px;line-height:1.6">
+        <li><b>Sterren die punten pakken:</b> ${stars.join(", ")} — de toppers scoren onevenredig veel (historiek-agent).</li>
+        <li><b>Dekking op elk rittype:</b> minstens ${cov||"sprint + tijdrit"} in de ploeg (spreidings-agent), zodat je élke dag scoort.</li>
+        <li><b>Slimme koopjes:</b> ${koopjes.slice(0,5).join(", ")||"–"} — goedkoop, maar scoren mee (o.a. ploegentijdrit-teams).</li>
+      </ul>
+      <p style="margin:.4em 0 0;color:var(--muted)">Tik op een renner hieronder in “Renners” voor zijn individuele reden.</p>
+    </div>`;
+}
+
+function renderAgents(){
+  const el = $("#agentsList"); if(!el) return;
+  if(!agentsInfo || !agentsInfo.length){ el.innerHTML = `<div class="empty">Agents laden…</div>`; return; }
+  const ICON = { form:"📈", roles:"🏷️", parcours:"🗺️", coverage:"⚖️", baseline:"📊", ttt:"🧑‍🤝‍🧑" };
+  const NAAM = { "vorm/uitslagen-agent":"Vorm-agent", "historiek-agent":"Historiek-agent",
+    "odds-agent":"Odds-agent", "parcours-agent":"Parcours-agent", "rol-agent":"Rol-agent",
+    "spreidings-agent":"Spreidings-agent", "ttt-agent":"Ploegentijdrit-agent", "uitslagen-agent":"Uitslagen-agent" };
+  const extra = [
+    {icon:"🧩", naam:"Consolidator", uitleg:"Bundelt alle signalen hierboven tot één verwachte-punten-score per renner."},
+    {icon:"🧮", naam:"Reken-agent", uitleg:"Kiest uit die scores de best mogelijke ploeg van 16 renners binnen €100M, met dekking op elk rittype."}
+  ];
+  el.innerHTML = agentsInfo.map(a=>`
+    <div class="swap">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="font-size:20px">${ICON[a.type]||"🤖"}</div>
+        <b>${esc(NAAM[a.agent]||a.agent)}</b>
+        ${a.datum?`<span class="pill">${esc(a.datum)}</span>`:""}
+      </div>
+      <div class="note" style="margin-top:6px;color:var(--txt)">${esc(a.uitleg||"")}</div>
+      ${(a.highlights&&a.highlights.length)?`<div class="note" style="margin-top:4px">${a.highlights.map(h=>"• "+esc(h)).join("<br>")}</div>`:""}
+      ${a.bron?`<div class="note" style="margin-top:2px;font-style:italic">bron: ${esc(a.bron)}</div>`:""}
+    </div>`).join("")
+    + extra.map(e=>`<div class="swap"><div style="display:flex;align-items:center;gap:8px">
+        <div style="font-size:20px">${e.icon}</div><b>${e.naam}</b></div>
+        <div class="note" style="margin-top:6px;color:var(--txt)">${e.uitleg}</div></div>`).join("");
+}
 
 function render(){
   // stats
@@ -1993,6 +2374,11 @@ function render(){
      `<button class="sm ghost" onclick="toggle('${r.id}')">${r.inTeam?"−":"+"}</button>
       <button class="x" onclick="del('${r.id}')">🗑️</button>`)).join("")
      : `<div class="empty">Nog geen renners toegevoegd.</div>`;
+
+  // info-schermen
+  renderNextStage();
+  renderTeamLogic();
+  renderAgents();
 }
 
 // ---- actions (global for inline handlers) ----
@@ -2053,7 +2439,7 @@ $("#loadSeed").onclick=(e)=>{
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
   b.classList.add("active");
-  ["team","advice","riders","rules"].forEach(t=>
+  ["team","advice","agents","riders","rules"].forEach(t=>
     $("#tab-"+t).classList.toggle("hide", t!==b.dataset.tab));
   window.scrollTo(0,0);
 });

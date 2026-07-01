@@ -1,0 +1,33 @@
+{
+  "bron": "touretappe.nl (Tour de France 2026 parcours)",
+  "typeUitleg": {
+    "ploegentijdrit": { "emoji": "🧑‍🤝‍🧑", "label": "Ploegentijdrit", "scoort": "Renners van sterke tijdrit-teams" },
+    "vlak": { "emoji": "🏁", "label": "Vlakke rit", "scoort": "Sprinters" },
+    "heuvel": { "emoji": "⛰️", "label": "Heuvelrit", "scoort": "Puncheurs, aanvallers, klassiekers" },
+    "berg": { "emoji": "🏔️", "label": "Bergrit", "scoort": "Klimmers en klassementsrenners" },
+    "tijdrit": { "emoji": "⏱️", "label": "Tijdrit", "scoort": "Tijdritspecialisten en klassement" }
+  },
+  "stages": [
+    { "nr": 1, "datum": "2026-07-04", "van": "Barcelona", "naar": "Barcelona", "type": "ploegentijdrit" },
+    { "nr": 2, "datum": "2026-07-05", "van": "Tarragona", "naar": "Barcelona", "type": "heuvel" },
+    { "nr": 3, "datum": "2026-07-06", "van": "Granollers", "naar": "Les Angles", "type": "berg" },
+    { "nr": 4, "datum": "2026-07-07", "van": "Carcassonne", "naar": "Foix", "type": "heuvel" },
+    { "nr": 5, "datum": "2026-07-08", "van": "Lannemezan", "naar": "Pau", "type": "vlak" },
+    { "nr": 6, "datum": "2026-07-09", "van": "Pau", "naar": "Gavarnie-Gèdre", "type": "berg" },
+    { "nr": 7, "datum": "2026-07-10", "van": "Hagetmau", "naar": "Bordeaux", "type": "vlak" },
+    { "nr": 8, "datum": "2026-07-11", "van": "Périgueux", "naar": "Bergerac", "type": "vlak" },
+    { "nr": 9, "datum": "2026-07-12", "van": "Malemort", "naar": "Ussel", "type": "heuvel" },
+    { "nr": 10, "datum": "2026-07-14", "van": "Aurillac", "naar": "Le Lioran", "type": "heuvel" },
+    { "nr": 11, "datum": "2026-07-15", "van": "Vichy", "naar": "Nevers", "type": "vlak" },
+    { "nr": 12, "datum": "2026-07-16", "van": "Magny-Cours", "naar": "Châlon-sur-Saône", "type": "vlak" },
+    { "nr": 13, "datum": "2026-07-17", "van": "Dole", "naar": "Belfort", "type": "heuvel" },
+    { "nr": 14, "datum": "2026-07-18", "van": "Mulhouse", "naar": "Le Markstein", "type": "berg" },
+    { "nr": 15, "datum": "2026-07-19", "van": "Champagnole", "naar": "Plateau de Solaison", "type": "berg" },
+    { "nr": 16, "datum": "2026-07-21", "van": "Evian-les-Bains", "naar": "Thonon-les-Bains", "type": "tijdrit" },
+    { "nr": 17, "datum": "2026-07-22", "van": "Chambéry", "naar": "Voiron", "type": "vlak" },
+    { "nr": 18, "datum": "2026-07-23", "van": "Voiron", "naar": "Orcières-Merlette", "type": "berg" },
+    { "nr": 19, "datum": "2026-07-24", "van": "Gap", "naar": "Alpe d'Huez", "type": "berg" },
+    { "nr": 20, "datum": "2026-07-25", "van": "Bourg d'Oissans", "naar": "Alpe d'Huez", "type": "berg" },
+    { "nr": 21, "datum": "2026-07-26", "van": "Thoiry", "naar": "Paris", "type": "vlak" }
+  ]
+}

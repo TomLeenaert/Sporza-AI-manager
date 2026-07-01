@@ -82,6 +82,7 @@
 <main>
   <!-- TAB: PLOEG -->
   <section id="tab-team">
+    <div class="card" id="nextStage"></div>
     <div class="card">
       <h2>Mijn ploeg</h2>
       <div id="teamList"></div>
@@ -91,6 +92,7 @@
       <div class="note">Kiest automatisch de beste renners binnen je budget en ploeggrootte,
         op basis van verwachte punten per euro. Jij bevestigt daarna in de Sporza-app.</div>
     </div>
+    <div class="card" id="teamLogic"></div>
   </section>
 
   <!-- TAB: ADVIES -->
@@ -101,6 +103,16 @@
       <button id="refreshAdvice" class="ghost" style="margin-top:10px">🔄 Opnieuw berekenen</button>
       <div class="note">Toont wissels die je verwachte punten verhogen zonder je budget te
         overschrijden. Max. wissels = wat je bij transfers instelt.</div>
+    </div>
+  </section>
+
+  <!-- TAB: AGENTS -->
+  <section id="tab-agents" class="hide">
+    <div class="card">
+      <h2>De AI-agents</h2>
+      <div class="note" style="margin-top:0">Elke agent volgt één ding en levert een signaal.
+        De consolidator bundelt alles tot één score per renner; de reken-agent kiest je ploeg.</div>
+      <div id="agentsList" style="margin-top:10px"></div>
     </div>
   </section>
 
@@ -152,6 +164,7 @@
 <nav class="tabs">
   <button data-tab="team" class="active"><span class="ic">🚴</span>Ploeg</button>
   <button data-tab="advice"><span class="ic">💡</span>Advies</button>
+  <button data-tab="agents"><span class="ic">🤖</span>Agents</button>
   <button data-tab="riders"><span class="ic">📋</span>Renners</button>
   <button data-tab="rules"><span class="ic">⚙️</span>Regels</button>
 </nav>
@@ -167,6 +180,8 @@ const defaults = {
 };
 let db = load();
 let coverageReq = {};  // min. aantal per rol (van de spreidings-agent)
+let stagesInfo = null; // rittenschema (van de parcours/ritten-data)
+let agentsInfo = [];   // overzicht van de agents
 
 // Laad de echte Sporza-data (door de agents/consolidator gemaakt) als de pool leeg is.
 async function loadRealData(force){
@@ -181,6 +196,8 @@ async function loadRealData(force){
     if(data.squad) db.cfg.squad = data.squad;
     if(data.freeTransfers) db.cfg.transfers = data.freeTransfers;
     coverageReq = data.coverage || {};
+    stagesInfo = data.stages || null;
+    agentsInfo = data.agents || [];
     if(force || !db.riders.length){
       const keep = new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
       db.riders = data.riders.map(r=>({
@@ -191,6 +208,7 @@ async function loadRealData(force){
       if(stamp) stamp.textContent = "Data bijgewerkt: " + (data.updated||"?");
       save(); syncCfgInputs();
     }
+    render();  // altijd verversen (volgende rit + agents ook zonder herladen pool)
   }catch(e){ /* offline of geen server: app blijft werken met lokale data */ }
 }
 
@@ -281,16 +299,109 @@ function adviceSwaps(){
 
 // ---- render ----
 function riderRow(r, actions){
+  const rol = ROL_LABEL[r.rol]||r.rol||"";
   return `<div class="rider">
     <div class="info">
       <div class="name">${esc(r.name)||"?"}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
-      <div class="meta">${money(+r.price||0)}</div>
+      <div class="meta">${money(+r.price||0)}${rol?` · ${esc(rol)}`:""}${r.note?`<br><span style="color:var(--muted)">${esc(r.note)}</span>`:""}</div>
     </div>
     <div class="pts"><b>${(+r.pts||0)}</b><span>pt</span></div>
     ${actions||""}
   </div>`;
 }
 function esc(s){ return (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+// ---- info-helpers ----
+const MAAND = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+const DAG = ["zo","ma","di","wo","do","vr","za"];
+function nlDate(iso){ const d=new Date(iso+"T12:00:00"); return `${DAG[d.getDay()]} ${d.getDate()} ${MAAND[d.getMonth()]}`; }
+const ROL_LABEL = { gc:"Klassement", klimmer:"Klimmer", sprinter:"Sprinter", puncheur:"Puncheur",
+  klassieker:"Klassieker", tijdrit:"Tijdrijder", aanvaller:"Aanvaller", knecht:"Knecht", leadout:"Lead-out" };
+// Welke rollen scoren op welk rittype
+const TYPE_ROLLEN = { ploegentijdrit:["tijdrit","gc","knecht","leadout","klimmer","sprinter","puncheur","klassieker","aanvaller"],
+  vlak:["sprinter","leadout"], heuvel:["puncheur","aanvaller","klassieker"],
+  berg:["klimmer","gc"], tijdrit:["tijdrit","gc"] };
+
+function nextStage(){
+  if(!stagesInfo || !stagesInfo.stages) return null;
+  const today = new Date(); const iso = today.toISOString().slice(0,10);
+  const up = stagesInfo.stages.find(s=>s.datum >= iso);
+  return up || null; // null = Tour afgelopen
+}
+
+function renderNextStage(){
+  const el = $("#nextStage"); if(!el) return;
+  const s = nextStage();
+  if(!s){ el.innerHTML = stagesInfo ? `<h2>Volgende rit</h2><div class="empty">De Tour is afgelopen. 🏁</div>` : ""; el.style.display = stagesInfo?"":"none"; return; }
+  el.style.display = "";
+  const meta = (stagesInfo.typeUitleg||{})[s.type] || {emoji:"🚴",label:s.type,scoort:""};
+  const roles = TYPE_ROLLEN[s.type] || [];
+  const mine = team().filter(r=> roles.includes(r.rol));
+  const isTTT = s.type==="ploegentijdrit";
+  el.innerHTML = `<h2>Volgende rit</h2>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="font-size:34px">${meta.emoji}</div>
+      <div style="flex:1">
+        <div style="font-weight:600;font-size:16px">Rit ${s.nr} · ${meta.label}</div>
+        <div style="color:var(--muted);font-size:13px">${nlDate(s.datum)} · ${esc(s.van)} → ${esc(s.naar)}</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:10px">Vandaag scoren vooral: <b style="color:var(--txt)">${meta.scoort}</b>.</div>
+    <div class="note">Uit jouw ploeg ${isTTT?"doet iedereen mee (ploegentijdrit)":`passen hier <b style="color:var(--good)">${mine.length}</b> renners`}:
+      ${mine.slice(0,8).map(r=>esc(r.name.split(" ").slice(-1)[0])).join(", ")||"–"}.</div>`;
+}
+
+function renderTeamLogic(){
+  const el = $("#teamLogic"); if(!el) return;
+  const t = team();
+  if(!t.length){ el.style.display="none"; return; }
+  el.style.display="";
+  const byRole = {}; t.forEach(r=> byRole[r.rol]=(byRole[r.rol]||0)+1);
+  const rolLine = Object.entries(byRole).sort((a,b)=>b[1]-a[1])
+    .map(([r,n])=>`${n}× ${ROL_LABEL[r]||r}`).join(" · ");
+  const stars = [...t].sort((a,b)=>b.price-a.price).slice(0,3).map(r=>r.name.split(" ").slice(-1)[0]);
+  const koopjes = t.filter(r=>r.price<=3).map(r=>r.name.split(" ").slice(-1)[0]);
+  const cov = Object.keys(coverageReq||{}).map(r=>ROL_LABEL[r]||r).join(" + ");
+  el.innerHTML = `<h2>Waarom deze ploeg</h2>
+    <div class="note" style="margin-top:0;color:var(--txt)">
+      <p style="margin:.2em 0 .6em">De reken-agent koos <b>${t.length} renners</b> voor <b>${money(teamCost())}</b> (van ${money(+db.cfg.budget||0)}).</p>
+      <p style="margin:.2em 0"><b>Verdeling:</b> ${rolLine}.</p>
+      <p style="margin:.6em 0 .2em"><b>De logica in het kort:</b></p>
+      <ul style="margin:.2em 0;padding-left:18px;line-height:1.6">
+        <li><b>Sterren die punten pakken:</b> ${stars.join(", ")} — de toppers scoren onevenredig veel (historiek-agent).</li>
+        <li><b>Dekking op elk rittype:</b> minstens ${cov||"sprint + tijdrit"} in de ploeg (spreidings-agent), zodat je élke dag scoort.</li>
+        <li><b>Slimme koopjes:</b> ${koopjes.slice(0,5).join(", ")||"–"} — goedkoop, maar scoren mee (o.a. ploegentijdrit-teams).</li>
+      </ul>
+      <p style="margin:.4em 0 0;color:var(--muted)">Tik op een renner hieronder in “Renners” voor zijn individuele reden.</p>
+    </div>`;
+}
+
+function renderAgents(){
+  const el = $("#agentsList"); if(!el) return;
+  if(!agentsInfo || !agentsInfo.length){ el.innerHTML = `<div class="empty">Agents laden…</div>`; return; }
+  const ICON = { form:"📈", roles:"🏷️", parcours:"🗺️", coverage:"⚖️", baseline:"📊", ttt:"🧑‍🤝‍🧑" };
+  const NAAM = { "vorm/uitslagen-agent":"Vorm-agent", "historiek-agent":"Historiek-agent",
+    "odds-agent":"Odds-agent", "parcours-agent":"Parcours-agent", "rol-agent":"Rol-agent",
+    "spreidings-agent":"Spreidings-agent", "ttt-agent":"Ploegentijdrit-agent", "uitslagen-agent":"Uitslagen-agent" };
+  const extra = [
+    {icon:"🧩", naam:"Consolidator", uitleg:"Bundelt alle signalen hierboven tot één verwachte-punten-score per renner."},
+    {icon:"🧮", naam:"Reken-agent", uitleg:"Kiest uit die scores de best mogelijke ploeg van 16 renners binnen €100M, met dekking op elk rittype."}
+  ];
+  el.innerHTML = agentsInfo.map(a=>`
+    <div class="swap">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="font-size:20px">${ICON[a.type]||"🤖"}</div>
+        <b>${esc(NAAM[a.agent]||a.agent)}</b>
+        ${a.datum?`<span class="pill">${esc(a.datum)}</span>`:""}
+      </div>
+      <div class="note" style="margin-top:6px;color:var(--txt)">${esc(a.uitleg||"")}</div>
+      ${(a.highlights&&a.highlights.length)?`<div class="note" style="margin-top:4px">${a.highlights.map(h=>"• "+esc(h)).join("<br>")}</div>`:""}
+      ${a.bron?`<div class="note" style="margin-top:2px;font-style:italic">bron: ${esc(a.bron)}</div>`:""}
+    </div>`).join("")
+    + extra.map(e=>`<div class="swap"><div style="display:flex;align-items:center;gap:8px">
+        <div style="font-size:20px">${e.icon}</div><b>${e.naam}</b></div>
+        <div class="note" style="margin-top:6px;color:var(--txt)">${e.uitleg}</div></div>`).join("");
+}
 
 function render(){
   // stats
@@ -325,6 +436,11 @@ function render(){
      `<button class="sm ghost" onclick="toggle('${r.id}')">${r.inTeam?"−":"+"}</button>
       <button class="x" onclick="del('${r.id}')">🗑️</button>`)).join("")
      : `<div class="empty">Nog geen renners toegevoegd.</div>`;
+
+  // info-schermen
+  renderNextStage();
+  renderTeamLogic();
+  renderAgents();
 }
 
 // ---- actions (global for inline handlers) ----
@@ -385,7 +501,7 @@ $("#loadSeed").onclick=(e)=>{
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
   b.classList.add("active");
-  ["team","advice","riders","rules"].forEach(t=>
+  ["team","advice","agents","riders","rules"].forEach(t=>
     $("#tab-"+t).classList.toggle("hide", t!==b.dataset.tab));
   window.scrollTo(0,0);
 });

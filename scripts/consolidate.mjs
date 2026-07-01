@@ -18,10 +18,20 @@ const sigDir = join(root, "data/signals");
 
 let roleWeight = {}, roleOf = {}, defaultRole = "knecht";
 let formAdj = {}, notes = {}, coverage = {}, tiers = null, ttt = null;
+const agentsMeta = [];
 
 for (const f of readdirSync(sigDir).filter(f => f.endsWith(".json"))) {
   const s = JSON.parse(readFileSync(join(sigDir, f), "utf8"));
   const type = s.type || (s.rolgewicht ? "parcours" : s.roles ? "roles" : "form");
+  // Korte samenvatting per agent voor het Agents-scherm in de app.
+  let highlights = [];
+  if (type === "form") highlights = Object.entries(s.signalen || {}).slice(0, 4).map(([n, x]) => `${n}: ${x.reden || ""}`);
+  else if (type === "roles") highlights = [`${Object.keys(s.roles || {}).length} renners een profiel gegeven`];
+  else if (type === "parcours") highlights = [Object.entries(s.samenstelling || {}).map(([k, v]) => `${v} ${k}`).join(", ")];
+  else if (type === "coverage") highlights = [`Minimaal: ${Object.entries(s.min || {}).map(([k, v]) => `${v} ${k}`).join(", ")}`];
+  else if (type === "baseline") highlights = ["Elites scoren onevenredig veel (tier-curve)"];
+  else if (type === "ttt") highlights = [`Sterke teams: ${(s.strongTeams || []).join(", ")}`];
+  agentsMeta.push({ agent: s.agent || f.replace(/\.json$/, ""), type, datum: s.datum || "", uitleg: s.uitleg || "", bron: s.bron || "", highlights });
   if (type === "parcours") {
     roleWeight = { ...roleWeight, ...(s.rolgewicht || {}) };
   } else if (type === "roles") {
@@ -54,10 +64,16 @@ const ratings = riders.riders.map(r => {
   return { name: r.n, team: r.t, price: r.v, rol, pts, note: notes[r.n] || "" };
 });
 
+// Rittenschema meenemen (indien aanwezig).
+let stages = null;
+try { stages = JSON.parse(readFileSync(join(root, "data/stages-2026.json"), "utf8")); } catch { /* optioneel */ }
+
 const out = {
   updated: process.env.RUN_DATE || riders.bron,
   budget: riders.budget, squad: riders.squad, freeTransfers: riders.freeTransfers,
   coverage,
+  agents: agentsMeta,
+  stages,
   riders: ratings.sort((a, b) => b.pts - a.pts)
 };
 writeFileSync(join(root, "data/ratings.json"), JSON.stringify(out, null, 2));
