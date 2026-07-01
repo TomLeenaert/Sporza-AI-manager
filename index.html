@@ -171,9 +171,12 @@ let coverageReq = {};  // min. aantal per rol (van de spreidings-agent)
 // Laad de echte Sporza-data (door de agents/consolidator gemaakt) als de pool leeg is.
 async function loadRealData(force){
   try{
-    const res = await fetch("./data/ratings.json", {cache:"no-store"});
-    if(!res.ok) return;
-    const data = await res.json();
+    let data = window.__RATINGS__ || null;   // ingebakken data (single-file build)
+    if(!data){
+      const res = await fetch("./data/ratings.json", {cache:"no-store"});
+      if(!res.ok) return;
+      data = await res.json();
+    }
     if(data.budget) db.cfg.budget = data.budget;
     if(data.squad) db.cfg.squad = data.squad;
     if(data.freeTransfers) db.cfg.transfers = data.freeTransfers;

@@ -54,3 +54,8 @@ VOLGENDE STAP:
 == KWALITEITSLAT GEHAALD ==
 Kern-agents Aspread/A6/A3/A1/Attt PASS + gebalanceerde ploeg. Loop gestopt.
 Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-run activeren.
+
+2026-07-01 — App-7 voorbereid: single-file build.
+- scripts/bundle.mjs bakt data/ratings.json in -> dist/index.html (49KB, zelfstandig, geen server nodig).
+- loadRealData gebruikt window.__RATINGS__ indien aanwezig, anders fetch. Getest via preview: werkt.
+- Klaar om te publiceren (drag-drop). Definitieve publish = Toms account.
