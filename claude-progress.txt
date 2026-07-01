@@ -1,0 +1,17 @@
+== Wielermanager Helper — logboek ==
+
+2026-07-01 — Sessie 0 (fundering + eerste werkende app)
+- Repo opgezet, git klaar als undo-knop.
+- spec.md geschreven: doel = ploeg samenstellen + dagelijks wissel-advies, ADVISEERT
+  (Tom past zelf toe in Sporza), volledig mobiel, online bereikbaar.
+- index.html gebouwd: één bestand, werkt op telefoon zonder server, data lokaal opgeslagen.
+  Functies: regels instellen, rennerspool, "stel beste ploeg samen" (budget-optimalisatie),
+  wissel-advies, 4 tabbladen onderaan.
+- Getest via preview: voorbeeldlijst -> ploeg samengesteld (11 renners, exact €100, budget
+  gerespecteerd) -> stats kloppen -> advies berekent correct ("ploeg zit goed" bij vol budget).
+- Features 1-5 op PASS. 6-10 nog te doen.
+
+VOLGENDE STAP (belangrijkste eerst):
+- Feature 6+7: echte Sporza-regels en rennerslijst+prijzen ophalen. Zonder die data blijft
+  het advies op voorbeeldcijfers. Vraagt input van Tom of het inloggen op Sporza.
+- Feature 10: online zetten (hosting) zodat Tom de link op zijn telefoon kan openen.

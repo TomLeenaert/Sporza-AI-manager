@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1220">
+<title>Wielermanager Helper</title>
+<style>
+  :root{
+    --bg:#0b1220; --card:#131c2e; --card2:#1a2540; --line:#26314d;
+    --txt:#e8eef7; --muted:#93a2bd; --acc:#ffd34e; --good:#39d98a; --bad:#ff6b6b;
+    --pill:#22304f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%}
+  body{padding:0 0 90px;max-width:640px;margin:0 auto}
+  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#0b1220 70%,transparent);
+    padding:16px 16px 10px}
+  h1{font-size:20px;margin:0;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:13px;margin-top:2px}
+  .budgetbar{display:flex;gap:10px;margin-top:12px}
+  .stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:10px 12px}
+  .stat b{display:block;font-size:18px;margin-top:2px}
+  .stat.warn b{color:var(--bad)} .stat.ok b{color:var(--good)}
+  .stat small{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  main{padding:0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:14px;margin:12px 0}
+  .card h2{font-size:15px;margin:0 0 10px;color:var(--muted);text-transform:uppercase;
+    letter-spacing:.6px;font-weight:600}
+  label{display:block;font-size:12px;color:var(--muted);margin:8px 0 4px}
+  input,select{width:100%;background:var(--card2);border:1px solid var(--line);
+    color:var(--txt);border-radius:10px;padding:11px 12px;font-size:16px}
+  .row{display:flex;gap:8px} .row>*{flex:1}
+  button{border:0;border-radius:12px;padding:13px 14px;font-size:15px;font-weight:600;
+    background:var(--acc);color:#20180a;width:100%;cursor:pointer}
+  button.ghost{background:var(--card2);color:var(--txt);border:1px solid var(--line)}
+  button.sm{padding:8px 10px;font-size:13px;width:auto}
+  .rider{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;
+    background:var(--card2);border:1px solid var(--line);margin:8px 0}
+  .rider .info{flex:1;min-width:0}
+  .rider .name{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;
+    text-overflow:ellipsis}
+  .rider .meta{color:var(--muted);font-size:12px;margin-top:2px}
+  .rider .pts{text-align:right;font-size:13px}
+  .rider .pts b{display:block;color:var(--acc);font-size:16px}
+  .pill{display:inline-block;background:var(--pill);border:1px solid var(--line);
+    border-radius:999px;padding:2px 8px;font-size:11px;color:var(--muted);margin-left:6px}
+  .chip{background:var(--card2);border:1px solid var(--line);border-radius:999px;
+    padding:6px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+  .empty{color:var(--muted);text-align:center;padding:22px 10px;font-size:14px}
+  .tabs{position:fixed;bottom:0;left:0;right:0;background:#0e1626;border-top:1px solid var(--line);
+    display:flex;max-width:640px;margin:0 auto;z-index:6}
+  .tabs button{background:none;color:var(--muted);border-radius:0;font-size:12px;
+    padding:10px 4px 14px;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .tabs button.active{color:var(--acc)}
+  .tabs .ic{font-size:20px}
+  .hide{display:none}
+  .swap{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0}
+  .swap .arrow{color:var(--good);font-weight:700}
+  .gain{color:var(--good);font-weight:700}
+  .x{color:var(--bad);background:none;width:auto;padding:6px;font-size:18px;font-weight:700}
+  .note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
+  .seed{font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🚴 Wielermanager Helper</h1>
+  <div class="sub">Tour M 2026 · adviseert, jij past toe in Sporza</div>
+  <div class="budgetbar">
+    <div class="stat" id="stBudget"><small>Budget over</small><b id="budgetLeft">–</b></div>
+    <div class="stat" id="stSquad"><small>Renners</small><b id="squadCount">0</b></div>
+    <div class="stat"><small>Verw. punten</small><b id="ptsTotal">0</b></div>
+  </div>
+</header>
+
+<main>
+  <!-- TAB: PLOEG -->
+  <section id="tab-team">
+    <div class="card">
+      <h2>Mijn ploeg</h2>
+      <div id="teamList"></div>
+      <div class="row" style="margin-top:10px">
+        <button id="autoBuild">✨ Stel beste ploeg samen</button>
+      </div>
+      <div class="note">Kiest automatisch de beste renners binnen je budget en ploeggrootte,
+        op basis van verwachte punten per euro. Jij bevestigt daarna in de Sporza-app.</div>
+    </div>
+  </section>
+
+  <!-- TAB: ADVIES -->
+  <section id="tab-advice" class="hide">
+    <div class="card">
+      <h2>Wissel-advies van vandaag</h2>
+      <div id="adviceList"></div>
+      <button id="refreshAdvice" class="ghost" style="margin-top:10px">🔄 Opnieuw berekenen</button>
+      <div class="note">Toont wissels die je verwachte punten verhogen zonder je budget te
+        overschrijden. Max. wissels = wat je bij transfers instelt.</div>
+    </div>
+  </section>
+
+  <!-- TAB: RENNERS -->
+  <section id="tab-riders" class="hide">
+    <div class="card">
+      <h2>Renner toevoegen</h2>
+      <label>Naam</label>
+      <input id="rName" placeholder="bv. Tadej Pogačar">
+      <div class="row">
+        <div><label>Prijs</label><input id="rPrice" type="number" inputmode="decimal" placeholder="bv. 24"></div>
+        <div><label>Verw. punten</label><input id="rPts" type="number" inputmode="decimal" placeholder="bv. 900"></div>
+      </div>
+      <label>Ploeg (optioneel)</label>
+      <input id="rTeam" placeholder="bv. UAE">
+      <button id="addRider" style="margin-top:12px">➕ Toevoegen</button>
+      <div class="note seed">Nog geen renners? <a href="#" id="loadSeed" style="color:var(--acc)">Laad
+        een voorbeeldlijst</a> om de app meteen te testen (later vervangen door echte Sporza-data).</div>
+    </div>
+    <div class="card">
+      <h2>Rennerspool (<span id="poolCount">0</span>)</h2>
+      <div id="poolList"></div>
+    </div>
+  </section>
+
+  <!-- TAB: REGELS -->
+  <section id="tab-rules" class="hide">
+    <div class="card">
+      <h2>Spelregels</h2>
+      <label>Budget</label>
+      <input id="cfgBudget" type="number" inputmode="decimal">
+      <label>Aantal renners in ploeg</label>
+      <input id="cfgSquad" type="number" inputmode="numeric">
+      <label>Max. wissels (transfers)</label>
+      <input id="cfgTransfers" type="number" inputmode="numeric">
+      <button id="saveCfg" style="margin-top:12px">💾 Opslaan</button>
+      <div class="note">⚠️ Deze waarden zijn voorlopig. Zodra we de échte Sporza-regels en
+        rennersprijzen ophalen, vullen we ze correct in.</div>
+    </div>
+    <div class="card">
+      <h2>Data</h2>
+      <button id="exportBtn" class="ghost">⬇️ Back-up exporteren</button>
+      <button id="wipeBtn" class="ghost" style="margin-top:8px;color:var(--bad)">🗑️ Alles wissen</button>
+    </div>
+  </section>
+</main>
+
+<nav class="tabs">
+  <button data-tab="team" class="active"><span class="ic">🚴</span>Ploeg</button>
+  <button data-tab="advice"><span class="ic">💡</span>Advies</button>
+  <button data-tab="riders"><span class="ic">📋</span>Renners</button>
+  <button data-tab="rules"><span class="ic">⚙️</span>Regels</button>
+</nav>
+
+<script>
+const $ = s => document.querySelector(s);
+const money = n => "€" + (Math.round(n*10)/10);
+const DB_KEY = "wm_helper_v1";
+
+const defaults = {
+  cfg: { budget: 100, squad: 15, transfers: 2 },
+  riders: [],      // {id,name,team,price,pts,inTeam}
+};
+let db = load();
+
+function load(){
+  try { return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }
+  catch(e){ return JSON.parse(JSON.stringify(defaults)); }
+}
+function save(){ localStorage.setItem(DB_KEY, JSON.stringify(db)); render(); }
+function uid(){ return "r"+Math.random().toString(36).slice(2,9); }
+
+// ---- team math ----
+function team(){ return db.riders.filter(r=>r.inTeam); }
+function teamCost(){ return team().reduce((s,r)=>s+(+r.price||0),0); }
+function teamPts(){ return team().reduce((s,r)=>s+(+r.pts||0),0); }
+function budgetLeft(){ return (+db.cfg.budget||0) - teamCost(); }
+
+// Greedy value optimizer: best expected points within budget & squad size.
+function buildBestTeam(){
+  const cap = +db.cfg.squad||0, budget = +db.cfg.budget||0;
+  const pool = db.riders.map(r=>({...r, price:+r.price||0, pts:+r.pts||0}));
+  // sort by points-per-euro (value), then raw points
+  const byValue = [...pool].sort((a,b)=>
+    (b.pts/Math.max(b.price,0.01)) - (a.pts/Math.max(a.price,0.01)) || b.pts-a.pts);
+  const chosen = new Set(); let cost=0;
+  for(const r of byValue){
+    if(chosen.size>=cap) break;
+    if(cost + r.price <= budget){ chosen.add(r.id); cost+=r.price; }
+  }
+  // try to upgrade: swap a cheap low-point pick for a better affordable one
+  let improved=true;
+  while(improved){
+    improved=false;
+    for(const inId of [...chosen]){
+      const inR = pool.find(p=>p.id===inId);
+      for(const cand of byValue){
+        if(chosen.has(cand.id)) continue;
+        const newCost = cost - inR.price + cand.price;
+        if(newCost<=budget && cand.pts>inR.pts){
+          chosen.delete(inId); chosen.add(cand.id);
+          cost=newCost; improved=true; break;
+        }
+      }
+      if(improved) break;
+    }
+  }
+  db.riders.forEach(r=> r.inTeam = chosen.has(r.id));
+  save();
+}
+
+// Transfer advice: best single swaps that raise points within budget, up to max transfers.
+function adviceSwaps(){
+  const cap = +db.cfg.transfers||0, budget=+db.cfg.budget||0;
+  const inTeam = team(), bench = db.riders.filter(r=>!r.inTeam);
+  const swaps=[];
+  const usedOut=new Set(), usedIn=new Set();
+  for(let k=0;k<cap;k++){
+    let best=null;
+    for(const out of inTeam){
+      if(usedOut.has(out.id)) continue;
+      for(const inn of bench){
+        if(usedIn.has(inn.id)) continue;
+        const gain=(+inn.pts||0)-(+out.pts||0);
+        const deltaCost=(+inn.price||0)-(+out.price||0);
+        if(gain<=0) continue;
+        if(budgetLeft()-deltaCost < 0) continue; // must stay within budget
+        const score=gain;
+        if(!best||score>best.gain) best={out,inn,gain,deltaCost};
+      }
+    }
+    if(!best) break;
+    usedOut.add(best.out.id); usedIn.add(best.inn.id);
+    swaps.push(best);
+  }
+  return swaps;
+}
+
+// ---- render ----
+function riderRow(r, actions){
+  return `<div class="rider">
+    <div class="info">
+      <div class="name">${esc(r.name)||"?"}${r.team?`<span class="pill">${esc(r.team)}</span>`:""}</div>
+      <div class="meta">${money(+r.price||0)}</div>
+    </div>
+    <div class="pts"><b>${(+r.pts||0)}</b><span>pt</span></div>
+    ${actions||""}
+  </div>`;
+}
+function esc(s){ return (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;"}[c])); }
+
+function render(){
+  // stats
+  $("#budgetLeft").textContent = money(budgetLeft());
+  $("#stBudget").className = "stat " + (budgetLeft()<0?"warn":"ok");
+  $("#squadCount").textContent = team().length + "/" + (db.cfg.squad||0);
+  $("#stSquad").className = "stat " + (team().length> (db.cfg.squad||0)?"warn":"");
+  $("#ptsTotal").textContent = teamPts();
+
+  // team tab
+  const t = team().sort((a,b)=>b.pts-a.pts);
+  $("#teamList").innerHTML = t.length ? t.map(r=>riderRow(r,
+     `<button class="x" onclick="toggle('${r.id}')" title="uit ploeg">✕</button>`)).join("")
+     : `<div class="empty">Nog geen ploeg. Voeg renners toe en tik “Stel beste ploeg samen”.</div>`;
+
+  // advice tab
+  const sw = adviceSwaps();
+  $("#adviceList").innerHTML = sw.length ? sw.map(s=>`
+    <div class="swap">
+      <div>❌ <b>${esc(s.out.name)}</b> <span class="pill">${s.out.pts}pt · ${money(s.out.price)}</span></div>
+      <div style="margin:6px 0"><span class="arrow">↓ vervang door ↓</span></div>
+      <div>✅ <b>${esc(s.inn.name)}</b> <span class="pill">${s.inn.pts}pt · ${money(s.inn.price)}</span></div>
+      <div class="note">Winst: <span class="gain">+${s.gain} pt</span> · budgetverschil ${s.deltaCost>=0?"+":""}${money(s.deltaCost)}</div>
+      <button class="sm ghost" style="margin-top:8px;width:100%" onclick="applySwap('${s.out.id}','${s.inn.id}')">In app markeren als gewisseld</button>
+    </div>`).join("")
+    : `<div class="empty">Geen winstgevende wissel gevonden binnen je budget. Je ploeg zit goed! 👍</div>`;
+
+  // riders tab
+  $("#poolCount").textContent = db.riders.length;
+  const pool = [...db.riders].sort((a,b)=>b.pts-a.pts);
+  $("#poolList").innerHTML = pool.length ? pool.map(r=>riderRow(r,
+     `<button class="sm ghost" onclick="toggle('${r.id}')">${r.inTeam?"−":"+"}</button>
+      <button class="x" onclick="del('${r.id}')">🗑️</button>`)).join("")
+     : `<div class="empty">Nog geen renners toegevoegd.</div>`;
+}
+
+// ---- actions (global for inline handlers) ----
+window.toggle = id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.inTeam=!r.inTeam; save(); } };
+window.del = id=>{ db.riders = db.riders.filter(x=>x.id!==id); save(); };
+window.applySwap = (outId,inId)=>{
+  const o=db.riders.find(x=>x.id===outId), i=db.riders.find(x=>x.id===inId);
+  if(o)o.inTeam=false; if(i)i.inTeam=true; save();
+};
+
+$("#addRider").onclick=()=>{
+  const name=$("#rName").value.trim();
+  if(!name){ $("#rName").focus(); return; }
+  db.riders.push({id:uid(),name,team:$("#rTeam").value.trim(),
+    price:+$("#rPrice").value||0, pts:+$("#rPts").value||0, inTeam:false});
+  $("#rName").value=$("#rPrice").value=$("#rPts").value=$("#rTeam").value="";
+  save(); $("#rName").focus();
+};
+$("#autoBuild").onclick=()=>{ if(!db.riders.length){ alert("Voeg eerst renners toe (tab Renners)."); return;} buildBestTeam(); };
+$("#refreshAdvice").onclick=render;
+$("#saveCfg").onclick=()=>{
+  db.cfg.budget=+$("#cfgBudget").value||0;
+  db.cfg.squad=+$("#cfgSquad").value||0;
+  db.cfg.transfers=+$("#cfgTransfers").value||0;
+  save(); alert("Regels opgeslagen.");
+};
+$("#exportBtn").onclick=()=>{
+  const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download="wielermanager-backup.json"; a.click();
+};
+$("#wipeBtn").onclick=()=>{ if(confirm("Alles wissen? Dit kan niet ongedaan gemaakt worden.")){
+  db=JSON.parse(JSON.stringify(defaults)); save(); syncCfgInputs(); } };
+
+$("#loadSeed").onclick=(e)=>{
+  e.preventDefault();
+  const seed=[
+    ["Tadej Pogačar","UAE",24,1000],["Jonas Vingegaard","Visma",22,940],
+    ["Remco Evenepoel","Soudal",20,820],["Primož Roglič","Bora",16,700],
+    ["Mathieu van der Poel","Alpecin",15,520],["Wout van Aert","Visma",15,560],
+    ["Juan Ayuso","UAE",11,520],["Carlos Rodríguez","Ineos",10,480],
+    ["Felix Gall","Decathlon",8,430],["Ben O'Connor","Jayco",8,410],
+    ["Biniam Girmay","Intermarché",9,470],["Jasper Philipsen","Alpecin",10,500],
+    ["Mads Pedersen","Lidl",9,450],["Tom Pidcock","Q36.5",8,360],
+    ["Santiago Buitrago","Bahrain",6,340],["Aleksandr Vlasov","Bora",6,300],
+    ["Guillaume Martin","Groupama",5,270],["Romain Bardet","Picnic",5,250],
+    ["Kévin Vauquelin","Arkéa",4,240],["Oier Lazkano","Movistar",4,210],
+    ["Michael Woods","Israel",4,200],["Simon Yates","Visma",7,330],
+    ["Enric Mas","Movistar",7,320],["Egan Bernal","Ineos",6,300],
+    ["Marc Hirschi","Tudor",6,310]
+  ].map(([name,tm,price,pts])=>({id:uid(),name,team:tm,price,pts,inTeam:false}));
+  db.riders = seed; save();
+  alert("Voorbeeldlijst geladen ("+seed.length+" renners). Ga naar Ploeg en tik “Stel beste ploeg samen”.");
+};
+
+// ---- tabs ----
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  ["team","advice","riders","rules"].forEach(t=>
+    $("#tab-"+t).classList.toggle("hide", t!==b.dataset.tab));
+  window.scrollTo(0,0);
+});
+
+function syncCfgInputs(){
+  $("#cfgBudget").value=db.cfg.budget; $("#cfgSquad").value=db.cfg.squad;
+  $("#cfgTransfers").value=db.cfg.transfers;
+}
+syncCfgInputs();
+render();
+</script>
+</body>
+</html>

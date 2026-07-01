@@ -1,0 +1,16 @@
+{
+  "project": "Wielermanager Helper — Sporza Tour M 2026",
+  "updated": "2026-07-01",
+  "features": [
+    { "id": 1, "name": "Regels instellen (budget/ploeggrootte/transfers) + opslag", "passes": true },
+    { "id": 2, "name": "Rennerspool beheren (toevoegen/verwijderen/opslag)", "passes": true },
+    { "id": 3, "name": "Beste ploeg samenstellen binnen budget & ploeggrootte", "passes": true },
+    { "id": 4, "name": "Wissel-advies dat punten verhoogt binnen budget/transfers", "passes": true },
+    { "id": 5, "name": "Mobiele layout met onderaan-navigatie", "passes": true },
+    { "id": 6, "name": "Echte Sporza-regels ingevuld (budget, aantal, transfers, deadlines)", "passes": false },
+    { "id": 7, "name": "Echte rennerslijst + prijzen importeren uit Sporza", "passes": false },
+    { "id": 8, "name": "Verwachte-punten-schatting per renner (i.p.v. handmatig)", "passes": false },
+    { "id": 9, "name": "Dagelijkse update/herinnering vóór de rit-deadline", "passes": false },
+    { "id": 10, "name": "Online gezet zodat Tom het op zijn telefoon opent", "passes": false }
+  ]
+}
