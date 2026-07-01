@@ -1,0 +1,13 @@
+{
+  "agent": "historiek-agent",
+  "type": "baseline",
+  "datum": "2026-07-01",
+  "uitleg": "Fantasy-punten zijn NIET recht evenredig met de prijs. Historisch pakken de absolute toppers een onevenredig deel (ritzeges + trui + eindklassement), terwijl de middenmoot weinig scoort. Deze tier-curve maakt elites scherper en dempt de middenmoot -> realistische 'sterren + koopjes'-strategie.",
+  "tiers": [
+    { "min": 10, "mult": 1.40 },
+    { "min": 8,  "mult": 1.20 },
+    { "min": 6,  "mult": 1.00 },
+    { "min": 4,  "mult": 0.85 },
+    { "min": 0,  "mult": 0.70 }
+  ]
+}

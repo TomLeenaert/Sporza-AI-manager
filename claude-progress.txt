@@ -32,3 +32,8 @@ VOLGENDE STAP:
 - data/signals/spreiding-2026.json (min 1 sprinter, 1 tijdrit). Consolidator geeft coverage door.
 - Optimizer reserveert beste per rol, dan knapsack-DP op de rest. Oude DP-code opgeruimd.
 - Getest: ploeg dekt nu sprint (Philipsen) + berg/GC + tijdrit (Ganna), 16 renners, 100M. PASS.
+
+2026-07-01 — Loop-ronde 2 (A6): historiek-agent tier-curve (data/signals/historiek-2026.json).
+- Punten niet meer lineair met prijs: >=10M x1.4, 8-9M x1.2, 6-7M x1.0, 4-5M x0.85, <=3M x0.7.
+- Consolidator past tierMult toe. Getest: ploeg is nu sterren+koopjes (top6 stars + 2M vullers),
+  16 renners, 100M, dekt sprint/berg/tijdrit. PASS.

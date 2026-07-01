@@ -19,7 +19,7 @@
     { "id": "A4",  "name": "Voorbeschouwing-agent — prono's/previews", "passes": false },
     { "id": "A5",  "name": "Parcours-agent — 7berg/5heuvel/7vlak/2TT, rolgewichten", "passes": true },
     { "id": "Arol","name": "Rol-agent — profiel per renner (fixt overschatting knechten)", "passes": true },
-    { "id": "A6",  "name": "Historiek-agent — punten per renner in gelijkaardige situaties", "passes": false },
+    { "id": "A6",  "name": "Historiek-agent — tier-curve: elites concentreren punten", "passes": true },
     { "id": "Aspread", "name": "Spreidings-agent — dek elk rittype (sprint/berg/TT) af", "passes": true },
     { "id": "Attt", "name": "TTT-agent — goedkope ploegmaats van sterke ploegentijdrit-teams", "passes": false },
     { "id": "A7",  "name": "Weer-agent — wind/regen/hitte per rit", "passes": false },

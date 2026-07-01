@@ -13,7 +13,7 @@
       "team": "UAE",
       "price": 12,
       "rol": "gc",
-      "pts": 860,
+      "pts": 1204,
       "note": "topfavoriet geel, jaagt 5e Tour, sterke ploeg"
     },
     {
@@ -21,7 +21,7 @@
       "team": "Visma",
       "price": 10,
       "rol": "gc",
-      "pts": 644,
+      "pts": 902,
       "note": "2e favoriet maar Visma verzwakt (Van Aert/Laporte weg)"
     },
     {
@@ -29,7 +29,7 @@
       "team": "Red Bull-BORA",
       "price": 9,
       "rol": "gc",
-      "pts": 547,
+      "pts": 656,
       "note": ""
     },
     {
@@ -37,7 +37,7 @@
       "team": "Red Bull-BORA",
       "price": 8,
       "rol": "gc",
-      "pts": 505,
+      "pts": 607,
       "note": "podium-outsider GC"
     },
     {
@@ -45,7 +45,7 @@
       "team": "Alpecin",
       "price": 9,
       "rol": "sprinter",
-      "pts": 490,
+      "pts": 588,
       "note": "topsprinter, groen-outsider"
     },
     {
@@ -53,7 +53,7 @@
       "team": "Soudal Quick-Step",
       "price": 9,
       "rol": "sprinter",
-      "pts": 490,
+      "pts": 588,
       "note": "topsprinter, meerdere ritzeges mogelijk"
     },
     {
@@ -61,8 +61,16 @@
       "team": "Lidl-Trek",
       "price": 8,
       "rol": "sprinter",
-      "pts": 459,
+      "pts": 551,
       "note": "topfavoriet groen, constante scorer over 3 weken"
+    },
+    {
+      "name": "Paul Seixas",
+      "team": "Decathlon",
+      "price": 8,
+      "rol": "gc",
+      "pts": 525,
+      "note": "groot talent maar val in voorbereiding"
     },
     {
       "name": "Isaac Del Toro",
@@ -73,12 +81,12 @@
       "note": "sterke schaduwkopman UAE, ritkansen"
     },
     {
-      "name": "Paul Seixas",
-      "team": "Decathlon",
+      "name": "Mathieu van der Poel",
+      "team": "Alpecin",
       "price": 8,
-      "rol": "gc",
-      "pts": 437,
-      "note": "groot talent maar val in voorbereiding"
+      "rol": "klassieker",
+      "pts": 449,
+      "note": "ritten + gele trui vroege week"
     },
     {
       "name": "Juan Ayuso",
@@ -95,14 +103,6 @@
       "rol": "gc",
       "pts": 383,
       "note": "sterke jonge klimmer, ritkansen"
-    },
-    {
-      "name": "Mathieu van der Poel",
-      "team": "Alpecin",
-      "price": 8,
-      "rol": "klassieker",
-      "pts": 374,
-      "note": "ritten + gele trui vroege week"
     },
     {
       "name": "Derek Gee",
@@ -157,7 +157,7 @@
       "team": "Bahrain",
       "price": 5,
       "rol": "gc",
-      "pts": 304,
+      "pts": 258,
       "note": ""
     },
     {
@@ -165,7 +165,7 @@
       "team": "Jayco",
       "price": 5,
       "rol": "gc",
-      "pts": 304,
+      "pts": 258,
       "note": ""
     },
     {
@@ -173,7 +173,7 @@
       "team": "Movistar",
       "price": 5,
       "rol": "gc",
-      "pts": 304,
+      "pts": 258,
       "note": ""
     },
     {
@@ -181,7 +181,7 @@
       "team": "INEOS",
       "price": 5,
       "rol": "gc",
-      "pts": 304,
+      "pts": 258,
       "note": ""
     },
     {
@@ -189,7 +189,7 @@
       "team": "Lidl-Trek",
       "price": 5,
       "rol": "gc",
-      "pts": 304,
+      "pts": 258,
       "note": ""
     },
     {
@@ -197,7 +197,7 @@
       "team": "UAE",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -205,7 +205,7 @@
       "team": "Visma",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -213,7 +213,7 @@
       "team": "Bahrain",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -221,7 +221,7 @@
       "team": "Decathlon",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -229,7 +229,7 @@
       "team": "EF Education",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -237,7 +237,7 @@
       "team": "Visma",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -245,7 +245,7 @@
       "team": "INEOS",
       "price": 5,
       "rol": "klimmer",
-      "pts": 270,
+      "pts": 230,
       "note": ""
     },
     {
@@ -253,7 +253,7 @@
       "team": "NSN",
       "price": 5,
       "rol": "sprinter",
-      "pts": 262,
+      "pts": 223,
       "note": "in vorm, sprint + puncheur"
     },
     {
@@ -261,7 +261,7 @@
       "team": "EF Education",
       "price": 5,
       "rol": "aanvaller",
-      "pts": 248,
+      "pts": 211,
       "note": "aanvaller, ritten + tijd in trui"
     },
     {
@@ -269,7 +269,7 @@
       "team": "INEOS",
       "price": 5,
       "rol": "tijdrit",
-      "pts": 236,
+      "pts": 201,
       "note": ""
     },
     {
@@ -277,7 +277,7 @@
       "team": "Groupama-FDJ",
       "price": 5,
       "rol": "puncheur",
-      "pts": 236,
+      "pts": 201,
       "note": ""
     },
     {
@@ -285,7 +285,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "klimmer",
-      "pts": 216,
+      "pts": 184,
       "note": ""
     },
     {
@@ -293,7 +293,7 @@
       "team": "Movistar",
       "price": 4,
       "rol": "klimmer",
-      "pts": 216,
+      "pts": 184,
       "note": ""
     },
     {
@@ -301,7 +301,7 @@
       "team": "XDS Astana",
       "price": 4,
       "rol": "klimmer",
-      "pts": 216,
+      "pts": 184,
       "note": ""
     },
     {
@@ -309,7 +309,7 @@
       "team": "TotalEnergies",
       "price": 4,
       "rol": "klimmer",
-      "pts": 216,
+      "pts": 184,
       "note": ""
     },
     {
@@ -317,7 +317,7 @@
       "team": "Tudor",
       "price": 4,
       "rol": "klimmer",
-      "pts": 216,
+      "pts": 184,
       "note": ""
     },
     {
@@ -325,7 +325,7 @@
       "team": "Soudal Quick-Step",
       "price": 4,
       "rol": "klimmer",
-      "pts": 216,
+      "pts": 184,
       "note": ""
     },
     {
@@ -333,7 +333,7 @@
       "team": "Lotto Intermarche",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -341,7 +341,7 @@
       "team": "Tudor",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -349,7 +349,7 @@
       "team": "Caja Rural",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -357,7 +357,7 @@
       "team": "Cofidis",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -365,7 +365,7 @@
       "team": "Jayco",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -373,7 +373,7 @@
       "team": "Picnic-PostNL",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -381,7 +381,7 @@
       "team": "Bahrain",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -389,7 +389,7 @@
       "team": "Q36.5",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -397,7 +397,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -405,7 +405,7 @@
       "team": "Uno-X",
       "price": 4,
       "rol": "sprinter",
-      "pts": 198,
+      "pts": 168,
       "note": ""
     },
     {
@@ -413,7 +413,7 @@
       "team": "EF Education",
       "price": 4,
       "rol": "aanvaller",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -421,7 +421,7 @@
       "team": "Groupama-FDJ",
       "price": 4,
       "rol": "aanvaller",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -429,7 +429,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "tijdrit",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -437,7 +437,7 @@
       "team": "Tudor",
       "price": 4,
       "rol": "puncheur",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -445,7 +445,7 @@
       "team": "Tudor",
       "price": 4,
       "rol": "puncheur",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -453,7 +453,7 @@
       "team": "Red Bull-BORA",
       "price": 4,
       "rol": "puncheur",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -461,7 +461,7 @@
       "team": "Jayco",
       "price": 4,
       "rol": "puncheur",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -469,7 +469,7 @@
       "team": "Lidl-Trek",
       "price": 4,
       "rol": "aanvaller",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -477,7 +477,7 @@
       "team": "Q36.5",
       "price": 4,
       "rol": "aanvaller",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -485,7 +485,7 @@
       "team": "Visma",
       "price": 4,
       "rol": "tijdrit",
-      "pts": 189,
+      "pts": 161,
       "note": ""
     },
     {
@@ -493,7 +493,7 @@
       "team": "Soudal Quick-Step",
       "price": 4,
       "rol": "klassieker",
-      "pts": 180,
+      "pts": 153,
       "note": ""
     },
     {
@@ -501,7 +501,7 @@
       "team": "Tudor",
       "price": 4,
       "rol": "klassieker",
-      "pts": 180,
+      "pts": 153,
       "note": ""
     },
     {
@@ -509,7 +509,7 @@
       "team": "Decathlon",
       "price": 4,
       "rol": "klassieker",
-      "pts": 180,
+      "pts": 153,
       "note": ""
     },
     {
@@ -517,7 +517,7 @@
       "team": "Decathlon",
       "price": 3,
       "rol": "klimmer",
-      "pts": 162,
+      "pts": 113,
       "note": ""
     },
     {
@@ -525,7 +525,7 @@
       "team": "Decathlon",
       "price": 3,
       "rol": "klimmer",
-      "pts": 162,
+      "pts": 113,
       "note": ""
     },
     {
@@ -533,7 +533,7 @@
       "team": "Decathlon",
       "price": 3,
       "rol": "sprinter",
-      "pts": 149,
+      "pts": 104,
       "note": ""
     },
     {
@@ -541,7 +541,7 @@
       "team": "Visma",
       "price": 3,
       "rol": "tijdrit",
-      "pts": 142,
+      "pts": 99,
       "note": ""
     },
     {
@@ -549,7 +549,7 @@
       "team": "Groupama-FDJ",
       "price": 3,
       "rol": "aanvaller",
-      "pts": 142,
+      "pts": 99,
       "note": ""
     },
     {
@@ -557,7 +557,7 @@
       "team": "Uno-X",
       "price": 3,
       "rol": "aanvaller",
-      "pts": 142,
+      "pts": 99,
       "note": ""
     },
     {
@@ -565,7 +565,7 @@
       "team": "Bahrain",
       "price": 3,
       "rol": "aanvaller",
-      "pts": 142,
+      "pts": 99,
       "note": ""
     },
     {
@@ -573,7 +573,7 @@
       "team": "Lidl-Trek",
       "price": 3,
       "rol": "aanvaller",
-      "pts": 142,
+      "pts": 99,
       "note": ""
     },
     {
@@ -581,15 +581,7 @@
       "team": "Picnic-PostNL",
       "price": 3,
       "rol": "aanvaller",
-      "pts": 142,
-      "note": ""
-    },
-    {
-      "name": "John Degenkolb",
-      "team": "Picnic-PostNL",
-      "price": 3,
-      "rol": "klassieker",
-      "pts": 135,
+      "pts": 99,
       "note": ""
     },
     {
@@ -601,11 +593,19 @@
       "note": ""
     },
     {
+      "name": "John Degenkolb",
+      "team": "Picnic-PostNL",
+      "price": 3,
+      "rol": "klassieker",
+      "pts": 95,
+      "note": ""
+    },
+    {
       "name": "Davide Ballerini",
       "team": "XDS Astana",
       "price": 4,
       "rol": "leadout",
-      "pts": 72,
+      "pts": 61,
       "note": ""
     },
     {
@@ -613,7 +613,7 @@
       "team": "Cofidis",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -621,7 +621,7 @@
       "team": "EF Education",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -629,7 +629,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -637,7 +637,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -645,7 +645,7 @@
       "team": "UAE",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -653,7 +653,7 @@
       "team": "Visma",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -661,7 +661,7 @@
       "team": "Decathlon",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -669,7 +669,7 @@
       "team": "Bahrain",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -677,7 +677,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -685,7 +685,7 @@
       "team": "Q36.5",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -693,7 +693,7 @@
       "team": "Alpecin",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -701,7 +701,7 @@
       "team": "UAE",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -709,7 +709,7 @@
       "team": "Soudal Quick-Step",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -717,7 +717,7 @@
       "team": "Uno-X",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -725,7 +725,7 @@
       "team": "Lotto Intermarche",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -733,7 +733,7 @@
       "team": "Jayco",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -741,7 +741,7 @@
       "team": "INEOS",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -749,7 +749,7 @@
       "team": "Lidl-Trek",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -757,7 +757,7 @@
       "team": "Q36.5",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -765,7 +765,7 @@
       "team": "Jayco",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -773,7 +773,7 @@
       "team": "XDS Astana",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -781,7 +781,7 @@
       "team": "EF Education",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -789,7 +789,7 @@
       "team": "Visma",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -797,7 +797,7 @@
       "team": "UAE",
       "price": 4,
       "rol": "knecht",
-      "pts": 63,
+      "pts": 54,
       "note": ""
     },
     {
@@ -805,7 +805,7 @@
       "team": "Caja Rural",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -813,7 +813,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -821,7 +821,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -829,7 +829,7 @@
       "team": "TotalEnergies",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -837,7 +837,7 @@
       "team": "Uno-X",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -845,7 +845,7 @@
       "team": "TotalEnergies",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -853,7 +853,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -861,7 +861,7 @@
       "team": "Cofidis",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -869,7 +869,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -877,7 +877,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -885,7 +885,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -893,7 +893,7 @@
       "team": "Lidl-Trek",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -901,7 +901,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -909,7 +909,7 @@
       "team": "Groupama-FDJ",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -917,7 +917,7 @@
       "team": "Groupama-FDJ",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -925,7 +925,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -933,7 +933,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -941,7 +941,7 @@
       "team": "Soudal Quick-Step",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -949,7 +949,7 @@
       "team": "Alpecin",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -957,7 +957,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -965,7 +965,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -973,7 +973,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -981,7 +981,7 @@
       "team": "UAE",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -989,7 +989,7 @@
       "team": "Picnic-PostNL",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -997,7 +997,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1005,7 +1005,7 @@
       "team": "Picnic-PostNL",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1013,7 +1013,7 @@
       "team": "Lotto Intermarche",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1021,7 +1021,7 @@
       "team": "NSN",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1029,7 +1029,7 @@
       "team": "Cofidis",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1037,7 +1037,7 @@
       "team": "Cofidis",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1045,7 +1045,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1053,7 +1053,7 @@
       "team": "NSN",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1061,7 +1061,7 @@
       "team": "Red Bull-BORA",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1069,7 +1069,7 @@
       "team": "Movistar",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1077,7 +1077,7 @@
       "team": "Movistar",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1085,7 +1085,7 @@
       "team": "Lotto Intermarche",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1093,7 +1093,7 @@
       "team": "Cofidis",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1101,7 +1101,7 @@
       "team": "EF Education",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1109,7 +1109,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1117,7 +1117,7 @@
       "team": "NSN",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1125,7 +1125,7 @@
       "team": "NSN",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1133,7 +1133,7 @@
       "team": "Red Bull-BORA",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1141,7 +1141,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1149,7 +1149,7 @@
       "team": "XDS Astana",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1157,7 +1157,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1165,7 +1165,7 @@
       "team": "Red Bull-BORA",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1173,7 +1173,7 @@
       "team": "UAE",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1181,7 +1181,7 @@
       "team": "Movistar",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1189,7 +1189,7 @@
       "team": "Soudal Quick-Step",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1197,7 +1197,7 @@
       "team": "Groupama-FDJ",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1205,7 +1205,7 @@
       "team": "Alpecin",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1213,7 +1213,7 @@
       "team": "Movistar",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1221,7 +1221,7 @@
       "team": "Tudor",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1229,7 +1229,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1237,7 +1237,7 @@
       "team": "XDS Astana",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1245,7 +1245,7 @@
       "team": "XDS Astana",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1253,7 +1253,7 @@
       "team": "Red Bull-BORA",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1261,7 +1261,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1269,7 +1269,7 @@
       "team": "Uno-X",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1277,7 +1277,7 @@
       "team": "INEOS",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1285,7 +1285,7 @@
       "team": "Q36.5",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1293,7 +1293,7 @@
       "team": "Tudor",
       "price": 3,
       "rol": "knecht",
-      "pts": 47,
+      "pts": 33,
       "note": ""
     },
     {
@@ -1301,7 +1301,7 @@
       "team": "Alpecin",
       "price": 2,
       "rol": "leadout",
-      "pts": 36,
+      "pts": 25,
       "note": ""
     },
     {
@@ -1309,7 +1309,7 @@
       "team": "XDS Astana",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1317,7 +1317,7 @@
       "team": "Cofidis",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1325,7 +1325,7 @@
       "team": "Caja Rural",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1333,7 +1333,7 @@
       "team": "Uno-X",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1341,7 +1341,7 @@
       "team": "Uno-X",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1349,7 +1349,7 @@
       "team": "Lotto Intermarche",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1357,7 +1357,7 @@
       "team": "INEOS",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1365,7 +1365,7 @@
       "team": "Soudal Quick-Step",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1373,7 +1373,7 @@
       "team": "Groupama-FDJ",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1381,7 +1381,7 @@
       "team": "INEOS",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1389,7 +1389,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1397,7 +1397,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1405,7 +1405,7 @@
       "team": "Jayco",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1413,7 +1413,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1421,7 +1421,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1429,7 +1429,7 @@
       "team": "Lotto Intermarche",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1437,7 +1437,7 @@
       "team": "Caja Rural",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1445,7 +1445,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1453,7 +1453,7 @@
       "team": "Caja Rural",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1461,7 +1461,7 @@
       "team": "TotalEnergies",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1469,7 +1469,7 @@
       "team": "Caja Rural",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1477,7 +1477,7 @@
       "team": "Picnic-PostNL",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1485,7 +1485,7 @@
       "team": "Bahrain",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1493,7 +1493,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1501,7 +1501,7 @@
       "team": "Jayco",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1509,7 +1509,7 @@
       "team": "INEOS",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1517,7 +1517,7 @@
       "team": "NSN",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1525,7 +1525,7 @@
       "team": "Lotto Intermarche",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1533,7 +1533,7 @@
       "team": "Lotto Intermarche",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1541,7 +1541,7 @@
       "team": "Groupama-FDJ",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1549,7 +1549,7 @@
       "team": "Soudal Quick-Step",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1557,7 +1557,7 @@
       "team": "INEOS",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1565,7 +1565,7 @@
       "team": "Jayco",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1573,7 +1573,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1581,7 +1581,7 @@
       "team": "Tudor",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1589,7 +1589,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1597,7 +1597,7 @@
       "team": "TotalEnergies",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1605,7 +1605,7 @@
       "team": "NSN",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1613,7 +1613,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1621,7 +1621,7 @@
       "team": "TotalEnergies",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1629,7 +1629,7 @@
       "team": "EF Education",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1637,7 +1637,7 @@
       "team": "Movistar",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1645,7 +1645,7 @@
       "team": "Movistar",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1653,7 +1653,7 @@
       "team": "Q36.5",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     },
     {
@@ -1661,7 +1661,7 @@
       "team": "TotalEnergies",
       "price": 2,
       "rol": "knecht",
-      "pts": 31,
+      "pts": 22,
       "note": ""
     }
   ]
