@@ -59,3 +59,7 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - scripts/bundle.mjs bakt data/ratings.json in -> dist/index.html (49KB, zelfstandig, geen server nodig).
 - loadRealData gebruikt window.__RATINGS__ indien aanwezig, anders fetch. Getest via preview: werkt.
 - Klaar om te publiceren (drag-drop). Definitieve publish = Toms account.
+
+2026-07-01 — App-7 LIVE: GitHub repo TomLeenaert/Sporza-AI-manager (publiek) + Pages aan.
+- URL: https://tomleenaert.github.io/Sporza-AI-manager/ (pagina 200, data/ratings.json 200, getest).
+- Publiceren voortaan: bewerk -> node scripts/consolidate.mjs -> git commit -> git push -> Pages herbouwt vanzelf.
