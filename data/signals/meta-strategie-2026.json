@@ -1,0 +1,32 @@
+{
+  "agent": "meta-strateeg",
+  "type": "strategy",
+  "datum": "2026-07-01",
+  "bron": "voorjaarsklassiekers.be, klassiekersdankuwel.be, sporza.be, deleadout.com (meerdere edities Sporza Wielermanager)",
+  "uitleg": "Analyse van hoe je SLIM scoort in de Sporza Wielermanager over de jaren heen — op basis van renner-TYPES en prijsklassen, niet van namen (want vorm en carrières veranderen). Vangt de omgekeerde trends: types die aantrekkelijk lijken maar weinig opleveren, en onopvallende types die net veel scoren.",
+  "regels": [
+    "Punten tot plaats 30: constante top-20-renners zijn goud. Kies 'lijm' die elke dag iets pakt, niet enkel winnaars.",
+    "Valstrik: een pure knecht van een topkopman scoort bijna niets. Betaal nooit veel voor een helper.",
+    "Omgekeerde trend: sterke rouleurs en klassieke alleskunners (type Kung/Madouas) pakken vaak verrassend veel punten.",
+    "Vaste vluchters/aanvallers scoren bovengemiddeld: ze zitten vooraan, pakken tussensprints, bergpunten en af en toe een rit.",
+    "Sterren voor de grote dagen (GC-top, topsprinter, klassieke motor), goedkope scorers voor de rest van je ploeg.",
+    "Kies met je hoofd, niet met je hart: je favoriet is zelden de slimste keuze.",
+    "Kapitein per rit: zet je kapitein-boost op de renner met de grootste scorekans die dag (klimmer op bergrit, sprinter op vlakke rit)."
+  ],
+  "archetypeMult": {
+    "aanvaller": 1.15,
+    "klassieker": 1.12,
+    "puncheur": 1.07,
+    "tijdrit": 1.05,
+    "gc": 1.00,
+    "klimmer": 1.00,
+    "sprinter": 1.00,
+    "knecht": 1.00,
+    "leadout": 0.90
+  },
+  "trap": {
+    "roles": ["knecht", "leadout"],
+    "minValue": 4,
+    "mult": 0.45
+  }
+}

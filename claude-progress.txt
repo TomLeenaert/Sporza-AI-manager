@@ -96,3 +96,11 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
   vond afmelding Oscar Onley -> nonstarters-2026.json (type exclude) -> Onley 0pt.
 - consolidate+bundle+push door de bot; Pages herbouwd; LIVE site toont Onley 0pt. End-to-end bevestigd.
 - Draait voortaan elke ochtend 07:30 CET automatisch. Research is non-fataal (breekt publiceren nooit).
+
+2026-07-01 — Nieuwe agent: META-STRATEEG (data/signals/meta-strategie-2026.json, type "strategy").
+- Analyseert winstpatronen van vorige Sporza-manager-edities op TYPES/prijsklassen (niet namen).
+- Boost: aanvallers 1.15, klassiekers 1.12, puncheurs 1.07, tijdrit 1.05 (constante scorers/omgekeerde trends).
+- Valstrik-penalty: knecht/leadout met waarde >=4M x0.45 (dure helper van kopman = weinig punten).
+- 7 leesbare strategieregels getoond in de app (kapitein-tip, hoofd-niet-hart, punten tot P30...).
+- Legde rolfout bloot: Jorgenson stond als knecht -> gecorrigeerd naar gc (nu 365pt). Ook Aranburu/Baudin.
+- App: 12 analisten, meta-strateeg + non-starter kregen naam/kleur. Getest: 16/100M, dekking OK.

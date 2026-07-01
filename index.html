@@ -428,7 +428,9 @@ const AGENT_META={
   "rol-agent":{naam:"Profieler",tag:"RENNERS · TYPE",col:"#c6a0ff"},
   "spreidings-agent":{naam:"Strateeg",tag:"TACTIEK · SPREIDING",col:"#5ad1a0"},
   "ttt-agent":{naam:"TTT-analist",tag:"PLOEGENTIJDRIT",col:"#ff8f6b"},
-  "uitslagen-agent":{naam:"Verslaggever",tag:"NIEUWS · UITSLAGEN",col:"#ff96a6"}
+  "uitslagen-agent":{naam:"Verslaggever",tag:"NIEUWS · UITSLAGEN",col:"#ff96a6"},
+  "meta-strateeg":{naam:"Meta-strateeg",tag:"WINSTPATRONEN · HISTORIEK",col:"#ffb84e"},
+  "non-starter-agent":{naam:"Non-starter-agent",tag:"OPGAVES · NIET GESTART",col:"#ff5470"}
 };
 function analystList(){
   const base = agentsInfo.map(a=>{ const m=AGENT_META[a.agent]||{naam:a.agent,tag:(a.type||"").toUpperCase(),col:"#9db0ff"};
