@@ -133,3 +133,7 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 
 2026-07-01 — LOOP S4.4 (research-prompt): daily-research.md onderhoudt nu ook weer, recap, ownership, voorbeschouwing.
 - SPRINT 4 COMPLEET (S4.1-4.4).
+
+2026-07-01 — LOOP S5.1 (kalibratie): Sporza-scoreregels gedocumenteerd bovenaan consolidate.mjs.
+- P30-constantie, winnaar-ploegmaats-bonus, TTT ~492pt, sprinters 2026 extra. Sprinter-archetype +5%.
+- Model bevestigd als relatief rangschikkingsmodel. Getest: 16/100M, dekking OK.

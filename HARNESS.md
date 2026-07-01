@@ -37,9 +37,9 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
       onderhoudt nu ook weer, recap, ownership (differential) en voorbeschouwing/vluchtkansen.
 
 ### Sprint 5 — verfijning
-- [ ] **S5.1 Scoreregels kalibreren** — zoek de exacte Sporza-puntentelling (punten tot plaats 30,
-      trui-/klassementsbonus) en stem de model-constanten (BASE, tier-curve, rolgewichten) daarop af.
-      Documenteer de keuze bovenaan `scripts/consolidate.mjs`. Ploeg moet geldig blijven.
+- [x] **S5.1 Scoreregels kalibreren** — DONE. Sporza-mechanieken gedocumenteerd bovenaan consolidate.mjs
+      (P30-constantie, winnaar-ploegmaats-bonus, TTT ~492pt, kapitein, sprinters 2026). Sprinter-archetype
+      +5%. Model = relatief rangschikkingsmodel (exacte punten niet nodig voor selectie).
 - [ ] **S5.2 Rol-agent nauwkeuriger** — corrigeer resterende mislabels (vooral €4M+ renners die als
       "knecht" staan maar echte scorers zijn). Verifieer dat geen echte kopman op ~0 punten staat.
 

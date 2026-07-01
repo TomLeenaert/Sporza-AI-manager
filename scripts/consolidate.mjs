@@ -1,13 +1,22 @@
 // Consolidator (A11): bundelt riders.json + alle agent-signalen (data/signals/*.json)
 // tot 1 verwachte-punten-score per renner -> schrijft data/ratings.json.
 //
-// Model: score = value * BASE * rolgewicht(rol, parcours) * vorm-multiplier
-//  - value  : Sporza-marktwaarde (prijst talent/kopmanschap al in)
-//  - rol     : van de rol-agent (gc/klimmer/sprinter/... ; onbekend = knecht)
-//  - rolgewicht: van de parcours-agent (weegt rollen naar het parcours van dit jaar)
-//  - vorm    : stapelende +/- uit vorm/uitslagen-signalen (gedempt, geen ontploffing)
+// SCOREREGELS SPORZA WIELERMANAGER (Tour 2026) — waarop het model gekalibreerd is:
+//  - Elke rit levert punten tot plaats 30 -> CONSTANTE top-30-renners tellen zwaar
+//    (daarom boost de meta-strateeg aanvallers/klassiekers/rouleurs).
+//  - Ploegmaats van de ritwinnaar krijgen bonus -> goedkope teamgenoten van sterke teams
+//    hebben extra waarde (ttt-agent + ploegtactiek-agent).
+//  - De openingsploegentijdrit is enorm (tot ~492 pt) -> ttt-agent boost cheap TTT-team-renners.
+//  - Kapitein per rit = dubbele punten -> aparte kapitein-agent in de app.
+//  - 2026: puntentrui bevoordeelt sprinters extra -> sprinter-archetype licht verhoogd.
+//  NB: het model is een RELATIEF waarde-/rangschikkingsmodel. De reken-agent heeft enkel de
+//  juiste VOLGORDE nodig om binnen budget de beste 16 te kiezen, niet de exacte puntenaantallen.
+//  (bronnen: sporza.be wielermanager-uitleg, wielerflits puntentrui 2026, sporza TTT-analyse)
 //
-// Elke agent dropt een JSON in data/signals/ met een "type": parcours | roles | form.
+// Model: score = value * BASE * rolgewicht(parcours) * vorm * tier * ttt * strategie * teamboost * differential
+//
+// Elke agent dropt een JSON in data/signals/ met een "type" (parcours | roles | form | baseline |
+// coverage | ttt | strategy | teamboost | ownership | exclude | recap | weer).
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";

@@ -11,16 +11,18 @@
     "Vaste vluchters/aanvallers scoren bovengemiddeld: ze zitten vooraan, pakken tussensprints, bergpunten en af en toe een rit.",
     "Sterren voor de grote dagen (GC-top, topsprinter, klassieke motor), goedkope scorers voor de rest van je ploeg.",
     "Kies met je hoofd, niet met je hart: je favoriet is zelden de slimste keuze.",
-    "Kapitein per rit: zet je kapitein-boost op de renner met de grootste scorekans die dag (klimmer op bergrit, sprinter op vlakke rit)."
+    "Kapitein per rit: zet je kapitein-boost op de renner met de grootste scorekans die dag (klimmer op bergrit, sprinter op vlakke rit).",
+    "Ploegmaats van de ritwinnaar pakken bonuspunten: goedkope teamgenoten van een sterk team zijn dus meer waard dan ze lijken.",
+    "De openingsploegentijdrit kan in één klap tot ~492 punten opleveren voor een sterke ploeg — onderschat dag 1 niet."
   ],
   "archetypeMult": {
     "aanvaller": 1.15,
     "klassieker": 1.12,
     "puncheur": 1.07,
+    "sprinter": 1.05,
     "tijdrit": 1.05,
     "gc": 1.00,
     "klimmer": 1.00,
-    "sprinter": 1.00,
     "knecht": 1.00,
     "leadout": 0.90
   },
