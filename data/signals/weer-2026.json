@@ -1,0 +1,7 @@
+{
+  "agent": "weer-agent",
+  "type": "weer",
+  "datum": "2026-07-01",
+  "weer": "Wordt elke ochtend automatisch opgehaald voor de rit van die dag.",
+  "impact": "Bij zijwind zijn sterke ploegen en rouleurs in het voordeel; bij hitte/regen tellen conditie en stuurmanskunst."
+}

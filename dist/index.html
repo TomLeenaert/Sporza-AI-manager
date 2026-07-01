@@ -246,6 +246,7 @@
               <h3 id="nsTitle">–</h3>
               <div class="sub" id="nsSub">–</div>
               <div class="sub" id="nsDeadline" style="color:var(--acc);margin-top:5px"></div>
+              <div class="sub" id="nsWeer" style="margin-top:5px"></div>
             </div>
             <div style="flex:0 0 auto;text-align:right">
               <div class="nr" id="nsNr">–</div>
@@ -632,6 +633,11 @@
   "recap": {
     "gisteren": "De Tour start op 4 juli — er zijn nog geen ritten verreden.",
     "vandaag": "Bouw je ploeg voor de openingsrit: een ploegentijdrit in Barcelona. Zet je kapitein op je sterkste troef.",
+    "datum": "2026-07-01"
+  },
+  "weer": {
+    "weer": "Wordt elke ochtend automatisch opgehaald voor de rit van die dag.",
+    "impact": "Bij zijwind zijn sterke ploegen en rouleurs in het voordeel; bij hitte/regen tellen conditie en stuurmanskunst.",
     "datum": "2026-07-01"
   },
   "riders": [
@@ -2300,7 +2306,7 @@ const esc = s => (s==null?"":String(s)).replace(/[<>&]/g,c=>({"<":"&lt;",">":"&g
 const DB_KEY = "wm_studio_v1";
 const defaults = { cfg:{budget:100,squad:16,transfers:3}, riders:[] };
 let db = load();
-let coverageReq={}, stagesInfo=null, agentsInfo=[], recapInfo=null;
+let coverageReq={}, stagesInfo=null, agentsInfo=[], recapInfo=null, weerInfo=null;
 let uiTab="team", overlayIdx=0, dataStatus="laden";
 
 function load(){ try{ return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
@@ -2315,7 +2321,7 @@ async function loadRealData(force){
     if(data.budget) db.cfg.budget=data.budget;
     if(data.squad) db.cfg.squad=data.squad;
     if(data.freeTransfers) db.cfg.transfers=data.freeTransfers;
-    coverageReq = data.coverage||{}; stagesInfo = data.stages||null; agentsInfo = data.agents||[]; recapInfo = data.recap||null;
+    coverageReq = data.coverage||{}; stagesInfo = data.stages||null; agentsInfo = data.agents||[]; recapInfo = data.recap||null; weerInfo = data.weer||null;
     if(force || !db.riders.length){
       const keep=new Set(db.riders.filter(r=>r.inTeam).map(r=>r.name));
       const pins=new Set(db.riders.filter(r=>r.pin).map(r=>r.name));
@@ -2528,6 +2534,7 @@ function renderNextStage(){
   $("#nsNr").textContent = String(s.nr).padStart(2,"0");
   $("#nsOf").textContent = "VAN "+(stagesInfo.stages.length);
   const dl=$("#nsDeadline"); if(dl) dl.textContent = "⏰ deadline "+deadlineText(s);
+  const w=$("#nsWeer"); if(w){ w.innerHTML = weerInfo&&weerInfo.weer ? `🌤 ${esc(weerInfo.weer)}${weerInfo.impact?` <span style="color:var(--muted)">— ${esc(weerInfo.impact)}</span>`:""}` : ""; }
 }
 function renderSquad(){
   const t=team().sort((a,b)=>b.pts-a.pts); const maxP=Math.max(1,...t.map(r=>r.pts));

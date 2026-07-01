@@ -27,8 +27,8 @@ Wielermanager Studio autonoom bouwen, één feature per ronde, tot de lijst af i
       Consolidator zet het in ratings.recap; recap-agent verschijnt NIET als analist. Research-agent vult later.
 
 ### Sprint 4 — extra analisten
-- [ ] **S4.1 Weer-agent** — app toont een weerregel op de rit-kaart uit `data/signals/weer-2026.json`
-      ({ "type":"info", "weer":"...", "impact":"..." }). Seed met placeholder; research-agent ververst.
+- [x] **S4.1 Weer-agent** — DONE. weer-2026.json (type "weer") -> weerregel op rit-kaart (ratings.weer).
+      Info-type, geen analist. Research-agent ververst dagelijks.
 - [ ] **S4.2 Ploegtactiek-agent** — nieuw signaaltype "teamboost" in de consolidator
       ({ "type":"teamboost", "teams": { "Team X": 1.08 } }) dat renners van aanvallende/rittenjagende
       teams licht boost. Seed met een gegrond bestand (bekende koersstijl 2026). Toon als analist.

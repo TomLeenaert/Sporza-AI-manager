@@ -121,3 +121,6 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 2026-07-01 — LOOP S3.3 (rit-recap): recap-2026.json (type recap) -> Koersverhaal-kaart (Gisteren/Vandaag).
 - Consolidator: ratings.recap, info-types worden geen analist. Getest: kaart toont, 13 analisten, 16/100M.
 - SPRINT 3 COMPLEET (S3.1-3.3).
+
+2026-07-01 — LOOP S4.1 (weer-agent): weer-2026.json (type weer) -> weerregel op rit-kaart (ratings.weer).
+- Info-type, geen analist. Getest: toont, 13 analisten, 16/100M. Research-agent ververst dagelijks.

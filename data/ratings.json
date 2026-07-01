@@ -306,6 +306,11 @@
     "vandaag": "Bouw je ploeg voor de openingsrit: een ploegentijdrit in Barcelona. Zet je kapitein op je sterkste troef.",
     "datum": "2026-07-01"
   },
+  "weer": {
+    "weer": "Wordt elke ochtend automatisch opgehaald voor de rit van die dag.",
+    "impact": "Bij zijwind zijn sterke ploegen en rouleurs in het voordeel; bij hitte/regen tellen conditie en stuurmanskunst.",
+    "datum": "2026-07-01"
+  },
   "riders": [
     {
       "name": "Tadej Pogacar",
