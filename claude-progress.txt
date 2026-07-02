@@ -149,3 +149,10 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - Getest: alle 15 analist-overlays met inhoud + rail-navigatie + sluiten; geen console-fouten;
   ploeg altijd 16/100M met dekking; over-budget-waarschuwing werkt; offline-modus werkt.
 - Oordeel: app doet zijn doel volledig en gepolijst. 100% tevreden als gebruiker.
+
+2026-07-01 — Mijn-ploeg-invoer + ideale-ploeg-per-rit:
+- Renners-tab: +-knop per renner om je EIGEN Sporza-ploeg in te geven (✓/+), teller (X/16 + kost), 16-cap.
+- Ploeg-tab: header "MIJN PLOEG", "Leeg"-knop naast "Perfecte ploeg". Advies geeft nu wissels t.o.v. jouw ploeg.
+- Nieuwe kaart "Ideale ploeg per rit": dropdown 21 etappes, per-rit herweging (perStageTeam), toont
+  "insteken/eruit voor deze rit" t.o.v. je huidige ploeg (informatief).
+- Getest: eigen 16 ingeven -> advies "Ben Turner->Evenepoel +658". Bergrit -> klimmers insteken. 0 fouten, 16/100M.

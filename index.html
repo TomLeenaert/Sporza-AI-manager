@@ -155,7 +155,8 @@
   .primary{width:100%;padding:15px;background:linear-gradient(180deg,#ffe07a,#ffcb3e);color:#241a00;box-shadow:0 10px 26px rgba(255,203,62,.3)}
   .ghost{width:100%;padding:13px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);font-weight:600;font-size:14px}
   label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px;font-family:var(--sans)}
-  input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:12px;font-size:16px;font-family:var(--sans)}
+  input,select{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:12px;font-size:16px;font-family:var(--sans)}
+  select{appearance:none;-webkit-appearance:none}
 
   /* rider list rows (advice/riders) */
   .rider{display:flex;align-items:center;gap:10px;padding:11px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line);margin:8px 0}
@@ -169,6 +170,7 @@
   .sm{padding:8px 10px;font-size:13px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);border-radius:10px;width:auto;font-weight:600}
   .sm.on{background:var(--acc);color:#241a00;border-color:var(--acc)}
   .sm.ban-on{background:var(--red);color:#2a0d0d;border-color:var(--red)}
+  .sm.tm.in{background:var(--mint);color:#062015;border-color:var(--mint)}
   .swap{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:13px;margin:8px 0}
   .gain{color:var(--mint);font-weight:700}
 
@@ -254,10 +256,15 @@
             </div>
           </div>
           <div id="captainPick"></div>
-          <div class="squadhead"><span class="a">JOUW PLOEG</span><span class="b" id="squadMeta">16 RENNERS</span></div>
+          <div class="squadhead"><span class="a">MIJN PLOEG</span><span class="b" id="squadMeta">16 RENNERS</span></div>
           <div class="cards" id="squadCards"></div>
           <div class="warnline" id="squadWarn" style="display:none"></div>
-          <button class="primary" id="autoBuild" style="margin-top:14px">✨ Stel beste ploeg samen</button>
+          <div class="row" style="display:flex;gap:8px;margin-top:14px">
+            <button class="primary" id="autoBuild" style="flex:2">✨ Perfecte ploeg</button>
+            <button class="ghost" id="clearTeam" style="flex:1;width:auto;margin:0">🧹 Leeg</button>
+          </div>
+          <div class="note" style="margin-top:8px">Tik <b>“Perfecte ploeg”</b> voor de optimale selectie, of geef in de
+            <b>Renners</b>-tab je eigen Sporza-ploeg in (tik <b>+</b>). Bij <b>Advies</b> zie je dan wat te wisselen.</div>
         </div>
 
         <div class="desk">
@@ -269,6 +276,11 @@
         </div>
       </div>
       <div class="briefing" id="briefing"></div>
+      <div class="card" id="perStage">
+        <h2 class="sec" style="margin-top:0">Ideale ploeg per rit</h2>
+        <select id="stagePick"></select>
+        <div id="perStageBody"></div>
+      </div>
       <div class="card" id="recapCard"></div>
       <div class="card" id="teamLogic"></div>
     </section>
@@ -294,7 +306,8 @@
       <h2 class="sec">Renners</h2>
       <div class="note" style="margin:0 2px 10px">Tik <b>📌</b> om een renner <b>altijd</b> in je ploeg te forceren,
         of <b>🚫</b> om er een <b>nooit</b> in te zetten. De rekenaar herberekent meteen.</div>
-      <input id="riderSearch" placeholder="🔎 Zoek een renner of ploeg…" style="margin-bottom:10px">
+      <input id="riderSearch" placeholder="🔎 Zoek een renner of ploeg…" style="margin-bottom:8px">
+      <div id="myTeamCount" class="note" style="margin:0 2px 10px"></div>
       <div id="poolList"></div>
     </section>
 
@@ -470,6 +483,24 @@ function deadlineText(s){
   return `${when} · ${note}`;
 }
 
+// Ideale ploeg voor één specifiek rittype (informatief): herweeg de punten naar het rittype
+// en kies opnieuw 16 binnen budget/dekking. Sporza speelt met één ploeg, dus dit is louter advies.
+function perStageTeam(type){
+  const K=+db.cfg.squad||16, C=Math.round(+db.cfg.budget||0);
+  const roles=TYPE_ROLLEN[type]||[];
+  const fit=r=>Math.round((+r.pts||0)*(roles.includes(r.rol)?1.35:0.6));
+  const all=db.riders.filter(r=>!r.ban).map(r=>({id:r.id,rol:r.rol||"knecht",price:Math.round(+r.price||0),pts:fit(r),pin:!!r.pin}));
+  const reserved=new Set(); let rc=0; const reserve=x=>{ if(!reserved.has(x.id)){ reserved.add(x.id); rc+=x.price; } };
+  all.forEach(r=>{ if(r.pin) reserve(r); });
+  const have={}; all.forEach(r=>{ if(reserved.has(r.id)) have[r.rol]=(have[r.rol]||0)+1; });
+  for(const [rol,need] of Object.entries(coverageReq||{})){ let n=have[rol]||0;
+    const cand=all.filter(r=>r.rol===rol&&!reserved.has(r.id)).sort((a,b)=>b.pts-a.pts);
+    for(let i=0;i<Math.min(Math.max(0,need-n),cand.length);i++) reserve(cand[i]); }
+  const rest=all.filter(r=>!reserved.has(r.id));
+  const pick=knapsackPick(rest,K-reserved.size,Math.max(0,C-rc));
+  return new Set([...reserved,...pick.ids]);
+}
+
 // Kapitein-agent: kies uit JOUW ploeg de renner met de grootste scorekans op de volgende rit
 // (die krijgt de dubbele-punten-boost). Kiest op basis van rittype en verwachte punten.
 function captainPick(){
@@ -515,7 +546,29 @@ function analystList(){
 function render(){
   renderStatus(); renderVandaag();
   renderTicker(); renderNextStage(); renderCaptain(); renderSquad(); renderAnalysts(); renderBriefing();
-  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool(); renderRecap();
+  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool(); renderRecap(); renderPerStage();
+}
+function renderPerStage(){
+  const el=$("#perStage"), sel=$("#stagePick"), body=$("#perStageBody");
+  if(!el||!sel) return;
+  if(!stagesInfo||!stagesInfo.stages||!team().length){ el.style.display="none"; return; }
+  el.style.display="";
+  if(sel.options.length!==stagesInfo.stages.length){
+    sel.innerHTML=stagesInfo.stages.map((s,i)=>{ const m=(stagesInfo.typeUitleg||{})[s.type]||{label:s.type};
+      return `<option value="${i}">Rit ${s.nr} · ${esc(m.label)} · ${esc(s.van)}→${esc(s.naar)}</option>`; }).join("");
+    const ns=nextStage(); if(ns){ const idx=stagesInfo.stages.findIndex(x=>x.nr===ns.nr); if(idx>=0) sel.value=String(idx); }
+  }
+  const s=stagesInfo.stages[+sel.value||0]; const m=(stagesInfo.typeUitleg||{})[s.type]||{label:s.type,scoort:""};
+  const ideal=perStageTeam(s.type); const cur=new Set(team().map(r=>r.id));
+  const erin=db.riders.filter(r=>ideal.has(r.id)&&!cur.has(r.id)).sort((a,b)=>b.pts-a.pts);
+  const eruit=db.riders.filter(r=>cur.has(r.id)&&!ideal.has(r.id)).sort((a,b)=>a.pts-b.pts);
+  const ln=r=>esc(r.name.split(" ").slice(-1)[0]);
+  body.innerHTML=`
+    <div class="note" style="margin:2px 0 10px">Puur voor een <b>${esc(m.label.toLowerCase())}</b> zou je zo tellen — <span style="color:var(--muted)">informatief; Sporza speelt met één ploeg die je via transfers aanpast.</span></div>
+    ${(erin.length||eruit.length)?`<div class="note" style="color:var(--txt)">
+        ${erin.length?`<div>➕ <b style="color:var(--mint)">Insteken voor deze rit:</b> ${erin.map(r=>ln(r)+` <span class="pill">${ROL_AB[r.rol]||"?"}</span>`).join(" ")}</div>`:""}
+        ${eruit.length?`<div style="margin-top:5px">➖ <b style="color:var(--muted)">Eruit voor deze rit:</b> ${eruit.map(ln).join(", ")}</div>`:""}
+      </div>`:`<div class="note" style="color:var(--mint)">Je huidige ploeg is al ideaal voor dit rittype 👍</div>`}`;
 }
 function renderRecap(){
   const el=$("#recapCard"); if(!el) return;
@@ -679,9 +732,12 @@ function renderPool(){
   if(q) pool=pool.filter(r=>(r.name||"").toLowerCase().includes(q)||(r.team||"").toLowerCase().includes(q));
   const el=$("#poolList");
   el.innerHTML = pool.length ? pool.map(r=>riderRow(r,
-    `<button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
+    `<button class="sm tm ${r.inTeam?'in':''}" onclick="toggleTeam('${r.id}')" title="in mijn ploeg">${r.inTeam?'✓':'+'}</button>
+     <button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
      <button class="sm ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit">🚫</button>`)).join("")
     : `<div class="empty">${q?`Geen renner gevonden voor “${esc(q)}”.`:(dataStatus==="none"?"Geen verbinding — kon de rennerslijst niet laden.":dataStatus==="laden"?"Data laden…":"Geen renners.")}</div>`;
+  const mt=$("#myTeamCount"); if(mt){ const n=team().length, c=teamCost(), b=+db.cfg.budget||0;
+    mt.innerHTML = `Mijn ploeg: <b style="color:var(--txt)">${n}/${db.cfg.squad}</b> · <span style="color:${c>b?'var(--red)':'var(--txt)'}">${money(c)}</span>${c>b?' — over budget':''}. Tik <b>+</b> om je Sporza-renners in te geven.`; }
 }
 
 // ---- agent overlay ----
@@ -721,13 +777,19 @@ function renderOverlay(){
 }
 
 // ---- actions ----
+window.toggleTeam=id=>{ const r=db.riders.find(x=>x.id===id); if(!r) return;
+  if(!r.inTeam){ if(team().length>=(+db.cfg.squad||16)){ alert("Je ploeg is vol ("+(db.cfg.squad||16)+" renners). Verwijder eerst iemand met ✓."); return; } r.inTeam=true; }
+  else { r.inTeam=false; if(r.pin) r.pin=false; }
+  save(); };
 window.togglePin=id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.pin=!r.pin; if(r.pin){ r.ban=false; r.inTeam=true; } buildBestTeam(); } };
 window.toggleBan=id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.ban=!r.ban; if(r.ban){ r.pin=false; r.inTeam=false; } buildBestTeam(); } };
 window.applySwap=(o,i)=>{ const a=db.riders.find(x=>x.id===o),b=db.riders.find(x=>x.id===i); if(a)a.inTeam=false; if(b)b.inTeam=true; save(); };
 
 $("#autoBuild").onclick=()=>{ if(!db.riders.length){ alert("Data nog niet geladen."); return; } buildBestTeam(); };
+$("#clearTeam").onclick=()=>{ if(confirm("Je ploeg leegmaken zodat je je eigen Sporza-renners kan ingeven?")){ db.riders.forEach(r=>{ if(!r.pin) r.inTeam=false; }); save(); } };
 $("#saveCfg").onclick=()=>{ db.cfg.budget=+$("#cfgBudget").value||0; db.cfg.squad=+$("#cfgSquad").value||0; db.cfg.transfers=+$("#cfgTransfers").value||0; buildBestTeam(); alert("Regels opgeslagen."); };
 $("#riderSearch").oninput=renderPool;
+$("#stagePick").onchange=renderPerStage;
 $("#resetKeuzes").onclick=()=>{ if(confirm("Al je 📌 pins en 🚫 bans wissen?")){ db.riders.forEach(r=>{r.pin=false;r.ban=false;}); buildBestTeam(); } };
 $("#refreshData").onclick=()=>{ if(confirm("Verse data laden? Je pins/bans blijven behouden.")) loadRealData(true); };
 $("#exportBtn").onclick=()=>{ const b=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="wielermanager-backup.json"; a.click(); };
