@@ -1,7 +1,8 @@
 {
   "agent": "weer-agent",
   "type": "weer",
-  "datum": "2026-07-01",
-  "weer": "Wordt elke ochtend automatisch opgehaald voor de rit van die dag.",
-  "impact": "Bij zijwind zijn sterke ploegen en rouleurs in het voordeel; bij hitte/regen tellen conditie en stuurmanskunst."
+  "datum": "2026-07-02",
+  "bron": "cyclingstage, letour.barcelona, weersverwachting Barcelona (begin juli)",
+  "weer": "Openingsrit (za 4/7, ploegentijdrit Barcelona, 19,7 km): warm en zonnig, ~27-29°C, lichte zeebries, amper regenkans",
+  "impact": "Droge, snelle ploegentijdrit met venijnige slotklim op Montjuïc: sterke TT-teams (UAE, Visma, Red Bull, INEOS) en puncheurs pakken hier tijd; hitte weegt weinig op zo'n korte rit."
 }

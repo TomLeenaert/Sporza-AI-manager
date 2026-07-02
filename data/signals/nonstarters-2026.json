@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-01",
-  "bron": "cyclingnews, cyclinguptodate, flobikes (juni 2026, pre-Tour)",
-  "uitleg": "Renners die opgegeven of niet gestart zijn — uit de selectie.",
+  "datum": "2026-07-02",
+  "bron": "cyclingnews, velo, flobikes (juni 2026, pre-Tour)",
+  "uitleg": "Renners die opgegeven of niet gestart zijn — uit de selectie. Onley mist de Tour met een schouderblessure na een val in de Dauphiné.",
   "names": ["Oscar Onley"]
 }
