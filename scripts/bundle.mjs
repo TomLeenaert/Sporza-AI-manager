@@ -9,8 +9,9 @@ const html = readFileSync(join(root, "index.html"), "utf8");
 const ratings = readFileSync(join(root, "data/ratings.json"), "utf8");
 
 // Zet de data als globale variabele net vóór het hoofd-script.
+// CRLF-tolerant: match \r?\n zodat het ook werkt na een Windows-checkout.
 const inject = `<script>window.__RATINGS__ = ${ratings};</script>\n<script>`;
-const out = html.replace(/<script>\nconst \$ = s =>/, inject + "\nconst $ = s =>");
+const out = html.replace(/<script>\r?\nconst \$ = s =>/, inject + "\nconst $ = s =>");
 
 if (out === html) { console.error("FOUT: injectiepunt niet gevonden"); process.exit(1); }
 mkdirSync(join(root, "dist"), { recursive: true });

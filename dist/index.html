@@ -180,8 +180,9 @@
   nav.tabs .inner{height:66px;border-radius:24px;background:rgba(16,24,42,.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
     border:1px solid rgba(255,255,255,.1);box-shadow:0 16px 40px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.06) inset;
     display:flex;align-items:center;justify-content:space-around;padding:0 6px}
-  nav.tabs button{background:none;display:flex;flex-direction:column;align-items:center;gap:5px;padding:7px 6px 6px;flex:1;border-radius:14px;color:#6f80a4}
-  nav.tabs button .lb{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em}
+  nav.tabs button{background:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:7px 3px 6px;flex:1;border-radius:12px;color:#6f80a4}
+  nav.tabs button .lb{font-family:var(--mono);font-size:8px;letter-spacing:.02em;white-space:nowrap}
+  nav.tabs button svg{width:19px;height:19px}
   nav.tabs button.active{background:rgba(255,211,78,.12);color:var(--acc)}
 
   /* agent overlay */
@@ -259,12 +260,9 @@
           <div class="squadhead"><span class="a">MIJN PLOEG</span><span class="b" id="squadMeta">16 RENNERS</span></div>
           <div class="cards" id="squadCards"></div>
           <div class="warnline" id="squadWarn" style="display:none"></div>
-          <div class="row" style="display:flex;gap:8px;margin-top:14px">
-            <button class="primary" id="autoBuild" style="flex:2">✨ Perfecte ploeg</button>
-            <button class="ghost" id="clearTeam" style="flex:1;width:auto;margin:0">🧹 Leeg</button>
-          </div>
-          <div class="note" style="margin-top:8px">Tik <b>“Perfecte ploeg”</b> voor de optimale selectie, of geef in de
-            <b>Renners</b>-tab je eigen Sporza-ploeg in (tik <b>+</b>). Bij <b>Advies</b> zie je dan wat te wisselen.</div>
+          <button class="primary" id="autoBuild" style="margin-top:14px">✨ Perfecte ploeg samenstellen</button>
+          <div class="note" style="margin-top:8px">Dit is de optimale selectie. Wil je jóuw echte ploeg gebruiken?
+            Geef ze in via de <b>Sporza</b>-tab onderaan; bij <b>Advies</b> zie je dan wat te wisselen.</div>
         </div>
 
         <div class="desk">
@@ -283,6 +281,26 @@
       </div>
       <div class="card" id="recapCard"></div>
       <div class="card" id="teamLogic"></div>
+    </section>
+
+    <!-- MIJN SPORZA-TEAM -->
+    <section id="tab-myteam" class="tab">
+      <h2 class="sec">Mijn Sporza-team</h2>
+      <div class="card">
+        <div id="myTeamCount"></div>
+        <div class="warnline" id="myTeamWarn" style="display:none"></div>
+        <div class="row" style="display:flex;gap:8px;margin-top:12px">
+          <button class="primary" id="mtFill" style="flex:2">✨ Vul optimaal</button>
+          <button class="ghost" id="mtClear" style="flex:1;width:auto;margin:0">🧹 Leeg</button>
+        </div>
+        <div class="note" style="margin-top:8px">Geef hier je ploeg in <b>zoals ze in Sporza staat</b>: zoek je renners
+          en tik <b>+</b>. Dan zegt de app bij <b>Advies</b> precies wat je moet wisselen.</div>
+      </div>
+      <h2 class="sec">Jouw renners (<span id="mtTeamN">0</span>)</h2>
+      <div id="myTeamList"></div>
+      <h2 class="sec">Renner toevoegen</h2>
+      <input id="mtSearch" placeholder="🔎 Zoek een renner of ploeg om toe te voegen…" style="margin-bottom:10px">
+      <div id="myTeamPool"></div>
     </section>
 
     <!-- ADVICE -->
@@ -306,8 +324,7 @@
       <h2 class="sec">Renners</h2>
       <div class="note" style="margin:0 2px 10px">Tik <b>📌</b> om een renner <b>altijd</b> in je ploeg te forceren,
         of <b>🚫</b> om er een <b>nooit</b> in te zetten. De rekenaar herberekent meteen.</div>
-      <input id="riderSearch" placeholder="🔎 Zoek een renner of ploeg…" style="margin-bottom:8px">
-      <div id="myTeamCount" class="note" style="margin:0 2px 10px"></div>
+      <input id="riderSearch" placeholder="🔎 Zoek een renner of ploeg…" style="margin-bottom:10px">
       <div id="poolList"></div>
     </section>
 
@@ -333,6 +350,7 @@
 
   <nav class="tabs"><div class="inner">
     <button data-tab="team" class="active"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="14" x2="6" y2="19"/><line x1="12" y1="10" x2="12" y2="19"/><line x1="18" y1="12" x2="18" y2="19"/><circle cx="6" cy="10.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="8.5" r="1.5" fill="currentColor" stroke="none"/></svg><span class="lb">Ploeg</span></button>
+    <button data-tab="myteam"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 L6 6 L4 9 L6.5 11 L7 10 V20 H17 V10 L17.5 11 L20 9 L18 6 L15 4 C15 6 9 6 9 4 Z"/></svg><span class="lb">Sporza</span></button>
     <button data-tab="advice"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9.5" r="5"/><line x1="10" y1="17" x2="14" y2="17"/><line x1="11" y1="19.5" x2="13" y2="19.5"/></svg><span class="lb">Advies</span></button>
     <button data-tab="agents"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19 a6.5 6.5 0 0 1 13 0"/></svg><span class="lb">Agents</span></button>
     <button data-tab="riders"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="lb">Renners</span></button>
@@ -2752,7 +2770,7 @@ function analystList(){
 function render(){
   renderStatus(); renderVandaag();
   renderTicker(); renderNextStage(); renderCaptain(); renderSquad(); renderAnalysts(); renderBriefing();
-  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool(); renderRecap(); renderPerStage();
+  renderTeamLogic(); renderAdvice(); renderAgentsGrid(); renderPool(); renderRecap(); renderPerStage(); renderMyTeam();
 }
 function renderPerStage(){
   const el=$("#perStage"), sel=$("#stagePick"), body=$("#perStageBody");
@@ -2938,12 +2956,31 @@ function renderPool(){
   if(q) pool=pool.filter(r=>(r.name||"").toLowerCase().includes(q)||(r.team||"").toLowerCase().includes(q));
   const el=$("#poolList");
   el.innerHTML = pool.length ? pool.map(r=>riderRow(r,
-    `<button class="sm tm ${r.inTeam?'in':''}" onclick="toggleTeam('${r.id}')" title="in mijn ploeg">${r.inTeam?'✓':'+'}</button>
-     <button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
+    `<button class="sm ${r.pin?'on':''}" onclick="togglePin('${r.id}')" title="altijd">📌</button>
      <button class="sm ${r.ban?'ban-on':''}" onclick="toggleBan('${r.id}')" title="nooit">🚫</button>`)).join("")
     : `<div class="empty">${q?`Geen renner gevonden voor “${esc(q)}”.`:(dataStatus==="none"?"Geen verbinding — kon de rennerslijst niet laden.":dataStatus==="laden"?"Data laden…":"Geen renners.")}</div>`;
-  const mt=$("#myTeamCount"); if(mt){ const n=team().length, c=teamCost(), b=+db.cfg.budget||0;
-    mt.innerHTML = `Mijn ploeg: <b style="color:var(--txt)">${n}/${db.cfg.squad}</b> · <span style="color:${c>b?'var(--red)':'var(--txt)'}">${money(c)}</span>${c>b?' — over budget':''}. Tik <b>+</b> om je Sporza-renners in te geven.`; }
+}
+function renderMyTeam(){
+  const head=$("#myTeamCount"); if(!head) return;
+  const n=team().length, c=teamCost(), b=+db.cfg.budget||0;
+  head.innerHTML = `<div style="font-family:var(--grotesk);font-size:16px;font-weight:600">${n}/${db.cfg.squad} renners · <span style="color:${c>b?'var(--red)':'var(--mint)'}">${money(c)}</span></div>
+    <div class="note" style="margin-top:2px">van je €${b}M budget${c>b?' — <span style="color:var(--red)">over budget!</span>':(n<db.cfg.squad?` — nog ${db.cfg.squad-n} in te vullen`:'')}</div>`;
+  const warn=$("#myTeamWarn");
+  if(c>b){ warn.style.display=""; warn.textContent=`⚠ €${c-b}M OVER BUDGET — HAAL EEN DURE RENNER ERUIT`; } else warn.style.display="none";
+  $("#mtTeamN").textContent=n;
+  // huidige renners (met verwijderknop)
+  const t=team().sort((a,b)=>b.pts-a.pts);
+  $("#myTeamList").innerHTML = t.length ? t.map(r=>riderRow(r,
+    `<button class="sm tm in" onclick="toggleTeam('${r.id}')" title="verwijderen">✓</button>`)).join("")
+    : `<div class="empty">Nog geen renners. Zoek hieronder en tik <b>+</b>, of “Vul optimaal”.</div>`;
+  // zoek-om-toe-te-voegen
+  const q=(($("#mtSearch")||{}).value||"").trim().toLowerCase();
+  const pool=$("#myTeamPool");
+  if(!q){ pool.innerHTML=`<div class="note" style="margin:0 2px">Typ een naam of ploeg hierboven om renners te vinden.</div>`; return; }
+  const res=db.riders.filter(r=>!r.inTeam && ((r.name||"").toLowerCase().includes(q)||(r.team||"").toLowerCase().includes(q))).sort((a,b)=>b.pts-a.pts).slice(0,25);
+  pool.innerHTML = res.length ? res.map(r=>riderRow(r,
+    `<button class="sm tm" onclick="toggleTeam('${r.id}')" title="toevoegen">+</button>`)).join("")
+    : `<div class="empty">Geen renner gevonden voor “${esc(q)}”.</div>`;
 }
 
 // ---- agent overlay ----
@@ -2992,7 +3029,9 @@ window.toggleBan=id=>{ const r=db.riders.find(x=>x.id===id); if(r){ r.ban=!r.ban
 window.applySwap=(o,i)=>{ const a=db.riders.find(x=>x.id===o),b=db.riders.find(x=>x.id===i); if(a)a.inTeam=false; if(b)b.inTeam=true; save(); };
 
 $("#autoBuild").onclick=()=>{ if(!db.riders.length){ alert("Data nog niet geladen."); return; } buildBestTeam(); };
-$("#clearTeam").onclick=()=>{ if(confirm("Je ploeg leegmaken zodat je je eigen Sporza-renners kan ingeven?")){ db.riders.forEach(r=>{ if(!r.pin) r.inTeam=false; }); save(); } };
+$("#mtFill").onclick=()=>{ if(!db.riders.length){ alert("Data nog niet geladen."); return; } buildBestTeam(); };
+$("#mtClear").onclick=()=>{ if(confirm("Je ploeg leegmaken om je eigen Sporza-renners in te geven?")){ db.riders.forEach(r=>{ if(!r.pin) r.inTeam=false; }); save(); } };
+$("#mtSearch").oninput=renderMyTeam;
 $("#saveCfg").onclick=()=>{ db.cfg.budget=+$("#cfgBudget").value||0; db.cfg.squad=+$("#cfgSquad").value||0; db.cfg.transfers=+$("#cfgTransfers").value||0; buildBestTeam(); alert("Regels opgeslagen."); };
 $("#riderSearch").oninput=renderPool;
 $("#stagePick").onchange=renderPerStage;
@@ -3004,7 +3043,7 @@ $("#wipeBtn").onclick=()=>{ if(confirm("Alles wissen?")){ db=JSON.parse(JSON.str
 document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("nav.tabs button").forEach(x=>x.classList.remove("active"));
   b.classList.add("active"); uiTab=b.dataset.tab;
-  ["team","advice","agents","riders","settings"].forEach(t=>$("#tab-"+t).classList.toggle("on",t===uiTab));
+  ["team","myteam","advice","agents","riders","settings"].forEach(t=>$("#tab-"+t).classList.toggle("on",t===uiTab));
   window.scrollTo(0,0);
 });
 
