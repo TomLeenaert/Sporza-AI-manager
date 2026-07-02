@@ -337,6 +337,21 @@
         <label>Gratis transfers</label><input id="cfgTransfers" type="number" inputmode="numeric">
         <button class="ghost" id="saveCfg" style="margin-top:12px">💾 Opslaan</button>
       </div>
+      <h2 class="sec">Cloud-opslag (GitHub)</h2>
+      <div class="card">
+        <div class="note" style="margin-top:0">Bewaar je ploeg in GitHub zodat hij op elk toestel terugkomt.
+          <b>Ophalen werkt overal</b>; <b>opslaan</b> vraagt eenmalig een token (fijnmazig, enkel deze repo, met
+          <i>Contents: Read and write</i>). Je ploeg wordt automatisch bewaard na elke wijziging.</div>
+        <label>GitHub-token</label>
+        <input id="ghToken" type="password" placeholder="github_pat_… of ghp_…" autocomplete="off">
+        <button class="ghost" id="ghConnect" style="margin-top:8px">🔗 Token opslaan</button>
+        <div class="row" style="display:flex;gap:8px;margin-top:8px">
+          <button class="ghost" id="ghSave" style="flex:1;margin:0">☁️ Nu opslaan</button>
+          <button class="ghost" id="ghLoad" style="flex:1;margin:0">⬇️ Ophalen</button>
+        </div>
+        <div class="note" id="ghStatus" style="margin-top:8px"></div>
+      </div>
+
       <h2 class="sec">Data</h2>
       <div class="card">
         <div class="note" id="dataStamp" style="color:var(--mint);margin-bottom:10px"></div>
@@ -2577,8 +2592,42 @@ let coverageReq={}, stagesInfo=null, agentsInfo=[], recapInfo=null, weerInfo=nul
 let uiTab="team", overlayIdx=0, dataStatus="laden";
 
 function load(){ try{ return Object.assign(JSON.parse(JSON.stringify(defaults)), JSON.parse(localStorage.getItem(DB_KEY))||{}); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
-function save(){ localStorage.setItem(DB_KEY, JSON.stringify(db)); render(); }
+function save(){ localStorage.setItem(DB_KEY, JSON.stringify(db)); render(); scheduleCloudSave(); }
 function uid(){ return "r"+Math.random().toString(36).slice(2,9); }
+
+// ---- Cloud-opslag (GitHub) ----
+const GH_OWNER="TomLeenaert", GH_REPO="Sporza-AI-manager", GH_PATH="data/myteam.json", GH_BRANCH="master";
+let ghSaveTimer=null, lastCloudSig=null;
+function ghToken(){ return localStorage.getItem("wm_gh_token")||""; }
+function teamSig(){ return JSON.stringify({ n:team().map(r=>r.name).sort(), p:db.riders.filter(r=>r.pin).map(r=>r.name).sort(), b:db.riders.filter(r=>r.ban).map(r=>r.name).sort() }); }
+function scheduleCloudSave(){ if(!ghToken()) return; clearTimeout(ghSaveTimer);
+  ghSaveTimer=setTimeout(()=>{ if(teamSig()!==lastCloudSig) ghSaveTeam(true); }, 4000); }
+function ghStatus(msg,ok){ const el=$("#ghStatus"); if(el){ el.textContent=msg; el.style.color= ok===false?"var(--red)":(ok?"var(--mint)":"var(--muted)"); } }
+async function ghSaveTeam(silent){
+  const token=ghToken(); if(!token){ if(!silent) alert("Voer eerst je GitHub-token in."); return; }
+  const payload={ names:team().map(r=>r.name), pins:db.riders.filter(r=>r.pin).map(r=>r.name), bans:db.riders.filter(r=>r.ban).map(r=>r.name), updated:new Date().toISOString() };
+  const content=btoa(unescape(encodeURIComponent(JSON.stringify(payload,null,2))));
+  const hdr={ Authorization:"Bearer "+token, Accept:"application/vnd.github+json" };
+  try{
+    let sha; const g=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}?ref=${GH_BRANCH}`,{headers:hdr});
+    if(g.ok){ sha=(await g.json()).sha; }
+    const res=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`,{method:"PUT",headers:hdr,body:JSON.stringify({message:"Ploeg opgeslagen via app",content,sha,branch:GH_BRANCH})});
+    if(res.ok){ lastCloudSig=teamSig(); ghStatus("✓ Ploeg bewaard in GitHub ("+new Date().toLocaleTimeString("nl-BE",{hour:"2-digit",minute:"2-digit"})+")",true); }
+    else { const e=await res.json().catch(()=>({})); ghStatus("Opslaan mislukt ("+res.status+"). "+(res.status===401?"Token ongeldig?":res.status===403?"Token mist 'Contents: write'?":(e.message||"")), false); }
+  }catch(e){ ghStatus("Opslaan mislukt: geen verbinding.",false); }
+}
+async function ghLoadTeam(silent){
+  try{
+    const res=await fetch(`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${GH_PATH}?t=`+Date.now(),{cache:"no-store"});
+    if(!res.ok){ if(!silent) ghStatus("Nog geen bewaarde ploeg gevonden.",false); return false; }
+    const p=await res.json();
+    const names=new Set(p.names||[]), pins=new Set(p.pins||[]), bans=new Set(p.bans||[]);
+    db.riders.forEach(r=>{ r.inTeam=names.has(r.name); r.pin=pins.has(r.name); r.ban=bans.has(r.name); });
+    lastCloudSig=teamSig(); save();
+    if(!silent) ghStatus("✓ Ploeg opgehaald uit GitHub.",true);
+    return true;
+  }catch(e){ if(!silent) ghStatus("Ophalen mislukt.",false); return false; }
+}
 
 // ---- data ----
 async function loadRealData(force){
@@ -3036,6 +3085,12 @@ $("#saveCfg").onclick=()=>{ db.cfg.budget=+$("#cfgBudget").value||0; db.cfg.squa
 $("#riderSearch").oninput=renderPool;
 $("#stagePick").onchange=renderPerStage;
 $("#resetKeuzes").onclick=()=>{ if(confirm("Al je 📌 pins en 🚫 bans wissen?")){ db.riders.forEach(r=>{r.pin=false;r.ban=false;}); buildBestTeam(); } };
+$("#ghToken").value = ghToken();
+if(ghToken()) ghStatus("Verbonden met GitHub. Je ploeg wordt automatisch bewaard.",true);
+$("#ghConnect").onclick=()=>{ const t=$("#ghToken").value.trim(); localStorage.setItem("wm_gh_token",t);
+  if(t){ ghStatus("Token opgeslagen. Ik bewaar je ploeg nu…",true); ghSaveTeam(false); } else ghStatus("Token gewist.",false); };
+$("#ghSave").onclick=()=>ghSaveTeam(false);
+$("#ghLoad").onclick=()=>ghLoadTeam(false);
 $("#refreshData").onclick=()=>{ if(confirm("Verse data laden? Je pins/bans blijven behouden.")) loadRealData(true); };
 $("#exportBtn").onclick=()=>{ const b=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download="wielermanager-backup.json"; a.click(); };
 $("#wipeBtn").onclick=()=>{ if(confirm("Alles wissen?")){ db=JSON.parse(JSON.stringify(defaults)); localStorage.removeItem(DB_KEY); loadRealData(true); } };
@@ -3048,7 +3103,7 @@ document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{
 });
 
 function syncCfg(){ $("#cfgBudget").value=db.cfg.budget; $("#cfgSquad").value=db.cfg.squad; $("#cfgTransfers").value=db.cfg.transfers; }
-syncCfg(); render(); loadRealData(false);
+syncCfg(); render(); loadRealData(false).then(()=>ghLoadTeam(true));
 </script>
 </body>
 </html>

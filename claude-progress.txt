@@ -161,3 +161,8 @@ Resterend (vereist Tom): app-7 online zetten (account), app-8 dagelijkse cloud-r
 - Eigen ploeg ingeven op eigen scherm: teller (X/16 + kost + budget), huidige renners met verwijder-knop,
   zoek-om-toe-te-voegen (+), "Vul optimaal" + "Leeg". Team-toggle uit Renners gehaald (nu puur pin/ban).
 - bundle.mjs CRLF-bestendig gemaakt. Getest: 6 tabs, volledige werkstroom, 16/100M, 0 fouten.
+
+2026-07-02 — Cloud-opslag ploeg naar GitHub (auto-sync):
+- Regels-tab: GitHub-token (localStorage wm_gh_token), knoppen Nu opslaan/Ophalen + auto-save (debounce 4s, sig-guard tegen spam).
+- Opslaan via Contents API (PUT data/myteam.json met sha). Ophalen via publieke raw URL (werkt op elk toestel, zonder token).
+- Bij opstart: loadRealData().then(ghLoadTeam) -> ploeg wordt overal hersteld. Getest: 404 netjes, geen crash, 0 fouten.
