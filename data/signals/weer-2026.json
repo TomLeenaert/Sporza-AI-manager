@@ -1,8 +1,8 @@
 {
   "agent": "weer-agent",
   "type": "weer",
-  "datum": "2026-07-02",
-  "bron": "cyclingstage, letour.barcelona, weersverwachting Barcelona (begin juli)",
-  "weer": "Openingsrit (za 4/7, ploegentijdrit Barcelona, 19,7 km): warm en zonnig, ~27-29°C, lichte zeebries, amper regenkans",
-  "impact": "Droge, snelle ploegentijdrit met venijnige slotklim op Montjuïc: sterke TT-teams (UAE, Visma, Red Bull, INEOS) en puncheurs pakken hier tijd; hitte weegt weinig op zo'n korte rit."
+  "datum": "2026-07-03",
+  "bron": "cyclingflash, cyclingstage, domestiquecycling (weersverwachting Barcelona 4 juli 2026)",
+  "weer": "Openingsrit za 4/7 (ploegentijdrit Barcelona, 19,7 km, start Parc del Fòrum → finish Montjuïc): warm en zonnig, ~32°C op de kust en enkele graden meer in de stad; aan de finish (rond 19u lokale tijd) nog 28-29°C, af en toe opstekende zeebries, nagenoeg geen regenkans.",
+  "impact": "Droge, snelle ploegentijdrit met venijnige slotklim naar Montjuïc. Nieuwe regel: elke renner krijgt zijn eigen aankomsttijd, dus het is meteen een GC-rit. Sterke TT-teams (UAE, Visma, Lidl-Trek, Red Bull, INEOS) en klimmende puncheurs pakken hier tijd; de hitte weegt weinig op zo'n korte inspanning."
 }

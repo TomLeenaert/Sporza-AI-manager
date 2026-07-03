@@ -63,9 +63,9 @@
     {
       "agent": "non-starter-agent",
       "type": "exclude",
-      "datum": "2026-07-02",
-      "uitleg": "Renners die opgegeven of niet gestart zijn — uit de selectie. Onley mist de Tour met een schouderblessure na een val in de Dauphiné.",
-      "bron": "cyclingnews, velo, flobikes (juni 2026, pre-Tour)",
+      "datum": "2026-07-03",
+      "uitleg": "Renners die opgegeven of niet starten — uit de selectie (0 punten). Oscar Onley (INEOS) mist de Tour met een schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Ook Wout van Aert (Visma, elleboog) valt af, maar die zit niet in deze spelerspool; Davide Piganzoli is zijn vervanger en start wél.",
+      "bron": "cyclingnews, domestiquecycling, netcompanyineos.com (juli 2026, pre-Tour)",
       "highlights": []
     },
     {
@@ -138,14 +138,14 @@
     {
       "agent": "uitslagen-agent",
       "type": "form",
-      "datum": "2026-07-02",
-      "uitleg": "Verse vorm uit de laatste voorbereidingsrondes vlak voor de Tour. Er is nog geen Tour-etappe verreden (start 4 juli). Stapelt met vorm/odds.",
-      "bron": "wielerflits, wielerrevue, sporza, cyclingnews (Dauphiné/Tour Auvergne-Rhône-Alpes + Ronde van Zwitserland, juni 2026)",
+      "datum": "2026-07-03",
+      "uitleg": "Verse vorm uit de laatste voorbereidingsrondes vlak voor de Tour. Er is nog geen Tour-etappe verreden (start 4 juli, ploegentijdrit Barcelona). Stapelt met vorm/odds.",
+      "bron": "wielerflits, wielerrevue, sporza, cyclingnews, domestiquecycling (voorbereidingsrondes juni 2026 + stage 1-preview)",
       "highlights": [
-        "Isaac Del Toro: won de Dauphiné (Tour Auvergne-Rhône-Alpes) - topvorm richting Tour",
-        "Tadej Pogacar: oppermachtig in Ronde van Zwitserland: eindwinst, 3 ritzeges, +6:32",
+        "Isaac Del Toro: won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour",
+        "Tadej Pogacar: oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE topfavoriet voor de openings-TTT",
         "Richard Carapaz: 2e in Ronde van Zwitserland - sterke klimvorm",
-        "Mathias Vacek: verrassend 3e in Ronde van Zwitserland - koopje"
+        "Mathias Vacek: verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een topteam voor de TTT - koopje"
       ]
     }
   ],
@@ -330,14 +330,14 @@
     ]
   },
   "recap": {
-    "gisteren": "Nog geen ritten: de Tour start pas zaterdag 4 juli. In de aanloop domineerden Pogacar (eindwinst Ronde van Zwitserland, 3 ritzeges) en Isaac Del Toro (winst Dauphiné), met Carapaz en Vacek mee op het Zwitserse podium.",
-    "vandaag": "Bouw je ploeg voor de openingsrit: een ploegentijdrit (19,7 km) in Barcelona met een venijnige slotklim op Montjuïc. Kies renners uit sterke TT-teams en zet je kapitein op je grootste troef (Pogacar). Let op: Oscar Onley (schouderblessure) ontbreekt in je selectie.",
-    "datum": "2026-07-02"
+    "gisteren": "Nog geen ritten: de Tour start pas zaterdag 4 juli. In de aanloop domineerden Pogacar (eindwinst Ronde van Zwitserland met 3 ritzeges) en Isaac Del Toro (winst Tour Auvergne-Rhône-Alpes/Dauphiné), met Carapaz en Vacek mee op het Zwitserse podium.",
+    "vandaag": "Laatste bouwdag voor de openingsrit: morgen (za 4/7) een ploegentijdrit van 19,7 km in Barcelona met slotklim naar Montjuïc, waarbij elke renner een eigen tijd krijgt (dus meteen GC). Kies renners uit sterke TT-teams (UAE, Visma, Lidl-Trek, INEOS) en zet je kapitein op je grootste troef (Pogacar). Let op: Oscar Onley mist de Tour met een schouderblessure.",
+    "datum": "2026-07-03"
   },
   "weer": {
-    "weer": "Openingsrit (za 4/7, ploegentijdrit Barcelona, 19,7 km): warm en zonnig, ~27-29°C, lichte zeebries, amper regenkans",
-    "impact": "Droge, snelle ploegentijdrit met venijnige slotklim op Montjuïc: sterke TT-teams (UAE, Visma, Red Bull, INEOS) en puncheurs pakken hier tijd; hitte weegt weinig op zo'n korte rit.",
-    "datum": "2026-07-02"
+    "weer": "Openingsrit za 4/7 (ploegentijdrit Barcelona, 19,7 km, start Parc del Fòrum → finish Montjuïc): warm en zonnig, ~32°C op de kust en enkele graden meer in de stad; aan de finish (rond 19u lokale tijd) nog 28-29°C, af en toe opstekende zeebries, nagenoeg geen regenkans.",
+    "impact": "Droge, snelle ploegentijdrit met venijnige slotklim naar Montjuïc. Nieuwe regel: elke renner krijgt zijn eigen aankomsttijd, dus het is meteen een GC-rit. Sterke TT-teams (UAE, Visma, Lidl-Trek, Red Bull, INEOS) en klimmende puncheurs pakken hier tijd; de hitte weegt weinig op zo'n korte inspanning.",
+    "datum": "2026-07-03"
   },
   "riders": [
     {
@@ -346,7 +346,7 @@
       "price": 12,
       "rol": "gc",
       "pts": 1357,
-      "note": "oppermachtig in Ronde van Zwitserland: eindwinst, 3 ritzeges, +6:32",
+      "note": "oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE topfavoriet voor de openings-TTT",
       "differential": false
     },
     {
@@ -418,7 +418,7 @@
       "price": 7,
       "rol": "gc",
       "pts": 493,
-      "note": "won de Dauphiné (Tour Auvergne-Rhône-Alpes) - topvorm richting Tour",
+      "note": "won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour",
       "differential": false
     },
     {
@@ -436,7 +436,7 @@
       "price": 7,
       "rol": "gc",
       "pts": 468,
-      "note": "op het podium in de Dauphiné - in vorm richting Tour",
+      "note": "op het podium in de Dauphiné; in vorm en in een sterk TTT-team (Lidl-Trek)",
       "differential": false
     },
     {
@@ -643,7 +643,7 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 218,
-      "note": "verrassend 3e in Ronde van Zwitserland - koopje",
+      "note": "verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een topteam voor de TTT - koopje",
       "differential": true
     },
     {

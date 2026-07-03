@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-02",
-  "bron": "cyclingnews, velo, flobikes (juni 2026, pre-Tour)",
-  "uitleg": "Renners die opgegeven of niet gestart zijn — uit de selectie. Onley mist de Tour met een schouderblessure na een val in de Dauphiné.",
+  "datum": "2026-07-03",
+  "bron": "cyclingnews, domestiquecycling, netcompanyineos.com (juli 2026, pre-Tour)",
+  "uitleg": "Renners die opgegeven of niet starten — uit de selectie (0 punten). Oscar Onley (INEOS) mist de Tour met een schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Ook Wout van Aert (Visma, elleboog) valt af, maar die zit niet in deze spelerspool; Davide Piganzoli is zijn vervanger en start wél.",
   "names": ["Oscar Onley"]
 }

@@ -1,15 +1,15 @@
 {
   "agent": "uitslagen-agent",
   "type": "form",
-  "datum": "2026-07-02",
-  "bron": "wielerflits, wielerrevue, sporza, cyclingnews (Dauphiné/Tour Auvergne-Rhône-Alpes + Ronde van Zwitserland, juni 2026)",
-  "uitleg": "Verse vorm uit de laatste voorbereidingsrondes vlak voor de Tour. Er is nog geen Tour-etappe verreden (start 4 juli). Stapelt met vorm/odds.",
+  "datum": "2026-07-03",
+  "bron": "wielerflits, wielerrevue, sporza, cyclingnews, domestiquecycling (voorbereidingsrondes juni 2026 + stage 1-preview)",
+  "uitleg": "Verse vorm uit de laatste voorbereidingsrondes vlak voor de Tour. Er is nog geen Tour-etappe verreden (start 4 juli, ploegentijdrit Barcelona). Stapelt met vorm/odds.",
   "signalen": {
-    "Isaac Del Toro": { "mult": 1.10, "reden": "won de Dauphiné (Tour Auvergne-Rhône-Alpes) - topvorm richting Tour" },
-    "Tadej Pogacar": { "mult": 1.05, "reden": "oppermachtig in Ronde van Zwitserland: eindwinst, 3 ritzeges, +6:32" },
+    "Isaac Del Toro": { "mult": 1.10, "reden": "won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour" },
+    "Tadej Pogacar": { "mult": 1.05, "reden": "oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE topfavoriet voor de openings-TTT" },
     "Richard Carapaz": { "mult": 1.09, "reden": "2e in Ronde van Zwitserland - sterke klimvorm" },
-    "Mathias Vacek": { "mult": 1.12, "reden": "verrassend 3e in Ronde van Zwitserland - koopje" },
-    "Juan Ayuso": { "mult": 1.07, "reden": "op het podium in de Dauphiné - in vorm richting Tour" },
+    "Mathias Vacek": { "mult": 1.12, "reden": "verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een topteam voor de TTT - koopje" },
+    "Juan Ayuso": { "mult": 1.07, "reden": "op het podium in de Dauphiné; in vorm en in een sterk TTT-team (Lidl-Trek)" },
     "Lenny Martinez": { "mult": 1.06, "reden": "dapper weerwerk tegen Pogacar in Zwitserse slotrit" },
     "Paul Seixas": { "mult": 0.92, "reden": "zwaar gevallen en opgegeven in Dauphiné - vormtwijfel voor zijn 1e grote ronde" }
   }
