@@ -1,15 +1,17 @@
 {
   "agent": "uitslagen-agent",
   "type": "form",
-  "datum": "2026-07-03",
-  "bron": "wielerflits, wielerrevue, sporza, cyclingnews, domestiquecycling (voorbereidingsrondes juni 2026 + stage 1-preview)",
-  "uitleg": "Verse vorm uit de laatste voorbereidingsrondes vlak voor de Tour. Er is nog geen Tour-etappe verreden (start 4 juli, ploegentijdrit Barcelona). Stapelt met vorm/odds.",
+  "datum": "2026-07-04",
+  "bron": "wielerflits, wielerrevue, domestiquecycling, cyclingnews, indeleiderstrui (starttijden + voorbeschouwing ploegentijdrit + voorbereidingsrondes juni 2026)",
+  "uitleg": "Vandaag (za 4/7) start de Tour met de ploegentijdrit in Barcelona (19,7 km, slotklim Montjuïc) — nog GEEN rit verreden bij het opstellen. Elke renner krijgt zijn eigen tijd, dus meteen GC. Topfavorieten voor de TTT zijn INEOS en UAE, met Visma (voorlaatste weg), Red Bull en Lidl-Trek als outsiders. Deze multipliers stapelen met verse vorm uit de laatste voorbereidingsrondes.",
   "signalen": {
-    "Isaac Del Toro": { "mult": 1.10, "reden": "won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour" },
-    "Tadej Pogacar": { "mult": 1.05, "reden": "oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE topfavoriet voor de openings-TTT" },
+    "Isaac Del Toro": { "mult": 1.10, "reden": "won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour, rijdt voor sterk TTT-team UAE" },
+    "Tadej Pogacar": { "mult": 1.05, "reden": "oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE als laatste weg en topfavoriet voor de openings-TTT" },
     "Richard Carapaz": { "mult": 1.09, "reden": "2e in Ronde van Zwitserland - sterke klimvorm" },
-    "Mathias Vacek": { "mult": 1.12, "reden": "verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een topteam voor de TTT - koopje" },
+    "Mathias Vacek": { "mult": 1.12, "reden": "verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een outsider voor de TTT - koopje" },
     "Juan Ayuso": { "mult": 1.07, "reden": "op het podium in de Dauphiné; in vorm en in een sterk TTT-team (Lidl-Trek)" },
+    "Filippo Ganna": { "mult": 1.06, "reden": "TT-motor van INEOS, dé topfavoriet voor de ploegentijdrit; elke renner krijgt eigen tijd, dus hij pakt hier GC-tijd" },
+    "Kevin Vauquelin": { "mult": 1.05, "reden": "rijdt voor TTT-topfavoriet INEOS; de venijnige slotklim naar Montjuïc ligt de puncheur - differential" },
     "Lenny Martinez": { "mult": 1.06, "reden": "dapper weerwerk tegen Pogacar in Zwitserse slotrit" },
     "Paul Seixas": { "mult": 0.92, "reden": "zwaar gevallen en opgegeven in Dauphiné - vormtwijfel voor zijn 1e grote ronde" }
   }
