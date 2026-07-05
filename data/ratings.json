@@ -63,9 +63,9 @@
     {
       "agent": "non-starter-agent",
       "type": "exclude",
-      "datum": "2026-07-04",
-      "uitleg": "Renners die niet starten — uit de selectie (0 punten). Uit deze spelerspool valt enkel Oscar Onley (INEOS) af: schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Andere bekende afwezigen (Wout van Aert-elleboog, Pello Bilbao-ziekte, Mikel Landa, Marc Soler) zitten NIET in deze pool en zijn dus niet toegevoegd.",
-      "bron": "cyclinguptodate, flobikes, cyclingnews, domestiquecycling (definitieve selecties + startvolgorde etappe 1, 4 juli 2026)",
+      "datum": "2026-07-05",
+      "uitleg": "Renners die niet starten — uit de selectie (0 punten). Uit deze spelerspool valt enkel Oscar Onley (INEOS) af: schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Alle 184 renners namen de start van etappe 1; na de TTT zijn er geen nieuwe uitvallers uit deze pool bekend.",
+      "bron": "cyclinguptodate, wielerflits, domestiquecycling (startlijst na etappe 1, 5 juli 2026)",
       "highlights": []
     },
     {
@@ -138,14 +138,14 @@
     {
       "agent": "uitslagen-agent",
       "type": "form",
-      "datum": "2026-07-04",
-      "uitleg": "Vandaag (za 4/7) start de Tour met de ploegentijdrit in Barcelona (19,7 km, slotklim Montjuïc) — nog GEEN rit verreden bij het opstellen. Elke renner krijgt zijn eigen tijd, dus meteen GC. Topfavorieten voor de TTT zijn INEOS en UAE, met Visma (voorlaatste weg), Red Bull en Lidl-Trek als outsiders. Deze multipliers stapelen met verse vorm uit de laatste voorbereidingsrondes.",
-      "bron": "wielerflits, wielerrevue, domestiquecycling, cyclingnews, indeleiderstrui (starttijden + voorbeschouwing ploegentijdrit + voorbereidingsrondes juni 2026)",
+      "datum": "2026-07-05",
+      "uitleg": "Etappe 1 (TTT Barcelona, 19,6 km) is verreden: Visma-Lease a Bike won en Jonas Vingegaard pakt de eerste gele trui. INEOS werd 2e (op 7 sec, met Ganna), UAE 3e. In het GC: Pogacar op 12 sec, Ayuso op 16 sec, Evenepoel op 19 sec (reed weg van Lipowitz), Del Toro op 26 sec, Lipowitz op 35 sec. Vandaag (zo 5/7) puncheursrit naar Barcelona met 3x de venijnige Côte de Montjuïc (9,3%, tot 13%): Pogacar is dé favoriet en wil geel terugpakken, met Van der Poel, Skjelmose, Pidcock en Vauquelin als aanvallers.",
+      "bron": "sporza, cyclinguptodate, wielerflits, wielerrevue, cyclingnews (uitslag + GC etappe 1 TTT Barcelona 4/7 en voorbeschouwing etappe 2 Tarragona-Barcelona 5/7)",
       "highlights": [
-        "Isaac Del Toro: won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour, rijdt voor sterk TTT-team UAE",
-        "Tadej Pogacar: oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE als laatste weg en topfavoriet voor de openings-TTT",
-        "Richard Carapaz: 2e in Ronde van Zwitserland - sterke klimvorm",
-        "Mathias Vacek: verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een outsider voor de TTT - koopje"
+        "Jonas Vingegaard: won de openings-TTT met Visma en draagt de eerste gele trui - GC-tijd + vorm",
+        "Tadej Pogacar: 3e in TTT (op 12 sec) maar dé topfavoriet voor de puncheursfinale van vandaag; kondigde aan geel te willen terugpakken op de Montjuïc",
+        "Filippo Ganna: loodste INEOS naar 2e plaats in de TTT (op 7 sec) - pakte GC-tijd",
+        "Mathieu van der Poel: topfavoriet voor de steile slotklim Montjuïc (3x) vandaag - puncheursterrein op zijn lijf geschreven"
       ]
     }
   ],
@@ -330,14 +330,14 @@
     ]
   },
   "recap": {
-    "gisteren": "Nog geen ritten verreden: de Tour start pas vandaag. In de aanloop domineerden Pogacar (eindwinst Ronde van Zwitserland met 3 ritzeges) en Isaac Del Toro (winst Tour Auvergne-Rhône-Alpes/Dauphiné), met Carapaz en Vacek mee op het Zwitserse podium.",
-    "vandaag": "Openingsrit (za 4/7): ploegentijdrit van 19,7 km in Barcelona met slotklim naar Montjuïc. Elke renner krijgt een eigen tijd, dus meteen GC. INEOS en UAE zijn dé topfavorieten (UAE start als laatste, Visma als voorlaatste); Lidl-Trek en Red Bull zijn outsiders. Kies renners uit die sterke TT-teams en zet je kapitein op je grootste troef (Pogacar). Let op: Oscar Onley mist de Tour (schouderblessure).",
-    "datum": "2026-07-04"
+    "gisteren": "Visma-Lease a Bike won de openings-ploegentijdrit in Barcelona (19,6 km) en zette Jonas Vingegaard in de eerste gele trui. INEOS werd 2e op 7 sec (met Ganna), UAE 3e; Pogacar gaf 12 sec toe, Evenepoel 19 sec (hij reed weg van Lipowitz, die 35 sec verloor) en Ayuso 16 sec.",
+    "vandaag": "Etappe 2 (zo 5/7): puncheursrit van Tarragona naar Barcelona (168,5 km) met een slotcircuit van 3x de steile Côte de Montjuïc (9,3%, tot 13%). Pogacar is dé favoriet en wil geel terugpakken; Van der Poel, Skjelmose, Pidcock en dark horse Vauquelin kunnen aanvallen. Advies: kies puncheurs en GC-toppers die de korte, steile klim aankunnen en zet je kapitein op Pogacar of Van der Poel. Oscar Onley mist de Tour (schouderblessure).",
+    "datum": "2026-07-05"
   },
   "weer": {
-    "weer": "Openingsrit za 4/7 (ploegentijdrit Barcelona, 19,7 km, start Parc del Fòrum → finish Montjuïc): warm en zonnig, ~28-30°C, aan de finish (rond 19u lokale tijd, laatste ploeg UAE) nog 27-29°C, matige zeebries (~15-20 km/h) langs de kust, nagenoeg geen regenkans.",
-    "impact": "Droge, snelle ploegentijdrit met venijnige slotklim naar Montjuïc (1,1 km à 5,1%). Nieuwe regel: elke renner krijgt zijn eigen aankomsttijd, dus het is meteen een GC-rit. Sterke TT-teams (INEOS en UAE zijn topfavoriet, Visma/Red Bull/Lidl-Trek outsiders) en klimmende puncheurs pakken hier tijd; de hitte weegt weinig op zo'n korte inspanning.",
-    "datum": "2026-07-04"
+    "weer": "Etappe 2 (zo 5/7, Tarragona → Barcelona, 168,5 km langs de Middellandse Zeekust): warm en zonnig. Start ~34°C met zuidenwind (~21 km/h), aankomst in Barcelona ~30°C met zuidenwind (~16 km/h). Nagenoeg geen regenkans.",
+    "impact": "Zonnige, warme rit met een zuidelijke mee-/zijwind die zorgt voor een snelle aanloop naar de finaleronde. De rit wordt beslist op 3 passages van de steile Côte de Montjuïc (9,3%, tot 13%): een puncheursfinale waar de hitte en de herhaalde korte inspanningen de klimmende puncheurs en klassementsrenners bevoordelen. Sprinters kunnen hier niet volgen.",
+    "datum": "2026-07-05"
   },
   "riders": [
     {
@@ -345,8 +345,8 @@
       "team": "UAE",
       "price": 12,
       "rol": "gc",
-      "pts": 1357,
-      "note": "oppermachtig in Ronde van Zwitserland (eindwinst, 3 ritzeges); UAE als laatste weg en topfavoriet voor de openings-TTT",
+      "pts": 1388,
+      "note": "3e in TTT (op 12 sec) maar dé topfavoriet voor de puncheursfinale van vandaag; kondigde aan geel te willen terugpakken op de Montjuïc",
       "differential": false
     },
     {
@@ -354,8 +354,8 @@
       "team": "Visma",
       "price": 10,
       "rol": "gc",
-      "pts": 953,
-      "note": "geel ~5.0 - eerste uitdager",
+      "pts": 1055,
+      "note": "won de openings-TTT met Visma en draagt de eerste gele trui - GC-tijd + vorm",
       "differential": false
     },
     {
@@ -386,15 +386,6 @@
       "differential": false
     },
     {
-      "name": "Florian Lipowitz",
-      "team": "Red Bull-BORA",
-      "price": 8,
-      "rol": "gc",
-      "pts": 624,
-      "note": "podium-notering",
-      "differential": false
-    },
-    {
       "name": "Mads Pedersen",
       "team": "Lidl-Trek",
       "price": 8,
@@ -404,21 +395,21 @@
       "differential": false
     },
     {
+      "name": "Florian Lipowitz",
+      "team": "Red Bull-BORA",
+      "price": 8,
+      "rol": "gc",
+      "pts": 577,
+      "note": "verloor 35 sec in de TTT en werd door ploegmaat Evenepoel gelost - tegenvallende opener",
+      "differential": false
+    },
+    {
       "name": "Mathieu van der Poel",
       "team": "Alpecin",
       "price": 8,
       "rol": "klassieker",
-      "pts": 528,
-      "note": "ritten + gele trui vroege week",
-      "differential": false
-    },
-    {
-      "name": "Isaac Del Toro",
-      "team": "UAE",
-      "price": 7,
-      "rol": "gc",
-      "pts": 493,
-      "note": "won de Tour Auvergne-Rhône-Alpes/Dauphiné - topvorm richting Tour, rijdt voor sterk TTT-team UAE",
+      "pts": 569,
+      "note": "topfavoriet voor de steile slotklim Montjuïc (3x) vandaag - puncheursterrein op zijn lijf geschreven",
       "differential": false
     },
     {
@@ -426,17 +417,17 @@
       "team": "Decathlon",
       "price": 8,
       "rol": "gc",
-      "pts": 478,
-      "note": "zwaar gevallen en opgegeven in Dauphiné - vormtwijfel voor zijn 1e grote ronde",
+      "pts": 525,
+      "note": "groot talent maar val in voorbereiding",
       "differential": false
     },
     {
-      "name": "Juan Ayuso",
-      "team": "Lidl-Trek",
+      "name": "Isaac Del Toro",
+      "team": "UAE",
       "price": 7,
       "rol": "gc",
-      "pts": 468,
-      "note": "op het podium in de Dauphiné; in vorm en in een sterk TTT-team (Lidl-Trek)",
+      "pts": 451,
+      "note": "sterke schaduwkopman UAE, ritkansen",
       "differential": false
     },
     {
@@ -453,8 +444,8 @@
       "team": "INEOS",
       "price": 6,
       "rol": "gc",
-      "pts": 417,
-      "note": "rijdt voor TTT-topfavoriet INEOS; de venijnige slotklim naar Montjuïc ligt de puncheur - differential",
+      "pts": 421,
+      "note": "dark horse voor vandaag: de Montjuïc ligt de puncheur en INEOS was 2e in de TTT - differential",
       "differential": true
     },
     {
@@ -462,8 +453,26 @@
       "team": "Q36.5",
       "price": 6,
       "rol": "gc",
-      "pts": 394,
-      "note": "",
+      "pts": 413,
+      "note": "genoemd bij de puncheurs die op de steile Montjuïc kunnen toeslaan",
+      "differential": false
+    },
+    {
+      "name": "Juan Ayuso",
+      "team": "Lidl-Trek",
+      "price": 7,
+      "rol": "gc",
+      "pts": 412,
+      "note": "Lidl-Trek viel laat weg op de Montjuïc in de TTT; Ayuso verloor al 16 sec",
+      "differential": false
+    },
+    {
+      "name": "Matteo Jorgenson",
+      "team": "Visma",
+      "price": 6,
+      "rol": "gc",
+      "pts": 386,
+      "note": "reed mee in de winnende Visma-ploegentijdrit - staat goed in het GC en is klaar voor de puncheursrit",
       "differential": false
     },
     {
@@ -485,21 +494,21 @@
       "differential": false
     },
     {
-      "name": "Matteo Jorgenson",
-      "team": "Visma",
-      "price": 6,
-      "rol": "gc",
-      "pts": 365,
-      "note": "",
-      "differential": false
-    },
-    {
       "name": "Olav Kooij",
       "team": "Decathlon",
       "price": 7,
       "rol": "sprinter",
       "pts": 364,
       "note": "",
+      "differential": false
+    },
+    {
+      "name": "Mattias Skjelmose",
+      "team": "Lidl-Trek",
+      "price": 5,
+      "rol": "gc",
+      "pts": 276,
+      "note": "aangeduid als aanvaller/favoriet op de Montjuïc-finale van vandaag",
       "differential": false
     },
     {
@@ -510,15 +519,6 @@
       "pts": 275,
       "note": "aanvaller, ritten + tijd in trui",
       "differential": true
-    },
-    {
-      "name": "Richard Carapaz",
-      "team": "EF Education",
-      "price": 5,
-      "rol": "klimmer",
-      "pts": 275,
-      "note": "2e in Ronde van Zwitserland - sterke klimvorm",
-      "differential": false
     },
     {
       "name": "Antonio Tiberi",
@@ -557,11 +557,11 @@
       "differential": false
     },
     {
-      "name": "Mattias Skjelmose",
-      "team": "Lidl-Trek",
+      "name": "Richard Carapaz",
+      "team": "EF Education",
       "price": 5,
-      "rol": "gc",
-      "pts": 258,
+      "rol": "klimmer",
+      "pts": 252,
       "note": "",
       "differential": false
     },
@@ -570,8 +570,8 @@
       "team": "Bahrain",
       "price": 5,
       "rol": "klimmer",
-      "pts": 255,
-      "note": "dapper weerwerk tegen Pogacar in Zwitserse slotrit",
+      "pts": 241,
+      "note": "",
       "differential": false
     },
     {
@@ -629,6 +629,15 @@
       "differential": false
     },
     {
+      "name": "Filippo Ganna",
+      "team": "INEOS",
+      "price": 5,
+      "rol": "tijdrit",
+      "pts": 228,
+      "note": "loodste INEOS naar 2e plaats in de TTT (op 7 sec) - pakte GC-tijd",
+      "differential": false
+    },
+    {
       "name": "Romain Gregoire",
       "team": "Groupama-FDJ",
       "price": 5,
@@ -636,24 +645,6 @@
       "pts": 226,
       "note": "",
       "differential": false
-    },
-    {
-      "name": "Filippo Ganna",
-      "team": "INEOS",
-      "price": 5,
-      "rol": "tijdrit",
-      "pts": 224,
-      "note": "TT-motor van INEOS, dé topfavoriet voor de ploegentijdrit; elke renner krijgt eigen tijd, dus hij pakt hier GC-tijd",
-      "differential": false
-    },
-    {
-      "name": "Mathias Vacek",
-      "team": "Lidl-Trek",
-      "price": 4,
-      "rol": "klimmer",
-      "pts": 218,
-      "note": "verrassend 3e in Ronde van Zwitserland; Lidl-Trek is een outsider voor de TTT - koopje",
-      "differential": true
     },
     {
       "name": "Georg Steinhauser",
@@ -744,6 +735,15 @@
       "pts": 195,
       "note": "",
       "differential": false
+    },
+    {
+      "name": "Mathias Vacek",
+      "team": "Lidl-Trek",
+      "price": 4,
+      "rol": "klimmer",
+      "pts": 195,
+      "note": "",
+      "differential": true
     },
     {
       "name": "Guillaume Martin",

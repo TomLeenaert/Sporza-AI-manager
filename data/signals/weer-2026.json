@@ -1,8 +1,8 @@
 {
   "agent": "weer-agent",
   "type": "weer",
-  "datum": "2026-07-04",
-  "bron": "met office / accuweather / world-weather (weersverwachting Barcelona 4 juli 2026)",
-  "weer": "Openingsrit za 4/7 (ploegentijdrit Barcelona, 19,7 km, start Parc del Fòrum → finish Montjuïc): warm en zonnig, ~28-30°C, aan de finish (rond 19u lokale tijd, laatste ploeg UAE) nog 27-29°C, matige zeebries (~15-20 km/h) langs de kust, nagenoeg geen regenkans.",
-  "impact": "Droge, snelle ploegentijdrit met venijnige slotklim naar Montjuïc (1,1 km à 5,1%). Nieuwe regel: elke renner krijgt zijn eigen aankomsttijd, dus het is meteen een GC-rit. Sterke TT-teams (INEOS en UAE zijn topfavoriet, Visma/Red Bull/Lidl-Trek outsiders) en klimmende puncheurs pakken hier tijd; de hitte weegt weinig op zo'n korte inspanning."
+  "datum": "2026-07-05",
+  "bron": "cyclingstage / accuweather (weersverwachting Tarragona-Barcelona 5 juli 2026)",
+  "weer": "Etappe 2 (zo 5/7, Tarragona → Barcelona, 168,5 km langs de Middellandse Zeekust): warm en zonnig. Start ~34°C met zuidenwind (~21 km/h), aankomst in Barcelona ~30°C met zuidenwind (~16 km/h). Nagenoeg geen regenkans.",
+  "impact": "Zonnige, warme rit met een zuidelijke mee-/zijwind die zorgt voor een snelle aanloop naar de finaleronde. De rit wordt beslist op 3 passages van de steile Côte de Montjuïc (9,3%, tot 13%): een puncheursfinale waar de hitte en de herhaalde korte inspanningen de klimmende puncheurs en klassementsrenners bevoordelen. Sprinters kunnen hier niet volgen."
 }

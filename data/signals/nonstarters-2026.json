@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-04",
-  "bron": "cyclinguptodate, flobikes, cyclingnews, domestiquecycling (definitieve selecties + startvolgorde etappe 1, 4 juli 2026)",
-  "uitleg": "Renners die niet starten — uit de selectie (0 punten). Uit deze spelerspool valt enkel Oscar Onley (INEOS) af: schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Andere bekende afwezigen (Wout van Aert-elleboog, Pello Bilbao-ziekte, Mikel Landa, Marc Soler) zitten NIET in deze pool en zijn dus niet toegevoegd.",
+  "datum": "2026-07-05",
+  "bron": "cyclinguptodate, wielerflits, domestiquecycling (startlijst na etappe 1, 5 juli 2026)",
+  "uitleg": "Renners die niet starten — uit de selectie (0 punten). Uit deze spelerspool valt enkel Oscar Onley (INEOS) af: schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Alle 184 renners namen de start van etappe 1; na de TTT zijn er geen nieuwe uitvallers uit deze pool bekend.",
   "names": ["Oscar Onley"]
 }
