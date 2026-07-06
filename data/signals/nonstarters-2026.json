@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-05",
-  "bron": "cyclinguptodate, wielerflits, domestiquecycling (startlijst na etappe 1, 5 juli 2026)",
-  "uitleg": "Renners die niet starten — uit de selectie (0 punten). Uit deze spelerspool valt enkel Oscar Onley (INEOS) af: schouderblessure na een val in de Tour Auvergne-Rhône-Alpes. Alle 184 renners namen de start van etappe 1; na de TTT zijn er geen nieuwe uitvallers uit deze pool bekend.",
-  "names": ["Oscar Onley"]
+  "datum": "2026-07-06",
+  "bron": "cyclingnews, radsport-news, hetiskoers, domestiquecycling (startlijst na etappe 2, 6 juli 2026)",
+  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Oscar Onley (INEOS) miste de Tour al door een schouderblessure (val in Tour Auvergne-Rhône-Alpes). Clément Berthet (Groupama-FDJ) startte etappe 2 niet na een zware val met hersenschudding in de openings-TTT. Voor de rest zijn er geen nieuwe uitvallers uit deze pool bekend.",
+  "names": ["Oscar Onley", "Clement Berthet"]
 }

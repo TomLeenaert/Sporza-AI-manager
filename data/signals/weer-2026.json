@@ -1,8 +1,8 @@
 {
   "agent": "weer-agent",
   "type": "weer",
-  "datum": "2026-07-05",
-  "bron": "cyclingstage / accuweather (weersverwachting Tarragona-Barcelona 5 juli 2026)",
-  "weer": "Etappe 2 (zo 5/7, Tarragona → Barcelona, 168,5 km langs de Middellandse Zeekust): warm en zonnig. Start ~34°C met zuidenwind (~21 km/h), aankomst in Barcelona ~30°C met zuidenwind (~16 km/h). Nagenoeg geen regenkans.",
-  "impact": "Zonnige, warme rit met een zuidelijke mee-/zijwind die zorgt voor een snelle aanloop naar de finaleronde. De rit wordt beslist op 3 passages van de steile Côte de Montjuïc (9,3%, tot 13%): een puncheursfinale waar de hitte en de herhaalde korte inspanningen de klimmende puncheurs en klassementsrenners bevoordelen. Sprinters kunnen hier niet volgen."
+  "datum": "2026-07-06",
+  "bron": "weeronline / accuweather (weersverwachting Granollers - Les Angles 6 juli 2026)",
+  "weer": "Etappe 3 (ma 6/7, Granollers → Les Angles, 195,9 km bergrit in de Pyreneeën): warm en zonnig. Start in Granollers tot ~35°C, op hoogte (rond 1.800 m) en aan de finish in Les Angles ~27°C. Zwakke tot matige zuidenwind, groot deel van de dag meewind. Geen noemenswaardige regenkans meer.",
+  "impact": "Warme, zonnige eerste echte bergrit. De meewind zorgt voor een snelle koers en houdt een vroege vlucht van sterke klimmers goed op gang. Na ~196 km met o.a. de Collada de Toses volgt een korte maar venijnige slotklim (1,8 km à 6,5%): de hitte en de lange aanloop wegen op de benen, wat de klimmers en klassementsrenners bevoordeelt. Sprinters lossen. Reële kans dat de rit vanuit de vlucht wordt beslist."
 }

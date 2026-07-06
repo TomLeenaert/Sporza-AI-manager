@@ -1,19 +1,20 @@
 {
   "agent": "uitslagen-agent",
   "type": "form",
-  "datum": "2026-07-05",
-  "bron": "sporza, cyclinguptodate, wielerflits, wielerrevue, cyclingnews (uitslag + GC etappe 1 TTT Barcelona 4/7 en voorbeschouwing etappe 2 Tarragona-Barcelona 5/7)",
-  "uitleg": "Etappe 1 (TTT Barcelona, 19,6 km) is verreden: Visma-Lease a Bike won en Jonas Vingegaard pakt de eerste gele trui. INEOS werd 2e (op 7 sec, met Ganna), UAE 3e. In het GC: Pogacar op 12 sec, Ayuso op 16 sec, Evenepoel op 19 sec (reed weg van Lipowitz), Del Toro op 26 sec, Lipowitz op 35 sec. Vandaag (zo 5/7) puncheursrit naar Barcelona met 3x de venijnige Côte de Montjuïc (9,3%, tot 13%): Pogacar is dé favoriet en wil geel terugpakken, met Van der Poel, Skjelmose, Pidcock en Vauquelin als aanvallers.",
+  "datum": "2026-07-06",
+  "bron": "sporza, cyclingnews, cyclinguptodate, wielerflits, wielerrevue (uitslag + GC na etappe 2 Tarragona-Barcelona 5/7 en voorbeschouwing etappe 3 Granollers-Les Angles 6/7)",
+  "uitleg": "Etappe 2 (puncheursrit naar Barcelona, 3x Montjuïc) werd een UAE-machtsvertoon: Tadej Pogacar reed iedereen eraf maar schonk de ritzege aan ploegmaat Isaac Del Toro (1-2 voor UAE). Remco Evenepoel wipte er in de sprint van groep 2 voorbij Vingegaard en pakte 3e + bonus; Jonas Vingegaard werd 4e en HOUDT de gele trui. GC na etappe 2: 1. Vingegaard, 2. Pogacar op 6 sec, 3. Evenepoel op 15 sec, 4. Del Toro op 16 sec, 5. Ayuso op 19 sec, 6. Seixas op 42 sec, 7. Gregoire op 44 sec, 8. Lipowitz op 45 sec, 9. Lenny Martinez op 53 sec, 10. Pidcock op 1'00. Vandaag (ma 6/7) de eerste echte bergrit: Granollers -> Les Angles (195,9 km, ~3.850 hm) met de Collada de Toses en een korte slotklim (1,8 km à 6,5%). Favorieten: Pogacar, Vingegaard, Evenepoel, Del Toro, Ayuso, plus klimmers Seixas, Carapaz, Tiberi, Lenny Martinez en een reële vluchtkans voor sterke klimmers.",
   "signalen": {
-    "Jonas Vingegaard": { "mult": 1.12, "reden": "won de openings-TTT met Visma en draagt de eerste gele trui - GC-tijd + vorm" },
-    "Tadej Pogacar": { "mult": 1.08, "reden": "3e in TTT (op 12 sec) maar dé topfavoriet voor de puncheursfinale van vandaag; kondigde aan geel te willen terugpakken op de Montjuïc" },
-    "Filippo Ganna": { "mult": 1.08, "reden": "loodste INEOS naar 2e plaats in de TTT (op 7 sec) - pakte GC-tijd" },
-    "Mathieu van der Poel": { "mult": 1.08, "reden": "topfavoriet voor de steile slotklim Montjuïc (3x) vandaag - puncheursterrein op zijn lijf geschreven" },
-    "Mattias Skjelmose": { "mult": 1.07, "reden": "aangeduid als aanvaller/favoriet op de Montjuïc-finale van vandaag" },
-    "Matteo Jorgenson": { "mult": 1.06, "reden": "reed mee in de winnende Visma-ploegentijdrit - staat goed in het GC en is klaar voor de puncheursrit" },
-    "Kevin Vauquelin": { "mult": 1.06, "reden": "dark horse voor vandaag: de Montjuïc ligt de puncheur en INEOS was 2e in de TTT - differential" },
-    "Tom Pidcock": { "mult": 1.05, "reden": "genoemd bij de puncheurs die op de steile Montjuïc kunnen toeslaan" },
-    "Juan Ayuso": { "mult": 0.94, "reden": "Lidl-Trek viel laat weg op de Montjuïc in de TTT; Ayuso verloor al 16 sec" },
-    "Florian Lipowitz": { "mult": 0.92, "reden": "verloor 35 sec in de TTT en werd door ploegmaat Evenepoel gelost - tegenvallende opener" }
+    "Isaac Del Toro": { "mult": 1.12, "reden": "won etappe 2 op de Montjuïc (door Pogacar geschonken) en klom naar 4e in het GC (op 16 sec) - topvorm, ook favoriet vandaag" },
+    "Tadej Pogacar": { "mult": 1.10, "reden": "reed iedereen eraf op de Montjuïc en staat na bonus 2e op 6 sec; dé favoriet voor de eerste bergrit naar Les Angles vandaag" },
+    "Remco Evenepoel": { "mult": 1.08, "reden": "3e in etappe 2, sprintte voorbij Vingegaard voor de bonus en staat nu 3e in het GC (op 15 sec) - sterke vorm" },
+    "Jonas Vingegaard": { "mult": 1.08, "reden": "4e in etappe 2 en behoudt de gele trui; kan zich vandaag verdedigen op de eerste echte bergrit" },
+    "Juan Ayuso": { "mult": 1.05, "reden": "herpakt zich na de TTT: 5e in het GC op 19 sec en aangeduid als favoriet voor de bergrit vandaag" },
+    "Paul Seixas": { "mult": 1.06, "reden": "sterke jonge klimmer, 6e in het GC (op 42 sec) en genoemd als favoriet voor de aankomst in Les Angles - differential" },
+    "Romain Gregoire": { "mult": 1.05, "reden": "verrassend 7e in het GC (op 44 sec) na een sterke openingsweek - differential" },
+    "Lenny Martinez": { "mult": 1.05, "reden": "9e in het GC (op 53 sec) en pure klimmer; kandidaat voor de vlucht/aanval op de bergrit naar Les Angles" },
+    "Tom Pidcock": { "mult": 1.05, "reden": "10e in het GC (op 1'00) en genoemd bij de favorieten voor de bergrit vandaag" },
+    "Richard Carapaz": { "mult": 1.05, "reden": "aangeduid als favoriet/vluchtkandidaat voor de eerste bergrit naar Les Angles - aanvaller in vorm" },
+    "Antonio Tiberi": { "mult": 1.04, "reden": "genoemd bij de klimmers-favorieten voor de bergrit vandaag" }
   }
 }
