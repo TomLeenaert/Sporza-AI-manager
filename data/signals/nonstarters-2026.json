@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-06",
-  "bron": "cyclingnews, radsport-news, hetiskoers, domestiquecycling (startlijst na etappe 2, 6 juli 2026)",
-  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Oscar Onley (INEOS) miste de Tour al door een schouderblessure (val in Tour Auvergne-Rhône-Alpes). Clément Berthet (Groupama-FDJ) startte etappe 2 niet na een zware val met hersenschudding in de openings-TTT. Voor de rest zijn er geen nieuwe uitvallers uit deze pool bekend.",
-  "names": ["Oscar Onley", "Clement Berthet"]
+  "datum": "2026-07-07",
+  "bron": "cyclingnews, cyclinguptodate, rtbf, radsport-news (medische rapporten & opgaves na etappe 3, 6 juli 2026)",
+  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Arnaud De Lie (Lotto Intermarche) gaf op tijdens etappe 3 na dagenlange maagproblemen en de extreme hitte. Oscar Onley (INEOS) miste de Tour al door een schouderblessure. Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een zware val in de openings-TTT. De valpartij in etappe 3 (o.a. INEOS: Arensman, Foss, Kwiatkowski, plus Vacek en Armirail) leidde niet tot opgaves: allen finishten.",
+  "names": ["Arnaud De Lie", "Oscar Onley", "Clement Berthet"]
 }
