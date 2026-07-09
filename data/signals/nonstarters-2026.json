@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-08",
-  "bron": "cyclingnews (abandons-tracker 2026), cyclinguptodate (medical reports & withdrawals etappe 4, 7 juli 2026)",
-  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Arnaud De Lie (Lotto Intermarche) gaf op in etappe 3 na maagproblemen en de extreme hitte. Kelland O'Brien (Jayco) werd in etappe 4 als eerste renner uit koers gezet buiten de tijdslimiet in de bloedhitte naar Foix. Oscar Onley (INEOS) miste de Tour al door een schouderblessure. Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een zware val in de openings-TTT.",
-  "names": ["Arnaud De Lie", "Kelland O'Brien", "Oscar Onley", "Clement Berthet"]
+  "datum": "2026-07-09",
+  "bron": "cyclingnews (abandons-tracker 2026), procyclinguk, cyclinguptodate (medical reports & withdrawals t.e.m. etappe 5, 8 juli 2026)",
+  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Alex Molenaar (Caja Rural) start etappe 6 niet: na zijn val kort voor de 5 km-streep in Pau bleek een breuk in de eerste middenhandsbeen van zijn rechterhand. Eerder al: Arnaud De Lie (Lotto Intermarche) gaf op in etappe 3 (maagproblemen + hitte); Kelland O'Brien (Jayco) werd in etappe 4 buiten tijd gezet; Oscar Onley (INEOS) miste de Tour door een schouderblessure; Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een val in de openings-TTT.",
+  "names": ["Alex Molenaar", "Arnaud De Lie", "Kelland O'Brien", "Oscar Onley", "Clement Berthet"]
 }

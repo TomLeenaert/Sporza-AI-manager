@@ -1,8 +1,8 @@
 {
   "agent": "weer-agent",
   "type": "weer",
-  "datum": "2026-07-08",
-  "bron": "cyclinguptodate, idlprocycling, cyclingstage (weersverwachting Lannemezan - Pau, etappe 5, 8 juli 2026)",
-  "weer": "Etappe 5 (wo 8/7, Lannemezan → Pau, 158,3 km vlakke rit): opnieuw warm maar iets minder infernaal dan gisteren. Zonnig en rond ~35°C, met een zwakke noordnoordoostenwind van ~10 km/h. Geen regen; in de slotsprint een lichte zijwind.",
-  "impact": "Een vlakke etappe met een verraderlijke finale: drie korte klimmetjes in de laatste ~12 km (o.a. Côte de Baleix, 1,3 km à 7%) kunnen pure sprinters lossen. De hitte is draaglijker dan in etappe 4, dus een massasprint blijft het meest waarschijnlijk scenario. De lichte zijwind kan waaiers uitlokken maar is te zwak voor grote schifting. Kies een snelle man die ook over de bulten geraakt (Pedersen, Philipsen) of een pure sprinter (Merlier, Kooij) als je op de bunchsprint gokt."
+  "datum": "2026-07-09",
+  "bron": "cyclingnews, cyclingstage, cyclinguptodate (weersverwachting Pau - Gavarnie-Gèdre, etappe 6, 9 juli 2026)",
+  "weer": "Etappe 6 (do 9/7, Pau → Gavarnie-Gèdre, 186,2 km bergrit): een dag met weersomslag. Start in Pau nog zeer warm en zonnig, ~36°C met oostenwind ~17 km/h. Op de cols (Aspin, Tourmalet) en in de finale draait het naar regen; aankomst in Gavarnie-Gèdre rond ~32°C met regen en zwakke zuidoostenwind ~8 km/h. Oranje weeralarm in de Hautes-Pyrénées met onweerskans.",
+  "impact": "Eerste echte bergrit met Col d'Aspin, Col du Tourmalet (17,1 km à 7,3%, top op 2115 m) en de lange slotklim naar Gavarnie-Gèdre (18,7 km à 3,7%). De hitte vroeg in de rit (delen boven 28°C = UCI-hoogrisico) vraagt veel van de renners, maar regen op de Tourmalet en een gladde, natte afdaling kunnen de finale gevaarlijk en selectief maken. Kies GC-motoren/klimmers die het slechte weer trotseren (Pogacar, Vingegaard, Del Toro, Evenepoel); de flauwe slotklim maakt een groepje GC-favorieten dat samen aankomt het meest waarschijnlijke scenario, tenzij iemand op de Tourmalet vol doortrekt."
 }
