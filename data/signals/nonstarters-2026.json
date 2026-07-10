@@ -1,8 +1,8 @@
 {
   "agent": "non-starter-agent",
   "type": "exclude",
-  "datum": "2026-07-09",
-  "bron": "cyclingnews (abandons-tracker 2026), procyclinguk, cyclinguptodate (medical reports & withdrawals t.e.m. etappe 5, 8 juli 2026)",
-  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Alex Molenaar (Caja Rural) start etappe 6 niet: na zijn val kort voor de 5 km-streep in Pau bleek een breuk in de eerste middenhandsbeen van zijn rechterhand. Eerder al: Arnaud De Lie (Lotto Intermarche) gaf op in etappe 3 (maagproblemen + hitte); Kelland O'Brien (Jayco) werd in etappe 4 buiten tijd gezet; Oscar Onley (INEOS) miste de Tour door een schouderblessure; Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een val in de openings-TTT.",
-  "names": ["Alex Molenaar", "Arnaud De Lie", "Kelland O'Brien", "Oscar Onley", "Clement Berthet"]
+  "datum": "2026-07-10",
+  "bron": "cyclingnews (abandons-tracker 2026), cyclingweekly, cyclinguptodate, idlprocycling (medical reports & withdrawals t.e.m. etappe 6, 9 juli 2026)",
+  "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Nieuw na de bergetappe 6 (Pau -> Gavarnie-Gèdre): Cian Uijtdebroeks (Movistar) gaf op op de Col du Tourmalet met maagproblemen en koorts; Arvid de Kleijn (Tudor) stapte na ~40 km af na dagen afzien; Bert Van Lerberghe (Soudal Quick-Step) haakte af (aderlating voor de leadout van Merlier). Eerder al: Alex Molenaar (Caja Rural) startte etappe 6 niet (gebroken middenhandsbeen na val in Pau); Arnaud De Lie (Lotto Intermarche) gaf op in etappe 3 (maag + hitte); Kelland O'Brien (Jayco) buiten tijd in etappe 4; Oscar Onley (INEOS) miste de Tour (schouderblessure); Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een val in de TTT.",
+  "names": ["Cian Uijtdebroeks", "Arvid de Kleijn", "Bert Van Lerberghe", "Alex Molenaar", "Arnaud De Lie", "Kelland O'Brien", "Oscar Onley", "Clement Berthet"]
 }

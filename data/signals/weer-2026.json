@@ -1,8 +1,8 @@
 {
   "agent": "weer-agent",
   "type": "weer",
-  "datum": "2026-07-09",
-  "bron": "cyclingnews, cyclingstage, cyclinguptodate (weersverwachting Pau - Gavarnie-Gèdre, etappe 6, 9 juli 2026)",
-  "weer": "Etappe 6 (do 9/7, Pau → Gavarnie-Gèdre, 186,2 km bergrit): een dag met weersomslag. Start in Pau nog zeer warm en zonnig, ~36°C met oostenwind ~17 km/h. Op de cols (Aspin, Tourmalet) en in de finale draait het naar regen; aankomst in Gavarnie-Gèdre rond ~32°C met regen en zwakke zuidoostenwind ~8 km/h. Oranje weeralarm in de Hautes-Pyrénées met onweerskans.",
-  "impact": "Eerste echte bergrit met Col d'Aspin, Col du Tourmalet (17,1 km à 7,3%, top op 2115 m) en de lange slotklim naar Gavarnie-Gèdre (18,7 km à 3,7%). De hitte vroeg in de rit (delen boven 28°C = UCI-hoogrisico) vraagt veel van de renners, maar regen op de Tourmalet en een gladde, natte afdaling kunnen de finale gevaarlijk en selectief maken. Kies GC-motoren/klimmers die het slechte weer trotseren (Pogacar, Vingegaard, Del Toro, Evenepoel); de flauwe slotklim maakt een groepje GC-favorieten dat samen aankomt het meest waarschijnlijke scenario, tenzij iemand op de Tourmalet vol doortrekt."
+  "datum": "2026-07-10",
+  "bron": "procyclingstats (weersverwachting stage 7), cyclinguptodate, velo/outsideonline, idlprocycling (Hagetmau - Bordeaux, etappe 7, 10 juli 2026)",
+  "weer": "Etappe 7 (vr 10/7, Hagetmau → Bordeaux, 175,1 km vlak): opnieuw een hete dag. Start in Hagetmau zonnig, ~31°C met zwakke noordoostenwind ~7 km/h. Onderweg richting Bordeaux loopt het op tot ~35°C, zonnig met wat wolkenvelden en een zwakke tot matige zuidwestenwind ~10 km/h. Kleine kans op een late onweersbui en windstoten als er wolken opbouwen.",
+  "impact": "Volledig vlakke rit (amper 850 hm) die normaal op een massasprint uitdraait. Het grootste vraagteken is de wind: de weg loopt nagenoeg de hele dag pal naar het noorden, en als er wind van de nabije Atlantische kust komt opzetten, kan het waaiers en scheuren veroorzaken - dan zijn positionering en sterke ploegen (Alpecin, Soudal, Lidl-Trek, Visma) cruciaal. Bij weinig wind wordt het een pure sprint: kies een sprinter als kapitein (Kooij, Merlier, Philipsen, Pedersen). De aanhoudende hitte (delen boven 28°C) vraagt veel van de renners maar verandert het sprintscenario niet fundamenteel."
 }

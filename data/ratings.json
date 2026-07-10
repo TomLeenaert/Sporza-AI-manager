@@ -63,9 +63,9 @@
     {
       "agent": "non-starter-agent",
       "type": "exclude",
-      "datum": "2026-07-09",
-      "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Alex Molenaar (Caja Rural) start etappe 6 niet: na zijn val kort voor de 5 km-streep in Pau bleek een breuk in de eerste middenhandsbeen van zijn rechterhand. Eerder al: Arnaud De Lie (Lotto Intermarche) gaf op in etappe 3 (maagproblemen + hitte); Kelland O'Brien (Jayco) werd in etappe 4 buiten tijd gezet; Oscar Onley (INEOS) miste de Tour door een schouderblessure; Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een val in de openings-TTT.",
-      "bron": "cyclingnews (abandons-tracker 2026), procyclinguk, cyclinguptodate (medical reports & withdrawals t.e.m. etappe 5, 8 juli 2026)",
+      "datum": "2026-07-10",
+      "uitleg": "Renners uit deze spelerspool die niet (meer) meedoen -> uit de selectie (0 punten). Nieuw na de bergetappe 6 (Pau -> Gavarnie-Gèdre): Cian Uijtdebroeks (Movistar) gaf op op de Col du Tourmalet met maagproblemen en koorts; Arvid de Kleijn (Tudor) stapte na ~40 km af na dagen afzien; Bert Van Lerberghe (Soudal Quick-Step) haakte af (aderlating voor de leadout van Merlier). Eerder al: Alex Molenaar (Caja Rural) startte etappe 6 niet (gebroken middenhandsbeen na val in Pau); Arnaud De Lie (Lotto Intermarche) gaf op in etappe 3 (maag + hitte); Kelland O'Brien (Jayco) buiten tijd in etappe 4; Oscar Onley (INEOS) miste de Tour (schouderblessure); Clement Berthet (Groupama-FDJ) startte etappe 2 niet na een val in de TTT.",
+      "bron": "cyclingnews (abandons-tracker 2026), cyclingweekly, cyclinguptodate, idlprocycling (medical reports & withdrawals t.e.m. etappe 6, 9 juli 2026)",
       "highlights": []
     },
     {
@@ -138,14 +138,14 @@
     {
       "agent": "uitslagen-agent",
       "type": "form",
-      "datum": "2026-07-09",
-      "uitleg": "Etappe 5 (Lannemezan -> Pau, vlak) werd de eerste massasprint. Debutant Olav Kooij won na een chaotische, door een valpartij ontregelde finale (Decathlon zijn eerste Tourzege). Max Kanter (2e) ging 250 m voor de streep aan, Kooij kwam er overheen; Tim Merlier werd 3e, Jasper Philipsen 5e, Biniam Girmay 6e en Mads Pedersen 7e. Op ~5 km van de meet gooide een val het peloton om: de meeste GC-favorieten kwamen 14 tellen later binnen, maar onderling ging er GEEN tijd verloren, dus het GC bleef ongewijzigd. Ook geletruidrager Torstein Traen ging tegen de grond maar behield geel. GC (ongewijzigd): 1. Traen (geel), 2. Sean Quinn +0:28, 3. Mathias Vacek +3:50, 4. Pogacar +7:53, 5. Vingegaard +7:53, 6. Ramses Debruyne +8:06, 7. Evenepoel +8:16, 8. Del Toro +8:17, 9. Ayuso +8:20, 10. Seixas +8:41. VANDAAG (do 9/7) etappe 6: Pau -> Gavarnie-Gèdre (186,2 km, bergrit, ~4100 hm) met Col d'Aspin, Col du Tourmalet (17,1 km à 7,3%) en de slotklim naar Gavarnie-Gèdre (18,7 km à 3,7%). De eerste echte GC-krachtmeting: Pogacar is topfavoriet, Del Toro (3 sterren) en Evenepoel (2 sterren) volgen, met Vingegaard als grote rivaal. Regen op de cols en onweerskans in de finale kunnen alles op scherp zetten.",
-      "bron": "cyclingnews, cyclinguptodate, procyclingstats, idlprocycling, wielerflits (uitslag + GC na etappe 5 Lannemezan-Pau 8/7 en voorbeschouwing bergetappe 6 Pau-Gavarnie-Gèdre 9/7)",
+      "datum": "2026-07-10",
+      "uitleg": "Etappe 6 (Pau -> Gavarnie-Gèdre, bergrit) werd de grote GC-explosie. Tadej Pogacar sloeg toe op de Col du Tourmalet en reed ~40 km solo naar de zege (zijn 23e Tourrit) - hij pakt meteen ook geel én de bollentrui. Jonas Vingegaard verloor liefst 2:38 en werd 2e, Isaac Del Toro (UAE) knap 3e op 2:57 (en draagt wit). Remco Evenepoel 4e, Paul Seixas sterk 5e, Egan Bernal ~6e op 4:48. Geletruidrager Torstein Traen crashte en verloor het geel; Cian Uijtdebroeks, Arvid de Kleijn en Bert Van Lerberghe gaven op. GC NA ETAPPE 6: 1. Pogacar (geel), 2. Vingegaard +2:42, 3. Del Toro +3:27 (wit), 4. Evenepoel +3:30, 5. Ayuso +3:34, 6. Seixas +3:55, 7. Lipowitz +4:00. Pogacar is nu de overweldigende topfavoriet voor Parijs. VANDAAG (vr 10/7) etappe 7: Hagetmau -> Bordeaux (175,1 km, vlak, amper 850 hm) - een echte sprintersrit. Kooij (winnaar in Pau) en Merlier zijn favoriet, Philipsen jaagt op ritzege nr. 11 in Bordeaux (waar hij in 2023 al won), Pedersen (groen) en Girmay azen mee. Grote hitte (tot ~35°C) en mogelijke Atlantische zijwind kunnen waaiers uitlokken; captain een sprinter, GC-motoren scoren vandaag weinig.",
+      "bron": "cyclingnews, cyclinguptodate, procyclingstats, bikeradar, idlprocycling, cyclingweekly (uitslag + GC na bergetappe 6 Pau-Gavarnie-Gèdre 9/7 en voorbeschouwing sprintetappe 7 Hagetmau-Bordeaux 10/7)",
       "highlights": [
-        "Tadej Pogacar: topfavoriet voor de eerste bergrit; op de Tourmalet kan hij Vingegaard testen en tijd terugpakken op geletruidrager Traen",
-        "Jonas Vingegaard: grote rivaal in de eerste Pyreneese krachtmeting; ontsnapte gisteren aan de valpartij zonder tijdverlies en is in topvorm",
-        "Isaac Del Toro: aangeduid als 3-sterrenkanshebber voor de bergrit (UAE) en staat 8e in het GC",
-        "Remco Evenepoel: 2-sterrenkanshebber; eerste grote bergtest, staat 7e in het GC en wil aanpikken op de Tourmalet"
+        "Olav Kooij: won etappe 5 in Pau en is in bloedvorm; op een propere, vlakke sprint naar Bordeaux dé topfavoriet voor vandaag",
+        "Mads Pedersen: draagt de groene trui stevig en is bijzonder constant; kanshebber in de sprint van Bordeaux en pakt sowieso tussensprintpunten",
+        "Jasper Philipsen: won al eens in Bordeaux (2023) en jaagt op zijn 11e Tourzege; met Van der Poel als loods een klassieke sprintkanshebber",
+        "Tim Merlier: een van de snelste pure sprinters (3e in Pau), maar verloor leadout Van Lerberghe die gisteren opgaf"
       ]
     }
   ],
@@ -330,14 +330,14 @@
     ]
   },
   "recap": {
-    "gisteren": "Etappe 5 naar Pau werd de eerste massasprint, maar een valpartij op zo'n 5 km van de meet gooide de finale om. Debutant Olav Kooij hield het hoofd koel en won voor Max Kanter en Tim Merlier (Philipsen 5e, Girmay 6e, Pedersen 7e). Geletruidrager Torstein Traen ging mee tegen de grond maar behield het geel; de GC-favorieten kwamen samen 14 tellen later binnen zonder onderling tijdverlies, dus het klassement bleef ongewijzigd.",
-    "vandaag": "Etappe 6 (do 9/7): Pau → Gavarnie-Gèdre (186,2 km, ~4100 hm) met de Col d'Aspin, de Col du Tourmalet en een lange slotklim - de eerste echte GC-krachtmeting. Advies: zet je kapitein op een klimmer/GC-motor. Pogacar is topfavoriet en zal op de Tourmalet Vingegaard testen; Del Toro en Evenepoel zijn de volgende kanshebbers, met Lipowitz, Ayuso en Seixas als klim-opties. Regen en onweer op de cols kunnen de rit selectief maken. Sprinters (Kooij, Merlier, Philipsen) parkeren voor vandaag. Traen houdt wellicht geel, maar zijn voorsprong kan slinken. Alex Molenaar is uit koers (gebroken hand na de val in Pau).",
-    "datum": "2026-07-09"
+    "gisteren": "Etappe 6 naar Gavarnie-Gèdre werd de grote GC-explosie: Tadej Pogacar versnelde op de Col du Tourmalet en reed ~40 km solo naar zijn 23e Tourzege, meteen goed voor geel én de bollentrui. Jonas Vingegaard verloor 2:38 en werd 2e, Isaac Del Toro (wit) knap 3e. Geletruidrager Torstein Traen crashte en verloor zijn leiderstrui; Uijtdebroeks, De Kleijn en Van Lerberghe gaven op.",
+    "vandaag": "Etappe 7 (vr 10/7): Hagetmau → Bordeaux (175,1 km, vlak) - een sprintersrit. Advies: zet je kapitein op een sprinter. Olav Kooij (winnaar in Pau) is in bloedvorm en topfavoriet; Tim Merlier, Jasper Philipsen (won hier in 2023, jaagt op zege nr. 11) en groene-truidrager Mads Pedersen azen mee, met Max Kanter en Girmay als outsiders. Let op de wind: komt er Atlantische zijwind, dan dreigen waaiers en tellen sterke ploegen en positionering. Pogacar en de klimmers scoren vandaag weinig - parkeer je GC-motoren voor de volgende bergritten. Bert Van Lerberghe (leadout Merlier), Cian Uijtdebroeks en Arvid de Kleijn zijn uit koers.",
+    "datum": "2026-07-10"
   },
   "weer": {
-    "weer": "Etappe 6 (do 9/7, Pau → Gavarnie-Gèdre, 186,2 km bergrit): een dag met weersomslag. Start in Pau nog zeer warm en zonnig, ~36°C met oostenwind ~17 km/h. Op de cols (Aspin, Tourmalet) en in de finale draait het naar regen; aankomst in Gavarnie-Gèdre rond ~32°C met regen en zwakke zuidoostenwind ~8 km/h. Oranje weeralarm in de Hautes-Pyrénées met onweerskans.",
-    "impact": "Eerste echte bergrit met Col d'Aspin, Col du Tourmalet (17,1 km à 7,3%, top op 2115 m) en de lange slotklim naar Gavarnie-Gèdre (18,7 km à 3,7%). De hitte vroeg in de rit (delen boven 28°C = UCI-hoogrisico) vraagt veel van de renners, maar regen op de Tourmalet en een gladde, natte afdaling kunnen de finale gevaarlijk en selectief maken. Kies GC-motoren/klimmers die het slechte weer trotseren (Pogacar, Vingegaard, Del Toro, Evenepoel); de flauwe slotklim maakt een groepje GC-favorieten dat samen aankomt het meest waarschijnlijke scenario, tenzij iemand op de Tourmalet vol doortrekt.",
-    "datum": "2026-07-09"
+    "weer": "Etappe 7 (vr 10/7, Hagetmau → Bordeaux, 175,1 km vlak): opnieuw een hete dag. Start in Hagetmau zonnig, ~31°C met zwakke noordoostenwind ~7 km/h. Onderweg richting Bordeaux loopt het op tot ~35°C, zonnig met wat wolkenvelden en een zwakke tot matige zuidwestenwind ~10 km/h. Kleine kans op een late onweersbui en windstoten als er wolken opbouwen.",
+    "impact": "Volledig vlakke rit (amper 850 hm) die normaal op een massasprint uitdraait. Het grootste vraagteken is de wind: de weg loopt nagenoeg de hele dag pal naar het noorden, en als er wind van de nabije Atlantische kust komt opzetten, kan het waaiers en scheuren veroorzaken - dan zijn positionering en sterke ploegen (Alpecin, Soudal, Lidl-Trek, Visma) cruciaal. Bij weinig wind wordt het een pure sprint: kies een sprinter als kapitein (Kooij, Merlier, Philipsen, Pedersen). De aanhoudende hitte (delen boven 28°C) vraagt veel van de renners maar verandert het sprintscenario niet fundamenteel.",
+    "datum": "2026-07-10"
   },
   "riders": [
     {
@@ -345,8 +345,8 @@
       "team": "UAE",
       "price": 12,
       "rol": "gc",
-      "pts": 1439,
-      "note": "topfavoriet voor de eerste bergrit; op de Tourmalet kan hij Vingegaard testen en tijd terugpakken op geletruidrager Traen",
+      "pts": 1408,
+      "note": "vernietigde de concurrentie op de Tourmalet en rijdt in geel én bollen als absolute topfavoriet - maar op de vlakke sprintrit van vandaag scoort hij weinig",
       "differential": false
     },
     {
@@ -354,17 +354,8 @@
       "team": "Visma",
       "price": 10,
       "rol": "gc",
-      "pts": 1038,
-      "note": "grote rivaal in de eerste Pyreneese krachtmeting; ontsnapte gisteren aan de valpartij zonder tijdverlies en is in topvorm",
-      "differential": false
-    },
-    {
-      "name": "Remco Evenepoel",
-      "team": "Red Bull-BORA",
-      "price": 9,
-      "rol": "gc",
-      "pts": 722,
-      "note": "2-sterrenkanshebber; eerste grote bergtest, staat 7e in het GC en wil aanpikken op de Tourmalet",
+      "pts": 953,
+      "note": "verloor 2:38 op de Tourmalet en staat 2e op 2:42; blijft de enige echte rivaal van Pogacar maar scoort vandaag niet",
       "differential": false
     },
     {
@@ -372,17 +363,17 @@
       "team": "Alpecin",
       "price": 9,
       "rol": "sprinter",
-      "pts": 672,
-      "note": "korte notering massasprint",
+      "pts": 719,
+      "note": "won al eens in Bordeaux (2023) en jaagt op zijn 11e Tourzege; met Van der Poel als loods een klassieke sprintkanshebber",
       "differential": false
     },
     {
-      "name": "Florian Lipowitz",
+      "name": "Remco Evenepoel",
       "team": "Red Bull-BORA",
-      "price": 8,
+      "price": 9,
       "rol": "gc",
-      "pts": 653,
-      "note": "GC-klimmer van Red Bull-BORA die zich in de Pyreneeën kan tonen",
+      "pts": 702,
+      "note": "4e in etappe 6 en 4e in het GC (op 3:30) - hield stand in de Pyreneeën maar scoort niet op de vlakke rit",
       "differential": false
     },
     {
@@ -390,8 +381,8 @@
       "team": "Soudal Quick-Step",
       "price": 9,
       "rol": "sprinter",
-      "pts": 651,
-      "note": "3e in de massasprint van etappe 5; snelste man blijft, maar niet voor de Tourmalet-rit",
+      "pts": 674,
+      "note": "een van de snelste pure sprinters (3e in Pau), maar verloor leadout Van Lerberghe die gisteren opgaf",
       "differential": false
     },
     {
@@ -399,8 +390,17 @@
       "team": "Lidl-Trek",
       "price": 8,
       "rol": "sprinter",
-      "pts": 619,
-      "note": "7e in Pau en houdt de groene trui stevig vast; scoort verder op de vlakke ritten",
+      "pts": 644,
+      "note": "draagt de groene trui stevig en is bijzonder constant; kanshebber in de sprint van Bordeaux en pakt sowieso tussensprintpunten",
+      "differential": false
+    },
+    {
+      "name": "Florian Lipowitz",
+      "team": "Red Bull-BORA",
+      "price": 8,
+      "rol": "gc",
+      "pts": 636,
+      "note": "7e in het GC (op 4:00, Red Bull-BORA); solide klimmer maar geen sprinter voor vandaag",
       "differential": false
     },
     {
@@ -409,7 +409,7 @@
       "price": 8,
       "rol": "gc",
       "pts": 548,
-      "note": "10e in het GC (op 8:41); jong klimtalent van Decathlon dat op de Tourmalet punten kan pakken",
+      "note": "knap 5e in de bergrit en 6e in het GC (op 3:55); jong klimtalent van Decathlon dat zich blijft tonen",
       "differential": false
     },
     {
@@ -417,8 +417,8 @@
       "team": "Alpecin",
       "price": 8,
       "rol": "klassieker",
-      "pts": 528,
-      "note": "ritten + gele trui vroege week",
+      "pts": 544,
+      "note": "loods voor Philipsen, maar kan bij zijwind of een late move zelf voor punten gaan",
       "differential": false
     },
     {
@@ -426,8 +426,8 @@
       "team": "UAE",
       "price": 7,
       "rol": "gc",
-      "pts": 485,
-      "note": "aangeduid als 3-sterrenkanshebber voor de bergrit (UAE) en staat 8e in het GC",
+      "pts": 468,
+      "note": "3e in etappe 6 en 3e in het GC in de witte trui (UAE) - sterke differential, al is vandaag een sprintdag",
       "differential": false
     },
     {
@@ -435,8 +435,8 @@
       "team": "Lidl-Trek",
       "price": 7,
       "rol": "gc",
-      "pts": 459,
-      "note": "9e in het GC (op 8:20) en klimmer voor Lidl-Trek; kanshebber op een sterke bergrit",
+      "pts": 451,
+      "note": "5e in het GC (op 3:34, Lidl-Trek) na een sterke bergrit; goede podiumoptie voor het klassement",
       "differential": false
     },
     {
@@ -447,6 +447,15 @@
       "pts": 423,
       "note": "",
       "differential": true
+    },
+    {
+      "name": "Olav Kooij",
+      "team": "Decathlon",
+      "price": 7,
+      "rol": "sprinter",
+      "pts": 407,
+      "note": "won etappe 5 in Pau en is in bloedvorm; op een propere, vlakke sprint naar Bordeaux dé topfavoriet voor vandaag",
+      "differential": false
     },
     {
       "name": "Kevin Vauquelin",
@@ -464,15 +473,6 @@
       "rol": "gc",
       "pts": 394,
       "note": "",
-      "differential": false
-    },
-    {
-      "name": "Olav Kooij",
-      "team": "Decathlon",
-      "price": 7,
-      "rol": "sprinter",
-      "pts": 382,
-      "note": "won etappe 5 in Pau (eerste Tourzege) - in bloedvorm, maar als sprinter scoort hij vandaag op de zware bergrit niet",
       "differential": false
     },
     {
@@ -530,15 +530,6 @@
       "differential": false
     },
     {
-      "name": "Cian Uijtdebroeks",
-      "team": "Movistar",
-      "price": 5,
-      "rol": "gc",
-      "pts": 258,
-      "note": "",
-      "differential": false
-    },
-    {
       "name": "Egan Bernal",
       "team": "INEOS",
       "price": 5,
@@ -566,21 +557,21 @@
       "differential": false
     },
     {
+      "name": "Biniam Girmay",
+      "team": "NSN",
+      "price": 5,
+      "rol": "sprinter",
+      "pts": 243,
+      "note": "6e in Pau; snelle man van NSN die op een vlakke aankomst mee vooraan kan zitten",
+      "differential": false
+    },
+    {
       "name": "Lenny Martinez",
       "team": "Bahrain",
       "price": 5,
       "rol": "klimmer",
       "pts": 241,
       "note": "",
-      "differential": false
-    },
-    {
-      "name": "Biniam Girmay",
-      "team": "NSN",
-      "price": 5,
-      "rol": "sprinter",
-      "pts": 234,
-      "note": "in vorm, sprint + puncheur",
       "differential": false
     },
     {
@@ -645,15 +636,6 @@
       "pts": 211,
       "note": "",
       "differential": false
-    },
-    {
-      "name": "Mathias Vacek",
-      "team": "Lidl-Trek",
-      "price": 4,
-      "rol": "klimmer",
-      "pts": 204,
-      "note": "knap 3e in het GC (op 3:50) na de vlucht in Foix - grote differential zolang hij standhoudt",
-      "differential": true
     },
     {
       "name": "Georg Steinhauser",
@@ -746,6 +728,15 @@
       "differential": false
     },
     {
+      "name": "Mathias Vacek",
+      "team": "Lidl-Trek",
+      "price": 4,
+      "rol": "klimmer",
+      "pts": 195,
+      "note": "",
+      "differential": true
+    },
+    {
       "name": "Guillaume Martin",
       "team": "Groupama-FDJ",
       "price": 4,
@@ -778,15 +769,6 @@
       "price": 4,
       "rol": "klimmer",
       "pts": 193,
-      "note": "",
-      "differential": false
-    },
-    {
-      "name": "Arvid de Kleijn",
-      "team": "Tudor",
-      "price": 4,
-      "rol": "sprinter",
-      "pts": 191,
       "note": "",
       "differential": false
     },
@@ -899,6 +881,15 @@
       "differential": false
     },
     {
+      "name": "Max Kanter",
+      "team": "XDS Astana",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 184,
+      "note": "sterke 2e in de sprint van Pau (Astana) - in vorm en mikt op de sprint in Bordeaux",
+      "differential": false
+    },
+    {
       "name": "Valentin Paret-Peintre",
       "team": "Soudal Quick-Step",
       "price": 4,
@@ -908,26 +899,17 @@
       "differential": false
     },
     {
-      "name": "Max Kanter",
-      "team": "XDS Astana",
+      "name": "Pascal Ackermann",
+      "team": "Jayco",
       "price": 4,
       "rol": "sprinter",
       "pts": 182,
-      "note": "sterke 2e in de sprint van etappe 5 (Astana) - in vorm, maar geen bergrenner voor vandaag",
+      "note": "ervaren sprinter (Jayco) die op deze vlakke rit een outsider voor de ereplaatsen is",
       "differential": false
     },
     {
       "name": "Fernando Gaviria",
       "team": "Caja Rural",
-      "price": 4,
-      "rol": "sprinter",
-      "pts": 177,
-      "note": "",
-      "differential": false
-    },
-    {
-      "name": "Pascal Ackermann",
-      "team": "Jayco",
       "price": 4,
       "rol": "sprinter",
       "pts": 177,
@@ -1160,16 +1142,16 @@
       "differential": false
     },
     {
-      "name": "Ramses Debruyne",
+      "name": "Edward Planckaert",
       "team": "Alpecin",
       "price": 3,
       "rol": "knecht",
-      "pts": 54,
-      "note": "verrassend 6e in het GC (op 8:06) na de vlucht - grote differential (Alpecin) zolang hij meekan bergop",
+      "pts": 52,
+      "note": "",
       "differential": false
     },
     {
-      "name": "Edward Planckaert",
+      "name": "Ramses Debruyne",
       "team": "Alpecin",
       "price": 3,
       "rol": "knecht",
@@ -1358,15 +1340,6 @@
       "differential": false
     },
     {
-      "name": "Torstein Traen",
-      "team": "Uno-X",
-      "price": 3,
-      "rol": "knecht",
-      "pts": 39,
-      "note": "behield geel ondanks een val in de finale van etappe 5 - leider in het GC en enorme differential (Uno-X)",
-      "differential": false
-    },
-    {
       "name": "Aime De Gendt",
       "team": "Q36.5",
       "price": 3,
@@ -1522,6 +1495,15 @@
     {
       "name": "Rick Pluimers",
       "team": "Tudor",
+      "price": 3,
+      "rol": "knecht",
+      "pts": 36,
+      "note": "",
+      "differential": false
+    },
+    {
+      "name": "Torstein Traen",
+      "team": "Uno-X",
       "price": 3,
       "rol": "knecht",
       "pts": 36,
@@ -1720,15 +1702,6 @@
     {
       "name": "Ben Swift",
       "team": "INEOS",
-      "price": 2,
-      "rol": "knecht",
-      "pts": 33,
-      "note": "",
-      "differential": false
-    },
-    {
-      "name": "Bert Van Lerberghe",
-      "team": "Soudal Quick-Step",
       "price": 2,
       "rol": "knecht",
       "pts": 33,
@@ -2167,8 +2140,24 @@
       "note": "niet gestart / opgegeven"
     },
     {
+      "name": "Cian Uijtdebroeks",
+      "team": "Movistar",
+      "price": 5,
+      "rol": "gc",
+      "pts": 0,
+      "note": "niet gestart / opgegeven"
+    },
+    {
       "name": "Arnaud De Lie",
       "team": "Lotto Intermarche",
+      "price": 4,
+      "rol": "sprinter",
+      "pts": 0,
+      "note": "niet gestart / opgegeven"
+    },
+    {
+      "name": "Arvid de Kleijn",
+      "team": "Tudor",
       "price": 4,
       "rol": "sprinter",
       "pts": 0,
@@ -2185,6 +2174,14 @@
     {
       "name": "Alex Molenaar",
       "team": "Caja Rural",
+      "price": 2,
+      "rol": "knecht",
+      "pts": 0,
+      "note": "niet gestart / opgegeven"
+    },
+    {
+      "name": "Bert Van Lerberghe",
+      "team": "Soudal Quick-Step",
       "price": 2,
       "rol": "knecht",
       "pts": 0,
